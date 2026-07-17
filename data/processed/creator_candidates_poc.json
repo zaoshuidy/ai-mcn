@@ -1,0 +1,13 @@
+{
+  "_metadata": {
+    "description": "Stage 2 POC 候选达人池",
+    "status": "empty",
+    "reason": "4 个候选组件在正式准入审查中全部 rejected（2026-07-17），无组件进入 POC 环节，自动化候选采集未执行。候选采集转由人工执行者按 creator_search_plan.json 与 creator_human_review_template.md 执行，人工审核后的候选须经状态升级流程进入本池。",
+    "human_verified_count": 0,
+    "selection_status_allowed": "poc_candidate",
+    "final_selection_ready": false,
+    "generated_at": "2026-07-17",
+    "source_plan": "data/processed/creator_search_plan.json"
+  },
+  "candidates": []
+}

@@ -76,8 +76,8 @@ def test_yaml_valid(rel_path: str) -> None:
 
 def test_current_stage_is_valid() -> None:
     data = yaml.safe_load((ROOT / "config/project.yaml").read_text(encoding="utf-8"))
-    # Stage 0 已通过验收（97/100），允许推进到 stage_1
-    assert data["project"]["current_stage"] in {"stage_0", "stage_1"}
+    # Stage 0/1 已通过验收，允许推进到 stage_2
+    assert data["project"]["current_stage"] in {"stage_0", "stage_1", "stage_2"}
 
 
 def test_minimum_gate_score_is_90() -> None:

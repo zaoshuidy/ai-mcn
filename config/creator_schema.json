@@ -1,0 +1,426 @@
+{
+  "$defs": {
+    "AudienceInference": {
+      "description": "受众画像推测。全部字段为 AI 推测，必须带证据与置信度。",
+      "properties": {
+        "gender_tendency": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "性别倾向（推测）",
+          "title": "Gender Tendency"
+        },
+        "age_tendency": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "年龄倾向（推测）",
+          "title": "Age Tendency"
+        },
+        "interests": {
+          "description": "兴趣标签（推测）",
+          "items": {
+            "type": "string"
+          },
+          "title": "Interests",
+          "type": "array"
+        },
+        "evidence": {
+          "description": "推测依据（笔记标题/简介等）",
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "confidence": {
+          "description": "置信度 0-1",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "source_type": {
+          "$ref": "#/$defs/DataSourceType",
+          "default": "ai_inferred"
+        }
+      },
+      "required": [
+        "evidence",
+        "confidence"
+      ],
+      "title": "AudienceInference",
+      "type": "object"
+    },
+    "CreatorIdentity": {
+      "description": "达人身份与主页信息。敏感或不可靠字段允许为空。",
+      "properties": {
+        "creator_id": {
+          "description": "平台用户 ID（不得虚构）",
+          "title": "Creator Id",
+          "type": "string"
+        },
+        "nickname": {
+          "description": "昵称",
+          "title": "Nickname",
+          "type": "string"
+        },
+        "profile_url": {
+          "description": "主页链接（不得补全不存在的链接）",
+          "title": "Profile Url",
+          "type": "string"
+        },
+        "platform": {
+          "default": "小红书",
+          "title": "Platform",
+          "type": "string"
+        },
+        "bio": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "简介",
+          "title": "Bio"
+        },
+        "followers": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "粉丝数（页面观察值）",
+          "title": "Followers"
+        },
+        "likes_and_collects": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "获赞与收藏数（页面观察值）",
+          "title": "Likes And Collects"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "所在地（不可靠，允许为空）",
+          "title": "Location"
+        },
+        "verified_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "认证类型",
+          "title": "Verified Type"
+        },
+        "followers_source": {
+          "$ref": "#/$defs/DataSourceType",
+          "default": "unknown",
+          "description": "粉丝数字段来源"
+        },
+        "followers_observed_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "粉丝数采集时间",
+          "title": "Followers Observed At"
+        }
+      },
+      "required": [
+        "creator_id",
+        "nickname",
+        "profile_url"
+      ],
+      "title": "CreatorIdentity",
+      "type": "object"
+    },
+    "CreatorPost": {
+      "description": "达人单条笔记。",
+      "properties": {
+        "post_id": {
+          "description": "笔记 ID",
+          "title": "Post Id",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "description": "标题",
+          "title": "Title",
+          "type": "string"
+        },
+        "url": {
+          "description": "笔记链接",
+          "title": "Url",
+          "type": "string"
+        },
+        "publish_time": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "发布时间",
+          "title": "Publish Time"
+        },
+        "content_type": {
+          "default": "video",
+          "description": "video / image_text",
+          "title": "Content Type",
+          "type": "string"
+        },
+        "text_excerpt": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "正文摘要",
+          "title": "Text Excerpt"
+        },
+        "likes": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Likes"
+        },
+        "collects": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Collects"
+        },
+        "comments": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comments"
+        },
+        "keywords": {
+          "description": "命中关键词",
+          "items": {
+            "type": "string"
+          },
+          "title": "Keywords",
+          "type": "array"
+        },
+        "source_query": {
+          "default": "",
+          "description": "来源搜索词",
+          "title": "Source Query",
+          "type": "string"
+        },
+        "evidence_screenshot": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "证据截图相对路径（screenshots/ 下）",
+          "title": "Evidence Screenshot"
+        },
+        "metrics_observed_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "互动数据采集时间",
+          "title": "Metrics Observed At"
+        }
+      },
+      "required": [
+        "post_id",
+        "url"
+      ],
+      "title": "CreatorPost",
+      "type": "object"
+    },
+    "DataSourceType": {
+      "description": "字段来源类型。",
+      "enum": [
+        "page_observed",
+        "tool_returned",
+        "ai_inferred",
+        "human_verified",
+        "unknown"
+      ],
+      "title": "DataSourceType",
+      "type": "string"
+    },
+    "SelectionStatus": {
+      "description": "候选状态。POC 阶段只允许 poc_candidate，不代表最终名单。",
+      "enum": [
+        "poc_candidate",
+        "research_candidate",
+        "final_candidate",
+        "excluded"
+      ],
+      "title": "SelectionStatus",
+      "type": "string"
+    }
+  },
+  "description": "候选达人（POC/调研阶段）。",
+  "properties": {
+    "creator": {
+      "$ref": "#/$defs/CreatorIdentity"
+    },
+    "content_categories": {
+      "description": "内容赛道",
+      "items": {
+        "type": "string"
+      },
+      "title": "Content Categories",
+      "type": "array"
+    },
+    "audience_inference": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AudienceInference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "representative_posts": {
+      "items": {
+        "$ref": "#/$defs/CreatorPost"
+      },
+      "title": "Representative Posts",
+      "type": "array"
+    },
+    "commercial_signals": {
+      "description": "商单信号（如历史食品合作），须注明依据",
+      "items": {
+        "type": "string"
+      },
+      "title": "Commercial Signals",
+      "type": "array"
+    },
+    "risk_signals": {
+      "description": "风险信号",
+      "items": {
+        "type": "string"
+      },
+      "title": "Risk Signals",
+      "type": "array"
+    },
+    "collection_source": {
+      "description": "采集方式，如 manual_search / tool_name",
+      "title": "Collection Source",
+      "type": "string"
+    },
+    "collected_at": {
+      "description": "采集时间",
+      "title": "Collected At",
+      "type": "string"
+    },
+    "data_freshness": {
+      "default": "unknown",
+      "description": "数据时效说明",
+      "title": "Data Freshness",
+      "type": "string"
+    },
+    "human_verified": {
+      "default": false,
+      "description": "是否经人工核验",
+      "title": "Human Verified",
+      "type": "boolean"
+    },
+    "selection_status": {
+      "$ref": "#/$defs/SelectionStatus",
+      "default": "poc_candidate"
+    }
+  },
+  "required": [
+    "creator",
+    "collection_source"
+  ],
+  "title": "CreatorCandidate",
+  "type": "object"
+}

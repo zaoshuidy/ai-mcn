@@ -1,0 +1,210 @@
+{
+  "brief_id": "qingxing-2026-07",
+  "generated_from": "data/processed/qingxing_brief.json",
+  "groups": {
+    "audience": [
+      {
+        "query": "健身女孩饮食",
+        "query_type": "audience",
+        "business_reason": "目标人群含健身标签，饮食内容是健身女性达人的高频赛道",
+        "expected_creator_type": "健身生活方式博主",
+        "risk": "需排除以器械教学为主、几乎不涉及饮食内容的账号",
+        "priority": 1,
+        "max_results": 20
+      },
+      {
+        "query": "都市女生轻食",
+        "query_type": "audience",
+        "business_reason": "贴合 22-35 岁城市女性与轻食兴趣标签",
+        "expected_creator_type": "都市轻食/生活方式博主",
+        "risk": "需排除纯探店账号，居家自炊内容更利于产品自然植入",
+        "priority": 2,
+        "max_results": 20
+      },
+      {
+        "query": "上班族健康饮食",
+        "query_type": "audience",
+        "business_reason": "目标人群为城市上班族，关注效率生活下的健康饮食",
+        "expected_creator_type": "上班族生活方式博主",
+        "risk": "内容偏资讯科普的账号商单自然度较低，需人工判断",
+        "priority": 3,
+        "max_results": 20
+      },
+      {
+        "query": "控糖饮食记录",
+        "query_type": "audience",
+        "business_reason": "目标人群兴趣标签含控糖，可找到记录控糖饮食的受众重合达人",
+        "expected_creator_type": "控糖饮食记录博主",
+        "risk": "仅作为内容/受众搜索词：用于找到关注控糖饮食的人群，不得用于推断或宣称产品具备降糖、控制血糖或治疗能力",
+        "priority": 4,
+        "max_results": 20
+      }
+    ],
+    "scenario": [
+      {
+        "query": "上班族早餐",
+        "query_type": "scenario",
+        "business_reason": "早餐是 Brief 第一优先级使用场景，上班族早餐内容与目标人群重合",
+        "expected_creator_type": "早餐/带饭类生活博主",
+        "risk": "需排除纯宝宝辅食类账号（人群不符）",
+        "priority": 1,
+        "max_results": 20
+      },
+      {
+        "query": "运动后加餐",
+        "query_type": "scenario",
+        "business_reason": "运动后是 Brief 第二优先级场景，与健身人群重合",
+        "expected_creator_type": "健身日常/饮食记录博主",
+        "risk": "不得引导达人作出补充蛋白质克数等未经证实的功效表述",
+        "priority": 2,
+        "max_results": 20
+      },
+      {
+        "query": "办公室下午茶",
+        "query_type": "scenario",
+        "business_reason": "下午茶是 Brief 第三优先级场景，办公室情境贴合上班族人群",
+        "expected_creator_type": "办公室日常/零食分享博主",
+        "risk": "需排除纯咖啡茶饮测评账号（赛道偏离）",
+        "priority": 3,
+        "max_results": 20
+      },
+      {
+        "query": "一人食早餐",
+        "query_type": "scenario",
+        "business_reason": "一人食是城市年轻女性的典型内容情境，利于酸奶自然出镜",
+        "expected_creator_type": "一人食/独居生活博主",
+        "risk": "内容调性差异大，需人工确认与品牌调性匹配",
+        "priority": 4,
+        "max_results": 20
+      }
+    ],
+    "content": [
+      {
+        "query": "一周早餐Vlog",
+        "query_type": "content",
+        "business_reason": "Vlog 形式自然种草空间大，与 Brief 的非硬广要求一致",
+        "expected_creator_type": "生活记录 Vlog 博主",
+        "risk": "Vlog 更新频率不稳定，需确认近期活跃度",
+        "priority": 2,
+        "max_results": 20
+      },
+      {
+        "query": "打工人吃什么",
+        "query_type": "content",
+        "business_reason": "打工人饮食是高流量内容赛道，与上班族人群高度重合",
+        "expected_creator_type": "打工人饮食记录博主",
+        "risk": "部分账号偏外卖测评，与酸奶场景匹配度需人工判断",
+        "priority": 1,
+        "max_results": 20
+      },
+      {
+        "query": "轻食一日三餐",
+        "query_type": "content",
+        "business_reason": "一日三餐结构利于呈现早餐与下午茶两个核心场景",
+        "expected_creator_type": "轻食记录博主",
+        "risk": "需排除纯减重打卡账号（易触碰减肥功效红线）",
+        "priority": 3,
+        "max_results": 20
+      },
+      {
+        "query": "健身日常Vlog",
+        "query_type": "content",
+        "business_reason": "健身日常与运动后场景天然衔接，目标人群重合",
+        "expected_creator_type": "健身 Vlog 博主",
+        "risk": "需排除以补剂带货为主的账号（竞品与调性风险）",
+        "priority": 4,
+        "max_results": 20
+      }
+    ],
+    "product_adjacent": [
+      {
+        "query": "高蛋白早餐",
+        "query_type": "product_adjacent",
+        "business_reason": "高蛋白是品牌方卖点（brand_claim），搜索邻近内容找受众重合达人",
+        "expected_creator_type": "高蛋白饮食分享博主",
+        "risk": "高蛋白为 brand_claim 而非已证实数据，达人内容不得虚构营养数值",
+        "priority": 1,
+        "max_results": 20
+      },
+      {
+        "query": "希腊酸奶吃法",
+        "query_type": "product_adjacent",
+        "business_reason": "产品即希腊酸奶，同类吃法内容的达人对品类认知成熟",
+        "expected_creator_type": "酸奶/乳制品吃法分享博主",
+        "risk": "需排查是否已有明显同类酸奶竞品合作",
+        "priority": 2,
+        "max_results": 20
+      },
+      {
+        "query": "酸奶碗",
+        "query_type": "product_adjacent",
+        "business_reason": "酸奶碗是小红书高热度内容形式，与产品形态直接相关",
+        "expected_creator_type": "酸奶碗/早餐摆盘博主",
+        "risk": "内容同质化高，需人工判断达人个人风格辨识度",
+        "priority": 3,
+        "max_results": 20
+      },
+      {
+        "query": "低糖零食分享",
+        "query_type": "product_adjacent",
+        "business_reason": "低糖零食受众与控糖/轻食人群重合，适合下午茶场景",
+        "expected_creator_type": "低糖零食测评博主",
+        "risk": "低糖为内容标签，不得延伸为产品降糖功效表述",
+        "priority": 4,
+        "max_results": 20
+      }
+    ]
+  },
+  "poc_queries": [
+    {
+      "query": "健身女孩饮食",
+      "query_type": "audience",
+      "business_reason": "目标人群含健身标签，饮食内容是健身女性达人的高频赛道",
+      "expected_creator_type": "健身生活方式博主",
+      "risk": "需排除以器械教学为主、几乎不涉及饮食内容的账号",
+      "priority": 1,
+      "max_results": 10
+    },
+    {
+      "query": "上班族早餐",
+      "query_type": "scenario",
+      "business_reason": "早餐是 Brief 第一优先级使用场景，上班族早餐内容与目标人群重合",
+      "expected_creator_type": "早餐/带饭类生活博主",
+      "risk": "需排除纯宝宝辅食类账号（人群不符）",
+      "priority": 1,
+      "max_results": 10
+    },
+    {
+      "query": "打工人吃什么",
+      "query_type": "content",
+      "business_reason": "打工人饮食是高流量内容赛道，与上班族人群高度重合",
+      "expected_creator_type": "打工人饮食记录博主",
+      "risk": "部分账号偏外卖测评，与酸奶场景匹配度需人工判断",
+      "priority": 1,
+      "max_results": 10
+    },
+    {
+      "query": "高蛋白早餐",
+      "query_type": "product_adjacent",
+      "business_reason": "高蛋白是品牌方卖点（brand_claim），搜索邻近内容找受众重合达人",
+      "expected_creator_type": "高蛋白饮食分享博主",
+      "risk": "高蛋白为 brand_claim 而非已证实数据，达人内容不得虚构营养数值",
+      "priority": 1,
+      "max_results": 10
+    }
+  ],
+  "poc_limits": {
+    "max_queries": 4,
+    "max_results_per_query": 10,
+    "max_total_results": 40,
+    "max_creators_deep_read": 8,
+    "max_posts_per_creator": 3,
+    "max_retries_per_request": 2,
+    "plan_max_results_per_query": 20
+  },
+  "compliance_notes": [
+    "控糖类搜索词仅用于内容与受众定位，不得推断产品降糖能力",
+    "搜索策略不包含任何功效承诺表述；0 蔗糖不得解释为无糖",
+    "达人受众画像为 AI 推测，必须带 evidence 与 confidence"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "full_name": "ibreez3/xiaohongshu-skill",
+  "description": null,
+  "stargazers_count": 20,
+  "forks_count": 8,
+  "subscribers_count": 0,
+  "open_issues_count": 2,
+  "archived": false,
+  "disabled": false,
+  "default_branch": "main",
+  "created_at": "2026-02-01T03:34:52Z",
+  "updated_at": "2026-05-20T17:13:44Z",
+  "pushed_at": "2026-02-01T14:31:10Z",
+  "language": "JavaScript",
+  "license_spdx_id": "MIT",
+  "owner_login": "ibreez3",
+  "owner_type": "User",
+  "fetched_at": "2026-07-17T18:42:37+08:00",
+  "latest_commit": {
+    "branch": "main",
+    "sha": "5928cc45a0219df922cbbf1b5b819a343f94a8f2",
+    "short_sha": "5928cc4",
+    "committer_date": "2026-02-01T14:30:47Z",
+    "message_first_line": "fix: 修复 Skill 加载卡住问题"
+  }
+}

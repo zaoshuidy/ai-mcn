@@ -1,0 +1,24 @@
+{
+  "name": "LICENSE",
+  "path": "LICENSE",
+  "sha": "740e35d00522984755e197b5cb1195428b0f8e0c",
+  "size": 10986,
+  "url": "https://api.github.com/repos/BrowserMCP/mcp/contents/LICENSE?ref=main",
+  "html_url": "https://github.com/BrowserMCP/mcp/blob/main/LICENSE",
+  "git_url": "https://api.github.com/repos/BrowserMCP/mcp/git/blobs/740e35d00522984755e197b5cb1195428b0f8e0c",
+  "download_url": "https://raw.githubusercontent.com/BrowserMCP/mcp/main/LICENSE",
+  "type": "file",
+  "_links": {
+    "self": "https://api.github.com/repos/BrowserMCP/mcp/contents/LICENSE?ref=main",
+    "git": "https://api.github.com/repos/BrowserMCP/mcp/git/blobs/740e35d00522984755e197b5cb1195428b0f8e0c",
+    "html": "https://github.com/BrowserMCP/mcp/blob/main/LICENSE"
+  },
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "fetched_at": "2026-07-17T18:44:02+08:00"
+}

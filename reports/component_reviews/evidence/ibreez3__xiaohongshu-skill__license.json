@@ -1,0 +1,24 @@
+{
+  "name": "LICENSE",
+  "path": "LICENSE",
+  "sha": "ac988cb21b04724cab84a2fa2b6c9749f104ba46",
+  "size": 1074,
+  "url": "https://api.github.com/repos/ibreez3/xiaohongshu-skill/contents/LICENSE?ref=main",
+  "html_url": "https://github.com/ibreez3/xiaohongshu-skill/blob/main/LICENSE",
+  "git_url": "https://api.github.com/repos/ibreez3/xiaohongshu-skill/git/blobs/ac988cb21b04724cab84a2fa2b6c9749f104ba46",
+  "download_url": "https://raw.githubusercontent.com/ibreez3/xiaohongshu-skill/main/LICENSE",
+  "type": "file",
+  "_links": {
+    "self": "https://api.github.com/repos/ibreez3/xiaohongshu-skill/contents/LICENSE?ref=main",
+    "git": "https://api.github.com/repos/ibreez3/xiaohongshu-skill/git/blobs/ac988cb21b04724cab84a2fa2b6c9749f104ba46",
+    "html": "https://github.com/ibreez3/xiaohongshu-skill/blob/main/LICENSE"
+  },
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "fetched_at": "2026-07-17T18:42:39+08:00"
+}

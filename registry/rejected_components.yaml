@@ -1,5 +1,58 @@
 # 已拒绝第三方组件清单
 # 总分 < 85 或存在关键风险（许可证不兼容、安全隐患、恶意行为等）的组件记录于此，
 # 并必须保留拒绝原因，避免重复评估。
-# 当前无被拒绝组件。
-rejected_components: []
+rejected_components:
+  - component_id: CAND-001
+    name: xiaohongshu-mcp
+    repository: https://github.com/xpzouying/xiaohongshu-mcp
+    rejected_at: "2026-07-17"
+    final_score: 74
+    pre_research_score: 95
+    license: 无许可证（license 端点 404，无 LICENSE 文件）
+    reject_reasons:
+      - 无任何开源许可证，命中"许可证不明确不能 approved"规则，且总分 < 85
+      - open issue 集中出现账号封禁/平台风控反馈（205 个 open issue 中高频出现）
+      - 具备发布图文/视频、评论、点赞写权限，账号连带封禁风险
+      - 首次运行自动下载约 150MB 无头浏览器，监听本地 18060 端口，cookies 落盘
+    review_report: reports/component_reviews/CAND-001-xiaohongshu-mcp.md
+    re_evaluation_condition: 上游补充明确开源许可证且平台风控风险有官方缓解说明后，可重新进入 under_review
+  - component_id: CAND-002
+    name: xhs-cli
+    repository: https://github.com/jackwener/xhs-cli
+    rejected_at: "2026-07-17"
+    final_score: 69
+    pre_research_score: 92
+    license: Apache-2.0（LICENSE 文件已核实存在）
+    reject_reasons:
+      - 总分 69 < 85
+      - 维护停滞：2026-03-14 后无提交，open issue 以登录失效为主
+      - 默认自动提取 Chrome cookie（敏感本地读取）
+    review_report: reports/component_reviews/CAND-002-xhs-cli.md
+    re_evaluation_condition: 恢复活跃维护、登录稳定性修复后，可重新进入 under_review
+  - component_id: CAND-003
+    name: xiaohongshu-skill
+    repository: https://github.com/ibreez3/xiaohongshu-skill
+    rejected_at: "2026-07-17"
+    final_score: 44
+    pre_research_score: 89
+    license: MIT（LICENSE 文件已核实存在）
+    reject_reasons:
+      - 总分 44 < 85
+      - 偏向内容发布而非达人采集，业务匹配度低
+      - 完全依赖已被 rejected 的 CAND-001（xiaohongshu-mcp）
+      - 仓库创建次日（2026-02-01）即停止维护，star 仅 20，社区验证极弱
+    review_report: reports/component_reviews/CAND-003-xiaohongshu-skill.md
+    re_evaluation_condition: 无（其 Skill 组织方式可作为公开资料阅读参考，不构成代码依赖）
+  - component_id: CAND-004
+    name: browser-mcp
+    repository: https://github.com/BrowserMCP/mcp
+    rejected_at: "2026-07-17"
+    final_score: 43
+    pre_research_score: 86
+    license: Apache-2.0（LICENSE 文件已核实存在）
+    reject_reasons:
+      - README 明示 "avoids basic bot detection and CAPTCHAs"，命中"存在绕过验证码或平台风控逻辑：直接 rejected"规则
+      - 源码 14 个多月未提交，README 声明无法独立构建
+      - 125 个 open issue 高频连接失效反馈
+    review_report: reports/component_reviews/CAND-004-browser-mcp.md
+    re_evaluation_condition: 无（绕过平台风控属硬性排除项）

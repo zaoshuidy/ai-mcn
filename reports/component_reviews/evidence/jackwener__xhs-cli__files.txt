@@ -1,0 +1,13 @@
+# jackwener/xhs-cli 顶层文件列表 fetched_at 2026-07-17T18:42:35+08:00
+.github/
+.gitignore
+CHANGELOG.md
+LICENSE
+README.md
+README_EN.md
+SKILL.md
+pyproject.toml
+scripts/
+tests/
+uv.lock
+xhs_cli/

@@ -364,6 +364,9 @@ def check_cap_79_logic() -> None:
 def check_absolute_paths() -> None:
     """公共产物不得含本地绝对路径。"""
     scan_dirs = ["data/processed", "reports", "config"]
+    # reports/component_reviews/evidence/ 为第三方仓库逐字引用的审查证据，
+    # 其中的路径示例是上游原文，不属于本项目路径泄露
+    evidence_dir = "reports/component_reviews/evidence"
     hits: list[str] = []
     for d in scan_dirs:
         dir_path = ROOT / d
@@ -372,9 +375,12 @@ def check_absolute_paths() -> None:
         for path in dir_path.rglob("*"):
             if not path.is_file():
                 continue
+            rel = str(path.relative_to(ROOT)).replace("\\", "/")
+            if rel.startswith(evidence_dir):
+                continue
             text = path.read_text(encoding="utf-8", errors="ignore")
             if ABSOLUTE_PATH_PATTERN.search(text):
-                hits.append(str(path.relative_to(ROOT)))
+                hits.append(rel)
     if hits:
         report("FAIL", "公共产物含本地绝对路径", "; ".join(hits))
     else:

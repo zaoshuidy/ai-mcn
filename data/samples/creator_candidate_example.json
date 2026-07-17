@@ -1,0 +1,60 @@
+{
+  "creator": {
+    "creator_id": "example_00000001",
+    "nickname": "示例达人小A（非真实账号）",
+    "profile_url": "https://www.xiaohongshu.com/user/profile/example_00000001",
+    "platform": "小红书",
+    "bio": "示例简介：记录上班族健身与早餐（演示用，非真实数据）",
+    "followers": 12500,
+    "likes_and_collects": 86000,
+    "location": null,
+    "verified_type": null,
+    "followers_source": "page_observed",
+    "followers_observed_at": "2026-07-17T00:00:00+00:00"
+  },
+  "content_categories": [
+    "健身饮食",
+    "早餐"
+  ],
+  "audience_inference": {
+    "gender_tendency": "女性为主（推测）",
+    "age_tendency": "22-30岁（推测）",
+    "interests": [
+      "健身",
+      "轻食"
+    ],
+    "evidence": [
+      "示例依据：笔记标题含健身餐关键词",
+      "示例依据：简介提及上班族健身"
+    ],
+    "confidence": 0.6,
+    "source_type": "ai_inferred"
+  },
+  "representative_posts": [
+    {
+      "post_id": "example_post_001",
+      "title": "示例笔记：一周早餐记录（演示用）",
+      "url": "https://www.xiaohongshu.com/explore/example_post_001",
+      "publish_time": null,
+      "content_type": "video",
+      "text_excerpt": "示例摘要（演示用）",
+      "likes": null,
+      "collects": null,
+      "comments": null,
+      "keywords": [
+        "上班族早餐"
+      ],
+      "source_query": "上班族早餐",
+      "evidence_screenshot": null,
+      "metrics_observed_at": null
+    }
+  ],
+  "commercial_signals": [],
+  "risk_signals": [],
+  "collection_source": "example_only",
+  "collected_at": "2026-07-17T11:13:52.573084+00:00",
+  "data_freshness": "示例数据，无时效含义",
+  "human_verified": false,
+  "selection_status": "poc_candidate",
+  "_example_note": "本文件为 Schema 演示样例，所有内容均为虚构，不代表任何真实达人"
+}

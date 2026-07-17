@@ -1,0 +1,50 @@
+# Stage 2 达人搜索与受控 POC 规则
+# 本文件是搜索规模上限与禁止行为的唯一权威来源；
+# src/creator_search_strategy.py 与 scripts/validate_stage_2.py 均以此为准。
+
+poc_limits:
+  max_queries: 4 # POC 实际执行的搜索关键词上限
+  max_results_per_query: 10 # 每个关键词搜索结果上限
+  max_total_results: 40 # 总搜索结果上限
+  max_creators_deep_read: 8 # 深度读取达人主页上限
+  max_posts_per_creator: 3 # 每位达人代表内容上限
+  max_retries_per_request: 2 # 每个请求自动重试上限
+  plan_max_results_per_query: 20 # 搜索计划（非 POC）中每个关键词的上限
+
+prohibited_behaviors:
+  - infinite_scroll # 无限滚动抓取
+  - bypass_captcha # 绕过验证码
+  - bypass_risk_control # 绕过平台风控
+  - auto_account_switch # 自动切换账号
+  - auto_like # 自动点赞
+  - auto_collect # 自动收藏
+  - auto_comment # 自动评论
+  - auto_follow # 自动关注
+  - auto_dm # 自动私信
+  - auto_publish # 自动发布
+  - bulk_media_download # 批量下载全部图片或视频
+  - non_public_info_collection # 获取非公开信息
+
+login_policy:
+  mode: manual_gate # 需要登录时停止自动执行，由人工完成
+  forbid_cookie_handover_to_ai: true # 不要求用户把 Cookie 复制给 AI
+  forbid_credentials_in_repo: true # Cookie/Session/Token 不得进入仓库
+  credential_paths_must_be_gitignored: true # 登录态文件只能保存在 .gitignore 忽略位置
+  on_captcha_or_risk_control: stop_and_report # 出现验证码或风控：停止、记录、人工决定
+
+compliance_constraints:
+  # “控糖”只能作为内容与受众搜索词，不得用于推断产品具备降糖/控血糖/治疗能力
+  sugar_control_query_only: true
+  forbidden_inference:
+    - 将控糖搜索词推断为产品降糖能力
+    - 将 0 蔗糖解释为无糖
+    - 将低负担解释为不长胖
+    - 虚构蛋白质克数、糖含量、热量或检测数据
+
+excluded_creator_types: # 初筛即排除的账号类型（与 Stage 1 Brief 一致）
+  - 品牌官方号
+  - 纯店铺号
+  - 搬运号
+  - 长期停更账号
+  - 硬广占比极高账号
+  - 主要内容为医疗或疾病建议的账号
