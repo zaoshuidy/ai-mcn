@@ -25,3 +25,5 @@
 | 2026-07-17 17:21 | Stage 1 | Brief 结构化方案三方向比较 | 技术执行 AI | Stage 1 任务书 | A=72 / B=84 / C=95，方向 C 达门禁实施，决策 D-0004 | 完成 | 无 | 无 | project/decision_log.md | 已完成 |
 | 2026-07-17 17:21 | Stage 1 | 实现 Brief 结构化管线 | 技术执行 AI | data/raw/qingxing_brief.md | brief_models/parser/validator/renderer 四模块 + brief_rules.yaml + brief_schema.json + 结构化 JSON 与摘要 | 成功 | 解析器品牌名提取与0蔗糖卖点识别两处缺陷，已修复 | 已修复并复跑 | src/、config/、data/processed/ | 已完成 |
 | 2026-07-17 17:21 | Stage 1 | 运行全部验证 | 技术执行 AI | 全部交付物 | Stage 0 回归 PASS=67/FAIL=0；Stage 1 验证 PASS=33/FAIL=0；pytest 107 passed；ruff All checks passed | 成功 | 首轮验证脚本误报 requirements 注释中的组件名 + 8 处 ruff 问题 | 已修复并全部复跑通过 | scripts/validate_stage_1.py、tests/ | 待总控验收 |
+| 2026-07-17 17:48 | Stage 1 远程交付 | 推送 Stage 1 提交到远程 | 技术执行 AI | 本地提交 ed1629e | 第 1 轮普通 HTTPS 推送成功：11f2483..ed1629e main -> main；此前 3 次失败为网络连接重置（临时性，已自行恢复） | 成功 | 无 | 无 | git push 输出 | 已推送 |
+| 2026-07-17 17:48 | Stage 1 远程交付 | 远程核验与回归 | 技术执行 AI | origin/main | HEAD 与 origin/main 均为 ed1629e976fc81e0449186a883519184ab2fa608；17 个 Stage 1 核心文件全部在远程；四项验证复跑全过 | 成功 | 无 | 无 | git ls-tree、validate 输出 | 已交付，待总控验收 |
