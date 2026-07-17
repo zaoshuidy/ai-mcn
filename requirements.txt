@@ -2,6 +2,7 @@
 # 注意：LangGraph、Selenium、Playwright、飞书SDK、Whisper、视频处理框架等
 # 须在后续阶段通过 registry/ 组件准入评审后方可加入。
 PyYAML>=6.0
+pydantic>=2.0
 
 # 开发/测试依赖
 pytest>=8.0

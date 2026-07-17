@@ -74,9 +74,10 @@ def test_yaml_valid(rel_path: str) -> None:
     assert data is not None, f"YAML 为空或解析失败: {rel_path}"
 
 
-def test_current_stage_is_stage_0() -> None:
+def test_current_stage_is_valid() -> None:
     data = yaml.safe_load((ROOT / "config/project.yaml").read_text(encoding="utf-8"))
-    assert data["project"]["current_stage"] == "stage_0"
+    # Stage 0 已通过验收（97/100），允许推进到 stage_1
+    assert data["project"]["current_stage"] in {"stage_0", "stage_1"}
 
 
 def test_minimum_gate_score_is_90() -> None:

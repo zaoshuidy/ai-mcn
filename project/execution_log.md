@@ -20,3 +20,8 @@
 | 2026-07-17 13:27 | Stage 0 返工 | 更新执行/决策日志并推送 | 技术执行 AI | 本文件与 decision_log.md | 提交 c947ed9 并推送 | 成功 | 无 | 无 | git log | 已推送 |
 | 2026-07-17 16:47 | Stage 2 预研 | 达人采集工具选型调研 | 项目总控 | GitHub 候选组件调研 | 三方向比较结论：A=95 推荐 / B=92 备选 / C=86 兜底 | 完成 | 无 | 无 | reports/stage_2_tooling_research.md | 已记录 |
 | 2026-07-17 16:47 | Stage 2 预研 | 登记 Stage 2 候选组件 | 技术执行 AI | 项目总控调研结论 | component_candidates.csv 新增 CAND-001~004（均 pending，未安装）；决策日志新增 D-0003 | 成功 | 无 | 无 | registry/component_candidates.csv、project/decision_log.md | 待 Stage 2 正式准入审查 |
+| 2026-07-17 17:21 | Stage 0 验收 | 项目总控完成 Stage 0 远程复评 | 项目总控 | 远程仓库 main 分支 | 最终评分 97/100，Stage 0 通过，允许进入 Stage 1 | 通过 | 无 | 无（首次 76 分未通过与返工记录保留于上方） | 远程仓库复评 | 已通过 |
+| 2026-07-17 17:21 | Stage 1 | 修正过期状态表述 | 技术执行 AI | 项目总控状态结论 | decision_log/execution_log/README/config 四处状态同步为"Stage 0 97分通过、Stage 1 进行中" | 成功 | 无 | 无 | 上述四个文件 | 已完成 |
+| 2026-07-17 17:21 | Stage 1 | Brief 结构化方案三方向比较 | 技术执行 AI | Stage 1 任务书 | A=72 / B=84 / C=95，方向 C 达门禁实施，决策 D-0004 | 完成 | 无 | 无 | project/decision_log.md | 已完成 |
+| 2026-07-17 17:21 | Stage 1 | 实现 Brief 结构化管线 | 技术执行 AI | data/raw/qingxing_brief.md | brief_models/parser/validator/renderer 四模块 + brief_rules.yaml + brief_schema.json + 结构化 JSON 与摘要 | 成功 | 解析器品牌名提取与0蔗糖卖点识别两处缺陷，已修复 | 已修复并复跑 | src/、config/、data/processed/ | 已完成 |
+| 2026-07-17 17:21 | Stage 1 | 运行全部验证 | 技术执行 AI | 全部交付物 | Stage 0 回归 PASS=67/FAIL=0；Stage 1 验证 PASS=33/FAIL=0；pytest 107 passed；ruff All checks passed | 成功 | 首轮验证脚本误报 requirements 注释中的组件名 + 8 处 ruff 问题 | 已修复并全部复跑通过 | scripts/validate_stage_1.py、tests/ | 待总控验收 |

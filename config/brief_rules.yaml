@@ -1,0 +1,75 @@
+# 品牌 Brief 业务规则（机器可读）
+# 由 src/brief_validator.py 加载执行；修改规则不需改代码。
+brief_rules:
+  claim_rules:
+    - claim: "0蔗糖"
+      required_type: brand_claim
+      evidence_required: "包装标识或检测报告"
+      forbidden_interpretations:
+        - "无糖"
+      note: "无包装或检测依据时不得标记为 confirmed；0蔗糖≠无糖"
+    - claim: "高蛋白"
+      required_type: brand_claim
+      evidence_required: "营养成分表或检测报告"
+      forbidden_interpretations: []
+      note: "无依据时不得给出具体蛋白质克数"
+    - claim: "饱腹感"
+      allowed_types:
+        - subjective_experience
+        - unverified
+      forbidden_interpretations:
+        - "减重"
+        - "抑制食欲"
+      note: "只能作为主观体验或未验证描述，不得表述为客观功效"
+    - claim: "低负担"
+      allowed_types:
+        - unverified
+      forbidden_interpretations:
+        - "不长胖"
+        - "零负担"
+        - "减肥"
+      note: "未经验证，不得扩展为体重相关承诺"
+  audience_interest_rules:
+    - interest: "控糖"
+      allowed_as_audience_tag: true
+      forbidden_product_claims:
+        - "降糖"
+        - "控制血糖"
+        - "降血糖"
+        - "治疗糖尿病"
+      note: "控糖是人群兴趣标签，不能转换为产品功效"
+  fabrication_guard:
+    description: "品牌方未提供依据时，禁止编造营养与检测数据"
+    numeric_pattern: "\\d+(\\.\\d+)?\\s*(g|克|mg|毫克|kcal|千卡|大卡|千焦|kJ|%)"
+    protected_fields:
+      - "蛋白质含量"
+      - "糖含量"
+      - "热量"
+      - "碳水化合物含量"
+      - "检测数据"
+  required_sections:
+    - brand_name
+    - product_name
+    - selling_points
+    - target_audience
+    - platform
+    - compliance
+  missing_info_checks:
+    - field: "营养成分数据（蛋白质/糖/热量）"
+      severity: high
+      impact: "脚本卖点表述与合规质检"
+    - field: "卖点依据（包装/检测报告）"
+      severity: high
+      impact: "brand_claim 能否升级为 confirmed"
+    - field: "投放预算与达人量级"
+      severity: medium
+      impact: "Stage 2-3 达人筛选范围"
+    - field: "投放时间与排期"
+      severity: medium
+      impact: "内容排期与脚本时效性"
+    - field: "是否提供产品样品"
+      severity: medium
+      impact: "达人拍摄可行性（Stage 9）"
+    - field: "是否有限定口味主推"
+      severity: low
+      impact: "脚本口味露出优先级"

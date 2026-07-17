@@ -1,0 +1,169 @@
+{
+  "brief_id": "qingxing-2026-07",
+  "brand_name": "轻醒",
+  "product_name": "0蔗糖高蛋白希腊酸奶",
+  "product_category": "食品/乳制品",
+  "flavors": [
+    "原味",
+    "蓝莓",
+    "黄桃"
+  ],
+  "selling_points": [
+    {
+      "claim": "高蛋白",
+      "claim_type": "brand_claim",
+      "evidence": null,
+      "note": null,
+      "forbidden_interpretations": []
+    },
+    {
+      "claim": "饱腹感",
+      "claim_type": "subjective_experience",
+      "evidence": null,
+      "note": null,
+      "forbidden_interpretations": [
+        "减重",
+        "抑制食欲"
+      ]
+    },
+    {
+      "claim": "低负担",
+      "claim_type": "unverified",
+      "evidence": null,
+      "note": null,
+      "forbidden_interpretations": [
+        "不长胖",
+        "零负担",
+        "减肥"
+      ]
+    },
+    {
+      "claim": "0蔗糖",
+      "claim_type": "brand_claim",
+      "evidence": null,
+      "note": "提取自产品名称，依据待品牌方提供",
+      "forbidden_interpretations": [
+        "无糖"
+      ]
+    }
+  ],
+  "scenarios": [
+    "早餐",
+    "运动后",
+    "下午茶"
+  ],
+  "target_audience": {
+    "age_range": "22-35岁",
+    "gender": "女性",
+    "city_scope": "城市",
+    "interests": [
+      "健身",
+      "控糖",
+      "轻食",
+      "上班族效率生活"
+    ],
+    "lifestyle": [
+      "上班族效率生活"
+    ]
+  },
+  "platform": "小红书短视频",
+  "content_goal": "自然种草，不要硬广，需要符合原博主创作风格",
+  "content_requirements": [
+    "自然种草，不要硬广",
+    "符合原博主创作风格",
+    "脚本必须适合真实达人拍摄"
+  ],
+  "compliance": {
+    "prohibited_claims": [
+      "减肥",
+      "降糖"
+    ],
+    "rules": [
+      "不能承诺减肥",
+      "不能承诺降糖",
+      "避免夸大效果",
+      "脚本必须适合真实达人拍摄"
+    ],
+    "audience_interest_not_product_claim": [
+      "控糖"
+    ]
+  },
+  "missing_info": [
+    {
+      "field": "营养成分数据（蛋白质/糖/热量）",
+      "question": "请提供营养成分表（蛋白质g/100g、糖含量、热量）",
+      "impact": "脚本卖点表述与合规质检",
+      "severity": "high"
+    },
+    {
+      "field": "卖点依据（包装/检测报告）",
+      "question": "请提供0蔗糖、高蛋白卖点的包装标识或检测报告依据",
+      "impact": "brand_claim 能否升级为 confirmed",
+      "severity": "high"
+    },
+    {
+      "field": "投放预算与达人量级",
+      "question": "请确认投放预算范围与计划合作达人量级",
+      "impact": "Stage 2-3 达人筛选范围",
+      "severity": "medium"
+    },
+    {
+      "field": "投放时间与排期",
+      "question": "请确认投放时间窗口与发布排期要求",
+      "impact": "内容排期与脚本时效性",
+      "severity": "medium"
+    },
+    {
+      "field": "是否提供产品样品",
+      "question": "是否为达人提供产品样品用于拍摄",
+      "impact": "达人拍摄可行性（Stage 9）",
+      "severity": "medium"
+    },
+    {
+      "field": "是否有限定口味主推",
+      "question": "原味/蓝莓/黄桃是否有主推优先级",
+      "impact": "脚本口味露出优先级",
+      "severity": "low"
+    }
+  ],
+  "creator_search_profile": {
+    "content_categories": [
+      "健身饮食",
+      "轻食",
+      "控糖饮食",
+      "上班族生活",
+      "早餐"
+    ],
+    "search_keywords": [
+      "上班族早餐",
+      "健身女孩饮食",
+      "运动后加餐",
+      "办公室下午茶",
+      "控糖饮食记录",
+      "轻食一日三餐",
+      "高蛋白早餐",
+      "打工人冰箱常备"
+    ],
+    "audience_match": [
+      "22-35岁城市女性为主",
+      "关注健身/控糖/轻食",
+      "粉丝画像与目标人群重合"
+    ],
+    "excluded_creator_types": [
+      "品牌官方号",
+      "纯店铺号",
+      "搬运号",
+      "长期停更账号",
+      "硬广占比极高账号",
+      "主要内容为医疗或疾病建议的账号"
+    ],
+    "style_requirements": [
+      "自然种草风格",
+      "非硬广",
+      "适合真实达人日常拍摄"
+    ]
+  },
+  "source_file": "D:\\work\\ai项目\\mcn-script-assistant\\data\\raw\\qingxing_brief.md",
+  "structured_by": "rule_based_parser",
+  "human_verified": false
+}

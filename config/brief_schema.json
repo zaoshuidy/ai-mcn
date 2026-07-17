@@ -1,0 +1,335 @@
+{
+  "$defs": {
+    "ClaimType": {
+      "description": "卖点声明的证据等级。\n\n- confirmed：有包装、检测报告等品牌方提供依据的事实声明；\n- brand_claim：品牌方主张但暂未提供依据，引用时必须保留\"品牌方宣称\"语境；\n- subjective_experience：主观体验类描述，不得表述为客观功效；\n- unverified：未经验证，不得扩展、不得表述为功效。",
+      "enum": [
+        "confirmed",
+        "brand_claim",
+        "subjective_experience",
+        "unverified"
+      ],
+      "title": "ClaimType",
+      "type": "string"
+    },
+    "ComplianceBoundary": {
+      "description": "合规边界。",
+      "properties": {
+        "prohibited_claims": {
+          "description": "禁止承诺的功效，如 减肥/降糖",
+          "items": {
+            "type": "string"
+          },
+          "title": "Prohibited Claims",
+          "type": "array"
+        },
+        "rules": {
+          "description": "其他合规要求",
+          "items": {
+            "type": "string"
+          },
+          "title": "Rules",
+          "type": "array"
+        },
+        "audience_interest_not_product_claim": {
+          "description": "仅可作为人群兴趣标签、不得转为产品功效的词，如 控糖",
+          "items": {
+            "type": "string"
+          },
+          "title": "Audience Interest Not Product Claim",
+          "type": "array"
+        }
+      },
+      "title": "ComplianceBoundary",
+      "type": "object"
+    },
+    "CreatorSearchProfile": {
+      "description": "达人搜索画像（Stage 2 输入）。",
+      "properties": {
+        "content_categories": {
+          "description": "内容赛道",
+          "items": {
+            "type": "string"
+          },
+          "title": "Content Categories",
+          "type": "array"
+        },
+        "search_keywords": {
+          "description": "建议搜索关键词",
+          "items": {
+            "type": "string"
+          },
+          "title": "Search Keywords",
+          "type": "array"
+        },
+        "audience_match": {
+          "description": "达人粉丝画像要求",
+          "items": {
+            "type": "string"
+          },
+          "title": "Audience Match",
+          "type": "array"
+        },
+        "excluded_creator_types": {
+          "description": "排除的达人类型",
+          "items": {
+            "type": "string"
+          },
+          "title": "Excluded Creator Types",
+          "type": "array"
+        },
+        "style_requirements": {
+          "description": "风格要求",
+          "items": {
+            "type": "string"
+          },
+          "title": "Style Requirements",
+          "type": "array"
+        }
+      },
+      "title": "CreatorSearchProfile",
+      "type": "object"
+    },
+    "MissingInfoItem": {
+      "description": "缺失信息项。",
+      "properties": {
+        "field": {
+          "description": "缺失字段",
+          "title": "Field",
+          "type": "string"
+        },
+        "question": {
+          "description": "需向品牌方确认的问题",
+          "title": "Question",
+          "type": "string"
+        },
+        "impact": {
+          "description": "对后续阶段的影响",
+          "title": "Impact",
+          "type": "string"
+        },
+        "severity": {
+          "default": "medium",
+          "description": "high / medium / low",
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "question",
+        "impact"
+      ],
+      "title": "MissingInfoItem",
+      "type": "object"
+    },
+    "SellingPoint": {
+      "description": "单个卖点及其证据状态。",
+      "properties": {
+        "claim": {
+          "description": "卖点原文，如 0蔗糖、高蛋白",
+          "title": "Claim",
+          "type": "string"
+        },
+        "claim_type": {
+          "$ref": "#/$defs/ClaimType",
+          "description": "证据等级"
+        },
+        "evidence": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "依据来源（包装/检测报告等）",
+          "title": "Evidence"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "使用限制说明",
+          "title": "Note"
+        },
+        "forbidden_interpretations": {
+          "description": "禁止的解释方向，如 0蔗糖→无糖",
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Interpretations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "claim",
+        "claim_type"
+      ],
+      "title": "SellingPoint",
+      "type": "object"
+    },
+    "TargetAudience": {
+      "description": "目标人群。",
+      "properties": {
+        "age_range": {
+          "description": "年龄段，如 22-35岁",
+          "title": "Age Range",
+          "type": "string"
+        },
+        "gender": {
+          "description": "性别取向描述",
+          "title": "Gender",
+          "type": "string"
+        },
+        "city_scope": {
+          "default": "城市",
+          "description": "城市范围",
+          "title": "City Scope",
+          "type": "string"
+        },
+        "interests": {
+          "description": "兴趣标签，如 健身/控糖",
+          "items": {
+            "type": "string"
+          },
+          "title": "Interests",
+          "type": "array"
+        },
+        "lifestyle": {
+          "description": "生活方式标签",
+          "items": {
+            "type": "string"
+          },
+          "title": "Lifestyle",
+          "type": "array"
+        }
+      },
+      "required": [
+        "age_range",
+        "gender"
+      ],
+      "title": "TargetAudience",
+      "type": "object"
+    }
+  },
+  "description": "结构化品牌 Brief 顶层模型。",
+  "properties": {
+    "brief_id": {
+      "description": "Brief 标识",
+      "title": "Brief Id",
+      "type": "string"
+    },
+    "brand_name": {
+      "description": "品牌名",
+      "title": "Brand Name",
+      "type": "string"
+    },
+    "product_name": {
+      "description": "产品名",
+      "title": "Product Name",
+      "type": "string"
+    },
+    "product_category": {
+      "default": "",
+      "description": "产品类目",
+      "title": "Product Category",
+      "type": "string"
+    },
+    "flavors": {
+      "description": "口味",
+      "items": {
+        "type": "string"
+      },
+      "title": "Flavors",
+      "type": "array"
+    },
+    "selling_points": {
+      "description": "卖点清单",
+      "items": {
+        "$ref": "#/$defs/SellingPoint"
+      },
+      "title": "Selling Points",
+      "type": "array"
+    },
+    "scenarios": {
+      "description": "使用场景",
+      "items": {
+        "type": "string"
+      },
+      "title": "Scenarios",
+      "type": "array"
+    },
+    "target_audience": {
+      "$ref": "#/$defs/TargetAudience"
+    },
+    "platform": {
+      "description": "投放平台",
+      "title": "Platform",
+      "type": "string"
+    },
+    "content_goal": {
+      "default": "",
+      "description": "内容目标",
+      "title": "Content Goal",
+      "type": "string"
+    },
+    "content_requirements": {
+      "description": "内容要求",
+      "items": {
+        "type": "string"
+      },
+      "title": "Content Requirements",
+      "type": "array"
+    },
+    "compliance": {
+      "$ref": "#/$defs/ComplianceBoundary"
+    },
+    "missing_info": {
+      "description": "缺失信息",
+      "items": {
+        "$ref": "#/$defs/MissingInfoItem"
+      },
+      "title": "Missing Info",
+      "type": "array"
+    },
+    "creator_search_profile": {
+      "$ref": "#/$defs/CreatorSearchProfile",
+      "description": "达人搜索画像"
+    },
+    "source_file": {
+      "default": "",
+      "description": "原始 Brief 文件路径",
+      "title": "Source File",
+      "type": "string"
+    },
+    "structured_by": {
+      "default": "rule_based_parser",
+      "description": "结构化方式",
+      "title": "Structured By",
+      "type": "string"
+    },
+    "human_verified": {
+      "default": false,
+      "description": "是否经人工确认",
+      "title": "Human Verified",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "brief_id",
+    "brand_name",
+    "product_name",
+    "target_audience",
+    "platform"
+  ],
+  "title": "BrandBrief",
+  "type": "object"
+}

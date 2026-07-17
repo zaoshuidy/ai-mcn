@@ -1,6 +1,6 @@
 project:
   name: mcn-script-assistant
-  current_stage: stage_0
+  current_stage: stage_1
   status: in_progress
   minimum_gate_score: 90
   language: zh-CN
