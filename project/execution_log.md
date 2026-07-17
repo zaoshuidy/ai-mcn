@@ -17,4 +17,6 @@
 | 2026-07-17 13:27 | Stage 0 返工 | 推送 main 到远程 | 技术执行 AI | git push -u origin main | 9201093..87b9f60 main -> main，未使用强制推送 | 成功 | 无 | 无 | git push 输出、git ls-tree | 已推送 |
 | 2026-07-17 13:27 | Stage 0 返工 | 核验远程文件树 | 技术执行 AI | git ls-tree -r --name-only origin/main | 34 个文件全部在远程，含全部核心文件 | 成功 | 无 | 无 | git ls-tree 输出 | 已推送 |
 | 2026-07-17 13:27 | Stage 0 返工 | 新增 .gitattributes 统一换行规范 | 技术执行 AI | LF→CRLF 警告 | 提交 7e17734 并推送 | 成功 | 无 | 无 | git log | 已推送 |
-| 2026-07-17 13:27 | Stage 0 返工 | 更新执行/决策日志并推送 | 技术执行 AI | 本文件与 decision_log.md | 见本文件最新提交 | 成功 | 无 | 无 | git log | 已推送 |
+| 2026-07-17 13:27 | Stage 0 返工 | 更新执行/决策日志并推送 | 技术执行 AI | 本文件与 decision_log.md | 提交 c947ed9 并推送 | 成功 | 无 | 无 | git log | 已推送 |
+| 2026-07-17 16:47 | Stage 2 预研 | 达人采集工具选型调研 | 项目总控 | GitHub 候选组件调研 | 三方向比较结论：A=95 推荐 / B=92 备选 / C=86 兜底 | 完成 | 无 | 无 | reports/stage_2_tooling_research.md | 已记录 |
+| 2026-07-17 16:47 | Stage 2 预研 | 登记 Stage 2 候选组件 | 技术执行 AI | 项目总控调研结论 | component_candidates.csv 新增 CAND-001~004（均 pending，未安装）；决策日志新增 D-0003 | 成功 | 无 | 无 | registry/component_candidates.csv、project/decision_log.md | 待 Stage 2 正式准入审查 |
