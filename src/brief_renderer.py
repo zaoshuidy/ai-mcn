@@ -6,7 +6,7 @@
 from __future__ import annotations
 
 from .brief_models import BrandBrief, ClaimType
-from .brief_validator import ValidationResult
+from .brief_validator import ValidationReport, ValidationResult
 
 CLAIM_TYPE_LABELS = {
     ClaimType.CONFIRMED: "已确认（有依据）",
@@ -23,8 +23,16 @@ def render_claim_type_label(claim_type: ClaimType) -> str:
     return CLAIM_TYPE_LABELS[claim_type]
 
 
-def render_summary(brief: BrandBrief, validation: ValidationResult | None = None) -> str:
-    """渲染人工可读摘要（Markdown）。"""
+def render_summary(
+    brief: BrandBrief,
+    validation: ValidationResult | None = None,
+    report: ValidationReport | None = None,
+) -> str:
+    """渲染人工可读摘要（Markdown）。
+
+    validation 为业务规则校验结果（兼容接口）；
+    report 为 0-100 分验证报告（含 Stage 2 放行判断）。
+    """
     lines: list[str] = []
     lines.append(f"# 品牌 Brief 结构化摘要：{brief.brand_name}")
     lines.append("")
@@ -67,6 +75,9 @@ def render_summary(brief: BrandBrief, validation: ValidationResult | None = None
     lines.append("")
     lines.append(f"- 使用场景：{'、'.join(brief.scenarios)}")
     lines.append(f"- 投放平台：{brief.platform}")
+    if brief.brand is not None:
+        lines.append(f"- 平台（标准拆分）：{brief.brand.platform}")
+        lines.append(f"- 内容形式（标准拆分）：{brief.brand.content_format}")
     lines.append(f"- 内容目标：{brief.content_goal}")
     lines.append(f"- 内容要求：{'；'.join(brief.content_requirements)}")
     lines.append("")
@@ -111,6 +122,30 @@ def render_summary(brief: BrandBrief, validation: ValidationResult | None = None
         lines.append(f"- error：{len(validation.errors)}；warning：{len(validation.warnings)}")
         for issue in validation.issues:
             lines.append(f"- [{issue.severity}] {issue.code}: {issue.message}")
+        lines.append("")
+
+    if report is not None:
+        lines.append("## 9. 验证分数与 Stage 2 放行判断")
+        lines.append("")
+        lines.append(f"- 当前验证分数：{report.score} 分")
+        lines.append(f"- 验证状态：{report.status}")
+        research_text = "是" if report.stage_2_research_ready else "否"
+        final_text = "是" if report.stage_2_final_selection_ready else "否"
+        lines.append(f"- Stage 2 候选调研是否可开始：{research_text}")
+        lines.append(f"- Stage 2 最终达人定案是否可开始：{final_text}")
+        if report.blockers:
+            lines.append("- 核心阻塞项：")
+            for issue in report.blockers:
+                lines.append(f"  - {issue.message}")
+        else:
+            lines.append("- 核心阻塞项：无")
+        blocking_missing = [m.field for m in brief.missing_information if m.blocks_next_stage]
+        if blocking_missing:
+            lines.append(f"- 阻塞最终定案的待补信息：{'、'.join(blocking_missing)}")
+        high_missing = [m.field for m in brief.missing_information if m.importance == "high"]
+        if high_missing:
+            lines.append(f"- 高优先级待补信息：{'、'.join(high_missing)}")
+        lines.append(f"- 通过的规则：{'、'.join(report.passed_rules)}")
         lines.append("")
 
     return "\n".join(lines)

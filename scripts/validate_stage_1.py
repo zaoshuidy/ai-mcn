@@ -16,8 +16,22 @@ sys.path.insert(0, str(ROOT))
 
 import yaml  # noqa: E402
 
-from src.brief_models import BrandBrief, ClaimType  # noqa: E402
-from src.brief_validator import load_rules, validate_brief  # noqa: E402
+from src.brief_models import (  # noqa: E402
+    BrandBrief,
+    BrandInfo,
+    ClaimType,
+    ComplianceRule,
+    MissingInformation,
+    ProductVariant,
+    SellingPoint,
+    UsageScenario,
+)
+from src.brief_validator import (  # noqa: E402
+    ValidationReport,
+    build_validation_report,
+    load_rules,
+    validate_brief,
+)
 
 REQUIRED_FILES = [
     "data/raw/qingxing_brief.md",
@@ -34,9 +48,12 @@ REQUIRED_FILES = [
     "tests/test_brief_validator.py",
     "tests/test_brief_parser.py",
     "tests/test_brief_renderer.py",
+    "tests/test_brief_contract.py",
     "scripts/validate_stage_1.py",
     "reports/stage_1_brief_analysis_report.md",
 ]
+
+ABSOLUTE_PATH_PATTERN = re.compile(r"(?<![A-Za-z])[A-Za-z]:[\\/]|/Users/|/home/")
 
 NUMERIC_PATTERN = re.compile(r"\d+(\.\d+)?\s*(g|克|mg|毫克|kcal|千卡|大卡|千焦|kJ|%)")
 
@@ -227,6 +244,157 @@ def check_no_stage2_install() -> None:
         report("PASS", "未安装 Stage 2 候选组件")
 
 
+def check_new_models_exist() -> None:
+    """新数据契约模型必须可实例化。"""
+    try:
+        BrandInfo(brand_name="x", product_name="y")
+        ProductVariant(name="原味", confirmed=True, source="brand_brief")
+        UsageScenario(name="早餐", priority=1)
+        ComplianceRule(category="减肥功效承诺")
+        MissingInformation(field="营养成分表", blocks_next_stage=True)
+        report(
+            "PASS",
+            "新模型均可实例化"
+            "（BrandInfo/ProductVariant/UsageScenario/ComplianceRule/MissingInformation）",
+        )
+    except Exception as exc:  # noqa: BLE001
+        report("FAIL", "新模型实例化失败", str(exc))
+
+
+def check_new_structure(brief: BrandBrief | None) -> None:
+    """标准 JSON 必须使用新结构。"""
+    if brief is None:
+        return
+    if brief.brand is not None and brief.brand.platform and brief.brand.content_format:
+        report("PASS", f"平台与内容形式已拆分: {brief.brand.platform}/{brief.brand.content_format}")
+    else:
+        report("FAIL", "brand 未拆分平台与内容形式")
+    names = [v.name for v in brief.product_variants]
+    if names == ["原味", "蓝莓", "黄桃"] and all(v.confirmed for v in brief.product_variants):
+        report("PASS", "product_variants 结构化（3 个口味，confirmed）")
+    else:
+        report("FAIL", "product_variants 不符合预期")
+    if brief.usage_scenarios and all(isinstance(s.priority, int) for s in brief.usage_scenarios):
+        report("PASS", f"usage_scenarios 结构化（{len(brief.usage_scenarios)} 个场景，整数优先级）")
+    else:
+        report("FAIL", "usage_scenarios 未结构化")
+    categories = {r.category for r in brief.compliance_rules}
+    if len(categories) >= 7:
+        report("PASS", f"compliance_rules 覆盖 {len(categories)} 类合规规则")
+    else:
+        report("FAIL", f"compliance_rules 不足 7 类（当前 {len(categories)}）")
+    audience = brief.target_audience
+    if audience.age_min == 22 and audience.age_max == 35:
+        report("PASS", "年龄上下限结构化（22-35）")
+    else:
+        report("FAIL", "年龄上下限未结构化或与原文不一致")
+
+
+def check_missing_information_contract(brief: BrandBrief | None) -> None:
+    if brief is None:
+        return
+    if len(brief.missing_information) >= 12:
+        report("PASS", f"缺失信息 {len(brief.missing_information)} 项（≥12）")
+    else:
+        report("FAIL", f"缺失信息不足 12 项（当前 {len(brief.missing_information)}）")
+    bad = [m.field for m in brief.missing_information if not isinstance(m.blocks_next_stage, bool)]
+    if not bad:
+        report("PASS", "每项缺失信息均含 blocks_next_stage")
+    else:
+        report("FAIL", "存在缺少 blocks_next_stage 的缺失项", "、".join(bad))
+
+
+def check_validation_report(brief: BrandBrief | None) -> ValidationReport | None:
+    if brief is None:
+        return None
+    rules = load_rules(ROOT / "config/brief_rules.yaml")
+    vreport = build_validation_report(brief, rules)
+    required_fields = [
+        vreport.status,
+        isinstance(vreport.score, int),
+        isinstance(vreport.errors, list),
+        isinstance(vreport.warnings, list),
+        isinstance(vreport.blockers, list),
+        isinstance(vreport.passed_rules, list),
+        isinstance(vreport.stage_2_research_ready, bool),
+        isinstance(vreport.stage_2_final_selection_ready, bool),
+    ]
+    if all(required_fields):
+        report("PASS", "ValidationReport 字段完整")
+    else:
+        report("FAIL", "ValidationReport 字段不完整")
+    if 0 <= vreport.score <= 100:
+        report("PASS", f"验证分数在 0-100 区间: {vreport.score}")
+    else:
+        report("FAIL", f"分数越界: {vreport.score}")
+    if vreport.stage_2_research_ready and not vreport.stage_2_final_selection_ready:
+        report("PASS", "Stage 2 门禁状态符合当前资料完备度（调研可开始，定案阻塞）")
+    else:
+        report(
+            "WARNING",
+            "Stage 2 门禁状态",
+            f"research={vreport.stage_2_research_ready} "
+            f"final={vreport.stage_2_final_selection_ready}",
+        )
+    return vreport
+
+
+def check_cap_79_logic() -> None:
+    """构造真实性/合规硬伤样例，验证封顶 79 与门禁拦截生效。"""
+    brief = load_brief()
+    if brief is None:
+        report("FAIL", "无法加载 Brief 进行封顶检查")
+        return
+    rules = load_rules(ROOT / "config/brief_rules.yaml")
+    # 虚构营养数值：应命中 FABRICATED_NUTRITION_DATA 且封顶 79
+    brief.selling_points.append(
+        SellingPoint(claim="高蛋白", claim_type=ClaimType.BRAND_CLAIM, note="含蛋白质15g")
+    )
+    vreport = build_validation_report(brief, rules)
+    if any(i.code == "FABRICATED_NUTRITION_DATA" for i in vreport.errors) and vreport.score <= 79:
+        report("PASS", f"虚构数据封顶 79 生效（score={vreport.score}）")
+    else:
+        report("FAIL", f"虚构数据未正确封顶（score={vreport.score}）")
+    if not vreport.stage_2_research_ready:
+        report("PASS", "真实性错误时 Stage 2 候选调研被拦截")
+    else:
+        report("FAIL", "真实性错误时 Stage 2 候选调研未被拦截")
+
+
+def check_absolute_paths() -> None:
+    """公共产物不得含本地绝对路径。"""
+    scan_dirs = ["data/processed", "reports", "config"]
+    hits: list[str] = []
+    for d in scan_dirs:
+        dir_path = ROOT / d
+        if not dir_path.is_dir():
+            continue
+        for path in dir_path.rglob("*"):
+            if not path.is_file():
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            if ABSOLUTE_PATH_PATTERN.search(text):
+                hits.append(str(path.relative_to(ROOT)))
+    if hits:
+        report("FAIL", "公共产物含本地绝对路径", "; ".join(hits))
+    else:
+        report("PASS", "data/processed、reports、config 无本地绝对路径")
+
+
+def check_source_file_relative(brief: BrandBrief | None) -> None:
+    if brief is None:
+        return
+    is_relative = (
+        brief.source_file
+        and not Path(brief.source_file).is_absolute()
+        and "\\" not in brief.source_file
+    )
+    if is_relative:
+        report("PASS", f"source_file 为相对路径: {brief.source_file}")
+    else:
+        report("FAIL", f"source_file 不是合法相对路径: {brief.source_file!r}")
+
+
 def main() -> int:
     check_files()
     brief = load_brief()
@@ -240,6 +408,13 @@ def main() -> int:
     check_business_rules(brief)
     check_summary(brief)
     check_creator_profile(brief)
+    check_new_models_exist()
+    check_new_structure(brief)
+    check_missing_information_contract(brief)
+    check_validation_report(brief)
+    check_cap_79_logic()
+    check_source_file_relative(brief)
+    check_absolute_paths()
     check_no_stage2_install()
 
     fails = [r for r in results if r[0] == "FAIL"]

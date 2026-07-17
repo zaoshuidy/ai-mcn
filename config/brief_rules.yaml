@@ -55,21 +55,114 @@ brief_rules:
     - platform
     - compliance
   missing_info_checks:
-    - field: "营养成分数据（蛋白质/糖/热量）"
-      severity: high
-      impact: "脚本卖点表述与合规质检"
-    - field: "卖点依据（包装/检测报告）"
-      severity: high
-      impact: "brand_claim 能否升级为 confirmed"
-    - field: "投放预算与达人量级"
-      severity: medium
-      impact: "Stage 2-3 达人筛选范围"
-    - field: "投放时间与排期"
-      severity: medium
-      impact: "内容排期与脚本时效性"
-    - field: "是否提供产品样品"
-      severity: medium
-      impact: "达人拍摄可行性（Stage 9）"
-    - field: "是否有限定口味主推"
-      severity: low
-      impact: "脚本口味露出优先级"
+    # ---- 阻塞 Stage 2 最终达人定案（不阻塞候选调研）----
+    - field: "营养成分表"
+      importance: high
+      reason: "脚本卖点表述与合规质检必须有真实营养数据"
+      recommended_action: "请品牌方提供营养成分表（蛋白质g/100g、糖含量、热量）"
+      blocks_next_stage: true
+      warn_if_missing: false
+    - field: "0蔗糖依据"
+      importance: high
+      reason: "0蔗糖为 brand_claim，无包装或检测依据不得升级为 confirmed"
+      recommended_action: "请品牌方提供0蔗糖卖点的包装标识或检测报告"
+      blocks_next_stage: true
+      warn_if_missing: false
+    - field: "高蛋白依据"
+      importance: high
+      reason: "高蛋白为 brand_claim，无依据不得标注具体克数"
+      recommended_action: "请品牌方提供高蛋白卖点的营养成分表或检测报告"
+      blocks_next_stage: true
+      warn_if_missing: false
+    - field: "产品价格"
+      importance: high
+      reason: "达人筛选与脚本促销表述需要价格信息"
+      recommended_action: "请品牌方提供产品零售价与促销价区间"
+      blocks_next_stage: true
+      warn_if_missing: false
+    - field: "购买渠道"
+      importance: high
+      reason: "脚本引导转化需要明确购买渠道"
+      recommended_action: "请品牌方提供官方旗舰店/链接等购买渠道"
+      blocks_next_stage: true
+      warn_if_missing: false
+    # ---- Stage 2 可开始但生成 warning ----
+    - field: "品牌禁用词"
+      importance: medium
+      reason: "脚本与文案需避开品牌方自定义禁用表达"
+      recommended_action: "请品牌方提供禁用词清单"
+      blocks_next_stage: false
+      warn_if_missing: true
+    - field: "竞品排他要求"
+      importance: medium
+      reason: "达人筛选需排除近期合作竞品的账号"
+      recommended_action: "请品牌方提供竞品清单与排他周期"
+      blocks_next_stage: false
+      warn_if_missing: true
+    - field: "达人预算和达人量级"
+      importance: medium
+      reason: "Stage 2-3 达人筛选范围与报价匹配"
+      recommended_action: "请确认投放预算范围与计划合作达人量级"
+      blocks_next_stage: false
+      warn_if_missing: true
+    - field: "投放时间与发布时间要求"
+      importance: medium
+      reason: "内容排期与脚本时效性设计"
+      recommended_action: "请确认投放时间窗口与发布排期要求"
+      blocks_next_stage: false
+      warn_if_missing: true
+    - field: "视频时长要求"
+      importance: medium
+      reason: "脚本篇幅与分镜节奏设计"
+      recommended_action: "请确认目标视频时长范围（如30-60秒）"
+      blocks_next_stage: false
+      warn_if_missing: true
+    # ---- 其他待补信息（不阻塞，不计分）----
+    - field: "产品包装图"
+      importance: medium
+      reason: "脚本画面描述与分镜需要包装外观"
+      recommended_action: "请品牌方提供产品包装图与VI素材"
+      blocks_next_stage: false
+      warn_if_missing: false
+    - field: "产品规格"
+      importance: medium
+      reason: "口播与字幕需准确描述规格（如杯装克数）"
+      recommended_action: "请品牌方提供产品规格信息"
+      blocks_next_stage: false
+      warn_if_missing: false
+    - field: "是否提供拍摄样品"
+      importance: medium
+      reason: "达人拍摄可行性（Stage 9）"
+      recommended_action: "请确认是否为达人提供产品样品"
+      blocks_next_stage: false
+      warn_if_missing: false
+    - field: "主推口味"
+      importance: low
+      reason: "脚本口味露出优先级"
+      recommended_action: "请确认原味/蓝莓/黄桃是否有主推优先级"
+      blocks_next_stage: false
+      warn_if_missing: false
+    - field: "物流与寄样周期"
+      importance: low
+      reason: "影响达人拍摄排期"
+      recommended_action: "请确认寄样物流周期"
+      blocks_next_stage: false
+      warn_if_missing: false
+    - field: "内容修改轮次"
+      importance: low
+      reason: "脚本交付与验收流程设计"
+      recommended_action: "请确认品牌方可接受的内容修改轮次"
+      blocks_next_stage: false
+      warn_if_missing: false
+    - field: "品牌审核时限"
+      importance: medium
+      reason: "影响整体交付排期"
+      recommended_action: "请确认品牌方内容审核反馈时限"
+      blocks_next_stage: false
+      warn_if_missing: false
+    - field: "素材使用授权范围"
+      importance: medium
+      reason: "达人素材二次使用与合规归档"
+      recommended_action: "请确认素材授权范围与期限"
+      blocks_next_stage: false
+      warn_if_missing: false

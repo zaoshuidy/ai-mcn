@@ -27,3 +27,5 @@
 | 2026-07-17 17:21 | Stage 1 | 运行全部验证 | 技术执行 AI | 全部交付物 | Stage 0 回归 PASS=67/FAIL=0；Stage 1 验证 PASS=33/FAIL=0；pytest 107 passed；ruff All checks passed | 成功 | 首轮验证脚本误报 requirements 注释中的组件名 + 8 处 ruff 问题 | 已修复并全部复跑通过 | scripts/validate_stage_1.py、tests/ | 待总控验收 |
 | 2026-07-17 17:48 | Stage 1 远程交付 | 推送 Stage 1 提交到远程 | 技术执行 AI | 本地提交 ed1629e | 第 1 轮普通 HTTPS 推送成功：11f2483..ed1629e main -> main；此前 3 次失败为网络连接重置（临时性，已自行恢复） | 成功 | 无 | 无 | git push 输出 | 已推送 |
 | 2026-07-17 17:48 | Stage 1 远程交付 | 远程核验与回归 | 技术执行 AI | origin/main | HEAD 与 origin/main 均为 ed1629e976fc81e0449186a883519184ab2fa608；17 个 Stage 1 核心文件全部在远程；四项验证复跑全过 | 成功 | 无 | 无 | git ls-tree、validate 输出 | 已交付，待总控验收 |
+| 2026-07-17 17:59 | Stage 1 验收 | 项目总控 Stage 1 验收 | 项目总控 | 远程仓库 Stage 1 成果 | 评分 86/100，局部返工，不得进入 Stage 2 | 局部返工 | 无 | 需补齐数据契约与门禁 | 验收结论 | 返工中 |
+| 2026-07-17 17:59 | Stage 1 返工 | 数据契约与门禁补齐 | 技术执行 AI | D-0005（方向 C，96 分） | 新增 5 个标准子模型、18 项缺失信息、ValidationReport（score=90/ready_with_warnings）、Stage 2 双层门禁、79 封顶、相对路径；测试 107→156；validate_stage_1 检查 49 项 | 成功 | 3 处测试预期修正 + 5 处 ruff 修复 | 已修复并复跑通过 | src/、tests/test_brief_contract.py、reports/stage_1_brief_analysis_report.md | 待总控复评 |

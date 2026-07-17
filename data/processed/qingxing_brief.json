@@ -1,12 +1,30 @@
 {
   "brief_id": "qingxing-2026-07",
-  "brand_name": "轻醒",
-  "product_name": "0蔗糖高蛋白希腊酸奶",
-  "product_category": "食品/乳制品",
-  "flavors": [
-    "原味",
-    "蓝莓",
-    "黄桃"
+  "version": "2.0",
+  "brand": {
+    "brand_name": "轻醒",
+    "product_name": "0蔗糖高蛋白希腊酸奶",
+    "product_category": "食品/乳制品",
+    "platform": "小红书",
+    "content_format": "短视频",
+    "campaign_goal": "自然种草，不要硬广，需要符合原博主创作风格"
+  },
+  "product_variants": [
+    {
+      "name": "原味",
+      "confirmed": true,
+      "source": "brand_brief"
+    },
+    {
+      "name": "蓝莓",
+      "confirmed": true,
+      "source": "brand_brief"
+    },
+    {
+      "name": "黄桃",
+      "confirmed": true,
+      "source": "brand_brief"
+    }
   ],
   "selling_points": [
     {
@@ -47,13 +65,10 @@
       ]
     }
   ],
-  "scenarios": [
-    "早餐",
-    "运动后",
-    "下午茶"
-  ],
   "target_audience": {
     "age_range": "22-35岁",
+    "age_min": 22,
+    "age_max": 35,
     "gender": "女性",
     "city_scope": "城市",
     "interests": [
@@ -66,64 +81,124 @@
       "上班族效率生活"
     ]
   },
-  "platform": "小红书短视频",
-  "content_goal": "自然种草，不要硬广，需要符合原博主创作风格",
-  "content_requirements": [
-    "自然种草，不要硬广",
-    "符合原博主创作风格",
-    "脚本必须适合真实达人拍摄"
+  "usage_scenarios": [
+    {
+      "name": "早餐",
+      "priority": 1,
+      "natural_integration_reason": "Brief 将早餐列为核心使用场景，希腊酸奶作为早餐选择符合目标人群认知",
+      "shooting_feasibility": "居家厨房或办公室即可拍摄，道具简单"
+    },
+    {
+      "name": "运动后",
+      "priority": 2,
+      "natural_integration_reason": "目标人群含健身标签，运动后加餐场景与产品形态契合（功效表述以品牌方依据为准）",
+      "shooting_feasibility": "健身房或居家场景，需提前确认场地拍摄许可"
+    },
+    {
+      "name": "下午茶",
+      "priority": 3,
+      "natural_integration_reason": "办公室下午茶场景贴合上班族人群，多口味利于内容呈现",
+      "shooting_feasibility": "办公桌场景，布置简单"
+    }
   ],
-  "compliance": {
-    "prohibited_claims": [
-      "减肥",
-      "降糖"
-    ],
-    "rules": [
-      "不能承诺减肥",
-      "不能承诺降糖",
-      "避免夸大效果",
-      "脚本必须适合真实达人拍摄"
-    ],
-    "audience_interest_not_product_claim": [
-      "控糖"
-    ]
-  },
-  "missing_info": [
+  "compliance_rules": [
     {
-      "field": "营养成分数据（蛋白质/糖/热量）",
-      "question": "请提供营养成分表（蛋白质g/100g、糖含量、热量）",
-      "impact": "脚本卖点表述与合规质检",
+      "category": "减肥功效承诺",
+      "prohibited_expressions": [
+        "减肥",
+        "瘦身",
+        "减重",
+        "燃脂"
+      ],
+      "restricted_expressions": [],
+      "reason": "食品广告不得宣传减肥功效（广告法及食品类目规范）",
+      "replacement_guidance": "改为口感、场景或生活方式描述",
       "severity": "high"
     },
     {
-      "field": "卖点依据（包装/检测报告）",
-      "question": "请提供0蔗糖、高蛋白卖点的包装标识或检测报告依据",
-      "impact": "brand_claim 能否升级为 confirmed",
+      "category": "降糖或血糖功效",
+      "prohibited_expressions": [
+        "降糖",
+        "降血糖",
+        "控制血糖",
+        "调节血糖"
+      ],
+      "restricted_expressions": [
+        "控糖"
+      ],
+      "reason": "普通食品不得宣称血糖相关功效；控糖仅可作为人群兴趣标签",
+      "replacement_guidance": "控糖仅出现在人群画像，不进入产品卖点",
       "severity": "high"
     },
     {
-      "field": "投放预算与达人量级",
-      "question": "请确认投放预算范围与计划合作达人量级",
-      "impact": "Stage 2-3 达人筛选范围",
+      "category": "疾病治疗",
+      "prohibited_expressions": [
+        "治疗",
+        "治愈",
+        "预防疾病",
+        "药用",
+        "疗效"
+      ],
+      "restricted_expressions": [],
+      "reason": "食品广告不得涉及疾病治疗功能",
+      "replacement_guidance": "删除疾病相关表述",
+      "severity": "high"
+    },
+    {
+      "category": "绝对化用语",
+      "prohibited_expressions": [
+        "最健康",
+        "第一品牌",
+        "100%",
+        "完全无负担",
+        "绝对"
+      ],
+      "restricted_expressions": [
+        "最",
+        "第一"
+      ],
+      "reason": "广告法禁止绝对化用语",
+      "replacement_guidance": "改为可验证的具体描述",
       "severity": "medium"
     },
     {
-      "field": "投放时间与排期",
-      "question": "请确认投放时间窗口与发布排期要求",
-      "impact": "内容排期与脚本时效性",
+      "category": "未证实营养数据",
+      "prohibited_expressions": [],
+      "restricted_expressions": [
+        "蛋白质克数",
+        "糖含量",
+        "热量数值"
+      ],
+      "reason": "无品牌方依据时不得标注任何营养数值",
+      "replacement_guidance": "数值仅可来自品牌方营养成分表或检测报告",
+      "severity": "high"
+    },
+    {
+      "category": "夸大主观体验",
+      "prohibited_expressions": [
+        "吃了必饱",
+        "一整天不饿"
+      ],
+      "restricted_expressions": [
+        "饱腹感",
+        "低负担"
+      ],
+      "reason": "主观体验不得表述为客观功效",
+      "replacement_guidance": "使用个人体验语境，如「我觉得」「对我来说」",
       "severity": "medium"
     },
     {
-      "field": "是否提供产品样品",
-      "question": "是否为达人提供产品样品用于拍摄",
-      "impact": "达人拍摄可行性（Stage 9）",
+      "category": "不适当竞品贬低",
+      "prohibited_expressions": [
+        "比其他品牌好",
+        "碾压",
+        "吊打",
+        "完胜"
+      ],
+      "restricted_expressions": [],
+      "reason": "广告不得贬低其他生产经营者的商品",
+      "replacement_guidance": "只描述本产品特点，不做竞品对比",
       "severity": "medium"
-    },
-    {
-      "field": "是否有限定口味主推",
-      "question": "原味/蓝莓/黄桃是否有主推优先级",
-      "impact": "脚本口味露出优先级",
-      "severity": "low"
     }
   ],
   "creator_search_profile": {
@@ -163,7 +238,302 @@
       "适合真实达人日常拍摄"
     ]
   },
-  "source_file": "D:\\work\\ai项目\\mcn-script-assistant\\data\\raw\\qingxing_brief.md",
-  "structured_by": "rule_based_parser",
-  "human_verified": false
+  "missing_information": [
+    {
+      "field": "营养成分表",
+      "importance": "high",
+      "reason": "脚本卖点表述与合规质检必须有真实营养数据",
+      "recommended_action": "请品牌方提供营养成分表（蛋白质g/100g、糖含量、热量）",
+      "blocks_next_stage": true,
+      "warn_if_missing": false
+    },
+    {
+      "field": "0蔗糖依据",
+      "importance": "high",
+      "reason": "0蔗糖为 brand_claim，无包装或检测依据不得升级为 confirmed",
+      "recommended_action": "请品牌方提供0蔗糖卖点的包装标识或检测报告",
+      "blocks_next_stage": true,
+      "warn_if_missing": false
+    },
+    {
+      "field": "高蛋白依据",
+      "importance": "high",
+      "reason": "高蛋白为 brand_claim，无依据不得标注具体克数",
+      "recommended_action": "请品牌方提供高蛋白卖点的营养成分表或检测报告",
+      "blocks_next_stage": true,
+      "warn_if_missing": false
+    },
+    {
+      "field": "产品价格",
+      "importance": "high",
+      "reason": "达人筛选与脚本促销表述需要价格信息",
+      "recommended_action": "请品牌方提供产品零售价与促销价区间",
+      "blocks_next_stage": true,
+      "warn_if_missing": false
+    },
+    {
+      "field": "购买渠道",
+      "importance": "high",
+      "reason": "脚本引导转化需要明确购买渠道",
+      "recommended_action": "请品牌方提供官方旗舰店/链接等购买渠道",
+      "blocks_next_stage": true,
+      "warn_if_missing": false
+    },
+    {
+      "field": "品牌禁用词",
+      "importance": "medium",
+      "reason": "脚本与文案需避开品牌方自定义禁用表达",
+      "recommended_action": "请品牌方提供禁用词清单",
+      "blocks_next_stage": false,
+      "warn_if_missing": true
+    },
+    {
+      "field": "竞品排他要求",
+      "importance": "medium",
+      "reason": "达人筛选需排除近期合作竞品的账号",
+      "recommended_action": "请品牌方提供竞品清单与排他周期",
+      "blocks_next_stage": false,
+      "warn_if_missing": true
+    },
+    {
+      "field": "达人预算和达人量级",
+      "importance": "medium",
+      "reason": "Stage 2-3 达人筛选范围与报价匹配",
+      "recommended_action": "请确认投放预算范围与计划合作达人量级",
+      "blocks_next_stage": false,
+      "warn_if_missing": true
+    },
+    {
+      "field": "投放时间与发布时间要求",
+      "importance": "medium",
+      "reason": "内容排期与脚本时效性设计",
+      "recommended_action": "请确认投放时间窗口与发布排期要求",
+      "blocks_next_stage": false,
+      "warn_if_missing": true
+    },
+    {
+      "field": "视频时长要求",
+      "importance": "medium",
+      "reason": "脚本篇幅与分镜节奏设计",
+      "recommended_action": "请确认目标视频时长范围（如30-60秒）",
+      "blocks_next_stage": false,
+      "warn_if_missing": true
+    },
+    {
+      "field": "产品包装图",
+      "importance": "medium",
+      "reason": "脚本画面描述与分镜需要包装外观",
+      "recommended_action": "请品牌方提供产品包装图与VI素材",
+      "blocks_next_stage": false,
+      "warn_if_missing": false
+    },
+    {
+      "field": "产品规格",
+      "importance": "medium",
+      "reason": "口播与字幕需准确描述规格（如杯装克数）",
+      "recommended_action": "请品牌方提供产品规格信息",
+      "blocks_next_stage": false,
+      "warn_if_missing": false
+    },
+    {
+      "field": "是否提供拍摄样品",
+      "importance": "medium",
+      "reason": "达人拍摄可行性（Stage 9）",
+      "recommended_action": "请确认是否为达人提供产品样品",
+      "blocks_next_stage": false,
+      "warn_if_missing": false
+    },
+    {
+      "field": "主推口味",
+      "importance": "low",
+      "reason": "脚本口味露出优先级",
+      "recommended_action": "请确认原味/蓝莓/黄桃是否有主推优先级",
+      "blocks_next_stage": false,
+      "warn_if_missing": false
+    },
+    {
+      "field": "物流与寄样周期",
+      "importance": "low",
+      "reason": "影响达人拍摄排期",
+      "recommended_action": "请确认寄样物流周期",
+      "blocks_next_stage": false,
+      "warn_if_missing": false
+    },
+    {
+      "field": "内容修改轮次",
+      "importance": "low",
+      "reason": "脚本交付与验收流程设计",
+      "recommended_action": "请确认品牌方可接受的内容修改轮次",
+      "blocks_next_stage": false,
+      "warn_if_missing": false
+    },
+    {
+      "field": "品牌审核时限",
+      "importance": "medium",
+      "reason": "影响整体交付排期",
+      "recommended_action": "请确认品牌方内容审核反馈时限",
+      "blocks_next_stage": false,
+      "warn_if_missing": false
+    },
+    {
+      "field": "素材使用授权范围",
+      "importance": "medium",
+      "reason": "达人素材二次使用与合规归档",
+      "recommended_action": "请确认素材授权范围与期限",
+      "blocks_next_stage": false,
+      "warn_if_missing": false
+    }
+  ],
+  "source_text": "# 品牌 Brief：轻食酸奶「轻醒」\n\n品牌：轻食酸奶「轻醒」。\n\n产品：0蔗糖高蛋白希腊酸奶，口味包含原味、蓝莓、黄桃。\n\n主要卖点：高蛋白、饱腹感、低负担，适合早餐、运动后、下午茶。\n\n目标人群：22-35岁城市女性，关注健身、控糖、轻食和上班族效率生活。\n\n投放平台：小红书短视频。\n\n内容目标：自然种草，不要硬广，需要符合原博主创作风格。\n\n合规要求：\n- 不能承诺减肥；\n- 不能承诺降糖；\n- 避免夸大效果；\n- 脚本必须适合真实达人拍摄。\n",
+  "source_type": "brand_brief_markdown",
+  "source_file": "data/raw/qingxing_brief.md",
+  "created_at": "2026-07-17T10:21:06.401654+00:00",
+  "validation_status": "ready_with_warnings",
+  "human_verified": false,
+  "brand_name": "轻醒",
+  "product_name": "0蔗糖高蛋白希腊酸奶",
+  "product_category": "食品/乳制品",
+  "flavors": [
+    "原味",
+    "蓝莓",
+    "黄桃"
+  ],
+  "scenarios": [
+    "早餐",
+    "运动后",
+    "下午茶"
+  ],
+  "platform": "小红书短视频",
+  "content_goal": "自然种草，不要硬广，需要符合原博主创作风格",
+  "content_requirements": [
+    "自然种草，不要硬广",
+    "符合原博主创作风格",
+    "脚本必须适合真实达人拍摄"
+  ],
+  "compliance": {
+    "prohibited_claims": [
+      "减肥",
+      "降糖"
+    ],
+    "rules": [
+      "不能承诺减肥",
+      "不能承诺降糖",
+      "避免夸大效果",
+      "脚本必须适合真实达人拍摄"
+    ],
+    "audience_interest_not_product_claim": [
+      "控糖"
+    ]
+  },
+  "missing_info": [
+    {
+      "field": "营养成分表",
+      "question": "请品牌方提供营养成分表（蛋白质g/100g、糖含量、热量）",
+      "impact": "脚本卖点表述与合规质检必须有真实营养数据",
+      "severity": "high"
+    },
+    {
+      "field": "0蔗糖依据",
+      "question": "请品牌方提供0蔗糖卖点的包装标识或检测报告",
+      "impact": "0蔗糖为 brand_claim，无包装或检测依据不得升级为 confirmed",
+      "severity": "high"
+    },
+    {
+      "field": "高蛋白依据",
+      "question": "请品牌方提供高蛋白卖点的营养成分表或检测报告",
+      "impact": "高蛋白为 brand_claim，无依据不得标注具体克数",
+      "severity": "high"
+    },
+    {
+      "field": "产品价格",
+      "question": "请品牌方提供产品零售价与促销价区间",
+      "impact": "达人筛选与脚本促销表述需要价格信息",
+      "severity": "high"
+    },
+    {
+      "field": "购买渠道",
+      "question": "请品牌方提供官方旗舰店/链接等购买渠道",
+      "impact": "脚本引导转化需要明确购买渠道",
+      "severity": "high"
+    },
+    {
+      "field": "品牌禁用词",
+      "question": "请品牌方提供禁用词清单",
+      "impact": "脚本与文案需避开品牌方自定义禁用表达",
+      "severity": "medium"
+    },
+    {
+      "field": "竞品排他要求",
+      "question": "请品牌方提供竞品清单与排他周期",
+      "impact": "达人筛选需排除近期合作竞品的账号",
+      "severity": "medium"
+    },
+    {
+      "field": "达人预算和达人量级",
+      "question": "请确认投放预算范围与计划合作达人量级",
+      "impact": "Stage 2-3 达人筛选范围与报价匹配",
+      "severity": "medium"
+    },
+    {
+      "field": "投放时间与发布时间要求",
+      "question": "请确认投放时间窗口与发布排期要求",
+      "impact": "内容排期与脚本时效性设计",
+      "severity": "medium"
+    },
+    {
+      "field": "视频时长要求",
+      "question": "请确认目标视频时长范围（如30-60秒）",
+      "impact": "脚本篇幅与分镜节奏设计",
+      "severity": "medium"
+    },
+    {
+      "field": "产品包装图",
+      "question": "请品牌方提供产品包装图与VI素材",
+      "impact": "脚本画面描述与分镜需要包装外观",
+      "severity": "medium"
+    },
+    {
+      "field": "产品规格",
+      "question": "请品牌方提供产品规格信息",
+      "impact": "口播与字幕需准确描述规格（如杯装克数）",
+      "severity": "medium"
+    },
+    {
+      "field": "是否提供拍摄样品",
+      "question": "请确认是否为达人提供产品样品",
+      "impact": "达人拍摄可行性（Stage 9）",
+      "severity": "medium"
+    },
+    {
+      "field": "主推口味",
+      "question": "请确认原味/蓝莓/黄桃是否有主推优先级",
+      "impact": "脚本口味露出优先级",
+      "severity": "low"
+    },
+    {
+      "field": "物流与寄样周期",
+      "question": "请确认寄样物流周期",
+      "impact": "影响达人拍摄排期",
+      "severity": "low"
+    },
+    {
+      "field": "内容修改轮次",
+      "question": "请确认品牌方可接受的内容修改轮次",
+      "impact": "脚本交付与验收流程设计",
+      "severity": "low"
+    },
+    {
+      "field": "品牌审核时限",
+      "question": "请确认品牌方内容审核反馈时限",
+      "impact": "影响整体交付排期",
+      "severity": "medium"
+    },
+    {
+      "field": "素材使用授权范围",
+      "question": "请确认素材授权范围与期限",
+      "impact": "达人素材二次使用与合规归档",
+      "severity": "medium"
+    }
+  ],
+  "structured_by": "rule_based_parser"
 }

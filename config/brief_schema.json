@@ -1,5 +1,50 @@
 {
   "$defs": {
+    "BrandInfo": {
+      "description": "品牌与投放基础信息（平台与内容形式拆分）。",
+      "properties": {
+        "brand_name": {
+          "description": "品牌名",
+          "title": "Brand Name",
+          "type": "string"
+        },
+        "product_name": {
+          "description": "产品名",
+          "title": "Product Name",
+          "type": "string"
+        },
+        "product_category": {
+          "default": "",
+          "description": "产品类目",
+          "title": "Product Category",
+          "type": "string"
+        },
+        "platform": {
+          "default": "",
+          "description": "投放平台，如 小红书",
+          "title": "Platform",
+          "type": "string"
+        },
+        "content_format": {
+          "default": "",
+          "description": "内容形式，如 短视频",
+          "title": "Content Format",
+          "type": "string"
+        },
+        "campaign_goal": {
+          "default": "",
+          "description": "投放/内容目标",
+          "title": "Campaign Goal",
+          "type": "string"
+        }
+      },
+      "required": [
+        "brand_name",
+        "product_name"
+      ],
+      "title": "BrandInfo",
+      "type": "object"
+    },
     "ClaimType": {
       "description": "卖点声明的证据等级。\n\n- confirmed：有包装、检测报告等品牌方提供依据的事实声明；\n- brand_claim：品牌方主张但暂未提供依据，引用时必须保留\"品牌方宣称\"语境；\n- subjective_experience：主观体验类描述，不得表述为客观功效；\n- unverified：未经验证，不得扩展、不得表述为功效。",
       "enum": [
@@ -12,7 +57,7 @@
       "type": "string"
     },
     "ComplianceBoundary": {
-      "description": "合规边界。",
+      "description": "合规边界（兼容旧结构）。",
       "properties": {
         "prohibited_claims": {
           "description": "禁止承诺的功效，如 减肥/降糖",
@@ -40,6 +85,55 @@
         }
       },
       "title": "ComplianceBoundary",
+      "type": "object"
+    },
+    "ComplianceRule": {
+      "description": "单条合规规则。",
+      "properties": {
+        "category": {
+          "description": "规则类别，如 减肥功效承诺",
+          "title": "Category",
+          "type": "string"
+        },
+        "prohibited_expressions": {
+          "description": "禁止表述",
+          "items": {
+            "type": "string"
+          },
+          "title": "Prohibited Expressions",
+          "type": "array"
+        },
+        "restricted_expressions": {
+          "description": "限制表述",
+          "items": {
+            "type": "string"
+          },
+          "title": "Restricted Expressions",
+          "type": "array"
+        },
+        "reason": {
+          "default": "",
+          "description": "合规依据",
+          "title": "Reason",
+          "type": "string"
+        },
+        "replacement_guidance": {
+          "default": "",
+          "description": "替代表述建议",
+          "title": "Replacement Guidance",
+          "type": "string"
+        },
+        "severity": {
+          "default": "high",
+          "description": "high / medium / low",
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "category"
+      ],
+      "title": "ComplianceRule",
       "type": "object"
     },
     "CreatorSearchProfile": {
@@ -90,7 +184,7 @@
       "type": "object"
     },
     "MissingInfoItem": {
-      "description": "缺失信息项。",
+      "description": "缺失信息项（兼容旧结构）。",
       "properties": {
         "field": {
           "description": "缺失字段",
@@ -120,6 +214,78 @@
         "impact"
       ],
       "title": "MissingInfoItem",
+      "type": "object"
+    },
+    "MissingInformation": {
+      "description": "缺失信息项（标准结构）。",
+      "properties": {
+        "field": {
+          "description": "缺失字段",
+          "title": "Field",
+          "type": "string"
+        },
+        "importance": {
+          "default": "medium",
+          "description": "high / medium / low",
+          "title": "Importance",
+          "type": "string"
+        },
+        "reason": {
+          "default": "",
+          "description": "为何需要该信息",
+          "title": "Reason",
+          "type": "string"
+        },
+        "recommended_action": {
+          "default": "",
+          "description": "建议补充动作",
+          "title": "Recommended Action",
+          "type": "string"
+        },
+        "blocks_next_stage": {
+          "default": false,
+          "description": "是否阻塞 Stage 2 最终达人定案",
+          "title": "Blocks Next Stage",
+          "type": "boolean"
+        },
+        "warn_if_missing": {
+          "default": false,
+          "description": "缺失时是否生成 warning（计入评分）",
+          "title": "Warn If Missing",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "field"
+      ],
+      "title": "MissingInformation",
+      "type": "object"
+    },
+    "ProductVariant": {
+      "description": "产品口味/规格变体。",
+      "properties": {
+        "name": {
+          "description": "口味或规格名",
+          "title": "Name",
+          "type": "string"
+        },
+        "confirmed": {
+          "default": false,
+          "description": "是否来自品牌方确认信息",
+          "title": "Confirmed",
+          "type": "boolean"
+        },
+        "source": {
+          "default": "",
+          "description": "信息来源，如 brand_brief",
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "ProductVariant",
       "type": "object"
     },
     "SellingPoint": {
@@ -180,9 +346,35 @@
       "description": "目标人群。",
       "properties": {
         "age_range": {
-          "description": "年龄段，如 22-35岁",
+          "description": "年龄段原文，如 22-35岁",
           "title": "Age Range",
           "type": "string"
+        },
+        "age_min": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "年龄下限（须与原文一致）",
+          "title": "Age Min"
+        },
+        "age_max": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "年龄上限（须与原文一致）",
+          "title": "Age Max"
         },
         "gender": {
           "description": "性别取向描述",
@@ -218,37 +410,72 @@
       ],
       "title": "TargetAudience",
       "type": "object"
+    },
+    "UsageScenario": {
+      "description": "使用场景（结构化、可排序）。",
+      "properties": {
+        "name": {
+          "description": "场景名，如 早餐",
+          "title": "Name",
+          "type": "string"
+        },
+        "priority": {
+          "description": "优先级，越小越优先",
+          "title": "Priority",
+          "type": "integer"
+        },
+        "natural_integration_reason": {
+          "default": "",
+          "description": "自然植入理由",
+          "title": "Natural Integration Reason",
+          "type": "string"
+        },
+        "shooting_feasibility": {
+          "default": "",
+          "description": "拍摄可行性说明",
+          "title": "Shooting Feasibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "priority"
+      ],
+      "title": "UsageScenario",
+      "type": "object"
     }
   },
-  "description": "结构化品牌 Brief 顶层模型。",
+  "description": "结构化品牌 Brief 顶层模型（标准结构 + 兼容字段）。",
   "properties": {
     "brief_id": {
       "description": "Brief 标识",
       "title": "Brief Id",
       "type": "string"
     },
-    "brand_name": {
-      "description": "品牌名",
-      "title": "Brand Name",
+    "version": {
+      "default": "2.0",
+      "description": "数据契约版本",
+      "title": "Version",
       "type": "string"
     },
-    "product_name": {
-      "description": "产品名",
-      "title": "Product Name",
-      "type": "string"
+    "brand": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/BrandInfo"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "品牌与投放基础信息"
     },
-    "product_category": {
-      "default": "",
-      "description": "产品类目",
-      "title": "Product Category",
-      "type": "string"
-    },
-    "flavors": {
-      "description": "口味",
+    "product_variants": {
+      "description": "产品口味/规格变体",
       "items": {
-        "type": "string"
+        "$ref": "#/$defs/ProductVariant"
       },
-      "title": "Flavors",
+      "title": "Product Variants",
       "type": "array"
     },
     "selling_points": {
@@ -259,61 +486,64 @@
       "title": "Selling Points",
       "type": "array"
     },
-    "scenarios": {
-      "description": "使用场景",
-      "items": {
-        "type": "string"
-      },
-      "title": "Scenarios",
-      "type": "array"
-    },
     "target_audience": {
       "$ref": "#/$defs/TargetAudience"
     },
-    "platform": {
-      "description": "投放平台",
-      "title": "Platform",
-      "type": "string"
-    },
-    "content_goal": {
-      "default": "",
-      "description": "内容目标",
-      "title": "Content Goal",
-      "type": "string"
-    },
-    "content_requirements": {
-      "description": "内容要求",
+    "usage_scenarios": {
+      "description": "结构化使用场景",
       "items": {
-        "type": "string"
+        "$ref": "#/$defs/UsageScenario"
       },
-      "title": "Content Requirements",
+      "title": "Usage Scenarios",
       "type": "array"
     },
-    "compliance": {
-      "$ref": "#/$defs/ComplianceBoundary"
-    },
-    "missing_info": {
-      "description": "缺失信息",
+    "compliance_rules": {
+      "description": "合规规则清单",
       "items": {
-        "$ref": "#/$defs/MissingInfoItem"
+        "$ref": "#/$defs/ComplianceRule"
       },
-      "title": "Missing Info",
+      "title": "Compliance Rules",
       "type": "array"
     },
     "creator_search_profile": {
       "$ref": "#/$defs/CreatorSearchProfile",
       "description": "达人搜索画像"
     },
+    "missing_information": {
+      "description": "缺失信息（标准结构）",
+      "items": {
+        "$ref": "#/$defs/MissingInformation"
+      },
+      "title": "Missing Information",
+      "type": "array"
+    },
+    "source_text": {
+      "default": "",
+      "description": "原始 Brief 全文",
+      "title": "Source Text",
+      "type": "string"
+    },
+    "source_type": {
+      "default": "brand_brief_markdown",
+      "description": "来源类型",
+      "title": "Source Type",
+      "type": "string"
+    },
     "source_file": {
       "default": "",
-      "description": "原始 Brief 文件路径",
+      "description": "原始 Brief 文件相对路径",
       "title": "Source File",
       "type": "string"
     },
-    "structured_by": {
-      "default": "rule_based_parser",
-      "description": "结构化方式",
-      "title": "Structured By",
+    "created_at": {
+      "description": "结构化时间",
+      "title": "Created At",
+      "type": "string"
+    },
+    "validation_status": {
+      "default": "pending",
+      "description": "ready / ready_with_warnings / blocked / invalid / pending",
+      "title": "Validation Status",
       "type": "string"
     },
     "human_verified": {
@@ -321,14 +551,83 @@
       "description": "是否经人工确认",
       "title": "Human Verified",
       "type": "boolean"
+    },
+    "brand_name": {
+      "default": "",
+      "description": "[兼容] 品牌名",
+      "title": "Brand Name",
+      "type": "string"
+    },
+    "product_name": {
+      "default": "",
+      "description": "[兼容] 产品名",
+      "title": "Product Name",
+      "type": "string"
+    },
+    "product_category": {
+      "default": "",
+      "description": "[兼容] 产品类目",
+      "title": "Product Category",
+      "type": "string"
+    },
+    "flavors": {
+      "description": "[兼容] 口味",
+      "items": {
+        "type": "string"
+      },
+      "title": "Flavors",
+      "type": "array"
+    },
+    "scenarios": {
+      "description": "[兼容] 使用场景",
+      "items": {
+        "type": "string"
+      },
+      "title": "Scenarios",
+      "type": "array"
+    },
+    "platform": {
+      "default": "",
+      "description": "[兼容] 投放平台原文",
+      "title": "Platform",
+      "type": "string"
+    },
+    "content_goal": {
+      "default": "",
+      "description": "[兼容] 内容目标",
+      "title": "Content Goal",
+      "type": "string"
+    },
+    "content_requirements": {
+      "description": "[兼容] 内容要求",
+      "items": {
+        "type": "string"
+      },
+      "title": "Content Requirements",
+      "type": "array"
+    },
+    "compliance": {
+      "$ref": "#/$defs/ComplianceBoundary",
+      "description": "[兼容] 合规边界"
+    },
+    "missing_info": {
+      "description": "[兼容] 缺失信息",
+      "items": {
+        "$ref": "#/$defs/MissingInfoItem"
+      },
+      "title": "Missing Info",
+      "type": "array"
+    },
+    "structured_by": {
+      "default": "rule_based_parser",
+      "description": "结构化方式",
+      "title": "Structured By",
+      "type": "string"
     }
   },
   "required": [
     "brief_id",
-    "brand_name",
-    "product_name",
-    "target_audience",
-    "platform"
+    "target_audience"
   ],
   "title": "BrandBrief",
   "type": "object"
