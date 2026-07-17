@@ -1,0 +1,2 @@
+component_id,name,category,purpose,repository,source_url,stars,last_update,license,business_fit,input_output_compatibility,reproducibility,maintenance_score,security_score,modification_cost,replaceability,final_score,status,review_notes
+EXAMPLE-000,example-component,skill,示例：字段填写演示，非真实候选,https://github.com/example/example-component,https://github.com/example/example-component,0,2026-01-01,MIT,null,null,null,null,null,null,null,null,example_only,本行为格式示例，不代表任何真实组件，未经过审查，不得引用

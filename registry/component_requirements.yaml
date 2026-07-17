@@ -1,0 +1,46 @@
+# 第三方 Skill / GitHub 工具准入字段规范
+#
+# 每个候选组件必须按本文件字段完成审查登记，未填齐关键字段不得进入评分。
+#
+# 准入状态（admission_status）定义：
+#   approved       ：总分 >= 90 且许可证审查、安全审查均通过，允许引入代码库
+#   reference_only ：总分 85-89，仅允许借鉴其方法与思路，不允许引入代码或直接依赖
+#   rejected       ：总分 < 85，或存在关键风险（许可证不兼容、恶意行为、密钥泄露风险等）
+#   pending        ：尚未完成审查，默认状态，不得被代码引用
+#
+# 评分维度与权重见 registry/component_scorecard.md。
+# 审查完成后，结论同步写入 approved_components.yaml 或 rejected_components.yaml，
+# 并在 THIRD_PARTY_NOTICES.md 记录许可证与风险信息。
+
+component:
+  name: ""                       # 组件名称
+  category: ""                   # 类别，如 skill / cli_tool / sdk / crawler / llm_prompt
+  purpose: ""                    # 在本项目中的用途
+  source_url: ""                 # 介绍页/文档地址
+  repository: ""                 # GitHub 仓库地址
+  version_or_commit: ""          # 锁定的版本号或 commit hash
+  stars: null                    # GitHub star 数（登记时快照）
+  last_update: ""                # 最近一次提交/发布日期 YYYY-MM-DD
+  license: ""                    # 许可证，如 MIT / Apache-2.0 / GPL-3.0 / 未知
+  license_verified: false        # 是否已核对仓库中的 LICENSE 文件原文
+  maintenance_status: ""         # 维护状态：active / stale / archived / unknown
+  documentation_quality: null    # 文档质量评分 0-100
+  business_fit: null             # 业务匹配度评分 0-100（权重25）
+  input_output_compatibility: null # 输入输出兼容性评分 0-100（权重15）
+  reproducibility: null          # 可复现性评分 0-100（权重10）
+  security_score: null           # 安全性评分 0-100（权重10）
+  modification_cost: null        # 改造成本评分 0-100（权重5，分越高改造成本越低）
+  replaceability: null           # 可替换性评分 0-100（权重5）
+  permissions_required: []       # 运行所需系统权限清单
+  network_access: []             # 需要访问的外部域名/API 清单
+  environment_variables: []      # 需要读取的环境变量清单
+  shell_commands: []             # 会执行的 shell 命令清单
+  file_access_scope: []          # 会读写的文件路径范围
+  input_schema: {}               # 输入契约（JSON Schema）
+  output_schema: {}              # 输出契约（JSON Schema）
+  known_risks: []                # 已知风险清单
+  mitigation: []                 # 风险缓解措施清单
+  fallback_component: ""         # 替代方案（组件名或"自研"）
+  final_score: null              # 加权总分 0-100
+  admission_status: pending      # approved / reference_only / rejected / pending
+  review_evidence: []            # 审查证据（文件路径、命令输出、截图路径）

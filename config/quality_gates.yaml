@@ -1,0 +1,87 @@
+# 阶段质量门禁与评分模型（机器可读）
+quality_gates:
+  scoring_model:
+    total_score: 100
+    dimensions:
+      - id: business_value
+        name: 业务价值与需求匹配
+        weight: 20
+      - id: technical_feasibility
+        name: 技术与执行可行性
+        weight: 15
+      - id: output_quality
+        name: 输出质量
+        weight: 15
+      - id: reusability
+        name: 可复用性
+        weight: 10
+      - id: third_party_maturity
+        name: 第三方工具成熟度
+        weight: 10
+      - id: risk_and_compliance
+        name: 风险与合规
+        weight: 10
+      - id: verifiability
+        name: 可验证性
+        weight: 10
+      - id: interview_demo_value
+        name: 面试展示价值
+        weight: 10
+  gate_rules:
+    - min_score: 90
+      max_score: 100
+      action: pass
+      description: 允许进入下一阶段
+    - min_score: 85
+      max_score: 89
+      action: partial_rework
+      description: 局部返工后重新评分
+    - min_score: 0
+      max_score: 84
+      action: redesign
+      description: 重新设计或重新执行
+  hard_fail_conditions:
+    - id: authenticity_issue
+      description: 存在数据或证据真实性问题
+      action: reject
+    - id: secret_leakage
+      description: 存在密钥、Token、Cookie 泄露
+      action: reject
+    - id: compliance_issue
+      description: 存在合规问题
+      action: reject
+    - id: core_function_defect
+      description: 存在核心功能问题
+      action: reject
+  minimum_gate_score: 90
+  stages:
+    - id: stage_0
+      name: 项目控制台与组件准入机制
+    - id: stage_1
+      name: 品牌Brief结构化
+    - id: stage_2
+      name: 达人搜索策略与候选采集
+    - id: stage_3
+      name: 10位达人筛选与评分
+    - id: stage_4
+      name: 最终达人证据与字幕语料
+    - id: stage_5
+      name: 达人风格画像与Style Skill
+    - id: stage_6
+      name: 视频脚本Skill与工具选型
+    - id: stage_7
+      name: 三个脚本方向生成与竞争
+    - id: stage_8
+      name: Humanizer中文人味处理
+    - id: stage_9
+      name: 分镜与拍摄可行性设计
+    - id: stage_10
+      name: 食品广告合规与事实质检
+    - id: stage_11
+      name: Agent工作流编排
+    - id: stage_12
+      name: 飞书自动写入
+    - id: stage_13
+      name: 通用MCN Skill沉淀
+    - id: stage_14
+      name: GitHub仓库与最终报告

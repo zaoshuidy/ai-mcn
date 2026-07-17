@@ -1,0 +1,31 @@
+# 环境与密钥
+.env
+.env.*
+!.env.example
+*.token
+*.key
+*.pem
+cookies.json
+storage_state.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# 运行产物
+logs/
+tmp/
+
+# 系统与 IDE
+.DS_Store
+.idea/
+.vscode/

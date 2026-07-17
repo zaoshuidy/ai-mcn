@@ -1,0 +1,13 @@
+project:
+  name: mcn-script-assistant
+  current_stage: stage_0
+  status: in_progress
+  minimum_gate_score: 90
+  language: zh-CN
+  platform: xiaohongshu
+  business_domain: mcn_commercial_content
+  final_delivery:
+    - github_repository
+    - final_report
+    - reusable_skill
+    - feishu_document
