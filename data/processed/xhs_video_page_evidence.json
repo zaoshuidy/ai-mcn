@@ -1,0 +1,38 @@
+{
+  "note_id": "6a4903ad000000002003b221",
+  "canonical_url": "https://www.xiaohongshu.com/explore/6a4903ad000000002003b221",
+  "creator_name": "小娇日记747",
+  "title": "爬坡后吃根香蕉 下颌线真的越来越清晰！！",
+  "note_type": "video",
+  "page_video_duration_seconds": null,
+  "interactions": {
+    "likes": "56",
+    "collects": "26",
+    "comments": "1"
+  },
+  "streams": [
+    {
+      "codec": "h264",
+      "quality": "HD",
+      "width": 720,
+      "height": 960,
+      "duration_seconds": 2996.0,
+      "master_url_sha256": "b520b787d17330795c1193e41cd041d5c96056523fe071d2a9ae115e2e9513f9",
+      "domain": "sns-video-v3.xhscdn.com",
+      "has_signature": true
+    },
+    {
+      "codec": "h265",
+      "quality": "HD",
+      "width": 720,
+      "height": 960,
+      "duration_seconds": 2996.0,
+      "master_url_sha256": "69e817024ed170a51ab9dfbb218dfd76f1c80cad2a13406d8ad858d5447c5ac1",
+      "domain": "sns-video-v3.xhscdn.com",
+      "has_signature": true
+    }
+  ],
+  "network_media": [],
+  "observed_at": "2026-07-18T12:55:24.590532+00:00",
+  "source": "cdp_page_observed"
+}

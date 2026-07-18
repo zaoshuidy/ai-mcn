@@ -191,13 +191,14 @@ cp .env.example .env
 - Stage 2 搜索策略：4 组 16 词搜索计划（`data/processed/creator_search_plan.json`）、POC 边界规则（`config/creator_search_rules.yaml`）、人工验证表；
 - Stage 2 自动验证脚本（`scripts/validate_stage_2.py`），全部测试 290 项通过；
 - Stage 2 只读浏览器控制 POC（D-0008，2026-07-18）：kimi-webbridge 只读适配器＋策略层（白名单动作、3s 限速、重试≤1、人工门禁），真实采集 1 词 5 条结果、2 位达人主页（真实粉丝数）、1 篇笔记（真实互动数据）与 4 张截图，审计零写操作、零 Cookie 导出；
-- Stage 2 第二轮（2026-07-18）：旧 navigate 入口彻底移除（策略白名单＋适配器＋测试三重锁定），三个高层方法统一为软导航并复用已登录会话标签页；从已采集达人主页真实定位视频笔记（小娇日记747 / 6a4903ad000000002003b221，type=video，page_observed）；FFmpeg v7.1（CAND-009）与 faster-whisper tiny 本地模型（CAND-010）真实安装验证；12 字段视频时间线契约与全链路编排脚本就绪，全量 315 项测试通过；
+- Stage 2 第二轮（2026-07-18）：旧 navigate 入口彻底移除（策略白名单＋适配器＋测试三重锁定），三个高层方法统一为软导航并复用已登录会话标签页；从已采集达人主页真实定位视频笔记（小娇日记747 / 6a4903ad000000002003b221，type=video，page_observed）；FFmpeg v7.1（CAND-009）与 faster-whisper 本地模型（CAND-010）真实安装验证；
+- **Stage 2 第三轮（D-0009，2026-07-18）：真实视频端到端理解 POC 完成**——WebBridge 前台借用协议性失败后改用专用 Chrome CDP 会话（专用 Profile＋环回 9222，Playwright CAND-011），人工扫码登录自动检测，经主页公开 xsecToken 解决 300031，下载真实视频（463,505 bytes / 3.0s / 720x960 / h264+aac，SHA-256 见证据清单），faster-whisper small 转写，3 张关键帧多模态读取，产出 14 字段 video_timeline.json、video_evidence_manifest.json 与 10 点分析报告；全量 343 项测试通过；
 - 视频理解管线（获取→转写→抽帧→时间线→分析）代码就绪；yt-dlp 两轮真实执行均失败（图文笔记无视频；未登录页面不含视频流），XHS-Downloader 需 Cookie 属策略禁止；6 个 CLI/包工具登记 poc_required（CAND-005~010）。
 
 ## 16. 当前未完成内容
 
-- **真实视频下载/转写/抽帧/时间线（阻塞于人工门禁）**：视频流地址仅在登录态页面可得，WebBridge 只能借用前台标签页，需用户将小红书标签页切到前台后重跑 `scripts/analyze_xhs_video.py`（`stage_2_video_poc_ready=false`，不伪造成功）；
-- 视觉类字段标注（屏幕字幕/动作/场景/镜头/产品露出，保持 None 待人工或视觉模型）；
+- **真实视频端到端理解 POC（D-0009，2026-07-18 完成）**：专用 Chrome CDP 会话（专用 Profile＋127.0.0.1:9222，不读默认配置、不导出 Cookie）连接真实登录页面，下载真实视频（463,505 bytes / 3.0s / 720x960 / h264+aac，与页面流元数据一致），faster-whisper small 真实转写（无实质口播，如实记录），3 张真实关键帧多模态读取，生成 14 字段音视频联合时间线、证据清单与 10 点分析报告；目标笔记因「瘦脸/下颌线」外貌承诺表达标记为 technical_poc_only，不进入达人名单；
+- 视觉类字段标注（除 POC 视频外）：屏幕字幕/动作/场景/镜头/产品露出仍需人工或视觉模型；
 - 最终 10 位达人定案（未放行，`stage_2_final_selection_ready=false`）；
 - 达人筛选评分、风格拆解（Stage 3 ~ 4）；
 - 脚本生成、Humanizer、分镜（Stage 5 ~ 9）；

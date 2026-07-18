@@ -267,16 +267,18 @@ def test_real_registry_consistent() -> None:
 
 
 def test_real_registry_candidates_status() -> None:
-    """CAND-001~004 全部 rejected；CAND-005~010 为 D-0008 授权的 POC 工具；无 approved。"""
+    """CAND-001~004 全部 rejected；CAND-005~011 为 POC 工具（D-0008/D-0009 授权）；无 approved。"""
     candidates = load_candidates(ROOT / "registry/component_candidates.csv")
     approved = load_yaml_list(ROOT / "registry/approved_components.yaml", "approved_components")
     real = {r["component_id"]: r for r in candidates if r.get("status") != "example_only"}
-    assert len(real) == 10
+    assert len(real) == 11
     for cid in ["CAND-001", "CAND-002", "CAND-003", "CAND-004"]:
         assert real[cid]["status"] == "rejected"
-    for cid in ["CAND-005", "CAND-006", "CAND-007", "CAND-008", "CAND-009", "CAND-010"]:
+    for cid in ["CAND-005", "CAND-006", "CAND-007", "CAND-008", "CAND-009", "CAND-010",
+                "CAND-011"]:
         assert real[cid]["status"] == "poc_required"
-        assert "D-0008" in real[cid]["review_notes"] or int(real[cid]["final_score"]) >= 90
+        assert ("D-0008" in real[cid]["review_notes"] or "D-0009" in real[cid]["review_notes"]
+                or int(real[cid]["final_score"]) >= 90)
     assert approved == []
 
 

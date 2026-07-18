@@ -1,0 +1,18 @@
+{
+  "note_id": "6a4903ad000000002003b221",
+  "canonical_url": "https://www.xiaohongshu.com/explore/6a4903ad000000002003b221",
+  "video_sha256": "9dc5fc6654759d93751d4288be5ac238add950631269a662d2b61471a7915333",
+  "video_bytes": 463505,
+  "duration_seconds": 3.0,
+  "resolution": "720x960",
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "acquired_by": "cdp_context_request",
+  "acquired_at": "2026-07-18T12:55:25.386438+00:00",
+  "ffmpeg_version": "7.1-essentials_build-www.gyan.dev",
+  "transcription_tool": "faster-whisper small local (CAND-010)，language=zh prob=1.00，1 个转写片段",
+  "keyframe_count": 3,
+  "keyframe_dir": "tmp/xhs_video_poc/keyframes",
+  "transcript_srt_sha256": "b38622b9bdaee9c1acbf7fa10f633aaf60000154cd9aa42df86f5d53a87e41b3",
+  "notes": "原始视频/音频/完整转写/关键帧仅存 tmp/；Git 仅存哈希、元数据与时间线摘要"
+}

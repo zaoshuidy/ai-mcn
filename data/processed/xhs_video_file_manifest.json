@@ -1,0 +1,19 @@
+{
+  "note_id": "6a4903ad000000002003b221",
+  "canonical_url": "https://www.xiaohongshu.com/explore/6a4903ad000000002003b221",
+  "local_tmp_path": "tmp/xhs_video_poc/source_video.mp4",
+  "acquired_by": "cdp_context_request",
+  "acquired_at": "2026-07-18T12:55:25.386438+00:00",
+  "bytes": 463505,
+  "sha256": "9dc5fc6654759d93751d4288be5ac238add950631269a662d2b61471a7915333",
+  "duration_seconds": 3.0,
+  "resolution": "720x960",
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "ffmpeg_version": "7.1-essentials_build-www.gyan.dev",
+  "page_duration_seconds": 2.996,
+  "duration_drift_seconds": 0.004,
+  "usage_scope": "technical_poc_only",
+  "selection_status": "excluded_from_creator_selection",
+  "note": "页面流元数据 size=463505 bytes、duration=2996ms 与下载文件完全一致，确认为完整视频（3秒短视频笔记）"
+}

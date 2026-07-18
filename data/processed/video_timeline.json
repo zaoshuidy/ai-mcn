@@ -1,0 +1,59 @@
+{
+  "note_id": "6a4903ad000000002003b221",
+  "canonical_url": "https://www.xiaohongshu.com/explore/6a4903ad000000002003b221",
+  "creator_name": "小娇日记747",
+  "title": "爬坡后吃根香蕉 下颌线真的越来越清晰！！",
+  "duration_seconds": 3.0,
+  "observed_at": "2026-07-18T08:24:49.351868+00:00",
+  "source": "cdp_page_observed",
+  "human_verified": false,
+  "segments": [
+    {
+      "start_time": 0.0,
+      "end_time": 2.0,
+      "transcript_summary": "无实质口播；转写仅识别到片尾水印「字幕by索兰娅」，背景为音乐",
+      "on_screen_text": "瘦脸天花板还得是爬坡！／完整黄金公式抄作业／5分钟热身：坡8速3.5／30分钟燃脂：坡15速4／5分钟缓冲：坡8速3",
+      "scene": "健身房跑步机，第一人称俯视视角，跑步机显示屏数据（坡度/速度/时间）可见",
+      "person_action": "手持一根剥开的香蕉，在跑步机上行走",
+      "shot_type": "第一人称主观近景，固定单镜头",
+      "food_or_product": "香蕉（自然食物，非包装商品）",
+      "product_first_appearance": 0.0,
+      "commercial_expression": null,
+      "compliance_risks": [
+        "燃脂（画面字幕）",
+        "瘦脸（画面字幕，外貌结果承诺倾向）"
+      ],
+      "evidence_frame_timestamps": [
+        0.0
+      ],
+      "audio_evidence_timestamps": [
+        0.0,
+        2.0
+      ],
+      "confidence": 0.85
+    },
+    {
+      "start_time": 2.0,
+      "end_time": 3.0,
+      "transcript_summary": "无口播（背景音乐）",
+      "on_screen_text": "瘦脸天花板还得是爬坡！／完整黄金公式抄作业／5分钟热身：坡8速3.5／30分钟燃脂：坡15速4／5分钟缓冲：坡8速3",
+      "scene": "健身房跑步机，第一人称俯视视角（与上一镜头连续）",
+      "person_action": "咬食香蕉（2.9s 帧中香蕉已被吃掉大半）",
+      "shot_type": "第一人称主观近景，固定单镜头",
+      "food_or_product": "香蕉（自然食物，非包装商品）",
+      "product_first_appearance": null,
+      "commercial_expression": null,
+      "compliance_risks": [
+        "燃脂（画面字幕）",
+        "瘦脸（画面字幕）"
+      ],
+      "evidence_frame_timestamps": [
+        2.0,
+        2.9
+      ],
+      "audio_evidence_timestamps": [],
+      "confidence": 0.85
+    }
+  ],
+  "notes": "3秒短视频笔记；视觉字段来自对真实关键帧的多模态读取（contact_sheet 3帧一致），商品包装品牌不可辨认故相关字段为 null；完整转写与关键帧仅存 tmp/，不入 Git；usage_scope=technical_poc_only，excluded_from_creator_selection"
+}

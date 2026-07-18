@@ -1,0 +1,12 @@
+{
+  "cdp_endpoint": "http://127.0.0.1:9222",
+  "browser_type": "Chrome/150.0.7871.128",
+  "browser_version": "150.0.7871.128",
+  "context_count": 1,
+  "page_count": 1,
+  "matched_page_url": "https://www.xiaohongshu.com/explore/6a4903ad000000002003b221",
+  "matched_note_id": "6a4903ad000000002003b221",
+  "logged_in": true,
+  "observed_at": "2026-07-18T12:55:24.577676+00:00",
+  "source": "cdp_page_observed"
+}

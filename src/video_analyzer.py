@@ -31,6 +31,7 @@ Runner = Callable[..., subprocess.CompletedProcess]
 RISK_WORDS = [
     "减肥", "瘦身", "降糖", "降血糖", "控制血糖", "治疗", "治病", "药用",
     "无糖", "不长胖", "吃了就瘦", "最有效", "百分百", "100%", "第一",
+    "燃脂", "瘦脸", "掉秤", "暴瘦",
 ]
 
 PRODUCT_HINTS = ["酸奶", "轻醒", "希腊", "高蛋白", "0蔗糖", "益生菌"]
@@ -85,7 +86,7 @@ def find_ffmpeg() -> Optional[str]:
 
 
 FFMPEG_DURATION_RE = re.compile(r"Duration:\s*(\d+):(\d+):(\d+)\.(\d+)")
-FFMPEG_VIDEO_RE = re.compile(r"Video:\s*([a-zA-Z0-9]+)[^,]*,[^,]*,\s*(\d+)x(\d+)")
+FFMPEG_VIDEO_RE = re.compile(r"Video:\s*([a-zA-Z0-9]+).*?,\s*(\d{2,5})x(\d{2,5})")
 FFMPEG_AUDIO_RE = re.compile(r"Audio:\s*([a-zA-Z0-9]+)")
 
 

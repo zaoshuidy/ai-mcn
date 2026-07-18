@@ -1,0 +1,67 @@
+# Stage 2 专用 Chrome CDP 只读策略（D-0009 方向B）
+# 原则：专用 user-data-dir + 环回 CDP + 只读 + 人工登录门禁 + 零凭据导出。
+
+cdp:
+  # 调试地址只允许环回；适配器加载时强制校验，0.0.0.0/局域网地址一律拒绝
+  debug_address: 127.0.0.1
+  debug_port: 9222
+  # 专用数据目录（项目内 tmp/），禁止读取/复制用户默认 Chrome Profile
+  user_data_dir: tmp/xhs_cdp_profile
+  forbid_default_profile: true
+  headless: false
+  connect_timeout_ms: 15000
+
+target:
+  note_id: 6a4903ad000000002003b221
+  canonical_url: https://www.xiaohongshu.com/explore/6a4903ad000000002003b221
+  usage_scope: technical_poc_only
+  selection_status: excluded_from_creator_selection
+
+login:
+  # 登录只能由人工在专用窗口完成；脚本检测状态并等待，禁止自动填写
+  manual_only: true
+  wait_seconds: 600
+  poll_interval_seconds: 5
+  gate_markers:
+    - 扫码登录
+    - 登录后查看
+    - 手机号登录
+    - 验证码
+    - 安全验证
+    - 拖动滑块
+
+readonly:
+  # 只允许内置只读 JS 模板；禁止任意外部 JavaScript
+  eval_templates_only: true
+  forbidden_actions:
+    - like
+    - collect
+    - comment
+    - follow
+    - dm
+    - publish
+    - auto_login
+    - fill_credential
+    - bypass_captcha
+    - cookie_export
+    - storage_read
+    - close_user_chrome
+
+network_capture:
+  # 只筛选媒体响应；签名 URL 仅允许写入 tmp/，Git 只存哈希/域名/类型/时间
+  media_only: true
+  media_content_types: ["video/", "application/vnd.apple.mpegurl", "application/x-mpegurl"]
+  media_url_hints: ["mp4", "m3u8", "m4s", "xhscdn"]
+  signed_url_storage: tmp_only
+
+download:
+  # 顺序：页面直链(context request) → 浏览器原生下载 → yt-dlp → XHS-Downloader(最后降级)
+  output: tmp/xhs_video_poc/source_video.mp4
+  min_bytes: 1
+  max_duration_drift_seconds: 3.0
+
+chrome_launch:
+  extra_args:
+    - --no-first-run
+    - --no-default-browser-check
+  reuse_existing: true

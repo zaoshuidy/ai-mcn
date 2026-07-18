@@ -108,6 +108,9 @@ class VideoSegment(BaseModel):
     evidence_frame_timestamps: list[float] = Field(
         default_factory=list, description="该时段内真实抽取的关键帧时间戳"
     )
+    audio_evidence_timestamps: list[float] = Field(
+        default_factory=list, description="该字段结论依据的转写片段时间戳"
+    )
     confidence: float = Field(default=0.0, ge=0.0, le=1.0)
 
 

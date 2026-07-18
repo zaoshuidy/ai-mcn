@@ -24,6 +24,8 @@ htmlcov/
 # 运行产物
 logs/
 tmp/
+# Stage 2 专用 Chrome CDP 数据目录（显式列出，双保险；tmp/ 已覆盖）
+tmp/xhs_cdp_profile/
 
 # 系统与 IDE
 .DS_Store
