@@ -1,7 +1,11 @@
 project:
   name: mcn-script-assistant
-  current_stage: stage_2
-  status: in_progress
+  current_stage: stage_3
+  status: ready
+  status_note: >-
+    2026-07-18 四项 Stage 2 放行条件全部满足（browser_poc / video_poc /
+    representative_video_poc / remote_delivered），按任务书规则置 stage_3 ready。
+    阶段最终评分与正式验收结论以项目总控复评为准。
   minimum_gate_score: 90
   language: zh-CN
   platform: xiaohongshu
@@ -21,11 +25,23 @@ project:
   minimal_video_poc_ready: true
   minimal_video_poc_note: >-
     3秒样本证明 页面→视频→转写→抽帧→时间线 链路可运行，不等于完整生活Vlog分析能力。
-  representative_video_poc_ready: false
+  representative_video_poc_ready: true
   representative_video_poc_note: >-
-    需验证一条30-120秒真实生活Vlog（≥3个有效语义片段或连续字幕覆盖、
-    ≥5个内容阶段、≥10张有效非重复关键帧），未满足前保持false。
+    2026-07-18 完成71.7秒真实生活Vlog端到端理解：曲琪小饼干儿《今日早餐🥣酸汤麻酱面➕虾饺➕小烤肠》，
+    note_id=6a22183c000000002202364e，720x1280 h264+aac，页面/文件时长漂移0.003s。
+    faster-whisper small转写18片段（如实标注为BGM误识别，视频无有效口播）；
+    连续操作字幕覆盖5/6片段（83%≥50%阈值）；6个内容阶段（≥5）；
+    29张有效非重复关键帧（≥10）；15问分析报告全部可追溯到时间戳。
+    无减肥/燃脂/降糖/医疗风险表达；无商业植入信号。
+    usage_scope=stage_2_representative_poc，human_verified=false。
   stage_2_final_selection_ready: false
+  stage_2_infra_frozen: true
+  stage_2_infra_frozen_note: >-
+    2026-07-18 按任务书冻结Stage 2基础设施：浏览器适配器（CDP+WebBridge备用）、
+    视频下载链、FFmpeg抽帧、faster-whisper转写管线不再扩展新能力；
+    Stage 3 复用现有管线做真实10位达人采集与评分。
+  stage_3_scope_note: >-
+    Stage 3 目标为真实10位达人采集与评分，不再开发新的浏览器基础设施。
   final_delivery:
     - github_repository
     - final_report

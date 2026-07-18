@@ -484,6 +484,102 @@ def check_readonly_policy() -> None:
         report("FAIL", "POC 笔记数据不完整")
 
 
+def check_representative_poc() -> None:
+    """代表性生活 Vlog POC 双层门禁（minimal / representative 分离）。"""
+    import yaml  # noqa: PLC0415
+
+    from src.representative_poc import evaluate_representative_gates  # noqa: PLC0415
+
+    proj = yaml.safe_load((ROOT / "config/project.yaml").read_text(encoding="utf-8"))[
+        "project"]
+
+    # 双层 POC 定义存在且不互相否定
+    if proj.get("minimal_video_poc_ready") is True:
+        report("PASS", "minimal_video_poc_ready=true（3秒链路样本保留有效）")
+    else:
+        report("FAIL", "minimal_video_poc_ready 必须为 true")
+    rep_flag = proj.get("representative_video_poc_ready")
+
+    candidate_p = ROOT / "data/processed/xhs_representative_video_candidate.json"
+    manifest_p = ROOT / "data/processed/xhs_representative_video_manifest.json"
+    timeline_p = ROOT / "data/processed/xhs_representative_video_timeline.json"
+    report_p = ROOT / "reports/stage_2_representative_video_analysis.md"
+    for p in (candidate_p, manifest_p, timeline_p, report_p):
+        if p.is_file():
+            report("PASS", f"{p.relative_to(ROOT)} 存在")
+        else:
+            report("FAIL", f"缺少 {p.relative_to(ROOT)}")
+    if not all(p.is_file() for p in (candidate_p, manifest_p, timeline_p, report_p)):
+        if rep_flag is True:
+            report("FAIL", "representative_video_poc_ready=true 但产物缺失")
+        return
+
+    candidate = json.loads(candidate_p.read_text(encoding="utf-8"))
+    manifest = json.loads(manifest_p.read_text(encoding="utf-8"))
+    timeline = json.loads(timeline_p.read_text(encoding="utf-8"))
+    report_text = report_p.read_text(encoding="utf-8")
+
+    # 候选契约
+    if candidate.get("usage_scope") == "stage_2_representative_poc":
+        report("PASS", "候选 usage_scope 正确")
+    else:
+        report("FAIL", "候选 usage_scope 错误", str(candidate.get("usage_scope")))
+    if candidate.get("human_verified") is False:
+        report("PASS", "候选 human_verified=false")
+    else:
+        report("FAIL", "候选 human_verified 必须为 false")
+    raw = candidate_p.read_text(encoding="utf-8") + manifest_p.read_text(encoding="utf-8")
+    if "xsec_token" not in raw:
+        report("PASS", "候选与清单不含 xsec_token")
+    else:
+        report("FAIL", "候选/清单泄露 xsec_token")
+    if "D:\\" not in raw and "C:\\" not in raw:
+        report("PASS", "候选与清单无本地绝对路径")
+    else:
+        report("FAIL", "候选/清单含本地绝对路径")
+
+    # 门禁评估
+    result = evaluate_representative_gates(candidate, manifest, timeline, report_text)
+    if result.ready:
+        report("PASS", f"代表性门禁全部满足（{result.stats}）")
+    else:
+        report("FAIL", "代表性门禁未满足", "、".join(result.failures))
+
+    # 标志位一致性：门禁满足才允许 flag=true
+    if rep_flag is True and not result.ready:
+        report("FAIL", "representative_video_poc_ready=true 但门禁未满足")
+    elif rep_flag is True:
+        report("PASS", "representative_video_poc_ready=true 与门禁一致")
+    elif rep_flag is False:
+        if result.ready:
+            report("WARNING", "门禁已满足但 flag 仍为 false（待确认后更新）")
+        else:
+            report("PASS", "representative_video_poc_ready=false 与门禁一致")
+    else:
+        report("FAIL", "project.yaml 缺少 representative_video_poc_ready")
+
+    # Stage 2 总放行条件
+    if rep_flag is True:
+        stage3_ok = (
+            proj.get("stage_2_browser_poc_ready") is True
+            and proj.get("stage_2_video_poc_ready") is True
+            and proj.get("representative_video_poc_ready") is True
+        )
+        if stage3_ok and proj.get("current_stage") == "stage_3":
+            report("PASS", "三项 POC 均 true，已按规则进入 stage_3")
+        elif stage3_ok:
+            report("WARNING", "三项 POC 均 true 但 current_stage 未升级")
+        else:
+            report("FAIL", "representative=true 但其他 POC 条件不满足")
+
+    # 原始媒体未入 Git
+    gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8")
+    if "tmp/" in gitignore:
+        report("PASS", "tmp/ 已 gitignore（原始视频/转写/关键帧不入库）")
+    else:
+        report("FAIL", "tmp/ 未被 gitignore")
+
+
 def main() -> int:
     check_files()
     check_stage1_regression()
@@ -497,6 +593,7 @@ def main() -> int:
     check_notices_consistency(approved)
     check_model_instantiation()
     check_readonly_policy()
+    check_representative_poc()
 
     fails = [r for r in results if r[0] == "FAIL"]
     warnings = [r for r in results if r[0] == "WARNING"]

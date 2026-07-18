@@ -322,14 +322,20 @@ def extract_keyframes(
                                path=str(f), kind="interval"))
     if scene_change:
         scene_tpl = str(out / "scene_%04d.jpg")
-        runner(
+        proc = runner(
             [tool, "-y", "-i", str(video_path),
              "-vf", f"select='gt(scene,0.4)',showinfo,{scale}",
              "-vsync", "vfr", "-q:v", "5", scene_tpl],
-            capture_output=True, timeout=600,
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+            timeout=600,
         )
-        for f in sorted(out.glob("scene_*.jpg")):
-            frames.append(Keyframe(timestamp=-1.0, path=str(f), kind="scene_change"))
+        # showinfo stderr 中的 pts_time 与输出帧顺序一一对应，取真实时间戳
+        pts = [float(x) for x in
+               re.findall(r"pts_time:([0-9]+(?:\.[0-9]+)?)", proc.stderr or "")]
+        for i, f in enumerate(sorted(out.glob("scene_*.jpg"))):
+            ts = pts[i] if i < len(pts) else 0.0
+            frames.append(Keyframe(timestamp=round(ts, 3), path=str(f),
+                                   kind="scene_change"))
     return frames
 
 

@@ -76,8 +76,20 @@ def test_yaml_valid(rel_path: str) -> None:
 
 def test_current_stage_is_valid() -> None:
     data = yaml.safe_load((ROOT / "config/project.yaml").read_text(encoding="utf-8"))
-    # Stage 0/1 已通过验收，允许推进到 stage_2
-    assert data["project"]["current_stage"] in {"stage_0", "stage_1", "stage_2"}
+    # Stage 0/1 已通过验收；Stage 2 四项放行条件满足后允许推进到 stage_3
+    assert data["project"]["current_stage"] in {
+        "stage_0", "stage_1", "stage_2", "stage_3"}
+
+
+def test_stage3_requires_all_stage2_gates() -> None:
+    """current_stage=stage_3 时，Stage 2 四项放行条件必须全部为 true。"""
+    project = yaml.safe_load((ROOT / "config/project.yaml").read_text(encoding="utf-8"))[
+        "project"]
+    if project["current_stage"] != "stage_3":
+        return
+    for flag in ("stage_2_browser_poc_ready", "stage_2_video_poc_ready",
+                 "representative_video_poc_ready", "stage_2_remote_delivered"):
+        assert project.get(flag) is True, f"进入 stage_3 前 {flag} 必须为 true"
 
 
 def test_minimum_gate_score_is_90() -> None:

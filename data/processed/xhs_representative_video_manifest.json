@@ -1,0 +1,25 @@
+{
+  "note_id": "6a22183c000000002202364e",
+  "canonical_url": "https://www.xiaohongshu.com/explore/6a22183c000000002202364e",
+  "creator_name": "曲琪小饼干儿🍪",
+  "title": "今日早餐🥣酸汤麻酱面➕虾饺➕小烤肠",
+  "file_size_bytes": 14122005,
+  "sha256": "e9935e41e23a09b9bf53c4a91304738df04bb08c740923fabb6af12e9c61c301",
+  "duration_seconds_file": 71.72,
+  "duration_seconds_page": 71.717,
+  "duration_drift_seconds": 0.003,
+  "width": 720,
+  "height": 1280,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "asr_model": "faster-whisper small (local)",
+  "keyframe_stats": {
+    "interval_total": 36,
+    "scene_change_total": 20,
+    "deduped_total": 41,
+    "valid_interval": 29
+  },
+  "source": "cdp_page_observed",
+  "observed_at": "2026-07-18T14:08:57.689273+00:00",
+  "raw_artifacts": "tmp/xhs_representative_video/ (gitignored)"
+}

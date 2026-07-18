@@ -84,16 +84,34 @@ NOTE_MEDIA_JS = (
     "backup_urls:(rw(ee.backupUrls)||[]).slice(0,3),"
     "width:ee.width||null,height:ee.height||null,duration:ee.duration||null,"
     "size:ee.size||null,videoBitrate:ee.videoBitrate||null});});});"
+    "if(vdur===null||vdur===undefined){"
+    "const sd=streams.find(x=>x.duration!==null&&x.duration!==undefined);"
+    "if(sd)vdur=sd.duration;}"
     "}catch(e){}"
     "return JSON.stringify({note_id:k,title:n.title||'',desc:(n.desc||'').slice(0,120),"
     "type:n.type||'',nickname:user.nickname||user.nickName||'',"
     "user_id:user.userId||'',time:n.time||null,"
+    "official_verify:rw(user.redOfficialVerifyType)!==undefined?rw(user.redOfficialVerifyType):null,"
     "likes:ii.likedCount||'',collects:ii.collectedCount||'',comments:ii.commentCount||'',"
     "video_duration:vdur,cover:cover,streams:streams});})()"
 )
 
+# 搜索结果列表：用于代表性样本筛选（只读，含 xsecToken 供构造笔记 URL）
+SEARCH_NOTES_JS = (
+    "(()=>{const rw=o=>o&&o._value!==undefined?o._value:o;"
+    "const s=window.__INITIAL_STATE__;const fs=rw(s&&s.search&&s.search.feeds);"
+    "if(!fs)return JSON.stringify([]);const out=[];"
+    "fs.flat().forEach(f=>{const item=rw(f)||{};const c=rw(item.noteCard)||{};"
+    "const u=rw(c.user)||{};"
+    "out.push({note_id:item.id||c.noteId||'',title:c.displayTitle||c.title||'',"
+    "type:c.type||'',nickname:u.nickname||u.nickName||'',user_id:u.userId||'',"
+    "xsec_token:item.xsecToken||c.xsecToken||''})});"
+    "return JSON.stringify(out);})()"
+)
+
 _READ_ONLY_TEMPLATES = frozenset(
-    {PAGE_STATE_JS, LOGIN_GATE_JS, NOTE_MEDIA_JS, PROFILE_NOTES_XSEC_JS}
+    {PAGE_STATE_JS, LOGIN_GATE_JS, NOTE_MEDIA_JS, PROFILE_NOTES_XSEC_JS,
+     SEARCH_NOTES_JS}
 )
 
 # 软导航前缀：等价于用户在地址栏输入 URL（只读跳转），目标 URL 由适配器内部构造
@@ -271,7 +289,7 @@ class XhsCdpBrowserAdapter:
     def chrome_reachable(self) -> bool:
         try:
             with urllib.request.urlopen(
-                f"{self.endpoint}/json/version", timeout=5
+                f"{self.policy.endpoint}/json/version", timeout=5
             ) as resp:
                 return resp.status == 200
         except OSError:
@@ -373,6 +391,10 @@ class XhsCdpBrowserAdapter:
 
     def extract_profile_notes_xsec(self, page: Any) -> list[dict]:
         data = self.evaluate_readonly(page, PROFILE_NOTES_XSEC_JS)
+        return list(data) if data else []
+
+    def extract_search_notes(self, page: Any) -> list[dict]:
+        data = self.evaluate_readonly(page, SEARCH_NOTES_JS)
         return list(data) if data else []
 
     # ---- 登录等待 ----

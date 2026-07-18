@@ -303,8 +303,9 @@ def check_current_stage() -> None:
         report("FAIL", "project.yaml 无法读取", str(exc))
         return
     stage = (data or {}).get("project", {}).get("current_stage")
-    # Stage 0/1 已通过验收，阶段可正常推进；本检查确认阶段值合法且已记录推进
-    valid_stages = {"stage_0", "stage_1", "stage_2"}
+    # Stage 0/1 已通过验收，Stage 2 四项放行条件满足后可推进 stage_3；
+    # 本检查确认阶段值合法且已记录推进
+    valid_stages = {"stage_0", "stage_1", "stage_2", "stage_3"}
     if stage in valid_stages:
         report("PASS", f"当前阶段值合法: {stage}（Stage 0 交付物回归检查）")
     else:
