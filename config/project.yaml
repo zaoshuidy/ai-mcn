@@ -13,7 +13,7 @@ project:
     yt-dlp 对未登录页面无法取得视频流；从已登录页面提取 video_url 需要
     用户将小红书标签页切到前台（WebBridge 只能借用前台标签页）。
     全链路管线（ffmpeg/转写/抽帧/时间线/报告）已就绪，待人工门禁解除后一条命令完成。
-  stage_2_remote_delivered: false
+  stage_2_remote_delivered: true
   stage_2_final_selection_ready: false
   final_delivery:
     - github_repository
