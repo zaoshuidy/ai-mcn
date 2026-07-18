@@ -47,8 +47,21 @@ def test_scope_limits(policy: ReadOnlyPolicy) -> None:
 
 
 def test_allowed_bridge_actions_pass(policy: ReadOnlyPolicy) -> None:
-    for action in ["navigate", "snapshot", "screenshot", "evaluate", "find_tab", "list_tabs"]:
+    for action in ["snapshot", "screenshot", "evaluate", "find_tab", "list_tabs"]:
         policy.check_bridge_action(action)
+
+
+def test_navigate_removed_from_allowlist(policy: ReadOnlyPolicy) -> None:
+    """navigate 已从白名单移除：不再允许任何 navigate 入口。"""
+    assert "navigate" not in policy.bridge_allowed
+    with pytest.raises(PolicyViolation):
+        policy.check_bridge_action("navigate")
+
+
+def test_policy_file_has_no_legacy_navigate_entry() -> None:
+    """策略文件中不得保留旧 navigate 白名单入口。"""
+    text = POLICY_PATH.read_text(encoding="utf-8")
+    assert "- navigate" not in text
 
 
 @pytest.mark.parametrize("action", ["click", "fill", "upload", "cdp", "network",
@@ -83,6 +96,44 @@ def test_adapter_has_no_write_methods(policy: ReadOnlyPolicy) -> None:
     for name in ["click", "fill", "upload", "like", "collect", "comment",
                  "follow", "dm", "publish", "cdp"]:
         assert not hasattr(adapter, name), f"适配器不应提供 {name}"
+
+
+def test_adapter_has_no_public_navigate_method(policy: ReadOnlyPolicy) -> None:
+    """旧 public navigate 已删除；高层方法统一为 *_soft 软导航。"""
+    adapter = make_adapter(policy)
+    assert not hasattr(adapter, "navigate")
+    for name in ["search_notes_soft", "open_profile_soft", "open_note_soft"]:
+        assert callable(getattr(adapter, name)), f"缺少软导航方法 {name}"
+
+
+def test_source_has_no_legacy_navigate_call() -> None:
+    """适配器源码中不得再向守护进程发送 navigate 动作。"""
+    src = (ROOT / "adapters/xhs_browser_adapter.py").read_text(encoding="utf-8")
+    assert '"navigate"' not in src
+    assert "'navigate'" not in src
+    assert "def navigate" not in src
+
+
+def test_soft_navigation_reuses_session_tab(policy: ReadOnlyPolicy, monkeypatch) -> None:
+    """软导航通过受限 evaluate 在当前已登录标签页内修改地址，不创建新标签页。"""
+    adapter = make_adapter(policy)
+    calls: list[str] = []
+
+    def fake_command(action: str, args: dict, timeout=None):
+        calls.append(action)
+        if action == "evaluate":
+            code = args.get("code", "")
+            if code.startswith("(()=>{location.href="):
+                return {"value": None}
+            return {"value": '{"url":"https://www.xiaohongshu.com/explore/abc123",'
+                             '"ready":"complete","items":0}'}
+        raise AssertionError(f"软导航不应触发动作 {action}")
+
+    monkeypatch.setattr(adapter, "_command", fake_command)
+    adapter._limiter.wait = lambda: None  # 测试不限速
+    adapter.soft_navigate("https://www.xiaohongshu.com/explore/abc123", max_polls=1)
+    assert "navigate" not in calls
+    assert set(calls) <= {"evaluate"}
 
 
 def test_adapter_rejects_arbitrary_evaluate(policy: ReadOnlyPolicy) -> None:

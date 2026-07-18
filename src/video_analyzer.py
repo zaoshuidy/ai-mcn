@@ -21,6 +21,7 @@ from src.video_models import (
     Keyframe,
     TimelineEntry,
     TranscriptSegment,
+    VideoSegment,
     VideoTimeline,
 )
 
@@ -71,7 +72,223 @@ def detect_risk_words(text: str) -> list[str]:
 
 
 def find_ffmpeg() -> Optional[str]:
-    return shutil.which("ffmpeg")
+    """优先系统 PATH；否则回退 imageio-ffmpeg 自带静态二进制（CAND-009）。"""
+    tool = shutil.which("ffmpeg")
+    if tool:
+        return tool
+    try:
+        import imageio_ffmpeg
+
+        return str(imageio_ffmpeg.get_ffmpeg_exe())
+    except ImportError:
+        return None
+
+
+FFMPEG_DURATION_RE = re.compile(r"Duration:\s*(\d+):(\d+):(\d+)\.(\d+)")
+FFMPEG_VIDEO_RE = re.compile(r"Video:\s*([a-zA-Z0-9]+)[^,]*,[^,]*,\s*(\d+)x(\d+)")
+FFMPEG_AUDIO_RE = re.compile(r"Audio:\s*([a-zA-Z0-9]+)")
+
+
+def probe_video_metadata(
+    video_path: str | Path,
+    runner: Runner = subprocess.run,
+) -> dict:
+    """用 `ffmpeg -i` 探测时长/分辨率/编码（无 ffprobe 时的替代）。
+
+    返回 {duration_seconds, resolution, video_codec, audio_codec, ffmpeg_version}；
+    无法解析的字段为 None，禁止编造。
+    """
+    tool = find_ffmpeg()
+    if not tool:
+        raise FileNotFoundError("ffmpeg 不可用，无法探测视频元数据")
+    proc = runner([tool, "-i", str(video_path)], capture_output=True, text=True,
+                  encoding="utf-8", errors="replace", timeout=120)
+    output = (proc.stderr or "") + (proc.stdout or "")
+    meta: dict = {"duration_seconds": None, "resolution": None,
+                  "video_codec": None, "audio_codec": None, "ffmpeg_version": ""}
+    ver = re.search(r"ffmpeg version\s+(\S+)", output)
+    if ver:
+        meta["ffmpeg_version"] = ver.group(1)
+    dur = FFMPEG_DURATION_RE.search(output)
+    if dur:
+        h, m, s, frac = dur.groups()
+        meta["duration_seconds"] = round(
+            int(h) * 3600 + int(m) * 60 + int(s) + int(frac.ljust(3, "0")[:3]) / 1000.0, 3)
+    vid = FFMPEG_VIDEO_RE.search(output)
+    if vid:
+        meta["video_codec"] = vid.group(1)
+        meta["resolution"] = f"{vid.group(2)}x{vid.group(3)}"
+    aud = FFMPEG_AUDIO_RE.search(output)
+    if aud:
+        meta["audio_codec"] = aud.group(1)
+    return meta
+
+
+def sha256_file(path: str | Path, chunk_size: int = 1 << 20) -> str:
+    """计算文件 SHA-256（用于证据清单，原始文件不入 Git）。"""
+    import hashlib
+
+    digest = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(chunk_size), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def average_hash(image_path: str | Path, size: int = 8) -> int:
+    """PIL 感知均值哈希，用于近似重复帧去除。"""
+    from PIL import Image
+
+    with Image.open(image_path) as img:
+        pixels = list(img.convert("L").resize((size, size)).getdata())
+    avg = sum(pixels) / len(pixels)
+    bits = 0
+    for p in pixels:
+        bits = (bits << 1) | (1 if p >= avg else 0)
+    return bits
+
+
+def hamming_distance(a: int, b: int) -> int:
+    return bin(a ^ b).count("1")
+
+
+def dedupe_keyframes(frame_paths: list[Path], max_distance: int = 5) -> list[Path]:
+    """去除近似重复帧（均值哈希汉明距离 ≤ max_distance 视为重复）。"""
+    kept: list[Path] = []
+    hashes: list[int] = []
+    for path in frame_paths:
+        try:
+            h = average_hash(path)
+        except Exception:  # noqa: BLE001 - 单帧损坏不阻塞整体流程
+            kept.append(path)
+            hashes.append(-1 << 64)
+            continue
+        if all(hamming_distance(h, prev) > max_distance for prev in hashes):
+            kept.append(path)
+            hashes.append(h)
+    return kept
+
+
+def format_srt_time(seconds: float) -> str:
+    """秒 → SRT 时间格式 HH:MM:SS,mmm。"""
+    ms = int(round(seconds * 1000))
+    h, rem = divmod(ms, 3_600_000)
+    m, rem = divmod(rem, 60_000)
+    s, ms = divmod(rem, 1000)
+    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+
+
+def segments_to_srt(segments: list[TranscriptSegment]) -> str:
+    """转写片段列表 → SRT 文本。"""
+    blocks = []
+    for i, seg in enumerate(segments, start=1):
+        blocks.append(
+            f"{i}\n{format_srt_time(seg.start)} --> {format_srt_time(seg.end)}\n{seg.text}"
+        )
+    return "\n\n".join(blocks) + "\n"
+
+
+def transcribe_with_faster_whisper(
+    audio_path: str | Path,
+    out_dir: str | Path,
+    model_size: str = "base",
+) -> tuple[Path, Path]:
+    """faster-whisper（CAND-010，MIT）本地转写，生成 transcript.txt / transcript.srt。
+
+    仅在 VideoCaptioner CLI 不可用时作为已登记替代方案；
+    模型权重需联网下载，失败时抛 RuntimeError（如实记录，不伪造转写）。
+    """
+    from faster_whisper import WhisperModel
+
+    out = Path(out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    try:
+        model = WhisperModel(model_size, device="cpu", compute_type="int8")
+        raw_segments, _info = model.transcribe(str(audio_path), language="zh")
+        segments = [
+            TranscriptSegment(start=round(s.start, 3), end=round(s.end, 3),
+                              text=s.text.strip())
+            for s in raw_segments
+            if s.text.strip()
+        ]
+    except Exception as exc:  # noqa: BLE001 - 模型下载/推理失败须如实上报
+        raise RuntimeError(f"faster-whisper 转写失败: {exc}") from exc
+    if not segments:
+        raise RuntimeError("faster-whisper 转写结果为空")
+    txt = out / "transcript.txt"
+    srt = out / "transcript.srt"
+    txt.write_text("\n".join(s.text for s in segments), "utf-8")
+    srt.write_text(segments_to_srt(segments), "utf-8")
+    return txt, srt
+
+
+def extract_audio(
+    video_path: str | Path,
+    out_path: str | Path,
+    runner: Runner = subprocess.run,
+) -> Path:
+    """FFmpeg 抽取 16kHz 单声道音频（ASR 输入）。"""
+    tool = find_ffmpeg()
+    if not tool:
+        raise FileNotFoundError("ffmpeg 不可用，无法抽取音频")
+    out = Path(out_path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    proc = runner(
+        [tool, "-y", "-i", str(video_path), "-vn", "-ar", "16000", "-ac", "1",
+         str(out)],
+        capture_output=True, timeout=600,
+    )
+    if proc.returncode != 0 or not out.is_file() or out.stat().st_size == 0:
+        raise RuntimeError("FFmpeg 音频抽取失败")
+    return out
+
+
+COMMERCIAL_HINTS = ["链接", "橱窗", "小黄车", "同款", "旗舰店", "下单", "优惠券", "直播间"]
+
+
+def build_video_segments(
+    segments: list[TranscriptSegment],
+    keyframes: list[Keyframe],
+) -> list[VideoSegment]:
+    """音频（转写）与关键帧证据合并为 12 字段时间线片段。
+
+    合并规则：
+    - 每个转写片段对应一个 VideoSegment；
+    - evidence_frame_timestamps 取落在 [start, end] 内的真实关键帧时间戳；
+    - 视觉类字段一律 None（无视觉模型，禁止编造）；
+    - food_or_product 仅口播明确提及 PRODUCT_HINTS 时填写，confidence 降为 0.6；
+    - commercial_expression 仅口播明确提及 COMMERCIAL_HINTS 时填写；
+    - product_first_appearance 只在全片首个提及产品的片段填写（基于口播证据）。
+    """
+    frame_times = sorted(k.timestamp for k in keyframes if k.timestamp >= 0)
+    results: list[VideoSegment] = []
+    first_product_time: Optional[float] = None
+    for seg in segments:
+        hits = [h for h in PRODUCT_HINTS if h in seg.text]
+        if hits and first_product_time is None:
+            first_product_time = seg.start
+    for seg in segments:
+        hits = [h for h in PRODUCT_HINTS if h in seg.text]
+        commercial = [h for h in COMMERCIAL_HINTS if h in seg.text]
+        evidence = [t for t in frame_times if seg.start <= t < seg.end]
+        has_text = bool(seg.text.strip())
+        confidence = 0.9 if has_text else 0.0
+        if hits:  # 产品判断仅来自口播提及，无视觉证据，降置信度
+            confidence = min(confidence, 0.6)
+        results.append(VideoSegment(
+            start_time=seg.start,
+            end_time=seg.end,
+            transcript_summary=seg.text,
+            food_or_product="、".join(hits) if hits else None,
+            product_first_appearance=(
+                first_product_time if hits and seg.start == first_product_time else None
+            ),
+            commercial_expression="、".join(commercial) if commercial else None,
+            compliance_risks=detect_risk_words(seg.text),
+            evidence_frame_timestamps=evidence,
+            confidence=confidence,
+        ))
+    return results
 
 
 def extract_keyframes(

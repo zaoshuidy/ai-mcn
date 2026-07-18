@@ -11,8 +11,8 @@ browser:
   credential_read: forbidden
 
   # 适配器允许调用的 WebBridge 动作（白名单，其余一律拒绝）
+  # 注意：navigate 已禁用——软导航复用已登录会话标签页，不创建新标签页
   bridge_allowed_actions:
-    - navigate # 打开搜索页/笔记/主页
     - find_tab # 重新定位本会话标签页
     - list_tabs # 会话标签页检查
     - snapshot # 读取页面可访问性树（只读）

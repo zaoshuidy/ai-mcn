@@ -26,11 +26,13 @@ kimi-webbridge 守护进程（127.0.0.1:10086）
 用户真实 Chrome（已登录小红书，Cookie 不出浏览器）
 ```
 
-- 白名单动作：navigate / find_tab / list_tabs / snapshot / evaluate / screenshot；
+- 白名单动作：find_tab / list_tabs / snapshot / evaluate / screenshot（navigate 已彻底移除）；
   click / fill / upload / cdp 等在适配器层直接 PolicyViolation；
 - evaluate 仅允许内置只读脚本（搜索卡片/笔记/主页提取、门禁检测、页面状态、软导航）；
 - 每次页面请求 ≥3 秒（RateLimiter），自动重试 ≤1 次；
-- 守护进程 navigate 对重页面有 30s load 超时 → 改用 location.href 软导航＋轮询就绪。
+- 守护进程 navigate 对重页面有 30s load 超时 → 三个高层方法统一为软导航
+  （search_notes_soft / open_profile_soft / open_note_soft）：location.href 赋值＋轮询就绪，
+  复用已登录会话标签页，不创建新标签页。
 
 ## 3. 浏览器 POC 真实结果
 
@@ -73,9 +75,56 @@ kimi-webbridge 守护进程（127.0.0.1:10086）
 - 新增离线测试 47 项（只读策略 25 + 视频管线 22），全部通过；
 - 全量回归：Stage 0/1/2 验证脚本、pytest、ruff 结果见交付报告。
 
-## 7. 未完成与后续
+## 7. 第二轮（2026-07-18）：navigate 清理与真实视频端到端尝试
 
-- 真实视频笔记的获取与转写抽帧：需含视频的笔记 URL + 安装 FFmpeg/VideoCaptioner
-  （或经准入的替代 CLI）后重跑 `scripts/analyze_xhs_video.py`；
-- 视觉类字段（屏幕字幕/动作/场景/镜头/产品露出）保持留空，待人工或视觉模型标注；
+### 7.1 navigate 彻底清理（已验证）
+
+- 策略白名单删除 navigate（现仅 find_tab/list_tabs/snapshot/evaluate/screenshot）；
+- 适配器无 public navigate 方法，源码不再向守护进程发送 navigate 动作（测试锁定）；
+- 三个高层方法统一软导航并复用已登录会话标签页（测试锁定）；
+- 主页笔记提取修正为真实 noteCard 结构（id/displayTitle/type/interactInfo.likedCount）。
+
+### 7.2 真实视频笔记定位（page_observed）
+
+| 字段 | 值 |
+| -- | -- |
+| 达人 | 小娇日记747（主页 SSR 笔记列表提取） |
+| 标题 | 爬坡后吃根香蕉 下颌线真的越来越清晰！！ |
+| note_id | 6a4903ad000000002003b221 |
+| type | video（noteCard.type，page_observed） |
+| canonical_url | https://www.xiaohongshu.com/explore/6a4903ad000000002003b221（无 xsec_token） |
+
+范围：检查 4 位达人主页（第 4 位因守护进程超时中断）；候选存
+`data/processed/xhs_video_candidate.json`（human_verified=false）。
+
+### 7.3 视频获取链真实结果（第二轮）
+
+| 步骤 | 结果 | 说明 |
+| -- | -- | -- |
+| yt-dlp 2026.07.04 | 失败 | 未登录 explore 页面返回 No video formats found（页面不含视频流） |
+| XHS-Downloader | 未安装 | 需 Cookie 配置，属策略禁止（不导出 Cookie） |
+| 已登录页面提取 video_url | 阻塞（人工门禁） | WebBridge 只能借用**前台**标签页；用户当前未查看小红书页面，4 次借用均失败；守护进程 502 后按规则仅重启一次并恢复 |
+
+### 7.4 工具链就绪（真实安装与验证）
+
+- FFmpeg v7.1（imageio-ffmpeg 0.6.0，BSD-2-Clause，CAND-009，58 分 poc_required）：
+  `ffmpeg -i` 元数据探测、音频抽取、每 2 秒＋场景切换抽帧均可用；
+- faster-whisper 1.2.1（MIT，CAND-010，82 分 poc_required）＋ tiny 本地模型
+  （75.5MB，经 ModelScope 真实下载并加载验证）；
+- 12 字段 VideoSegment / VideoTimelineV2 / VideoEvidenceManifest 模型与全链路编排脚本
+  `scripts/analyze_xhs_video.py` 就绪；新增 27 项测试，全量 315 项通过。
+
+### 7.5 当前状态
+
+`stage_2_video_poc_ready = false`——视频未真实下载/转写/抽帧，不伪造成功。
+门禁解除（用户将小红书标签页切到前台）后，一条命令完成全链路：
+
+```bash
+python scripts/analyze_xhs_video.py   # 自动：提取video_url→下载→转写→抽帧→时间线→报告
+```
+
+## 8. 未完成与后续
+
+- 真实视频下载/转写/抽帧/时间线：待人工门禁（前台标签页）解除后执行；
+- 视觉类字段（屏幕字幕/动作/场景/镜头/产品露出）保持 None，待人工或视觉模型标注；
 - 本 POC 不构成达人名单，全部候选仍需人工验证表审核。

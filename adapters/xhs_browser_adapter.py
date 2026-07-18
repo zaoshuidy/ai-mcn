@@ -5,7 +5,7 @@
 读取页面文字、截图。
 
 强制约束（config/xhs_readonly_policy.yaml 为唯一权威来源）：
-- WebBridge 动作白名单：navigate/find_tab/list_tabs/snapshot/evaluate/screenshot；
+- WebBridge 动作白名单：find_tab/list_tabs/snapshot/evaluate/screenshot（navigate 已禁用）；
   click/fill/upload/cdp 等写能力与逃逸通道在适配器层直接拒绝；
 - evaluate 只允许本模块内置的只读提取脚本（EXTRACT_* 常量），不接受外部任意代码；
 - 每次页面请求间隔 ≥3 秒，自动重试 ≤1 次；
@@ -67,6 +67,18 @@ EXTRACT_PROFILE_JS = (
     "follows:g('follows'),interaction:g('interaction'),red_id:b.redId||''});})()"
 )
 
+
+EXTRACT_PROFILE_NOTES_JS = (
+    "(()=>{const rw=o=>o&&o._value!==undefined?o._value:o;"
+    "const s=window.__INITIAL_STATE__;const ns=rw(s&&s.user&&s.user.notes);"
+    "if(!ns)return JSON.stringify([]);const out=[];"
+    "ns.flat().forEach(n=>{const item=rw(n)||{};const c=rw(item.noteCard)||{};"
+    "const ii=rw(c.interactInfo)||{};"
+    "out.push({note_id:item.id||c.noteId||'',title:c.displayTitle||c.title||'',"
+    "type:c.type||'',likes:ii.likedCount||''})});"
+    "return JSON.stringify(out);})()"
+)
+
 HUMAN_GATE_CHECK_JS = (
     "(()=>{const t=document.body?document.body.innerText:'';"
     "const marks=['扫码登录','登录后查看','安全验证','拖动滑块'];"
@@ -90,6 +102,7 @@ _READ_ONLY_SNIPPETS = {
     EXTRACT_PROFILE_JS,
     HUMAN_GATE_CHECK_JS,
     PAGE_STATE_JS,
+    EXTRACT_PROFILE_NOTES_JS,
 }
 
 
@@ -249,18 +262,18 @@ class XhsReadOnlyBrowserAdapter:
     def list_tabs(self) -> list[dict]:
         return list(self._command("list_tabs", {}).get("tabs", []))
 
-    def ensure_session_tab(self, group_title: str = "") -> None:
-        """确保会话中有一个标签页（先开轻量页，避免重页面 load 超时）。"""
+    def ensure_session_tab(self) -> None:
+        """确保会话中已有已登录标签页；适配器不创建新标签页。
+
+        会话标签页由用户浏览器既有页面或本会话此前复用的页面提供；
+        不存在时停止并提示人工打开小红书标签页，不用 navigate 创建。
+        """
         if self.list_tabs():
             return
-        args: dict[str, Any] = {"url": f"{XHS_BASE}/explore", "newTab": True}
-        if group_title:
-            args["group_title"] = group_title
-        try:
-            self._page_request("navigate", args, timeout=60.0)
-        except BridgeUnavailable:
-            if not self.list_tabs():
-                raise
+        raise BridgeUnavailable(
+            "会话中无标签页：请在已登录浏览器中打开一个小红书页面后重试"
+            "（只读适配器不创建新标签页）"
+        )
 
     def soft_navigate(self, url: str, wait_items: bool = False, max_polls: int = 20) -> str:
         """location.href 软导航 + 轮询就绪，规避守护进程 load 超时。
@@ -304,7 +317,7 @@ class XhsReadOnlyBrowserAdapter:
         )
         return str(data.get("path", str(path)))
 
-    def search_notes(self, keyword: str, max_results: Optional[int] = None) -> list[dict]:
+    def search_notes_soft(self, keyword: str, max_results: Optional[int] = None) -> list[dict]:
         cap = max_results or self.policy.scope_limits["max_search_results"]
         query = urllib.parse.quote(keyword)
         url = f"{XHS_BASE}/search_result?keyword={query}&source=web_explore_feed"
@@ -313,7 +326,7 @@ class XhsReadOnlyBrowserAdapter:
         cards = self._evaluate_readonly(EXTRACT_SEARCH_CARDS_JS) or []
         return cards[:cap]
 
-    def open_note(self, url: str) -> dict:
+    def open_note_soft(self, url: str) -> dict:
         self.soft_navigate(url)
         self.check_human_gate()
         detail = self._evaluate_readonly(EXTRACT_NOTE_DETAIL_JS)
@@ -322,7 +335,7 @@ class XhsReadOnlyBrowserAdapter:
         detail["url"] = self.current_url() or url
         return detail
 
-    def open_profile(self, url: str) -> dict:
+    def open_profile_soft(self, url: str) -> dict:
         self.soft_navigate(url)
         self.check_human_gate()
         profile = self._evaluate_readonly(EXTRACT_PROFILE_JS)
@@ -330,3 +343,11 @@ class XhsReadOnlyBrowserAdapter:
             raise BridgeUnavailable(f"主页数据提取失败: {url}")
         profile["url"] = self.current_url() or url
         return profile
+
+    def open_profile_notes_soft(self, url: str, max_notes: int = 10) -> list[dict]:
+        """打开达人主页并提取近期笔记列表（只读）。"""
+        self.soft_navigate(url)
+        self.check_human_gate()
+        notes = self._evaluate_readonly(EXTRACT_PROFILE_NOTES_JS) or []
+        return notes[:max_notes]
+

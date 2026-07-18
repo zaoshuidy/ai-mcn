@@ -47,12 +47,12 @@ def main() -> int:
     if not adapter.check_daemon():
         print("[BLOCKED] WebBridge 守护进程不可达：请运行 kimi-webbridge start 后重试")
         return 2
-    adapter.ensure_session_tab(group_title="MCN Stage2 只读POC")
+    adapter.ensure_session_tab()
 
     result: dict = {"keyword": keyword, "policy": limits, "search_results": [],
                     "profiles": [], "note": None, "screenshots": [], "errors": []}
     try:
-        cards = adapter.search_notes(keyword)
+        cards = adapter.search_notes_soft(keyword)
         result["search_results"] = cards
         result["screenshots"].append(adapter.take_screenshot("01_search.png"))
         print(f"[POC] 搜索结果 {len(cards)} 条")
@@ -60,7 +60,7 @@ def main() -> int:
         for card in cards[: limits["max_creator_profiles"]]:
             if not card.get("author_url"):
                 continue
-            profile = adapter.open_profile(card["author_url"])
+            profile = adapter.open_profile_soft(card["author_url"])
             result["profiles"].append(profile)
             result["screenshots"].append(
                 adapter.take_screenshot(f"02_profile_{len(result['profiles'])}.png")
@@ -70,7 +70,7 @@ def main() -> int:
         video_cards = [c for c in cards if c.get("is_video")]
         target = (video_cards or cards)[0] if cards else None
         if target:
-            note = adapter.open_note(target["url"])
+            note = adapter.open_note_soft(target["url"])
             result["note"] = note
             result["screenshots"].append(adapter.take_screenshot("03_note.png"))
             print(f"[POC] 笔记《{note.get('title', '')[:20]}》 "
