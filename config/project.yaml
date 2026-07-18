@@ -14,7 +14,12 @@ project:
     720x960 / h264+aac，与页面流元数据一致）、faster-whisper small 真实转写、
     3 张真实关键帧多模态读取、14字段音视频联合时间线、10点分析报告。
     目标笔记 usage_scope=technical_poc_only，excluded_from_creator_selection。
-  stage_2_remote_delivered: true
+  stage_2_remote_delivered: false
+  stage_2_remote_delivery_note: >-
+    2026-07-18 本轮提交 ffe8d02 已本地完成，但 github.com:443 持续不可达，
+    3 轮受控重试推送均失败，远程 origin/main 停留在 37c0ea2，本地领先 1 个提交。
+    网络恢复后执行 git -c http.version=HTTP/1.1 push origin main 并核验远程 SHA 后，
+    方可将本字段恢复为 true。
   stage_2_final_selection_ready: false
   final_delivery:
     - github_repository
