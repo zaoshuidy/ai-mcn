@@ -78,9 +78,14 @@ CSV_REQUIRED_HEADER = [
     "review_notes",
 ]
 
+# token 前不得有字母/下划线：xsec_token 是小红书公开分享链接参数，非凭据
+_SECRET_CRED = (
+    r"(?i)(api[_-]?key|secret|(?<![A-Za-z_])token|password)"
+    r"[ \t]*[:=][ \t]*['\"]?[A-Za-z0-9_\-]{16,}"
+)
 SECRET_PATTERNS = [
     re.compile(r"sk-[A-Za-z0-9]{20,}"),
-    re.compile(r"(?i)(api[_-]?key|secret|token|password)[ \t]*[:=][ \t]*['\"]?[A-Za-z0-9_\-]{16,}"),
+    re.compile(_SECRET_CRED),
     re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----"),
     re.compile(r"ghp_[A-Za-z0-9]{20,}"),
 ]
@@ -211,10 +216,15 @@ def check_csv_header() -> None:
     with path.open(encoding="utf-8", newline="") as fh:
         rows = list(csv.DictReader(fh))
     example_rows = [r for r in rows if r.get("status") == "example_only"]
-    approved_like = [
-        r for r in rows if r.get("status") not in {"example_only", "pending", "rejected", ""}
-    ]
-    if approved_like:
+    # 合法状态全集（与 src/component_admission.ComponentStatus 一致）；
+    # 仅 approved 需要 approved_components.yaml 佐证，其余中间态合法
+    legal = {
+        "example_only", "pending", "under_review", "poc_required",
+        "reference_only", "rejected", "",
+    }
+    unknown = [r for r in rows if r.get("status") not in legal | {"approved"}]
+    fake_approved = [r for r in rows if r.get("status") == "approved"]
+    if unknown or fake_approved:
         report("FAIL", "存在被错误标记为已批准的示例/未审查组件")
     elif example_rows:
         report("PASS", "CSV 示例行已标记 example_only")

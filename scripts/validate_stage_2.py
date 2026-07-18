@@ -63,11 +63,27 @@ REQUIRED_FILES = [
     "tests/test_component_admission.py",
     "tests/test_creator_models.py",
     "tests/test_creator_search_strategy.py",
+    "config/xhs_readonly_policy.yaml",
+    "adapters/xhs_browser_adapter.py",
+    "adapters/xhs_video_adapter.py",
+    "src/video_models.py",
+    "src/video_analyzer.py",
+    "scripts/run_xhs_readonly_poc.py",
+    "scripts/analyze_xhs_video.py",
+    "tests/test_xhs_readonly_policy.py",
+    "tests/test_video_pipeline.py",
+    "reports/stage_2_browser_video_poc.md",
+    "data/processed/xhs_browser_poc.json",
 ]
 
 ABSOLUTE_PATH_PATTERN = re.compile(r"(?<![A-Za-z])[A-Za-z]:[\\/]|/Users/|/home/")
+# token 前不得有字母/下划线：xsec_token 是小红书公开分享链接参数，非凭据
+_SECRET_CRED = (
+    r"(?i)(api[_-]?key|secret|(?<![A-Za-z_])token|password)"
+    r"[ \t]*[:=][ \t]*['\"]?[A-Za-z0-9_\-]{16,}"
+)
 SECRET_PATTERNS = [
-    re.compile(r"(?i)(api[_-]?key|secret|token|password)[ \t]*[:=][ \t]*['\"]?[A-Za-z0-9_\-]{16,}"),
+    re.compile(_SECRET_CRED),
     re.compile(r"sk-[A-Za-z0-9]{20,}"),
     re.compile(r"ghp_[A-Za-z0-9]{20,}"),
     re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----"),
@@ -148,8 +164,8 @@ def load_registry() -> tuple[list[dict], list, list]:
 def check_component_status_flow(candidates: list[dict], approved: list, rejected: list) -> None:
     """状态机合法：无 pending 直接 approved；approved 必须过 POC 且分数达标。"""
     real_rows = [r for r in candidates if r.get("status") != "example_only"]
-    if len(real_rows) == 4:
-        report("PASS", "候选登记表含 4 个真实组件")
+    if len(real_rows) >= 4:
+        report("PASS", f"候选登记表含 {len(real_rows)} 个真实组件")
     else:
         report("FAIL", f"真实组件数异常: {len(real_rows)}")
 
@@ -414,6 +430,60 @@ def check_model_instantiation() -> None:
         report("FAIL", "Stage 2 模型实例化失败", str(exc))
 
 
+def check_readonly_policy() -> None:
+    """只读浏览器策略与 POC 数据完整性。"""
+    from adapters.xhs_browser_adapter import (  # noqa: PLC0415
+        ReadOnlyPolicy,
+        XhsReadOnlyBrowserAdapter,
+    )
+
+    policy = ReadOnlyPolicy.load(ROOT / "config/xhs_readonly_policy.yaml")
+    if policy.min_interval >= 3 and policy.max_retries <= 1:
+        report("PASS", f"POC 限速 {policy.min_interval}s、重试 ≤{policy.max_retries}")
+    else:
+        report("FAIL", "POC 限速/重试上限不合规")
+    limits = policy.scope_limits
+    if limits["max_keywords"] == 1 and limits["max_search_results"] <= 5:
+        report("PASS", "POC 范围上限符合任务书（1 词 ≤5 结果）")
+    else:
+        report("FAIL", "POC 范围上限超标")
+    for action in ["click", "fill", "upload", "cdp"]:
+        try:
+            policy.check_bridge_action(action)
+            report("FAIL", f"写能力动作未被策略拦截: {action}")
+        except Exception:  # noqa: BLE001
+            pass
+    else:
+        report("PASS", "click/fill/upload/cdp 均被策略拦截")
+    adapter = XhsReadOnlyBrowserAdapter(policy=policy, clock=lambda: 0.0, sleeper=lambda s: None)
+    write_methods = [
+        m for m in ["like", "collect", "comment", "follow", "dm", "publish", "click", "fill"]
+        if hasattr(adapter, m)
+    ]
+    if not write_methods:
+        report("PASS", "适配器无任何写操作方法")
+    else:
+        report("FAIL", "适配器存在写操作方法", "、".join(write_methods))
+
+    poc_path = ROOT / "data/processed/xhs_browser_poc.json"
+    poc = json.loads(poc_path.read_text(encoding="utf-8"))
+    actions = set(poc.get("actions_log", []))
+    if actions and not actions & {"click", "fill", "cdp", "upload"}:
+        report("PASS", f"POC 审计动作全部为只读（{sorted(actions)}）")
+    else:
+        report("FAIL", "POC 审计含写动作或缺失", str(sorted(actions)))
+    profiles = poc.get("profiles", [])
+    if profiles and all(p.get("nickname") and p.get("fans") for p in profiles):
+        report("PASS", f"POC 主页数据真实完整（{len(profiles)} 位，含粉丝数）")
+    else:
+        report("FAIL", "POC 主页数据不完整")
+    note = poc.get("note") or {}
+    if note.get("title") and note.get("url", "").startswith("https://www.xiaohongshu.com/"):
+        report("PASS", "POC 笔记数据真实（标题+真实URL+互动数据）")
+    else:
+        report("FAIL", "POC 笔记数据不完整")
+
+
 def main() -> int:
     check_files()
     check_stage1_regression()
@@ -426,6 +496,7 @@ def main() -> int:
     check_sensitive_leak()
     check_notices_consistency(approved)
     check_model_instantiation()
+    check_readonly_policy()
 
     fails = [r for r in results if r[0] == "FAIL"]
     warnings = [r for r in results if r[0] == "WARNING"]

@@ -1,0 +1,81 @@
+# Stage 2 只读浏览器控制与视频理解 POC 策略（唯一权威来源）
+# 任何采集/分析动作必须通过本策略的允许清单校验；未列明即禁止。
+policy_version: "2.0"
+mode: read_only
+
+browser:
+  bridge: kimi-webbridge # 第一方浏览器桥，复用用户真实登录态
+  daemon_url: "http://127.0.0.1:10086"
+  session: mcn-stage2-poc
+  cookie_export: forbidden # 不导出、不提交 Cookie/Session/Token
+  credential_read: forbidden
+
+  # 适配器允许调用的 WebBridge 动作（白名单，其余一律拒绝）
+  bridge_allowed_actions:
+    - navigate # 打开搜索页/笔记/主页
+    - find_tab # 重新定位本会话标签页
+    - list_tabs # 会话标签页检查
+    - snapshot # 读取页面可访问性树（只读）
+    - evaluate # 仅允许适配器内置只读脚本（数据提取/门禁检测/页面状态/软导航）
+    - screenshot # 截图存证
+
+  # 明确禁止（写操作与会话破坏）
+  bridge_forbidden_actions:
+    - click
+    - fill
+    - upload
+    - cdp
+    - network
+    - save_as_pdf
+    - close_tab
+    - close_session
+
+  forbidden_behaviors:
+    - like # 点赞
+    - collect # 收藏
+    - comment # 评论
+    - follow # 关注
+    - dm # 私信
+    - publish # 发布
+    - infinite_scroll # 无限滚动
+    - bypass_captcha # 绕过验证码
+    - bypass_risk_control # 绕过风控
+
+  human_gates:
+    login: manual_only # 登录必须由人工在用户浏览器完成
+    captcha: stop_and_report # 出现验证码/安全验证：立即停止并记录
+    gate_markers: # 页面出现这些特征即判定为人工门禁
+      - 扫码登录
+      - 登录后查看
+      - 安全验证
+      - 拖动滑块
+      - 验证
+
+scope_limits:
+  max_keywords: 1
+  max_search_results: 5
+  max_creator_profiles: 2
+  max_notes_detail: 1
+  max_videos: 1
+  min_request_interval_seconds: 3
+  max_retries: 1
+
+video:
+  storage: tmp_only # 下载视频仅保存 tmp/，不提交 Git
+  acquisition_order: # 依次尝试，全部失败则停止，不得绕过
+    - yt-dlp
+    - xhs-downloader
+  invocation: cli_only # 不复制 GPL 项目源码，仅 CLI 适配器调用
+  transcript_tool: VideoCaptioner # 生成 transcript.txt / transcript.srt
+  keyframe_tool: FFmpeg # 每 2 秒 + 场景切换点抽帧
+  keyframe_interval_seconds: 2
+  keyframe_max_width: 640 # 低分辨率关键帧才可提交 Git
+  content_scope: public_internal_analysis_only # 仅公开且有权内部分析的内容
+
+outputs:
+  poc_metadata: data/processed/xhs_browser_poc.json
+  screenshots: screenshots/stage_2_browser_poc/
+  video_tmp: tmp/xhs_video/
+  timeline: data/processed/video_timeline.json
+  analysis: reports/content_analysis.md
+  poc_report: reports/stage_2_browser_video_poc.md

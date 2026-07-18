@@ -189,12 +189,14 @@ cp .env.example .env
 - Stage 2 组件正式准入审查（2026-07-17）：4 个候选组件经真实取证审查**全部 rejected**（CAND-001 无许可证 74 分；CAND-002 维护停滞 69 分；CAND-003 依赖已拒绝上游 44 分；CAND-004 明示规避验证码 43 分触发硬性排除），未安装任何组件，审查报告与证据见 `reports/component_reviews/`；
 - Stage 2 达人采集数据契约：Creator Schema（`src/creator_models.py` + `config/creator_schema.json`）、真实性五层来源标记、POC 候选状态约束；
 - Stage 2 搜索策略：4 组 16 词搜索计划（`data/processed/creator_search_plan.json`）、POC 边界规则（`config/creator_search_rules.yaml`）、人工验证表；
-- Stage 2 自动验证脚本（`scripts/validate_stage_2.py`），全部测试 243 项通过。
+- Stage 2 自动验证脚本（`scripts/validate_stage_2.py`），全部测试 290 项通过；
+- Stage 2 只读浏览器控制 POC（D-0008，2026-07-18）：kimi-webbridge 只读适配器＋策略层（白名单动作、3s 限速、重试≤1、人工门禁），真实采集 1 词 5 条结果、2 位达人主页（真实粉丝数）、1 篇笔记（真实互动数据）与 4 张截图，审计零写操作、零 Cookie 导出；
+- 视频理解管线（获取→转写→抽帧→时间线→分析）代码就绪；yt-dlp 真实安装并执行获取（范围内图文笔记无视频，按策略如实停止）；4 个 CLI 工具登记 poc_required（CAND-005~008）。
 
 ## 16. 当前未完成内容
 
-- 真实达人候选采集（因 4 个候选组件全部 rejected，自动化 POC 未执行；转由人工执行者按搜索计划与人工验证表执行）；
-- 合规只读采集组件的重新物色与准入（当前无已批准组件，不得创建伪 Adapter）；
+- 真实视频笔记的转写与关键帧提取（需含视频笔记 + 安装 FFmpeg/VideoCaptioner 后重跑 `scripts/analyze_xhs_video.py`）；
+- 视觉类字段标注（屏幕字幕/动作/场景/镜头/产品露出，保持留空待人工或视觉模型）；
 - 最终 10 位达人定案（未放行，`stage_2_final_selection_ready=false`）；
 - 达人筛选评分、风格拆解（Stage 3 ~ 4）；
 - 脚本生成、Humanizer、分镜（Stage 5 ~ 9）；

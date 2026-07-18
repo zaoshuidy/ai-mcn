@@ -18,6 +18,8 @@
 
 | D-0007 | 2026-07-17 | Stage 2 | 4 个候选组件正式准入审查结论与候选采集路径 | A：放宽准入线批准 CAND-001（分数最高但无许可证） | B：全部 rejected 后暂停达人调研等待新工具 | C：4 组件全部 rejected，候选采集转人工执行＋保留重评通道 | A：35（无许可证属硬性排除，放行即违反准入规则）；B：68（合规但阻塞业务推进，人工路径本就可行）；C：93（严守准入规则、业务不停摆、上游改善后可重评） | C | 正式审查（证据 reports/component_reviews/evidence/，当日 GitHub 实时取证）显示：CAND-001 无 LICENSE 文件（74 分）、CAND-002 维护停滞（69 分）、CAND-003 依赖已拒绝上游（44 分）、CAND-004 明示规避验证码触发硬性排除（43 分），均低于 85 准入线；人工执行者按 creator_search_plan.json 与人工验证表执行候选采集，业务不被工具阻塞 | 人工采集进度慢于自动化；若后续出现合规只读组件需重新走完整准入流程（pending→under_review→poc_required→approved），不得跳级 | 项目总控（任务书准入规则），技术执行 AI 取证与记录 |
 
+| D-0008 | 2026-07-18 | Stage 2 | 撤销"只能人工采集"结论，建立只读浏览器控制＋视频理解 POC 的技术路线 | A：坚持纯人工采集（D-0007 结论不变） | B：自研 Playwright CDP 连接用户 Chrome | C：kimi-webbridge 只读适配器＋策略层＋视频理解管线 | A：75（安全但无法验证自动化可行性，面试展示价值低）；B：82（需用户重启 Chrome 带调试端口，Chrome 136+ 限制默认 profile 的 CDP，操作门槛与失败率高；pip 安装已被项目总控中止）；C：94（现成第一方浏览器桥、复用真实登录态、零 Cookie 导出、守护进程本地可达已实测；写操作在适配器层白名单拦截） | C | 项目总控明确指令"浏览器控制直接用现成的 kimi-webbridge"；守护进程 http://127.0.0.1:10086 实测在线且用户已登录小红书；策略层（config/xhs_readonly_policy.yaml）将允许动作收敛为 navigate/snapshot/evaluate(内置只读脚本)/screenshot，click/fill/cdp 等一律拒绝 | 守护进程 navigate 对重页面有 30s load 超时，已用 location.href 软导航＋轮询就绪规避（实测有效）；yt-dlp 等 4 个 CLI 工具登记为 poc_required（CAND-005~008），GPL 工具仅 CLI 调用不复制源码 | 项目总控（指令），技术执行 AI 实现与取证 |
+
 > 注：D-0003 为 Stage 2 预研候选登记（初评分）；D-0007 为正式准入审查结论（最终分），两者分离。CAND-001~004 经 2026-07-17 正式审查均为 rejected（registry/rejected_components.yaml），未安装任何组件，代码零引入；重评条件见各 rejected 记录的 re_evaluation_condition。
 > 返工背景：Stage 0 首次远程交付缺失（成果仅在本地），项目总控验收评分 76/100，不允许进入 Stage 1，本次返工完成远程同步。
 > 验收结论：Stage 0 已于远程交付复评中以 97/100 通过，允许进入 Stage 1。（完整记录：首次验收 76/100 未通过 → 远程返工 → 复评 97/100 通过。）
