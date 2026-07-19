@@ -1,0 +1,51 @@
+{
+  "reviewed_file": "outputs/qingxing/script_v2_humanized.json",
+  "text_kind": "script",
+  "source_text": "标题候选：踩点出门的早晨，我的工位早餐搭子 / 起晚了也别空着肚子上班，一杯带走 / 工作日早餐记录：从冰箱到工位。口播稿：早上好呀，今天又是踩点出门的一天。起晚了，来不及开火，就从冰箱拿一杯轻醒希腊酸奶，再抓把燕麦和蓝莓，齐活。倒进随行杯拎着走，路上不用排队买吃的了。地铁里嘛，把昨天的方案在脑子里过一遍，这杯酸奶算我的通勤搭子。到工位先喝两口压压惊。说实话，当初选它就是看中0蔗糖，喝起来是酸奶本身的酸甜。高蛋白的，当早餐挺合适，我到中午都不怎么想零食——饱腹感这东西，对我来说挺实在。对了，你们的快手早餐都吃什么？评论区告诉我。字幕：07:20 工作日早餐 / 07:24 冰箱常备早餐 / 07:31 出门 / 07:46 地铁上 / 08:58 工位吃早餐 / 09:10 边吃边回消息 / 好好吃早餐。CTA：早餐不知道吃什么的姐妹，评论区聊聊你们的快手早餐搭配。",
+  "product_evidence_snapshot": [
+    {"claim": "0蔗糖", "claim_type": "brand_claim", "evidence": null, "note": "提取自产品名称，依据待品牌方提供", "forbidden_interpretations": ["无糖"]},
+    {"claim": "高蛋白", "claim_type": "brand_claim", "evidence": null, "note": "品牌方主张，营养成分表待提供", "forbidden_interpretations": []},
+    {"claim": "饱腹感", "claim_type": "subjective_experience", "evidence": null, "note": "主观体验，仅允许个人体验语境", "forbidden_interpretations": ["减重", "抑制食欲"]},
+    {"claim": "低负担", "claim_type": "unverified", "evidence": null, "note": "未经验证，不得表述为事实或功效", "forbidden_interpretations": ["不长胖", "零负担", "减肥"]}
+  ],
+  "risk_level": "none",
+  "violations": [],
+  "evidence_mapping": [
+    {
+      "claim_in_script": "0蔗糖",
+      "matched_product_claim": "0蔗糖",
+      "claim_type": "brand_claim",
+      "status": "brand_claim_context",
+      "note": "脚本保持品牌主张原文表述，未改写为无糖，未加数值、未扩展解释；包装标识/检测依据待品牌方提供，须人工复核后方可对外"
+    },
+    {
+      "claim_in_script": "高蛋白",
+      "matched_product_claim": "高蛋白",
+      "claim_type": "brand_claim",
+      "status": "brand_claim_context",
+      "note": "未标注具体克数，未延伸功效承诺；营养成分表待品牌方提供，须人工复核"
+    },
+    {
+      "claim_in_script": "饱腹感",
+      "matched_product_claim": "饱腹感",
+      "claim_type": "subjective_experience",
+      "status": "subjective_only",
+      "note": "出现在「对我来说」个人体验语境，未量化扛饿时长、未表述为客观功效，未触碰减重/抑制食欲等禁用解读"
+    }
+  ],
+  "required_changes": [],
+  "optional_changes": [
+    {
+      "original": "到工位先喝两口压压惊",
+      "suggestion": "如品牌方认为口语过重，可改为「到工位先喝两口缓一缓」",
+      "reason": "口语表达风格提示，非违规；规则库未覆盖的表达习惯类建议，供人工定夺"
+    }
+  ],
+  "passed": true,
+  "human_review_required": true,
+  "review_notes": [
+    "FAC-001~FAC-010 逐条扫描：未命中无糖化改写、营养数值、减肥/燃脂/掉秤、降糖/控糖功效、医疗用语、绝对化用语、主观体验客观化、无证据卖点、低负担事实化、竞品贬低",
+    "低负担（unverified）未出现在脚本中，符合「无证据不写」要求",
+    "human_review_required=true 的原因：evidence_mapping 存在 2 条 brand_claim_context（0蔗糖、高蛋白），依据待品牌方提供"
+  ]
+}

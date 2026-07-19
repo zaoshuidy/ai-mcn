@@ -1,0 +1,23 @@
+{
+  "full_name": "aicontentskills/ai-video-storyboard-skill",
+  "description": "AI video storyboard skill for Claude Code, Cursor & Windsurf. Turn briefs into multi-shot production plans with cinematic prompts, visual consistency and post-production checklists.",
+  "stargazers_count": 26,
+  "forks_count": 5,
+  "subscribers_count": 0,
+  "open_issues_count": 0,
+  "default_branch": "main",
+  "created_at": "2026-04-09T13:41:51Z",
+  "pushed_at": "2026-04-09T13:51:43Z",
+  "archived": false,
+  "disabled": false,
+  "language": null,
+  "html_url": "https://github.com/aicontentskills/ai-video-storyboard-skill",
+  "license_spdx": null,
+  "owner_type": "Organization",
+  "fetched_at": "2026-07-19T12:56:25Z",
+  "latest_commit_status": 200,
+  "latest_commit_sha": "93f8a6d6935858bc4acd7ff3bbea2411edf88caa",
+  "latest_commit_date": "2026-04-09T13:51:37Z",
+  "latest_commit_message": "Remove inline promotional content — keep skill content tool-agnostic",
+  "license_endpoint_status": 404
+}

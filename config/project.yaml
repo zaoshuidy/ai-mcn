@@ -1,28 +1,47 @@
 project:
   name: mcn-script-assistant
   current_stage: stage_3
-  status: blocked_by_insufficient_verified_candidates
-  resume_checkpoint: stage_3_final_selection
+  status: in_progress
+  resume_checkpoint: stage_3_partial_pending_controller_decision
   status_note: >-
     2026-07-18 Stage 2 经项目总控正式验收通过（96/100）。
-    Stage 3 采集与评分管线已全部完成：8 关键词搜索 113 位原始候选、
-    预筛 30 位、主页深度核验 21 位（15 通过 / 6 硬淘汰）、15 位全量评分。
-    仅 6 位达到 85 分正式候选线（任务书允许少于 10 位，不虚构补齐），
-    健身场景结构平衡未达标（1/2），故 final_10 门禁不通过，
-    是否追加搜索预算由项目总控决策。
-    采集中途触发平台安全验证，人工完成后已于当日恢复（详见
+    Stage 3 采集中途触发平台安全验证，人工完成后已于当日恢复（详见
     data/processed/stage_3_verification_events.json）。
+    2026-07-19 项目总控复评：采集证据基本合格，但旧 8 维评分模型未纳入
+    粉丝量级与近期互动质量（139 粉丝账号获 90 分进入 Top3），Stage 3 不放行。
+    当前执行评分校准（10 维 v2 模型）与定向补足 10 位候选；
+    原 Top3 与风格研究对象保留为 previous_result，须重新评分与重选。
   stage_3_creator_pool_ready: true
   stage_3_final_10_ready: false
-  stage_3_top3_ready: true
+  stage_3_final_10_note: >-
+    2026-07-19 v2 重评分与补足深核（24 位）后，≥85 真实候选仅 2 位
+    （欧盈Kelly 93、小季没烦恼 85），真实不足不虚构补齐，
+    是否追加搜索预算由项目总控决策。
+  stage_3_top3_ready: false
+  stage_3_top3_note: >-
+    2026-07-19 v2 Top3 门槛（≥90 且 followers≥1000）仅 1 位达标
+    （欧盈Kelly 93），Top3 无法按门槛凑满 3 位，不降级不虚构，
+    缺口如实记录于 data/processed/stage_3_top3_v2.json。
   stage_3_style_reference_ready: true
+  stage_3_style_reference_note: >-
+    2026-07-19 欧盈Kelly v2 评分 93 仍为全场最佳（唯一 ≥90），
+    恢复为 research_style_reference（仅风格研究，非商业定案），
+    见 data/processed/stage_3_style_reference_v2.json。
+  stage_3_v2_note: >-
+    2026-07-19 v2 校准完成：深核补足至 24 位（gapfill 20 位来源、
+    新深核 9 位、新淘汰 4 位），互动数据 24×10=240 篇；
+    同期完成 6 个参考类组件登记 CAND-012~017（reference_only）；
+    校准报告见 reports/stage_3_scoring_recalibration.md。
+  stage_3_previous_result_note: >-
+    v1 结果（欧盈Kelly/小季没烦恼/一只牛🐮 Top3，欧盈Kelly 风格研究对象）
+    已标记 superseded，保留于 stage_3_scores.json / stage_3_top3.json /
+    stage_3_style_reference.json 仅供追溯，不得作为最终结果引用。
+    v2 结果以 stage_3_scores_v2.json / stage_3_final_candidates_v2.json 为准。
+  stage_3_scoring_model: v2_10dim
   stage_3_result_note: >-
-    2026-07-19 最终候选 6/10：欧盈Kelly 95、小季没烦恼 91、一只牛🐮 90、
-    小王不忙 88、yeline 87、叁壹_ 86；Top3 均为重点候选（≥90）；
-    脚本风格研究对象=欧盈Kelly（research_style_reference，非商业定案）；
-    Top3 各完成 1 条代表视频完整理解管线（3 条时间线 25 片段）；
-    截图证据 18 张与 manifest 一致；评分可复现（15/15）；
-    全部候选 human_verified=false；无 Cookie/xsec_token 入库。
+    2026-07-19 v1 结果：最终候选 6/10（欧盈Kelly 95、小季没烦恼 91、
+    一只牛🐮 90、小王不忙 88、yeline 87、叁壹_ 86）。
+    总控复评后 v1 评分作废（superseded），v2 重评分进行中。
   stage_3_boundary_note: >-
     仅允许 research_selected_creator（风格研究）；
     禁止 commercial_selected_creator / confirmed_collaboration / brand_approved；

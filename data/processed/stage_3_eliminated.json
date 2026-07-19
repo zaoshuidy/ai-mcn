@@ -1,6 +1,6 @@
 {
-  "eliminated_count": 6,
-  "generated_at": "2026-07-19T08:57:22.560613+00:00",
+  "eliminated_count": 10,
+  "generated_at": "2026-07-19T14:18:25.598712+00:00",
   "eliminated": [
     {
       "creator_id": "58bcf94e50c4b419821a7044",
@@ -30,6 +30,26 @@
     {
       "creator_id": "611f6e7b000000000101f54c",
       "nickname": "奶茶还不困",
+      "reason": "inactive_180d_or_unverifiable"
+    },
+    {
+      "creator_id": "64154e2800000000110200a1",
+      "nickname": "小藤日紀",
+      "reason": "inactive_180d_or_unverifiable"
+    },
+    {
+      "creator_id": "6454fea10000000010026952",
+      "nickname": "碳水小姨妈",
+      "reason": "inactive_180d_or_unverifiable"
+    },
+    {
+      "creator_id": "64bc9bad000000001403b859",
+      "nickname": "肉桂冰美",
+      "reason": "inactive_180d_or_unverifiable"
+    },
+    {
+      "creator_id": "66c734dd000000001d032fa0",
+      "nickname": "小橘日记",
       "reason": "inactive_180d_or_unverifiable"
     }
   ]

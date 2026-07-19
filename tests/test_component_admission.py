@@ -267,11 +267,14 @@ def test_real_registry_consistent() -> None:
 
 
 def test_real_registry_candidates_status() -> None:
-    """CAND-001~004 全部 rejected；CAND-005~011 为 POC 工具（D-0008/D-0009 授权）；无 approved。"""
+    """CAND-001~004 rejected；CAND-005~011 POC 工具（D-0008/D-0009 授权）；
+
+    CAND-012~017 为 reference_only 参考组件（仅方法/结构参考，不打分）；无 approved。
+    """
     candidates = load_candidates(ROOT / "registry/component_candidates.csv")
     approved = load_yaml_list(ROOT / "registry/approved_components.yaml", "approved_components")
     real = {r["component_id"]: r for r in candidates if r.get("status") != "example_only"}
-    assert len(real) == 11
+    assert len(real) == 17
     for cid in ["CAND-001", "CAND-002", "CAND-003", "CAND-004"]:
         assert real[cid]["status"] == "rejected"
     for cid in ["CAND-005", "CAND-006", "CAND-007", "CAND-008", "CAND-009", "CAND-010",
@@ -279,11 +282,16 @@ def test_real_registry_candidates_status() -> None:
         assert real[cid]["status"] == "poc_required"
         assert ("D-0008" in real[cid]["review_notes"] or "D-0009" in real[cid]["review_notes"]
                 or int(real[cid]["final_score"]) >= 90)
+    for cid in ["CAND-012", "CAND-013", "CAND-014", "CAND-015", "CAND-016", "CAND-017"]:
+        assert real[cid]["status"] == "reference_only"
     assert approved == []
 
 
 def test_real_registry_scores_match_scorecard() -> None:
-    """登记表 9 个分项加权分之和等于 final_score，且含预研初评分（初评/最终分离）。"""
+    """登记表 9 个分项加权分之和等于 final_score，且含预研初评分（初评/最终分离）。
+
+    reference_only 参考组件（CAND-012~017）按设计不打分，分项与 final_score 均为 null。
+    """
     candidates = load_candidates(ROOT / "registry/component_candidates.csv")
     real = [r for r in candidates if r.get("status") != "example_only"]
     dim_keys = [
@@ -292,6 +300,10 @@ def test_real_registry_scores_match_scorecard() -> None:
         "security_score", "modification_cost", "replaceability",
     ]
     for row in real:
+        if row["status"] == "reference_only":
+            assert all(row[k] == "null" for k in dim_keys), row["component_id"]
+            assert row["final_score"] == "null", row["component_id"]
+            continue
         sub_scores = [int(row[k]) for k in dim_keys]
         assert sum(sub_scores) == int(row["final_score"]), row["component_id"]
         if row["component_id"] in {"CAND-001", "CAND-002", "CAND-003", "CAND-004"}:

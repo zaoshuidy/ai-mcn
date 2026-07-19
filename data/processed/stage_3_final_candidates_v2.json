@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-07-19T14:47:19.607085+00:00",
+  "scoring_model": "v2_10dim",
+  "supersedes": "data/processed/stage_3_final_10.json",
+  "target_count": 10,
+  "actual_count": 2,
+  "min_formal_score": 85,
+  "structure_balance": {
+    "voiceover_min3": {
+      "required": 3,
+      "actual": 1,
+      "met": false
+    },
+    "subtitle_min3": {
+      "required": 3,
+      "actual": 1,
+      "met": false
+    },
+    "commute_office_min2": {
+      "required": 2,
+      "actual": 1,
+      "met": false
+    },
+    "breakfast_solo_min2": {
+      "required": 2,
+      "actual": 2,
+      "met": true
+    },
+    "fitness_min2": {
+      "required": 2,
+      "actual": 0,
+      "met": false
+    },
+    "single_format_max50pct": {
+      "required": "<=50%",
+      "actual": "1/2",
+      "met": true
+    },
+    "all_met": false
+  },
+  "human_verified": false,
+  "finalists": [
+    {
+      "creator_id": "60bb90f00000000001002887",
+      "nickname": "欧盈Kelly",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/60bb90f00000000001002887",
+      "followers": 278129,
+      "creator_tier": "100k_to_500k",
+      "selection_tier": null,
+      "total_score": 93,
+      "grade": "重点候选",
+      "primary_format": "voiceover",
+      "main_scenes": [
+        "一人食",
+        "通勤/办公室",
+        "下午茶"
+      ],
+      "engagement_stats": {
+        "notes_with_engagement": 10,
+        "median_likes": 3218.5,
+        "median_collects": 884.5,
+        "median_comments": 32.5,
+        "median_total_engagement": 3996.5,
+        "highest_post_engagement": 5484,
+        "lowest_post_engagement": 73,
+        "median_engagement_rate": 0.014369,
+        "viral_dependency_ratio": 1.372,
+        "organic_post_median_engagement": 4332,
+        "commercial_post_median_engagement": 3296
+      },
+      "commercial_breakdown": {
+        "platform_labeled_commercial_posts": 0,
+        "platform_labeled_source": "page_observed",
+        "ai_inferred_commercial_posts": 1,
+        "ai_inferred_source": "ai_inferred",
+        "total_commercial_signals": 1,
+        "commercial_signal_ratio": 0.1,
+        "organic_median": 4332,
+        "commercial_median": 3296
+      },
+      "selection_status": "key_candidate",
+      "representative_notes": [
+        {
+          "note_id": "69df136e000000002003a20d",
+          "canonical_url": "https://www.xiaohongshu.com/explore/69df136e000000002003a20d",
+          "title": "i人独处日记📔一个人开车去打匹克球 喝咖啡",
+          "publish_time": "2026-04-15T10:01:29+00:00",
+          "note_type": "video",
+          "duration_seconds": 211.1,
+          "likes": "3411",
+          "collects": "2790",
+          "comments": "108",
+          "has_on_screen_text": true,
+          "has_voiceover": true,
+          "commercial_signal": true,
+          "compliance_risks": [],
+          "evidence_screenshot": "screenshots/stage_3_notes/60bb90f00000000001002887_69df136e000000002003a20d.jpg",
+          "source": "page_observed",
+          "observed_at": "2026-07-18T16:09:30.063188+00:00",
+          "format_probe": {
+            "audio_model": "faster-whisper tiny",
+            "spoken_chars_30s": 107,
+            "visual_contact_sheet": "tmp/stage_3_format_probe/60bb90f00000000001002887/contact_sheet.jpg",
+            "source": "ai_inferred",
+            "confidence": 0.9,
+            "observed_at": "2026-07-19T10:12:59.801003+00:00"
+          },
+          "commercial_evidence": "帧1/帧3为新车展示与'自动泊车'卖点字幕，汽车商单"
+        },
+        {
+          "note_id": "6989ab01000000001a0360c5",
+          "canonical_url": "https://www.xiaohongshu.com/explore/6989ab01000000001a0360c5",
+          "title": "深圳INTP独立女上班vlog：又活了一天",
+          "publish_time": "2026-02-09T10:01:35+00:00",
+          "note_type": "video",
+          "duration_seconds": 153.5,
+          "likes": "7590",
+          "collects": "2148",
+          "comments": "325",
+          "has_on_screen_text": null,
+          "has_voiceover": null,
+          "commercial_signal": false,
+          "compliance_risks": [],
+          "evidence_screenshot": "screenshots/stage_3_notes/60bb90f00000000001002887_6989ab01000000001a0360c5.jpg",
+          "source": "page_observed",
+          "observed_at": "2026-07-18T16:09:40.232653+00:00"
+        }
+      ],
+      "human_verified": false,
+      "scoring_model": "v2_10dim"
+    },
+    {
+      "creator_id": "586733cd50c4b43cccffc5c8",
+      "nickname": "小季没烦恼",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/586733cd50c4b43cccffc5c8",
+      "followers": 277674,
+      "creator_tier": "100k_to_500k",
+      "selection_tier": null,
+      "total_score": 85,
+      "grade": "正式研究候选",
+      "primary_format": "subtitle_immersive",
+      "main_scenes": [
+        "早餐",
+        "一人食"
+      ],
+      "engagement_stats": {
+        "notes_with_engagement": 10,
+        "median_likes": 1356.5,
+        "median_collects": 215.5,
+        "median_comments": 62.0,
+        "median_total_engagement": 1655.5,
+        "highest_post_engagement": 13629,
+        "lowest_post_engagement": 1062,
+        "median_engagement_rate": 0.005962,
+        "viral_dependency_ratio": 8.233,
+        "organic_post_median_engagement": 1471.5,
+        "commercial_post_median_engagement": 8978.0
+      },
+      "commercial_breakdown": {
+        "platform_labeled_commercial_posts": 0,
+        "platform_labeled_source": "page_observed",
+        "ai_inferred_commercial_posts": 2,
+        "ai_inferred_source": "ai_inferred",
+        "total_commercial_signals": 2,
+        "commercial_signal_ratio": 0.2,
+        "organic_median": 1471.5,
+        "commercial_median": 8978.0
+      },
+      "selection_status": "research_candidate",
+      "representative_notes": [
+        {
+          "note_id": "6a58b7ea000000001101a7bb",
+          "canonical_url": "https://www.xiaohongshu.com/explore/6a58b7ea000000001101a7bb",
+          "title": "晚间日记🧺6.pm—11pm下班后才是生活的开始",
+          "publish_time": "2026-07-16T11:04:30+00:00",
+          "note_type": "video",
+          "duration_seconds": 114.0,
+          "likes": "2925",
+          "collects": "176",
+          "comments": "43",
+          "has_on_screen_text": true,
+          "has_voiceover": false,
+          "commercial_signal": true,
+          "compliance_risks": [],
+          "evidence_screenshot": "screenshots/stage_3_notes/586733cd50c4b43cccffc5c8_6a58b7ea000000001101a7bb.jpg",
+          "source": "page_observed",
+          "observed_at": "2026-07-18T15:55:28.549214+00:00",
+          "format_probe": {
+            "audio_model": "faster-whisper tiny",
+            "spoken_chars_30s": 3,
+            "visual_contact_sheet": "tmp/stage_3_format_probe/586733cd50c4b43cccffc5c8/contact_sheet.jpg",
+            "source": "ai_inferred",
+            "confidence": 0.9,
+            "observed_at": "2026-07-19T10:12:59.801003+00:00"
+          },
+          "commercial_evidence": "帧1可见霸王茶姬(CHAGEE)轻因系列手提袋与植入字幕"
+        },
+        {
+          "note_id": "6a50d6a4000000001003f751",
+          "canonical_url": "https://www.xiaohongshu.com/explore/6a50d6a4000000001003f751",
+          "title": "独处 一人食｜被圆滚滚的手鞠寿司治愈🍣",
+          "publish_time": "2026-07-11T08:43:42+00:00",
+          "note_type": "video",
+          "duration_seconds": 93.1,
+          "likes": "825",
+          "collects": "176",
+          "comments": "55",
+          "has_on_screen_text": null,
+          "has_voiceover": null,
+          "commercial_signal": false,
+          "compliance_risks": [],
+          "evidence_screenshot": "screenshots/stage_3_notes/586733cd50c4b43cccffc5c8_6a50d6a4000000001003f751.jpg",
+          "source": "page_observed",
+          "observed_at": "2026-07-18T15:55:38.742220+00:00"
+        }
+      ],
+      "human_verified": false,
+      "scoring_model": "v2_10dim"
+    }
+  ]
+}

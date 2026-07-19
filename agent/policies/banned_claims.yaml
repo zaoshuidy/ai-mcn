@@ -1,0 +1,88 @@
+# 轻醒商单内容违禁表达策略（食品广告合规红线）
+#
+# 数据来源：data/processed/qingxing_brief.json 的 compliance_rules（Stage 1 已
+# 验收），并按项目合规红线补充"掉秤"（减肥类目）。新增类目/词条须注明依据，
+# 不得为放行内容而删改。
+#
+# 字段说明：
+# - prohibited：阻断项，命中即 compliance_result.passed=false；
+# - restricted：受限提示项，命中记 warning 不阻断，但须随交付物呈交人工；
+# - severity：high=广告法/食品类目红线，medium=平台与品牌风险。
+version: "1.0"
+updated_at: "2026-07-19"
+categories:
+  - category: 减肥功效承诺
+    severity: high
+    prohibited:
+      - 减肥
+      - 瘦身
+      - 减重
+      - 燃脂
+      - 掉秤  # 项目合规红线补充（Brief 未列但同属减肥功效承诺）
+    restricted: []
+    reason: 食品广告不得宣传减肥功效（广告法及食品类目规范）
+    replacement: 改为口感、场景或生活方式描述
+  - category: 降糖或血糖功效
+    severity: high
+    prohibited:
+      - 降糖
+      - 降血糖
+      - 控制血糖
+      - 调节血糖
+    restricted:
+      - 控糖  # 仅可作为人群兴趣标签，不得进入产品卖点
+    reason: 普通食品不得宣称血糖相关功效；控糖仅可作为人群兴趣标签
+    replacement: 控糖仅出现在人群画像，不进入产品卖点
+  - category: 疾病治疗
+    severity: high
+    prohibited:
+      - 治疗
+      - 治愈
+      - 预防疾病
+      - 药用
+      - 疗效
+    restricted: []
+    reason: 食品广告不得涉及疾病治疗功能
+    replacement: 删除疾病相关表述
+  - category: 绝对化用语
+    severity: medium
+    prohibited:
+      - 最健康
+      - 第一品牌
+      - 100%
+      - 完全无负担
+      - 绝对
+    restricted:
+      - 最
+      - 第一
+    reason: 广告法禁止绝对化用语
+    replacement: 改为可验证的具体描述
+  - category: 未证实营养数据
+    severity: high
+    prohibited: []  # 数值形态由 fact_regression 的数值规则统一拦截
+    restricted:
+      - 蛋白质克数
+      - 糖含量
+      - 热量数值
+    reason: 无品牌方依据时不得标注任何营养数值
+    replacement: 数值仅可来自品牌方营养成分表或检测报告
+  - category: 夸大主观体验
+    severity: medium
+    prohibited:
+      - 吃了必饱
+      - 一整天不饿
+    restricted:
+      - 饱腹感
+      - 低负担
+    reason: 主观体验不得表述为客观功效
+    replacement: 使用个人体验语境，如「我觉得」「对我来说」
+  - category: 不适当竞品贬低
+    severity: medium
+    prohibited:
+      - 比其他品牌好
+      - 碾压
+      - 吊打
+      - 完胜
+    restricted: []
+    reason: 广告不得贬低其他生产经营者的商品
+    replacement: 只描述本产品特点，不做竞品对比

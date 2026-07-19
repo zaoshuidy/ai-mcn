@@ -1,0 +1,119 @@
+{
+  "creator_id": "60bb90f00000000001002887",
+  "nickname": "欧盈Kelly",
+  "source_note_id": "6989ab01000000001a0360c5",
+  "source_duration_s": 153.5,
+  "primary_format": "voiceover",
+  "evidence_file": "data/processed/stage_3_top3_video_timelines.json",
+  "distilled_at": "2026-07-19",
+  "hook_patterns": [
+    {
+      "pattern": "开场 0-4s 用边走边自拍的仰拍视角配合大字标题卡，再以一句口语化问候切入，迅速建立都市通勤语境与打工人共鸣",
+      "evidence": "hook_analysis（data/processed/stage_3_top3_video_timelines.json，note 6989ab01000000001a0360c5）",
+      "timestamps": [0.0, 4.0]
+    },
+    {
+      "pattern": "问候之后不做寒暄堆叠，立刻进入当天第一个生活动作（挑选穿搭、整理随身物），用动作接住开场",
+      "evidence": "segments[1] 4-18s 卧室/衣帽间段",
+      "timestamps": [4.0, 18.0]
+    }
+  ],
+  "narrative_structure": {
+    "arc": "以时间戳字幕为骨架的打工人一日线性叙事：从晨间准备出发，经通勤、三餐与办公推进，到夜晚城市空镜收束，饮品与餐食作为生活流节点贯穿全片",
+    "phases": [
+      {"name": "开场问候", "description": "自拍加标题卡建立共鸣，交代这是工作日的一天", "time_range_s": [0.0, 4.0]},
+      {"name": "晨间准备", "description": "穿搭与随身自用物展示，建立人物日常与品味", "time_range_s": [4.0, 18.0]},
+      {"name": "出门与通勤", "description": "拿起提前备好的饮品出门，车内听播客、途中取咖啡，推动时间线", "time_range_s": [18.0, 38.0]},
+      {"name": "早餐与上午办公", "description": "固定搭配的早餐、踩点进公司、工位边用餐边处理工作", "time_range_s": [38.0, 64.0]},
+      {"name": "午间与下午工作", "description": "会议、提前点好的午餐、指标压力等职场内容", "time_range_s": [66.0, 106.0]},
+      {"name": "下班与晚餐", "description": "准点下班与朋友约饭，餐食特写", "time_range_s": [108.0, 146.0]},
+      {"name": "夜景收尾", "description": "城市夜景空镜配合结尾字幕卡，为全天收束", "time_range_s": [148.0, 153.5]}
+    ],
+    "notes": "段间靠时间戳字幕跳转，叙事由口播旁白驱动，工作段留白给画面"
+  },
+  "sentence_rhythm": {
+    "style": "口语短句为主，自问自答与轻吐槽穿插，句读松散，像跟同事随口聊天",
+    "features": [
+      "短句连发，单句多在一口气长度内",
+      "设问式自言自语推进动线",
+      "时间词开头交代节奏",
+      "情绪梗点到即止不展开"
+    ],
+    "avg_sentence_length_chars": 16
+  },
+  "voiceover_density": {
+    "mode": "voiceover",
+    "estimated_speech_ratio": 0.7,
+    "notes": "口播旁白为主线，会议与办公段以画面和字幕承接"
+  },
+  "subtitle_density": {
+    "level": "high",
+    "functions": ["时间戳", "情绪梗", "场景标注"],
+    "notes": "字幕承担时间戳与玩梗功能，不复述口播内容"
+  },
+  "shot_rhythm": {
+    "avg_shot_s": 2.4,
+    "pacing": "快切为主，切镜与口播句读对齐",
+    "shot_types": ["自拍仰拍", "手持特写", "固定机位中景", "跟拍", "过肩拍", "夜景空镜"]
+  },
+  "scene_patterns": [
+    {"scene": "户外城市街道", "role": "开场建立通勤语境"},
+    {"scene": "卧室/衣帽间", "role": "晨间准备与自用物展示"},
+    {"scene": "家中玄关", "role": "出门动线，饮品首次入镜"},
+    {"scene": "车内/咖啡店", "role": "通勤过程与第二杯饮品复现"},
+    {"scene": "写字楼大堂/办公室工位", "role": "工位早餐与工作状态"},
+    {"scene": "会议室/茶水间", "role": "职场内容与午餐"},
+    {"scene": "餐厅", "role": "下班社交用餐"},
+    {"scene": "城市夜景", "role": "全天收束"}
+  ],
+  "food_integration_patterns": [
+    {
+      "pattern": "饮品作为出门动线的一部分自然入镜，并在后续通勤节点复现，形成贯穿全片的生活流动线",
+      "evidence": "segments 18-22s 与 22-38s：冰美式在 18s 与 33.2s 两次出现（style_summary.food_insertion_points）",
+      "insertion_point_s": 18.0
+    },
+    {
+      "pattern": "三餐固定出现在对应时间段的用餐画面里，与工作内容交替呈现，食物不脱离生活流单独叫卖",
+      "evidence": "style_summary.food_insertion_points：早餐 38s、午餐 78s、晚餐 120s",
+      "insertion_point_s": 38.0
+    }
+  ],
+  "commercial_integration_patterns": [
+    {
+      "pattern": "自用物展示型露出：在晨间准备段以手持特写展示随身物品并一句带过，不搭配卖点话术，是否存在商业合作不由口播点破",
+      "evidence": "segments[1] 4-18s 香水展示，product_first_appearance=14.0s；style_summary.commercial_pattern",
+      "insertion_point_s": 14.0
+    }
+  ],
+  "CTA_patterns": [
+    {
+      "pattern": "结尾以日记收束加告别字幕完成闭环，无强引导转化话术",
+      "evidence": "segments 148-153.5s 夜景空镜加结尾字幕卡"
+    }
+  ],
+  "reusable_style_rules": [
+    "用时间戳字幕串起一天的时间线，每段开头先交代时间点",
+    "开场用口语问候加标题卡建立打工人共鸣，问候措辞必须原创",
+    "让饮品或食物在生活动线的自然位置出现并多次复现，而不是集中口播卖点",
+    "画面采用自拍与固定机位混合，单镜头保持 2-3 秒快切",
+    "植入物在晨间准备段以自用展示方式提前露出，不搭配卖点话术",
+    "结尾用夜景或空镜配合字幕卡收束，避免硬广式收尾"
+  ],
+  "creator_specific_elements_not_to_copy": [
+    "早上坏、都市隶人、呕血等个人化打工人梗",
+    "INTP 等人格标签人设",
+    "具体香水品牌与自用描述",
+    "固定结束语的日记收束句式"
+  ],
+  "confidence": 0.82,
+  "evidence_timestamps": [
+    [0.0, 4.0],
+    [4.0, 18.0],
+    14.0,
+    18.0,
+    33.2,
+    38.0,
+    [48.0, 64.0],
+    [148.0, 153.5]
+  ]
+}

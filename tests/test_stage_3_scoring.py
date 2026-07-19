@@ -223,9 +223,12 @@ def test_archived_scores_reproducible_from_deep_review() -> None:
     scores = json.loads(
         (ROOT / "data/processed/stage_3_scores.json").read_text(encoding="utf-8")
     )
-    saved = {x["creator_id"]: x["total"] for x in scores["scores"]}
-    for creator in deep["creators"]:
-        assert score_creator(creator)["total"] == saved[creator["creator_id"]]
+    # 深核文件已扩充至 24 位（v2 补足），v1 存档固定为 15 位；
+    # 回归基准锚定 v1 存档：存档中每位仍须可用 v1 模型复现。
+    by_id = {c["creator_id"]: c for c in deep["creators"]}
+    for archived in scores["scores"]:
+        creator = by_id[archived["creator_id"]]
+        assert score_creator(creator)["total"] == archived["total"]
 
 
 def test_archived_finalists_all_meet_formal_line() -> None:

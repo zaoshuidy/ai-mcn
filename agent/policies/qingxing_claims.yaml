@@ -1,0 +1,69 @@
+# 轻醒品牌允许卖点与证据要求策略
+#
+# 数据来源：data/processed/qingxing_brief.json（Stage 1 已验收的真实品牌 Brief，
+# selling_points / usage_scenarios / missing_information 字段）。
+# 维护规则：新增卖点或升级证据等级，必须先由品牌方提供依据并更新 Brief，
+# 再改本文件；禁止为通过质检而反向放宽。
+version: "1.0"
+updated_at: "2026-07-19"
+brand: 轻醒
+product: 0蔗糖高蛋白希腊酸奶
+platform: 小红书短视频
+audience: 22-35岁城市女性（关注健身、控糖、轻食、上班族效率生活）
+flavors:
+  - 原味
+  - 蓝莓
+  - 黄桃
+scenarios:
+  - name: 早餐
+    priority: 1
+  - name: 运动后
+    priority: 2
+  - name: 下午茶
+    priority: 3
+
+# 允许卖点清单。claim_type 语义与 src/brief_models.py 的 ClaimType 一致：
+# confirmed=有品牌方依据；brand_claim=品牌方主张待依据；subjective_experience=
+# 主观体验；unverified=未经验证。
+allowed_claims:
+  - claim: 高蛋白
+    claim_type: brand_claim
+    required_evidence:
+      - 品牌方营养成分表
+      - 或第三方检测报告
+    evidence_status: missing  # Brief missing_information「高蛋白依据」仍阻塞
+    usage_note: 无依据时仅可保留"品牌方宣称"语境，不得标注具体克数
+    forbidden_interpretations: []
+  - claim: 0蔗糖
+    claim_type: brand_claim
+    required_evidence:
+      - 包装标识
+      - 检测报告
+    evidence_status: missing  # 提取自产品名称，依据待品牌方提供
+    usage_note: 严禁改写为"无糖"
+    forbidden_interpretations:
+      - 无糖
+  - claim: 饱腹感
+    claim_type: subjective_experience
+    required_evidence: []
+    evidence_status: not_required  # 主观体验无需功效证据，但须个人语境
+    usage_note: 仅可使用个人体验语境（"我觉得""对我来说"），不得表述为客观功效
+    forbidden_interpretations:
+      - 减重
+      - 抑制食欲
+  - claim: 低负担
+    claim_type: unverified
+    required_evidence:
+      - 品牌方书面依据
+    evidence_status: missing
+    usage_note: 未经验证，不得扩展、不得表述为功效
+    forbidden_interpretations:
+      - 不长胖
+      - 零负担
+      - 减肥
+
+# 功效类表述的前置条件：凡涉及功效/数值的表达，必须先有 ProductEvidence
+# （品牌方营养成分表、包装标识或检测报告）入库，否则一律由 fact_regression 拦截。
+product_evidence_required_for:
+  - 任何营养数值（蛋白质克数、糖含量、热量）
+  - 任何功效性表述（含暗示性功效）

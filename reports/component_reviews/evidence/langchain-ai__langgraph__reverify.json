@@ -1,0 +1,16 @@
+{
+  "full_name": "langchain-ai/langgraph",
+  "reverify_at": "2026-07-19T13:08:05Z",
+  "meta_http": 200,
+  "stargazers_count": 37596,
+  "pushed_at": "2026-07-19T00:50:04Z",
+  "license_spdx": "MIT",
+  "default_branch": "main",
+  "owner_type": "Organization",
+  "license_endpoint_http": 200,
+  "license_file_name": "LICENSE",
+  "license_file_spdx": "MIT",
+  "commits_http": 200,
+  "latest_commit_sha": "49ae27c2ae983cfb92091b0dea9f7bc37a716479",
+  "latest_commit_date": "2026-07-15T07:55:09Z"
+}

@@ -1,0 +1,42 @@
+# 人工审批规则（human_approval 节点）
+#
+# 与 agent/state.py 的 HUMAN_RETRY_TARGETS、DEFAULT_MAX_RETRIES 保持同步；
+# 修改任一文件必须同步另一文件并更新 tests/test_agent_graph.py。
+version: "1.0"
+updated_at: "2026-07-19"
+
+approval:
+  required: true
+  approver_role: MCN 策划负责人
+  auto_approve: false  # 无人工决定时流程进入 waiting_human，不得自动通过
+  decision_fields:
+    - approved        # bool，必填
+    - retry_node      # 拒绝时必填，取值见 allowed_retry_nodes
+    - feedback        # 拒绝时必填的修改意见
+    - reviewer        # 审批人
+    - decided_at      # ISO 8601 审批时间
+  allowed_retry_nodes:
+    - script_generator      # 事实/合规/内容方向问题，回到脚本修订
+    - humanizer             # 口吻/人味问题，回到人味化重修
+    - storyboard_generator  # 镜头/节奏/可行性问题，回到分镜重排
+  reject_requires_feedback: true
+  max_retries: 3  # 单次执行内所有闸口累计回退上限，超限中止转人工线下处理
+  timeout_policy: 保持 waiting_human 状态，不自动通过、不自动拒绝
+
+rules:
+  - id: AR-001
+    description: 质检未通过的稿件不得进入人工审批——fact_regression 与
+      compliance_reviewer 未通过时由图路由直接回退 script_generator，
+      人工只看到双检通过的稿件。
+  - id: AR-002
+    description: 人工拒绝必须给出合法 retry_node 与 feedback；retry_node 不在
+      allowed_retry_nodes 内视为无效决定，流程以 aborted_invalid_human_route 中止。
+  - id: AR-003
+    description: 单次执行累计回退（含质检回退、时长回退、人工拒绝）超过
+      max_retries 即中止（aborted_max_retries），转人工线下处理，防止无限返修。
+  - id: AR-004
+    description: 审批通过前禁止任何对外写入/发布动作；feishu_publisher 仅在
+      approved=True 后可到达，且凭据只读环境变量。
+  - id: AR-005
+    description: 审批记录（reviewer、decided_at、feedback）必须随交付物写入
+      飞书文档，保证品牌方侧可追溯。

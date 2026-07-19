@@ -1,0 +1,70 @@
+{
+  "brand_brief": {
+    "brand_name": "轻醒",
+    "product_name": "0蔗糖高蛋白希腊酸奶",
+    "campaign_goal": "自然种草，不要硬广，需要符合原博主创作风格",
+    "selling_points": [
+      {"claim": "高蛋白", "claim_type": "brand_claim", "forbidden_interpretations": []},
+      {"claim": "饱腹感", "claim_type": "subjective_experience", "forbidden_interpretations": ["减重", "抑制食欲"]},
+      {"claim": "低负担", "claim_type": "unverified", "forbidden_interpretations": ["不长胖", "零负担", "减肥"]},
+      {"claim": "0蔗糖", "claim_type": "brand_claim", "forbidden_interpretations": ["无糖"]}
+    ]
+  },
+  "product_evidence": [
+    {
+      "evidence_id": "EV-QX-001",
+      "claim": "0蔗糖",
+      "claim_type": "brand_claim",
+      "evidence_text": "提取自产品名称「0蔗糖高蛋白希腊酸奶」（data/processed/qingxing_brief.json selling_points）；包装标识或检测报告待品牌方提供，脚本不得改写为无糖、不得扩展数值",
+      "source": "qingxing_brief.selling_points",
+      "as_of": "2026-07"
+    },
+    {
+      "evidence_id": "EV-QX-002",
+      "claim": "高蛋白",
+      "claim_type": "brand_claim",
+      "evidence_text": "品牌方主张（data/processed/qingxing_brief.json selling_points）；营养成分表或检测报告待品牌方提供，脚本不得标注具体克数",
+      "source": "qingxing_brief.selling_points",
+      "as_of": "2026-07"
+    },
+    {
+      "evidence_id": "EV-QX-003",
+      "claim": "饱腹感",
+      "claim_type": "subjective_experience",
+      "evidence_text": "主观体验类卖点，无需功效证据（agent/policies/qingxing_claims.yaml evidence_status=not_required）；仅允许个人体验语境，禁止减重/抑制食欲解读",
+      "source": "qingxing_brief.selling_points + agent/policies/qingxing_claims.yaml",
+      "as_of": "2026-07"
+    }
+  ],
+  "creator_style_profile": {
+    "creator_id": "60bb90f00000000001002887",
+    "nickname": "欧盈Kelly",
+    "primary_format": "voiceover",
+    "structure_summary": "时间戳字幕驱动的打工人一日叙事：晨间准备→出门通勤→工位早餐→办公→夜景收尾",
+    "product_integration_pattern": {
+      "pattern": "饮品/食物贯穿生活流动线，在自然位置前置露出并复现；自用物展示型露出不搭配卖点话术",
+      "first_appearance_evidence": "自用香水 14.0s/153.5s≈9.1% 首现；冰美式 18s≈11.7% 首现并在 33.2s 复现（data/processed/stage_3_top3_video_timelines.json）"
+    },
+    "do_not_copy": [
+      "「早上坏/都市隶人/呕血」等个人化打工人梗",
+      "INTP等人格标签人设",
+      "具体香水自用描述",
+      "固定结束语句式"
+    ],
+    "evidence": [
+      {
+        "note_id": "6989ab01000000001a0360c5",
+        "quote": "一边看信息 一边吃早餐",
+        "what_it_shows": "工位早餐场景的真实感（48-64s 段字幕）"
+      },
+      {
+        "note_id": "6989ab01000000001a0360c5",
+        "quote": "听点什么让我的大脑清醒一点呢",
+        "what_it_shows": "通勤段自问自答式口播节奏（22-38s 段字幕）"
+      }
+    ]
+  },
+  "target_duration": 45,
+  "content_scene": "上班族早餐/通勤",
+  "format": "voiceover"
+}

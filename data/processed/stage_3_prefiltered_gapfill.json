@@ -1,0 +1,417 @@
+{
+  "pool_size": 20,
+  "prefiltered": 20,
+  "dropped_by_reason": {},
+  "generated_at": "2026-07-19T14:03:14.550334+00:00",
+  "candidates": [
+    {
+      "creator_id": "64154e2800000000110200a1",
+      "nickname": "小藤日紀",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/64154e2800000000110200a1",
+      "source_keyword": "沉浸式一人食vlog",
+      "source_note_id": "681f383900000000210040d7",
+      "source_note_title": "vlog🍲宅女の下班幸福晚间一人食日記🍀₊˚⊹♡",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "一人食",
+        "通勤/办公室"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「沉浸式一人食vlog」召回；一人食/通勤/办公室；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "641bbcf5000000001400f83b",
+      "nickname": "16楼",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/641bbcf5000000001400f83b",
+      "source_keyword": "办公室下午茶vlog",
+      "source_note_id": "697b6d42000000000c036a18",
+      "source_note_title": "给公司30人带下午茶vlog",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "下午茶"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「办公室下午茶vlog」召回；下午茶；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "6423d0960000000011021222",
+      "nickname": "is_爽姨",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/6423d0960000000011021222",
+      "source_keyword": "上班族女生晨间vlog",
+      "source_note_id": "6a23d8f6000000002202a25b",
+      "source_note_title": "vlog🎧早起自律运动高能量满满早间",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "早餐",
+        "健身/运动后"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「上班族女生晨间vlog」召回；早餐/健身/运动后；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "6454fea10000000010026952",
+      "nickname": "碳水小姨妈",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/6454fea10000000010026952",
+      "source_keyword": "独居女生早餐vlog",
+      "source_note_id": "6975f470000000000a029685",
+      "source_note_title": "vlog丨独居女生的早餐日记",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "早餐",
+        "一人食"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「独居女生早餐vlog」召回；早餐/一人食；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "64bc9bad000000001403b859",
+      "nickname": "肉桂冰美",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/64bc9bad000000001403b859",
+      "source_keyword": "上班族女生晨间vlog",
+      "source_note_id": "674ef7a00000000007033141",
+      "source_note_title": "vlog｜打工人5:41早起8:00上班能干多少事",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "早餐",
+        "通勤/办公室"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「上班族女生晨间vlog」召回；早餐/通勤/办公室；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "64f7f68000000000040242c6",
+      "nickname": "卷一卷",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/64f7f68000000000040242c6",
+      "source_keyword": "沉浸式一人食vlog",
+      "source_note_id": "687cdec6000000001301052a",
+      "source_note_title": "vlog🍜今日晚餐.沉浸式幸福一人食日常",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "一人食"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「沉浸式一人食vlog」召回；一人食；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "65922bed000000002001f91f",
+      "nickname": "屁屁一人食",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/65922bed000000002001f91f",
+      "source_keyword": "独居女生早餐vlog",
+      "source_note_id": "6926bf68000000001e022490",
+      "source_note_title": "vlog早餐｜草莓西多士🫐🍓➕拿铁",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "早餐"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「独居女生早餐vlog」召回；早餐；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "65fe5414000000000b00d3fe",
+      "nickname": "蛋崽",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/65fe5414000000000b00d3fe",
+      "source_keyword": "独居女生早餐vlog",
+      "source_note_id": "6a1566850000000006021062",
+      "source_note_title": "vlog^♡˖ ⊹宅女の独居生活𐙚⋆°｡⋆ 🍜•ᴗ•🥄",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "一人食"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「独居女生早餐vlog」召回；一人食；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "66c734dd000000001d032fa0",
+      "nickname": "小橘日记",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/66c734dd000000001d032fa0",
+      "source_keyword": "独居女生早餐vlog",
+      "source_note_id": "6794b1a2000000002902a737",
+      "source_note_title": "早间の一人食日记🍞～沉浸式vlog",
+      "source_note_type": null,
+      "publish_time": null,
+      "preliminary_scene": [
+        "一人食"
+      ],
+      "preliminary_risks": [
+        "非视频：可能不满足视频脚本研究"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "搜索「独居女生早餐vlog」召回；一人食；图文；预筛30未深核，纳入补足名单",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "67de4d47000000000e01036b",
+      "nickname": "小小羚.",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/67de4d47000000000e01036b",
+      "source_keyword": "健身女生运动后加餐vlog",
+      "source_note_id": "692f959a000000001b030bae",
+      "source_note_title": "下班2小时高能量健身🏋️臀腿日练后餐",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "健身/运动后",
+        "通勤/办公室"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：健身）；搜索「健身女生运动后加餐vlog」召回；命中场景=['健身/运动后', '通勤/办公室']；格式倾向=待主页核验；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "58e384595e87e77a3ae7d9b6",
+      "nickname": "00饱",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/58e384595e87e77a3ae7d9b6",
+      "source_keyword": "健身女生运动后加餐vlog",
+      "source_note_id": "69febe480000000035022f84",
+      "source_note_title": "VLOG｜空腹有氧之后大吃一顿蛋白质🥄",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "健身/运动后"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：健身）；搜索「健身女生运动后加餐vlog」召回；命中场景=['健身/运动后']；格式倾向=待主页核验；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "62b2b836000000001902a377",
+      "nickname": "Ggui呀",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/62b2b836000000001902a377",
+      "source_keyword": "健身女生运动后加餐vlog",
+      "source_note_id": "68f73b9e000000000302d177",
+      "source_note_title": "练后吃什么",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "健身/运动后"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：健身）；搜索「健身女生运动后加餐vlog」召回；命中场景=['健身/运动后']；格式倾向=待主页核验；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "695dd3510000000037029423",
+      "nickname": "极个别同志",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/695dd3510000000037029423",
+      "source_keyword": "健身女生运动后加餐vlog",
+      "source_note_id": "696f36e3000000001a01c1a8",
+      "source_note_title": "第一次感受到练后吃快碳的威力",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "健身/运动后"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：健身）；搜索「健身女生运动后加餐vlog」召回；命中场景=['健身/运动后']；格式倾向=待主页核验；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "629c5d4d0000000021027f6f",
+      "nickname": "欣晴做饭记",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/629c5d4d0000000021027f6f",
+      "source_keyword": "沉浸式一人食vlog",
+      "source_note_id": "68f0c4e10000000003021e82",
+      "source_note_title": "一人食 | 独居女生下班沉浸式做晚餐",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "通勤/办公室",
+        "一人食"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：字幕）；搜索「沉浸式一人食vlog」召回；命中场景=['通勤/办公室', '一人食']；格式倾向=字幕型(沉浸式)；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "66fa2890000000001d02335e",
+      "nickname": "念念喵呜",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/66fa2890000000001d02335e",
+      "source_keyword": "沉浸式一人食vlog",
+      "source_note_id": "69357aad000000001e035e18",
+      "source_note_title": "vlog🍡·沉浸式晚间一人食✧* 🍏‧₊˚💭⸝⸝꙳",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "一人食"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：字幕）；搜索「沉浸式一人食vlog」召回；命中场景=['一人食']；格式倾向=字幕型(沉浸式)；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "635e26f3000000001901c98e",
+      "nickname": "加辣土豆饼",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/635e26f3000000001901c98e",
+      "source_keyword": "沉浸式一人食vlog",
+      "source_note_id": "693d5c43000000001b0309bd",
+      "source_note_title": "vlog*沉浸式我独自生活⋆ ꙳💭 ⊹ 🐰꙳₊⁺ ✭",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "一人食"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：字幕）；搜索「沉浸式一人食vlog」召回；命中场景=['一人食']；格式倾向=字幕型(沉浸式)；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "5e8f34060000000001001181",
+      "nickname": "爱吃火锅的妮妮",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/5e8f34060000000001001181",
+      "source_keyword": "都市女生生活vlog",
+      "source_note_id": "68245a1400000000230001ef",
+      "source_note_title": "沉浸式回家✨真的好喜欢这样的下班生活🌷",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "通勤/办公室"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：字幕）；搜索「都市女生生活vlog」召回；命中场景=['通勤/办公室']；格式倾向=字幕型(沉浸式)；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "5b1778bc11be106648a0e1c4",
+      "nickname": "盐西不早",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/5b1778bc11be106648a0e1c4",
+      "source_keyword": "上班族女生晨间vlog",
+      "source_note_id": "68469de30000000012003c80",
+      "source_note_title": "沉浸式🇯🇵上班✨只有社畜才懂周五有多珍贵",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "通勤/办公室",
+        "早餐"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：通勤）；搜索「上班族女生晨间vlog」召回；命中场景=['通勤/办公室', '早餐']；格式倾向=字幕型(沉浸式)；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "690c50770000000037005336",
+      "nickname": "魔都打工媛",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/690c50770000000037005336",
+      "source_keyword": "通勤女生早餐vlog",
+      "source_note_id": "6a1d69850000000036030c6f",
+      "source_note_title": "上海打工人早餐实录～看看大家都吃啥",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "通勤/办公室",
+        "早餐"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：通勤）；搜索「通勤女生早餐vlog」召回；命中场景=['通勤/办公室', '早餐']；格式倾向=待主页核验；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    },
+    {
+      "creator_id": "65e8054a000000000500846c",
+      "nickname": "Ni 莫愁",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/65e8054a000000000500846c",
+      "source_keyword": "通勤女生早餐vlog",
+      "source_note_id": "694b9ff1000000001b02726f",
+      "source_note_title": "打工人五分钟快手早餐！",
+      "source_note_type": "video",
+      "publish_time": null,
+      "preliminary_scene": [
+        "通勤/办公室",
+        "早餐"
+      ],
+      "preliminary_risks": [
+        "未深核：粉丝量级/互动质量/主营格式待主页核验"
+      ],
+      "prefilter_score": 60,
+      "selection_reason": "113池补足（场景缺口：通勤）；搜索「通勤女生早餐vlog」召回；命中场景=['通勤/办公室', '早餐']；格式倾向=待主页核验；首条为视频",
+      "source": "page_observed",
+      "human_verified": false
+    }
+  ]
+}

@@ -1,0 +1,413 @@
+{
+  "skill": "xhs-storyboard-generator",
+  "schema_version": "1.0",
+  "description": "3 个真实 eval（eval_001/002 为正例，eval_003 为时间轴与产品露出时点的真实反例）+ 1 个不可执行运镜反例（eval_004）。expect.error_codes 为期望出现的错误码集合（子集匹配，顺序无关）。",
+  "evals": [
+    {
+      "id": "eval_001",
+      "name": "早餐场景字幕沉浸式 9 镜分镜（正例）",
+      "type": "positive",
+      "description": "一只牛风格（avg_shot_s=2.0）早餐场景，21.0s / 9 镜，与 examples.md 完整示例一致，应全部通过。",
+      "input": {
+        "script": {
+          "script_id": "script-breakfast-001",
+          "title": "独居早餐｜酸奶碗与冰美式",
+          "format": "subtitle_immersive",
+          "total_duration_s": 21.0,
+          "product_first_appearance_s": 6.4,
+          "beats": [
+            {"beat_id": "b1", "start_time": 0.0, "end_time": 2.0, "purpose": "hook", "scene": "餐桌", "action": "端起成品早餐展示", "spoken_line": null, "on_screen_text": null},
+            {"beat_id": "b2", "start_time": 2.0, "end_time": 6.4, "purpose": "process", "scene": "厨房台面", "action": "备料、烤吐司、煎蛋", "spoken_line": null, "on_screen_text": "蓝莓最后放，颜色更好看"},
+            {"beat_id": "b3", "start_time": 6.4, "end_time": 13.0, "purpose": "product", "scene": "餐桌", "action": "取酸奶、开盖、组装酸奶碗", "spoken_line": null, "on_screen_text": "0蔗糖，奶香很浓"},
+            {"beat_id": "b4", "start_time": 13.0, "end_time": 18.2, "purpose": "lifestyle", "scene": "餐桌", "action": "倒冰美式、用餐", "spoken_line": null, "on_screen_text": "这个天气还是要冰美式"},
+            {"beat_id": "b5", "start_time": 18.2, "end_time": 21.0, "purpose": "ending", "scene": "餐桌", "action": "收尾展示", "spoken_line": null, "on_screen_text": "好好吃早饭~"}
+          ]
+        },
+        "storyboard": {
+          "schema_version": "1.0",
+          "storyboard_id": "sb-breakfast-001",
+          "scene": "早餐",
+          "aspect_ratio": "9:16",
+          "target_duration_s": 21.0,
+          "actual_total_duration_s": 21.0,
+          "product_first_appearance_s": 6.4,
+          "shots": [
+            {
+              "shot_id": "s01", "start_time": 0.0, "end_time": 2.0, "duration": 2.0,
+              "visual": "俯拍特写：双手把成品酸奶碗与吐司餐盘放到餐桌中央，画面只呈现成品，产品包装不入镜",
+              "shot_size": "特写", "camera_position": "俯拍", "camera_motion": "固定",
+              "person_action": "双手端起成品早餐放下展示",
+              "spoken_line": null, "on_screen_text": null,
+              "product_state": "未出现", "product_exposure": false,
+              "props": ["酸奶碗（成品，无包装露出）", "吐司餐盘"],
+              "location": "餐桌", "bgm_or_sound": "环境音：餐具轻响", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "成品入镜但包装未露出，不构成产品露出；无卖点表述，无合规风险",
+              "script_source": "b1",
+              "style_evidence": "成品先行开场：一只牛 0s 成品三明治特写直接开场（data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s02", "start_time": 2.0, "end_time": 4.2, "duration": 2.2,
+              "visual": "第一人称手持俯拍：流水下冲洗蓝莓，随后在砧板上切香蕉片",
+              "shot_size": "特写", "camera_position": "第一人称", "camera_motion": "手持微晃",
+              "person_action": "洗蓝莓、切香蕉片",
+              "spoken_line": null, "on_screen_text": "蓝莓最后放，颜色更好看",
+              "product_state": "未出现", "product_exposure": false,
+              "props": ["蓝莓", "香蕉", "砧板", "水果刀"],
+              "location": "家中厨房台面", "bgm_or_sound": "环境音：水流声", "transition": "跳切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述，无合规风险",
+              "script_source": "b2",
+              "style_evidence": "第一人称操作视角做食品（小季没烦恼 28-46s 钵钵鸡制作段，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s03", "start_time": 4.2, "end_time": 6.4, "duration": 2.2,
+              "visual": "俯拍特写：吐司弹入烤面包机，旁边平底锅小火煎蛋",
+              "shot_size": "特写", "camera_position": "俯拍", "camera_motion": "固定",
+              "person_action": "烤吐司、煎溏心蛋",
+              "spoken_line": null, "on_screen_text": "溏心蛋小火慢煎",
+              "product_state": "未出现", "product_exposure": false,
+              "props": ["吐司", "鸡蛋", "烤面包机", "平底锅"],
+              "location": "灶台", "bgm_or_sound": "环境音：煎蛋滋滋声", "transition": "跳切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述，无合规风险",
+              "script_source": "b2",
+              "style_evidence": "线性制作流程（一只牛 style_summary.reusable_high_level，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s04", "start_time": 6.4, "end_time": 8.6, "duration": 2.2,
+              "visual": "手持中景：打开冰箱取出轻醒酸奶，走到餐桌前放下",
+              "shot_size": "中景", "camera_position": "平视", "camera_motion": "手持微晃",
+              "person_action": "开冰箱取出酸奶放到桌上",
+              "spoken_line": null, "on_screen_text": "打开冰箱就是它",
+              "product_state": "入镜静置", "product_exposure": true,
+              "props": ["轻醒酸奶（原味）"],
+              "location": "家中厨房（冰箱前）", "bgm_or_sound": "环境音：冰箱门开关声", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "产品首次入镜，与脚本 product_first_appearance_s=6.4 对齐；无卖点表述",
+              "script_source": "b3",
+              "style_evidence": "需求场景→产品解法的植入结构（小季没烦恼 16s 饮品植入段，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s05", "start_time": 8.6, "end_time": 10.8, "duration": 2.2,
+              "visual": "俯拍特写：撕开酸奶盖，勺子舀起展示浓稠质地",
+              "shot_size": "特写", "camera_position": "俯拍", "camera_motion": "俯拍下移",
+              "person_action": "撕盖、舀起一勺酸奶展示质地",
+              "spoken_line": null, "on_screen_text": "0蔗糖，奶香很浓",
+              "product_state": "特写展示", "product_exposure": true,
+              "props": ["轻醒酸奶（原味）", "勺子"],
+              "location": "餐桌", "bgm_or_sound": "环境音：撕盖声", "transition": "跳切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "「0蔗糖」为品牌宣称，依据品牌方资料；未表述为「无糖」，未标注任何营养数值",
+              "script_source": "b3",
+              "style_evidence": "字幕承担卖点（小季没烦恼 narration_relation：字幕承担叙事+情绪+卖点，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s06", "start_time": 10.8, "end_time": 13.0, "duration": 2.2,
+              "visual": "第一人称俯拍：酸奶倒入玻璃碗，依次铺香蕉片、蓝莓，撒燕麦",
+              "shot_size": "特写", "camera_position": "第一人称", "camera_motion": "固定",
+              "person_action": "倒酸奶、铺水果、撒燕麦组装酸奶碗",
+              "spoken_line": null, "on_screen_text": "我觉得挺顶饱的",
+              "product_state": "开封/使用中", "product_exposure": true,
+              "props": ["轻醒酸奶（原味）", "蓝莓", "香蕉", "燕麦", "玻璃碗", "勺子"],
+              "location": "餐桌", "bgm_or_sound": "环境音：燕麦洒落声", "transition": "跳切",
+              "shooting_difficulty": "medium",
+              "compliance_note": "饱腹感表述采用个人体验语境（「我觉得」），未延伸至减重/抑制食欲",
+              "script_source": "b3",
+              "style_evidence": "组装段第一人称操作视角（一只牛 26-34s 组装三明治段，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s07", "start_time": 13.0, "end_time": 15.4, "duration": 2.4,
+              "visual": "俯拍特写：冰块入杯，倒入咖啡液，画面只拍咖啡",
+              "shot_size": "特写", "camera_position": "俯拍", "camera_motion": "固定",
+              "person_action": "倒冰块、倒咖啡",
+              "spoken_line": null, "on_screen_text": "这个天气还是要冰美式",
+              "product_state": "未出现", "product_exposure": false,
+              "props": ["玻璃杯", "冰块", "咖啡液"],
+              "location": "餐桌", "bgm_or_sound": "环境音：冰块碰撞声", "transition": "跳切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述，无合规风险",
+              "script_source": "b4",
+              "style_evidence": "饮品与主餐的固定搭配位（一只牛 36s 冰美式位，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s08", "start_time": 15.4, "end_time": 18.2, "duration": 2.8,
+              "visual": "三脚架中景：坐在餐桌前舀食酸奶碗，手边放冰美式，余光扫平板",
+              "shot_size": "中景", "camera_position": "平视", "camera_motion": "固定",
+              "person_action": "舀食酸奶碗、翻平板",
+              "spoken_line": null, "on_screen_text": "酸奶加咖啡，早餐齐了",
+              "product_state": "食用/饮用中", "product_exposure": true,
+              "props": ["酸奶碗", "勺子", "冰美式", "平板"],
+              "location": "餐桌", "bgm_or_sound": "轻BGM渐入", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述，无合规风险",
+              "script_source": "b4",
+              "style_evidence": "边吃边看iPad的用餐中景（一只牛 40-48s 用餐段，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s09", "start_time": 18.2, "end_time": 21.0, "duration": 2.8,
+              "visual": "俯拍中景：吃完的餐盘与酸奶杯摆齐收尾，结束字幕浮现",
+              "shot_size": "中景", "camera_position": "俯拍", "camera_motion": "缓慢推进",
+              "person_action": "把空碗与咖啡杯摆齐",
+              "spoken_line": null, "on_screen_text": "好好吃早饭~",
+              "product_state": "入镜静置", "product_exposure": true,
+              "props": ["餐盘", "酸奶杯", "咖啡杯"],
+              "location": "餐桌", "bgm_or_sound": "轻BGM收尾", "transition": "淡入淡出",
+              "shooting_difficulty": "easy",
+              "compliance_note": "结束语为原创，未抄袭达人固定句式；无卖点表述",
+              "script_source": "b5",
+              "style_evidence": "收尾展示+固定结束语结构（一只牛 48-54.7s 收尾段，data/processed/stage_3_top3_video_timelines.json）"
+            }
+          ]
+        }
+      },
+      "expect": {"ok": true, "error_codes": []}
+    },
+    {
+      "id": "eval_002",
+      "name": "办公室下午茶口播型 5 镜分镜（正例）",
+      "type": "positive",
+      "description": "欧盈Kelly 风格（voiceover，avg_shot_s=2.4）办公室下午茶场景，12.0s / 5 镜，平均镜头 2.4s 与风格证据一致，应全部通过。",
+      "input": {
+        "script": {
+          "script_id": "script-office-001",
+          "title": "工位下午茶｜三点充电一下",
+          "format": "voiceover",
+          "total_duration_s": 12.0,
+          "product_first_appearance_s": 2.4,
+          "beats": [
+            {"beat_id": "b1", "start_time": 0.0, "end_time": 2.4, "purpose": "hook", "scene": "工位", "action": "自拍开场", "spoken_line": "下午三点，眼皮开始打架了", "on_screen_text": "15:00"},
+            {"beat_id": "b2", "start_time": 2.4, "end_time": 7.2, "purpose": "product", "scene": "工位", "action": "取酸奶、开盖", "spoken_line": "抽屉里常备这个；0蔗糖的，下午喝不齁", "on_screen_text": null},
+            {"beat_id": "b3", "start_time": 7.2, "end_time": 12.0, "purpose": "ending", "scene": "工位", "action": "边喝边工作、收尾", "spoken_line": "我觉得比奶茶顶饱；下午茶搞定，继续搬砖", "on_screen_text": "下班倒计时"}
+          ]
+        },
+        "storyboard": {
+          "schema_version": "1.0",
+          "storyboard_id": "sb-office-001",
+          "scene": "办公室下午茶",
+          "aspect_ratio": "9:16",
+          "target_duration_s": 12.0,
+          "actual_total_duration_s": 12.0,
+          "product_first_appearance_s": 2.4,
+          "shots": [
+            {
+              "shot_id": "s01", "start_time": 0.0, "end_time": 2.4, "duration": 2.4,
+              "visual": "自拍视角中近景：工位前伸懒腰，背景可见电脑屏幕",
+              "shot_size": "中近景", "camera_position": "自拍视角", "camera_motion": "手持微晃",
+              "person_action": "面对镜头伸懒腰、看一眼屏幕",
+              "spoken_line": "下午三点，眼皮开始打架了", "on_screen_text": "15:00",
+              "product_state": "未出现", "product_exposure": false,
+              "props": ["电脑"],
+              "location": "办公室工位", "bgm_or_sound": "环境音：键盘声", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述，无合规风险",
+              "script_source": "b1",
+              "style_evidence": "打工人共鸣开场问候+时间戳字幕（欧盈Kelly 0-4s hook，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s02", "start_time": 2.4, "end_time": 4.8, "duration": 2.4,
+              "visual": "第一人称近景：拉开工位抽屉取出轻醒酸奶",
+              "shot_size": "近景", "camera_position": "第一人称", "camera_motion": "手持微晃",
+              "person_action": "拉抽屉取出酸奶举到镜头前",
+              "spoken_line": "抽屉里常备这个", "on_screen_text": null,
+              "product_state": "手持展示", "product_exposure": true,
+              "props": ["轻醒酸奶（蓝莓）"],
+              "location": "办公室工位", "bgm_or_sound": "环境音：抽屉声", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "产品首次入镜与脚本 product_first_appearance_s=2.4 对齐；无卖点表述",
+              "script_source": "b2",
+              "style_evidence": "自拍+固定机位混合视角（欧盈Kelly style_summary.reusable_high_level，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s03", "start_time": 4.8, "end_time": 7.2, "duration": 2.4,
+              "visual": "俯拍特写：桌面撕开酸奶盖，勺舀一口",
+              "shot_size": "特写", "camera_position": "俯拍", "camera_motion": "固定",
+              "person_action": "撕盖、舀一勺",
+              "spoken_line": "0蔗糖的，下午喝不齁", "on_screen_text": null,
+              "product_state": "开封/使用中", "product_exposure": true,
+              "props": ["轻醒酸奶（蓝莓）", "勺子"],
+              "location": "办公室工位", "bgm_or_sound": "环境音：撕盖声", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "「0蔗糖」为品牌宣称，依据品牌方资料；未表述为「无糖」",
+              "script_source": "b2",
+              "style_evidence": "字幕承担时间戳+口播为叙事主线（欧盈Kelly narration_relation，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s04", "start_time": 7.2, "end_time": 9.6, "duration": 2.4,
+              "visual": "三脚架中景：边喝酸奶边敲键盘",
+              "shot_size": "中景", "camera_position": "平视", "camera_motion": "固定",
+              "person_action": "喝酸奶、敲键盘",
+              "spoken_line": "我觉得比奶茶顶饱", "on_screen_text": null,
+              "product_state": "食用/饮用中", "product_exposure": true,
+              "props": ["轻醒酸奶（蓝莓）", "键盘"],
+              "location": "办公室工位", "bgm_or_sound": "轻BGM", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "饱腹感表述采用个人体验语境（「我觉得」），未延伸至减重/抑制食欲；未与竞品对比",
+              "script_source": "b3",
+              "style_evidence": "饮品贯穿的生活流动线（欧盈Kelly style_summary.reusable_high_level，data/processed/stage_3_top3_video_timelines.json）"
+            },
+            {
+              "shot_id": "s05", "start_time": 9.6, "end_time": 12.0, "duration": 2.4,
+              "visual": "自拍视角中近景：举起空杯对镜头，收拾桌面",
+              "shot_size": "中近景", "camera_position": "自拍视角", "camera_motion": "手持微晃",
+              "person_action": "举空杯、收拾桌面",
+              "spoken_line": "下午茶搞定，继续搬砖", "on_screen_text": "下班倒计时",
+              "product_state": "入镜静置", "product_exposure": true,
+              "props": ["酸奶杯"],
+              "location": "办公室工位", "bgm_or_sound": "轻BGM收尾", "transition": "淡入淡出",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述，无合规风险",
+              "script_source": "b3",
+              "style_evidence": "夜景空镜+固定结束语的收尾结构（欧盈Kelly style_summary.reusable_high_level，data/processed/stage_3_top3_video_timelines.json）"
+            }
+          ]
+        }
+      },
+      "expect": {"ok": true, "error_codes": []}
+    },
+    {
+      "id": "eval_003",
+      "name": "时间轴重叠 + 产品露出早于脚本时点（真实反例）",
+      "type": "negative",
+      "description": "s02 与 s01 时间轴重叠 0.5s；且 s01 在脚本 product_first_appearance_s=6.0 之前即标记产品露出。应判失败并给出两个对应错误码。",
+      "input": {
+        "script": {
+          "script_id": "script-bad-001",
+          "title": "早餐（反例脚本）",
+          "format": "subtitle_immersive",
+          "total_duration_s": 8.0,
+          "product_first_appearance_s": 6.0,
+          "beats": [
+            {"beat_id": "b1", "start_time": 0.0, "end_time": 8.0, "purpose": "process", "scene": "厨房", "action": "制作", "spoken_line": null, "on_screen_text": null}
+          ]
+        },
+        "storyboard": {
+          "schema_version": "1.0",
+          "storyboard_id": "sb-bad-001",
+          "scene": "早餐",
+          "aspect_ratio": "9:16",
+          "target_duration_s": 8.0,
+          "actual_total_duration_s": 8.0,
+          "product_first_appearance_s": 6.0,
+          "shots": [
+            {
+              "shot_id": "s01", "start_time": 0.0, "end_time": 3.0, "duration": 3.0,
+              "visual": "俯拍特写：手持轻醒酸奶直接入镜展示",
+              "shot_size": "特写", "camera_position": "俯拍", "camera_motion": "固定",
+              "person_action": "举起酸奶展示",
+              "spoken_line": null, "on_screen_text": null,
+              "product_state": "手持展示", "product_exposure": true,
+              "props": ["轻醒酸奶（原味）"],
+              "location": "家中厨房台面", "bgm_or_sound": "环境音", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "反例：产品露出早于脚本设定时点",
+              "script_source": "b1",
+              "style_evidence": "反例用最小构造，无风格依据（eval_003）"
+            },
+            {
+              "shot_id": "s02", "start_time": 2.5, "end_time": 5.0, "duration": 2.5,
+              "visual": "第一人称：切水果",
+              "shot_size": "特写", "camera_position": "第一人称", "camera_motion": "手持微晃",
+              "person_action": "切水果",
+              "spoken_line": null, "on_screen_text": null,
+              "product_state": "未出现", "product_exposure": false,
+              "props": ["香蕉", "水果刀"],
+              "location": "家中厨房台面", "bgm_or_sound": "环境音", "transition": "跳切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述",
+              "script_source": "b1",
+              "style_evidence": "反例用最小构造，无风格依据（eval_003）"
+            },
+            {
+              "shot_id": "s03", "start_time": 5.0, "end_time": 8.0, "duration": 3.0,
+              "visual": "俯拍中景：组装完成展示",
+              "shot_size": "中景", "camera_position": "俯拍", "camera_motion": "固定",
+              "person_action": "摆放餐盘",
+              "spoken_line": null, "on_screen_text": "开饭",
+              "product_state": "未出现", "product_exposure": false,
+              "props": ["餐盘"],
+              "location": "餐桌", "bgm_or_sound": "轻BGM", "transition": "淡入淡出",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述",
+              "script_source": "b1",
+              "style_evidence": "反例用最小构造，无风格依据（eval_003）"
+            }
+          ]
+        }
+      },
+      "expect": {"ok": false, "error_codes": ["TIMELINE_OVERLAP", "PRODUCT_EXPOSURE_TOO_EARLY"]}
+    },
+    {
+      "id": "eval_004",
+      "name": "不可执行运镜反例（无人机/轨道）",
+      "type": "counter_example",
+      "description": "camera_motion 出现「无人机航拍俯冲」与「轨道平移」：单人+手机无法执行，命中黑名单，应判失败。",
+      "input": {
+        "script": {
+          "script_id": "script-bad-002",
+          "title": "通勤（反例脚本）",
+          "format": "subtitle_immersive",
+          "total_duration_s": 6.0,
+          "product_first_appearance_s": 4.0,
+          "beats": [
+            {"beat_id": "b1", "start_time": 0.0, "end_time": 6.0, "purpose": "process", "scene": "通勤", "action": "通勤路上", "spoken_line": null, "on_screen_text": null}
+          ]
+        },
+        "storyboard": {
+          "schema_version": "1.0",
+          "storyboard_id": "sb-bad-002",
+          "scene": "通勤",
+          "aspect_ratio": "9:16",
+          "target_duration_s": 6.0,
+          "actual_total_duration_s": 6.0,
+          "product_first_appearance_s": 4.0,
+          "shots": [
+            {
+              "shot_id": "s01", "start_time": 0.0, "end_time": 2.0, "duration": 2.0,
+              "visual": "城市街景大全景俯冲后落在小区门口",
+              "shot_size": "全景", "camera_position": "高空俯拍", "camera_motion": "无人机航拍俯冲",
+              "person_action": "走出小区",
+              "spoken_line": null, "on_screen_text": "早八通勤",
+              "product_state": "未出现", "product_exposure": false,
+              "props": [],
+              "location": "小区门口", "bgm_or_sound": "环境音", "transition": "硬切",
+              "shooting_difficulty": "hard",
+              "compliance_note": "无卖点表述",
+              "script_source": "b1",
+              "style_evidence": "反例：电影化运镜，无真实证据支撑（eval_004）"
+            },
+            {
+              "shot_id": "s02", "start_time": 2.0, "end_time": 4.0, "duration": 2.0,
+              "visual": "低机位沿人行道跟随脚步移动",
+              "shot_size": "特写", "camera_position": "低机位", "camera_motion": "轨道平移",
+              "person_action": "走路",
+              "spoken_line": null, "on_screen_text": null,
+              "product_state": "未出现", "product_exposure": false,
+              "props": [],
+              "location": "人行道", "bgm_or_sound": "环境音：脚步声", "transition": "硬切",
+              "shooting_difficulty": "hard",
+              "compliance_note": "无卖点表述",
+              "script_source": "b1",
+              "style_evidence": "反例：电影化运镜，无真实证据支撑（eval_004）"
+            },
+            {
+              "shot_id": "s03", "start_time": 4.0, "end_time": 6.0, "duration": 2.0,
+              "visual": "地铁里从包里取出轻醒酸奶",
+              "shot_size": "近景", "camera_position": "第一人称", "camera_motion": "手持微晃",
+              "person_action": "从包里取酸奶",
+              "spoken_line": null, "on_screen_text": "路上先垫一口",
+              "product_state": "手持展示", "product_exposure": true,
+              "props": ["轻醒酸奶（原味）", "通勤包"],
+              "location": "地铁车厢", "bgm_or_sound": "环境音：地铁行驶声", "transition": "硬切",
+              "shooting_difficulty": "easy",
+              "compliance_note": "无卖点表述",
+              "script_source": "b1",
+              "style_evidence": "反例用最小构造，无风格依据（eval_004）"
+            }
+          ]
+        }
+      },
+      "expect": {"ok": false, "error_codes": ["CAMERA_MOTION_NOT_EXECUTABLE"]}
+    }
+  ]
+}

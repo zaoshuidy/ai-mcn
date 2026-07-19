@@ -134,9 +134,63 @@ PROFILE_DETAIL_JS = (
     "tags:tags});})()"
 )
 
+# 主页笔记互动数据：最近笔记的点赞/收藏/评论与商业标识（只读）
+# interactInfo 字段名做多键兼容；平台商业标识常见为 cornerTagInfo/others 中的标记
+PROFILE_NOTES_ENGAGEMENT_JS = (
+    "(()=>{const rw=o=>o&&o._value!==undefined?o._value:o;"
+    "const s=window.__INITIAL_STATE__;const ns=rw(s&&s.user&&s.user.notes);"
+    "if(!ns)return JSON.stringify([]);const out=[];"
+    "ns.flat().forEach(n=>{const item=rw(n)||{};const c=rw(item.noteCard)||{};"
+    "const ii=rw(c.interactInfo)||{};"
+    "const num=v=>{if(v===undefined||v===null||v==='')return null;"
+    "const t=String(v).trim();if(t.endsWith('万'))return Math.round(parseFloat(t)*10000);"
+    "if(t.endsWith('w'))return Math.round(parseFloat(t)*10000);"
+    "const p=parseInt(t.replace(/[^0-9]/g,''),10);return isNaN(p)?null:p;};"
+    "let label=false;try{"
+    "const tags=(rw(c.cornerTagInfo)||[]).map(t=>{const e=rw(t)||{};"
+    "return String(e.text||e.type||'');});"
+    "label=tags.some(t=>/赞助|广告|合作|商业/.test(t));}catch(e){}"
+    "out.push({note_id:item.id||c.noteId||'',title:c.displayTitle||c.title||'',"
+    "type:c.type||'',time:c.time||null,"
+    "sticky:ii.sticky===true,"
+    "likes:num(ii.likedCount!==undefined?ii.likedCount:ii.likes),"
+    "collects:num(ii.collectedCount!==undefined?ii.collectedCount:ii.collects),"
+    "comments:num(ii.commentCount!==undefined?ii.commentCount:ii.comments),"
+    "share:num(ii.sharedCount),"
+    "is_platform_labeled_commercial:label,"
+    "interact_keys:Object.keys(ii)});});"
+    "return JSON.stringify(out);})()"
+)
+
+# 一次性结构探测：返回首个 noteCard 的完整键列表（只读，用于模板设计）
+PROFILE_NOTES_PROBE_JS = (
+    "(()=>{const rw=o=>o&&o._value!==undefined?o._value:o;"
+    "const s=window.__INITIAL_STATE__;const ns=rw(s&&s.user&&s.user.notes);"
+    "if(!ns)return JSON.stringify({err:'no notes'});"
+    "const item=rw(ns.flat()[0])||{};const c=rw(item.noteCard)||{};"
+    "const ii=rw(c.interactInfo)||{};"
+    "return JSON.stringify({card_keys:Object.keys(c),interact:ii,"
+    "corner:rw(c.cornerTagInfo)||null});})()"
+)
+
+# 一次性结构探测：笔记详情页 note 对象的键与商业标识相关字段（只读）
+NOTE_DETAIL_PROBE_JS = (
+    "(()=>{const rw=o=>o&&o._value!==undefined?o._value:o;"
+    "const s=window.__INITIAL_STATE__;"
+    "if(!s||!s.note)return JSON.stringify({err:'no note state'});"
+    "const m=rw(s.note.noteDetailMap);if(!m)return JSON.stringify({err:'no map'});"
+    "const k=Object.keys(m)[0];const d=rw(m[k]);const n=rw(d&&d.note)||{};"
+    "const out={note_keys:Object.keys(n)};"
+    "['cornerTagInfo','cornerTag','tagList','adInfo','commercialInfo',"
+    "'cooperateBlogger','noteType'].forEach(f=>{"
+    "try{out[f]=JSON.stringify(rw(n[f])||null).slice(0,300);}catch(e){out[f]='err';}});"
+    "return JSON.stringify(out);})()"
+)
+
 _READ_ONLY_TEMPLATES = frozenset(
     {PAGE_STATE_JS, LOGIN_GATE_JS, NOTE_MEDIA_JS, PROFILE_NOTES_XSEC_JS,
-     SEARCH_NOTES_JS, PROFILE_DETAIL_JS}
+     SEARCH_NOTES_JS, PROFILE_DETAIL_JS, PROFILE_NOTES_ENGAGEMENT_JS,
+     PROFILE_NOTES_PROBE_JS, NOTE_DETAIL_PROBE_JS}
 )
 
 # 软导航前缀：等价于用户在地址栏输入 URL（只读跳转），目标 URL 由适配器内部构造
@@ -427,6 +481,21 @@ class XhsCdpBrowserAdapter:
     def extract_profile_detail(self, page: Any) -> Optional[dict]:
         data = self.evaluate_readonly(page, PROFILE_DETAIL_JS)
         return dict(data) if isinstance(data, dict) else None
+
+    def extract_profile_notes_engagement(self, page: Any) -> list[dict]:
+        """主页最近笔记的点赞/收藏/评论与平台商业标识（只读）。"""
+        data = self.evaluate_readonly(page, PROFILE_NOTES_ENGAGEMENT_JS)
+        return list(data) if isinstance(data, list) else []
+
+    def probe_profile_note_card(self, page: Any) -> dict:
+        """一次性结构探测：首个 noteCard 的键列表（模板设计用）。"""
+        data = self.evaluate_readonly(page, PROFILE_NOTES_PROBE_JS)
+        return dict(data) if isinstance(data, dict) else {}
+
+    def probe_note_detail(self, page: Any) -> dict:
+        """一次性结构探测：笔记详情 note 对象的商业标识相关字段。"""
+        data = self.evaluate_readonly(page, NOTE_DETAIL_PROBE_JS)
+        return dict(data) if isinstance(data, dict) else {}
 
     # ---- 登录等待 ----
 

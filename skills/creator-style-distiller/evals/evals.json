@@ -1,0 +1,366 @@
+{
+  "skill": "creator-style-distiller",
+  "version": "1.0.0",
+  "data_source": {
+    "timeline_file": "data/processed/stage_3_top3_video_timelines.json",
+    "timeline_pointer": "timelines[0]",
+    "creator": "欧盈Kelly",
+    "creator_id": "60bb90f00000000001002887",
+    "note_id": "6989ab01000000001a0360c5",
+    "note_title": "深圳INTP独立女上班vlog：又活了一天",
+    "duration_s": 153.5,
+    "primary_format": "voiceover",
+    "asr_reliability": "reliable_with_noise"
+  },
+  "evals": [
+    {
+      "id": "eval_001_hook_and_structure",
+      "type": "llm_graded",
+      "description": "基于欧盈Kelly真实 timeline，检验钩子与叙事结构蒸馏是否准确且转述。",
+      "input": {
+        "creator_profile": {
+          "nickname": "欧盈Kelly",
+          "creator_id": "60bb90f00000000001002887",
+          "primary_format": "voiceover",
+          "main_scenes": ["一人食", "通勤/办公室", "下午茶"]
+        },
+        "video_timelines_ref": "data/processed/stage_3_top3_video_timelines.json#timelines[0]",
+        "transcript_summary": "10 段 transcript_summary（0-153.5s），ASR 标注 reliable_with_noise，末尾 148s 后幻觉重复句已剔除",
+        "keyframe_evidence": {
+          "interval_total": 77,
+          "scene_total": 42,
+          "deduped_total": 90,
+          "valid_interval": 64
+        },
+        "commercial_signals": "无明确商单；14s 处香水为自用展示型口播（是否软广无法确认）",
+        "compliance_risks": []
+      },
+      "expected_output_points": [
+        "hook_patterns 指出 0-4s 移动自拍视角 + 大标题卡 + 口语化问候建立打工人共鸣语境，附时间戳",
+        "narrative_structure 概括出以时钟时间推进的一日叙事弧线，phases 覆盖晨间准备/通勤早餐/工作主线/下班收束",
+        "voiceover_density.mode 为 voiceover，且注意到末段约 148-153.5s 为空镜无口播",
+        "subtitle_density 体现字幕承担时间戳与情绪表达双重功能（转述表达）",
+        "shot_rhythm.avg_shot_s 接近真实值 2.4s",
+        "evidence_timestamps 覆盖 0、14、18、33.2、38、78、120 等关键秒点"
+      ],
+      "must_not": [
+        "输出任何 transcript_summary 或 on_screen_text 的原句（>15 字连续相同）",
+        "把开场问候黑话或人格标签写进 reusable_style_rules"
+      ],
+      "reference_output": {
+        "hook_patterns": [
+          {
+            "pattern": "前 4 秒用移动中的自拍视角加超大标题卡建立'今天也在上班'的共鸣语境，问候语口语化、反精致",
+            "evidence": "第 1 段 0-4s，户外街道场景，shot_type 为自拍仰拍+标题卡",
+            "timestamps": [0.0, 4.0]
+          }
+        ],
+        "narrative_structure": {
+          "arc": "以时钟时间推进的一日工作叙事：晨间准备—通勤—上午工作—午餐—下午工作—下班聚餐—夜景收尾",
+          "phases": [
+            { "name": "晨间准备", "description": "穿搭出门并带出自用物品", "time_range_s": [0.0, 18.0] },
+            { "name": "通勤与早餐", "description": "移动场景中带出饮品与固定早餐", "time_range_s": [18.0, 64.0] },
+            { "name": "工作主线", "description": "会议与工位场景承担时长主体", "time_range_s": [64.0, 106.0] },
+            { "name": "下班收束", "description": "聚餐加夜景空镜结束", "time_range_s": [106.0, 153.5] }
+          ]
+        },
+        "sentence_rhythm": {
+          "style": "短句口语旁白为主，句间靠快切画面衔接",
+          "features": ["短句", "口语化", "情绪自嘲"]
+        },
+        "voiceover_density": {
+          "mode": "voiceover",
+          "estimated_speech_ratio": 0.7,
+          "notes": "口播为主线，末段约 5.5s 纯空镜无口播"
+        },
+        "subtitle_density": {
+          "level": "high",
+          "functions": ["时间戳推进", "情绪表达"],
+          "notes": "时间戳从早间 07:30 排至晚间 19:15"
+        },
+        "shot_rhythm": {
+          "avg_shot_s": 2.4,
+          "pacing": "快切",
+          "shot_types": ["自拍仰拍", "固定机位中景", "手持特写", "跟拍", "空镜"]
+        },
+        "scene_patterns": [
+          { "scene": "户外城市街道", "role": "开场建立通勤语境" },
+          { "scene": "卧室/衣帽间", "role": "晨间准备" },
+          { "scene": "车内/咖啡店", "role": "通勤过渡与饮品复现" },
+          { "scene": "办公室工位/会议室", "role": "工作主线" },
+          { "scene": "餐厅", "role": "下班社交收束" },
+          { "scene": "城市夜景", "role": "空镜收尾" }
+        ],
+        "food_integration_patterns": [
+          {
+            "pattern": "同一饮品在全片多个生活节点自然复现，形成贯穿线而非单次硬植入",
+            "evidence": "18s 与 33.2s 两次出现同类冰饮，38s 进入固定早餐搭配",
+            "insertion_point_s": 18.0
+          },
+          {
+            "pattern": "三餐均落在生活流自然位置，无特写叫卖式呈现",
+            "evidence": "38s 早餐、78s 午餐、120s 晚餐均为叙事内位置",
+            "insertion_point_s": 38.0
+          }
+        ],
+        "commercial_integration_patterns": [
+          {
+            "pattern": "无明确商单时以自用展示形态出现产品，无卖点话术",
+            "evidence": "4-18s 段 commercial_expression 标注为自用展示型口播，是否软广无法确认",
+            "insertion_point_s": 14.0
+          }
+        ],
+        "CTA_patterns": [
+          {
+            "pattern": "结尾字幕卡含轻描淡写的再见式引导，无强销售 CTA",
+            "evidence": "148-153.5s 结尾字幕卡"
+          }
+        ],
+        "reusable_style_rules": [
+          "用时间戳字幕把全天切成可预期的小节，降低观看成本",
+          "同一饮品在通勤、早餐、工位等多个生活流节点复现，形成自然贯穿线",
+          "移动自拍与固定机位交替，维持 2-3s 级快切节奏",
+          "结尾用空镜加字幕卡收束，不强行口播总结"
+        ],
+        "creator_specific_elements_not_to_copy": [
+          "开场问候的个人化打工人黑话",
+          "人格标签类人设表达",
+          "字幕里的个人情绪梗用词",
+          "固定结束语句式",
+          "具体自用香水品牌描述"
+        ],
+        "confidence": 0.85,
+        "evidence_timestamps": [0.0, 14.0, 18.0, 33.2, 38.0, 78.0, 120.0, [148.0, 153.5]]
+      }
+    },
+    {
+      "id": "eval_002_food_and_commercial_integration",
+      "type": "llm_graded",
+      "description": "检验食物/商业植入模式蒸馏是否忠于证据：Kelly 视频无明确商单，饮品为生活流贯穿。",
+      "input": {
+        "creator_profile": { "nickname": "欧盈Kelly", "creator_id": "60bb90f00000000001002887" },
+        "video_timelines_ref": "data/processed/stage_3_top3_video_timelines.json#timelines[0]",
+        "transcript_summary": "同 eval_001",
+        "keyframe_evidence": { "interval_total": 77, "scene_total": 42, "deduped_total": 90, "valid_interval": 64 },
+        "commercial_signals": "style_summary.commercial_pattern：本视频无明确商单；香水为自用展示型口播（未确认软广）",
+        "compliance_risks": "全片 compliance_risks 均为空；style_summary.compliance_scan 未见减肥/医疗类表达"
+      },
+      "expected_output_points": [
+        "food_integration_patterns 识别饮品贯穿（18s/33.2s 两次出现）与三餐自然落位（38/78/120s）",
+        "commercial_integration_patterns 如实描述'无明确商单、自用展示、是否软广无法确认'，不替达人断定",
+        "不虚构任何品牌合作话术或功效表达",
+        "product_first_appearance_s 类证据（14s 香水、18s 饮品）被正确使用"
+      ],
+      "must_not": [
+        "声称该视频含品牌合作或软广实锤",
+        "出现减肥/燃脂/掉秤/降糖/医疗效果/绝对化表达",
+        "把'0蔗糖'写成'无糖'（本案例不涉及，但输出不得引入此类错误范式）"
+      ]
+    },
+    {
+      "id": "eval_003_reusable_vs_personal_boundary",
+      "type": "llm_graded",
+      "description": "检验'可复用手法'与'个人专属元素'的切分及置信度行为是否符合 rules.md。",
+      "input": {
+        "creator_profile": { "nickname": "欧盈Kelly", "creator_id": "60bb90f00000000001002887" },
+        "video_timelines_ref": "data/processed/stage_3_top3_video_timelines.json#timelines[0]",
+        "transcript_summary": "同 eval_001",
+        "keyframe_evidence": { "interval_total": 77, "scene_total": 42, "deduped_total": 90, "valid_interval": 64 },
+        "commercial_signals": "同 eval_002",
+        "compliance_risks": []
+      },
+      "expected_output_points": [
+        "reusable_style_rules 只含可迁移手法（时间戳结构、饮品贯穿、视角混合、空镜收尾等）",
+        "creator_specific_elements_not_to_copy 覆盖：开场问候黑话、人格标签人设、个人情绪梗、固定结束语、自用香水描述",
+        "两条清单无重叠（同一元素不得既'可复用'又'不可复制'）",
+        "confidence 落在 0.5-1.0 区间且与证据强度匹配；单样本模式需标注",
+        "所有 pattern 级条目均带 evidence 定位"
+      ],
+      "must_not": [
+        "把个人口头禅改写后当作通用规则输出（换皮复制同样违规）",
+        "creator_specific_elements_not_to_copy 为空或仅写'无'"
+      ]
+    },
+    {
+      "id": "eval_004_counter_verbatim_copy",
+      "type": "executable",
+      "description": "反例：输出直接搬运达人屏幕字幕原句（>15 字连续相同），校验器必须判失败（退出码非 0）。",
+      "input": {
+        "video_timelines_ref": "data/processed/stage_3_top3_video_timelines.json#timelines[0]",
+        "note": "sample_bad_output 的 reusable_style_rules 第 1 条逐字抄自第 5 段（38-48s）on_screen_text，其余字段均合法，确保唯一失败原因是禁复制检查"
+      },
+      "expected_validator_result": "fail",
+      "sample_bad_output": {
+        "hook_patterns": [
+          {
+            "pattern": "前 4 秒移动自拍加大标题卡建立共鸣语境",
+            "evidence": "第 1 段 0-4s",
+            "timestamps": [0.0, 4.0]
+          }
+        ],
+        "narrative_structure": {
+          "arc": "时钟时间推进的一日工作叙事",
+          "phases": [
+            { "name": "晨间准备", "description": "穿搭出门", "time_range_s": [0.0, 18.0] },
+            { "name": "工作主线", "description": "通勤后到司办公", "time_range_s": [18.0, 106.0] },
+            { "name": "下班收束", "description": "聚餐加空镜结束", "time_range_s": [106.0, 153.5] }
+          ]
+        },
+        "sentence_rhythm": { "style": "短句口语旁白", "features": ["短句", "口语化"] },
+        "voiceover_density": { "mode": "voiceover", "estimated_speech_ratio": 0.7 },
+        "subtitle_density": { "level": "high", "functions": ["时间戳", "情绪表达"] },
+        "shot_rhythm": { "avg_shot_s": 2.4, "pacing": "快切", "shot_types": ["自拍仰拍", "固定机位"] },
+        "scene_patterns": [
+          { "scene": "户外城市街道" },
+          { "scene": "办公室" },
+          { "scene": "餐厅" }
+        ],
+        "food_integration_patterns": [
+          { "pattern": "饮品在多个生活节点复现", "evidence": "18s 与 33.2s", "insertion_point_s": 18.0 }
+        ],
+        "commercial_integration_patterns": [
+          { "pattern": "自用展示形态出现产品", "evidence": "4-18s 段", "insertion_point_s": 14.0 }
+        ],
+        "CTA_patterns": [
+          { "pattern": "结尾字幕卡再见式引导", "evidence": "148-153.5s" }
+        ],
+        "reusable_style_rules": [
+          "每天早餐都是固定的炒蛋+冰美；作为广州人我真的好想念广州的点心",
+          "用时间戳字幕推进全天叙事"
+        ],
+        "creator_specific_elements_not_to_copy": [
+          "开场问候的个人化打工人黑话",
+          "人格标签类人设表达"
+        ],
+        "confidence": 0.9,
+        "evidence_timestamps": [0.0, 14.0, 18.0, 38.0]
+      }
+    },
+    {
+      "id": "eval_005_hook_variations_and_food_placement",
+      "type": "llm_graded",
+      "description": "基于欧盈Kelly Stage 4 两条新视频的真实 timeline，检验钩子变奏识别与'食品位置服从题材'的蒸馏是否忠于证据。",
+      "input": {
+        "creator_profile": {
+          "nickname": "欧盈Kelly",
+          "creator_id": "60bb90f00000000001002887",
+          "primary_format": "voiceover",
+          "main_scenes": ["一人食", "通勤/办公室", "下班犒劳", "挑战体验"]
+        },
+        "video_timelines_ref": "data/processed/stage_4_kelly_video_timelines.json#timelines[0]（视频② 219.43s）与 #timelines[1]（视频③ 164.77s）",
+        "transcript_summary": "视频② 13 段、视频③ 9 段；ASR 均 reliable_with_noise；② 97-111s 重复幻觉循环已剔除，③ 水下约 17s 纯 BGM 无口播",
+        "keyframe_evidence": {
+          "video_2": { "interval_total": 110, "scene_total": 61, "deduped_total": 124, "valid_interval": 89 },
+          "video_3": { "interval_total": 82, "scene_total": 48, "deduped_total": 103, "valid_interval": 69 }
+        },
+        "commercial_signals": "两条均无明确商单；门店类内容为体验式消费记录（是否软广无法确认）；③ 食品后置到 98s",
+        "compliance_risks": "② 200s 起含居家调酒画面（自带未成年禁酒提示），饮酒人设不得复用到食品商单"
+      },
+      "expected_output_points": [
+        "hook_patterns 区分两种变奏：视频② 结果前置冷开场+时间戳倒带（0-4s），视频③ 挑战悬念+衬线大标题卡（0-6s），均附时间戳",
+        "narrative_structure 概括视频② 的下班后倒带叙事弧线，phases 覆盖冷开场预告/下班过渡/一人食正餐/放松回家/居家收尾",
+        "food_integration_patterns 体现'食品位置服从题材'：② 食品 2s 预告并沿动线贯穿，③ 食品后置到 98s 犒劳段、前 96s 无食品",
+        "voiceover_density.mode 为 voiceover，有声占比约 0.6，且注意到水下/按摩段的 BGM 留白",
+        "shot_rhythm.avg_shot_s 落在 2.4-2.5 稳健区间",
+        "creator_specific_elements_not_to_copy 包含饮酒人设与调酒桥段、人格标签、个人情绪梗、具体门店信息",
+        "evidence_timestamps 覆盖 0、2、98、114、148、200 等关键秒点"
+      ],
+      "must_not": [
+        "输出任何 transcript_summary 或 on_screen_text 的原句（>15 字连续相同）",
+        "把标题句式、人格标签或饮酒人设写进 reusable_style_rules",
+        "替达人断定任何门店内容为商单或软广实锤",
+        "出现减肥/燃脂/掉秤/降糖/医疗效果/绝对化表达"
+      ],
+      "reference_output": {
+        "hook_patterns": [
+          {
+            "pattern": "用晚间高光场景冷开场并配大标题卡，再用时钟字幕把叙事倒带回下午办公室，形成结果前置",
+            "evidence": "视频② 0-4s 餐厅自拍加双语标题卡，4s 起画面时钟回到 16:58",
+            "timestamps": [0.0, 4.0]
+          },
+          {
+            "pattern": "开场口播直接抛出当日挑战主题制造悬念，配衬线大标题卡定调",
+            "evidence": "视频③ 0-6s 户外建筑标题卡，口播点明当日挑战项目",
+            "timestamps": [0.0, 6.0]
+          }
+        ],
+        "narrative_structure": {
+          "arc": "时钟字幕推进的下班后叙事：办公室收工—一人食正餐—按摩放松—回家拆箱—居家收尾",
+          "phases": [
+            { "name": "冷开场预告", "description": "晚间餐厅与食物特写前置，随后倒带", "time_range_s": [0.0, 4.0] },
+            { "name": "下班过渡", "description": "办公室收工到打车进店的移动段", "time_range_s": [4.0, 48.0] },
+            { "name": "一人食正餐", "description": "格子间点餐用餐，饮品与加单自然嵌入", "time_range_s": [48.0, 88.0] },
+            { "name": "放松与回家", "description": "按摩体验、店内简餐后回家拆箱", "time_range_s": [88.0, 198.0] },
+            { "name": "居家收尾", "description": "调酒画面配固定收束语结束", "time_range_s": [198.0, 219.43] }
+          ]
+        },
+        "sentence_rhythm": {
+          "style": "短句口语旁白配快切画面",
+          "features": ["短句", "口语化", "自嘲"]
+        },
+        "voiceover_density": {
+          "mode": "voiceover",
+          "estimated_speech_ratio": 0.6,
+          "notes": "两条新视频有声段约占 57%-62%；水下与按摩段用 BGM 留白"
+        },
+        "subtitle_density": {
+          "level": "high",
+          "functions": ["24h时间戳推进", "情绪点评"],
+          "notes": "视频② 字幕时钟从 16:58 排到 22:03"
+        },
+        "shot_rhythm": {
+          "avg_shot_s": 2.5,
+          "pacing": "快切",
+          "shot_types": ["自拍仰拍", "第一人称", "固定机位", "手持特写", "空镜"]
+        },
+        "scene_patterns": [
+          { "scene": "办公室工位", "role": "下班叙事起点" },
+          { "scene": "餐厅格子间", "role": "一人食主场" },
+          { "scene": "按摩店", "role": "下班犒劳段" },
+          { "scene": "家中客厅", "role": "拆箱与收尾" },
+          { "scene": "潜水馆泳池与水下", "role": "挑战题材主场" },
+          { "scene": "美甲店", "role": "挑战后生活承接段" }
+        ],
+        "food_integration_patterns": [
+          {
+            "pattern": "食物在冷开场先给特写预告，正餐段落再回到同一食物形成呼应",
+            "evidence": "视频② 2s 食物特写预告，48-88s 进入正餐段",
+            "insertion_point_s": 2.0
+          },
+          {
+            "pattern": "挑战类题材把食物整体后置到犒劳段落，前段约 96s 完全无食品",
+            "evidence": "视频③ 98s 才首次出现简餐饮品，114s 起自制面食",
+            "insertion_point_s": 98.0
+          }
+        ],
+        "commercial_integration_patterns": [
+          {
+            "pattern": "无明确商单时以体验式消费记录呈现门店，无卖点话术且不断言软广",
+            "evidence": "② 88-128s 按摩段与③ 6-22s 潜水馆段均为体验记录，是否软广无法确认",
+            "insertion_point_s": 88.0
+          }
+        ],
+        "CTA_patterns": [
+          {
+            "pattern": "结尾用固定收束语配居家画面，无销售向引导",
+            "evidence": "视频② 216s 起收束语配调酒画面"
+          }
+        ],
+        "reusable_style_rules": [
+          "结果前置冷开场配时钟字幕倒带，可作为线性时钟结构的变奏",
+          "挑战型题材用害怕到接纳的情绪弧线组织素材",
+          "低信息密度段落用 BGM 和空镜留白而不是硬口播",
+          "饮品餐食沿下班动线自然嵌入，特写不叫卖"
+        ],
+        "creator_specific_elements_not_to_copy": [
+          "个人价值观类标题句式与人格标签人设",
+          "个人情绪梗与自嘲梗用词",
+          "饮酒人设表达与居家调酒桥段",
+          "具体门店与师傅信息"
+        ],
+        "confidence": 0.8,
+        "evidence_timestamps": [0.0, 2.0, 4.0, 48.0, 88.0, 98.0, 114.0, 148.0, 200.0, [198.0, 219.43]]
+      }
+    }
+  ]
+}

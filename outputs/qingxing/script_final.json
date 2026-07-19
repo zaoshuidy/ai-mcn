@@ -1,0 +1,164 @@
+{
+  "format": "voiceover",
+  "title_options": [
+    "踩点出门的早晨，我的工位早餐搭子",
+    "起晚了也别空着肚子上班，一杯带走",
+    "工作日早餐记录：从冰箱到工位"
+  ],
+  "selected_title": "踩点出门的早晨，我的工位早餐搭子",
+  "hook": {
+    "text": "早上好呀，今天又是踩点出门的一天",
+    "duration_s": 4.0,
+    "design_basis": "借鉴欧盈Kelly「口语化问候+大字标题卡」的打工人共鸣开场（证据：note 6989ab01000000001a0360c5 hook_analysis）；问候语与标题卡文案均为原创，未使用其个人梗与固定句式"
+  },
+  "full_script": [
+    {
+      "segment_id": 1,
+      "start_time": 0.0,
+      "end_time": 4.0,
+      "voiceover": "早上好呀，今天又是踩点出门的一天",
+      "on_screen_text": "07:20 工作日早餐",
+      "shot_note": "户外自拍仰拍+标题卡",
+      "purpose": "hook"
+    },
+    {
+      "segment_id": 2,
+      "start_time": 4.0,
+      "end_time": 12.0,
+      "voiceover": "起晚了，来不及开火，就从冰箱拿一杯轻醒希腊酸奶，再抓把燕麦和蓝莓，齐活",
+      "on_screen_text": "07:24 冰箱常备早餐",
+      "shot_note": "固定机位开冰箱+手持酸奶特写（10s 产品首次入镜）",
+      "purpose": "场景铺垫+产品首现"
+    },
+    {
+      "segment_id": 3,
+      "start_time": 12.0,
+      "end_time": 18.0,
+      "voiceover": "倒进随行杯拎着走，路上不用排队买吃的了",
+      "on_screen_text": "07:31 出门",
+      "shot_note": "玄关手持特写+跟拍出门",
+      "purpose": "出门动线"
+    },
+    {
+      "segment_id": 4,
+      "start_time": 18.0,
+      "end_time": 26.0,
+      "voiceover": "地铁里嘛，把昨天的方案在脑子里过一遍，这杯酸奶算我的通勤搭子",
+      "on_screen_text": "07:46 地铁上",
+      "shot_note": "车内自拍+手持随行杯",
+      "purpose": "通勤动线，产品复现"
+    },
+    {
+      "segment_id": 5,
+      "start_time": 26.0,
+      "end_time": 34.0,
+      "voiceover": "到工位先喝两口压压惊。说实话，当初选它就是看中0蔗糖，喝起来是酸奶本身的酸甜",
+      "on_screen_text": "08:58 工位吃早餐",
+      "shot_note": "固定机位中景+杯身特写",
+      "purpose": "卖点段1（0蔗糖）"
+    },
+    {
+      "segment_id": 6,
+      "start_time": 34.0,
+      "end_time": 41.0,
+      "voiceover": "高蛋白的，当早餐挺合适，我到中午都不怎么想零食——饱腹感这东西，对我来说挺实在",
+      "on_screen_text": "09:10 边吃边回消息",
+      "shot_note": "工位中景+电脑屏幕一角",
+      "purpose": "卖点段2（高蛋白+饱腹感，个人体验语境）"
+    },
+    {
+      "segment_id": 7,
+      "start_time": 41.0,
+      "end_time": 45.0,
+      "voiceover": "对了，你们的快手早餐都吃什么？评论区告诉我",
+      "on_screen_text": "好好吃早餐",
+      "shot_note": "窗外空镜+结尾字幕卡",
+      "purpose": "ending+CTA"
+    }
+  ],
+  "product_first_appearance": {
+    "time_s": 10.0,
+    "segment_id": 2,
+    "rationale": "取 10.0s，落在任务给定的 8-15s 证据区间：真实证据中欧盈Kelly 自用香水 14.0s/153.5s≈9.1% 首现、冰美式 18s≈11.7% 首现并在 33.2s 复现（data/processed/stage_3_top3_video_timelines.json）。本脚本 45s 的前 15% 为 6.75s，取 10s 略超该窗口，理由是保持 Kelly 式「先建立晨间日常、再让产品以自用物方式露出」的节奏，避免开场即硬广；产品在分段 4/5 继续复现，对齐「饮品/食物贯穿生活流动线」模式"
+  },
+  "integration_sentence": "当初选它就是看中0蔗糖，喝起来是酸奶本身的酸甜",
+  "CTA": "早餐不知道吃什么的姐妹，评论区聊聊你们的快手早餐搭配",
+  "estimated_duration": 45.0,
+  "claim_evidence_map": [
+    {
+      "script_sentence": "当初选它就是看中0蔗糖，喝起来是酸奶本身的酸甜",
+      "claim": "0蔗糖",
+      "evidence_ids": ["EV-QX-001"]
+    },
+    {
+      "script_sentence": "高蛋白的，当早餐挺合适，我到中午都不怎么想零食——饱腹感这东西，对我来说挺实在",
+      "claim": "高蛋白",
+      "evidence_ids": ["EV-QX-002"]
+    },
+    {
+      "script_sentence": "高蛋白的，当早餐挺合适，我到中午都不怎么想零食——饱腹感这东西，对我来说挺实在",
+      "claim": "饱腹感",
+      "evidence_ids": ["EV-QX-003"]
+    }
+  ],
+  "style_evidence_map": [
+    {
+      "script_element": "hook",
+      "borrowed_pattern": "口语化问候+大字标题卡的打工人共鸣开场",
+      "source": {
+        "creator": "欧盈Kelly",
+        "note_id": "6989ab01000000001a0360c5",
+        "evidence": "hook_analysis：0-4s 自拍视角+标题卡+口语化问候建立通勤语境"
+      },
+      "adaptation": "问候语与标题卡文案全部原创，仅沿用「问候+时间戳标题卡」结构"
+    },
+    {
+      "script_element": "分段 2/4/5 产品动线",
+      "borrowed_pattern": "饮品贯穿的生活流动线，自然位置前置露出并复现",
+      "source": {
+        "creator": "欧盈Kelly",
+        "note_id": "6989ab01000000001a0360c5",
+        "evidence": "style_summary.food_insertion_points：冰美式 18s/33.2s 两杯贯穿，均为生活流自然位置"
+      },
+      "adaptation": "改为酸奶在「冰箱拿取-地铁随行-工位饮用」三节点出现"
+    },
+    {
+      "script_element": "全片字幕",
+      "borrowed_pattern": "时间戳字幕结构",
+      "source": {
+        "creator": "欧盈Kelly",
+        "note_id": "6989ab01000000001a0360c5",
+        "evidence": "style_summary.reusable_high_level：时间戳字幕结构"
+      },
+      "adaptation": "按 45s 时长重排时间戳（07:20-09:10），字幕文案原创"
+    },
+    {
+      "script_element": "分段 1/3/4 画面",
+      "borrowed_pattern": "自拍+固定机位混合视角，平均镜头 2.4s 快切",
+      "source": {
+        "creator": "欧盈Kelly",
+        "note_id": "6989ab01000000001a0360c5",
+        "evidence": "style_summary.narration_relation 与 avg_shot_s=2.4"
+      },
+      "adaptation": "开场与通勤用自拍视角，厨房与工位用固定机位，镜头时长对齐 2.0-2.5s"
+    },
+    {
+      "script_element": "分段 5-6 卖点表达",
+      "borrowed_pattern": "需求场景→产品解法的植入结构",
+      "source": {
+        "creator": "小季没烦恼",
+        "note_id": "6a58b7ea000000001101a7bb",
+        "evidence": "style_summary.commercial_pattern：主商单用「需求场景→产品解法」结构，自然度高"
+      },
+      "adaptation": "需求=「起晚了来不及吃早餐」，解法=「一杯带走的酸奶早餐」，句式原创"
+    }
+  ],
+  "unresolved_questions": [
+    "低负担为 unverified 且无证据，未写入正文；待品牌方提供书面依据后再评估",
+    "0蔗糖/高蛋白为 brand_claim，包装标识与营养成分表待品牌方提供；当前保持品牌主张语境、未加任何数值",
+    "购买渠道与价格未提供，CTA 未引导具体链接",
+    "产品包装图与规格未提供，分段 2/5 的杯身画面需拍摄前确认",
+    "视频时长要求 Brief 未明确，本脚本按任务指定的 45s 设计"
+  ],
+  "version_note": "final = script_v1 经 xhs-script-humanizer 自然化（outputs/qingxing/script_v2_humanized.json）后、合规审核 0 required_changes 放行的版本；口播句与自然化稿逐字一致"
+}

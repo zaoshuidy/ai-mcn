@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-07-19T14:56:41.606907+00:00",
+  "scoring_model": "v2_10dim",
+  "supersedes": "data/processed/stage_3_top3.json",
+  "selection_rule": "v2总分>=90 且 followers>=1000；互动质量有数据；非单篇爆款驱动",
+  "threshold_note": "v2 重评分与补足深核（24位）后，仅 1 位达到 >=90 门槛。Top3 无法按门槛凑满 3 位，不虚构不降级纳入低分账号；差额与补足过程如实记录，最终放行由项目总控决策。",
+  "qualified_count": 1,
+  "top3": [
+    {
+      "creator_id": "60bb90f00000000001002887",
+      "nickname": "欧盈Kelly",
+      "profile_url": "https://www.xiaohongshu.com/user/profile/60bb90f00000000001002887",
+      "followers": 278129,
+      "creator_tier": "100k_to_500k",
+      "total_score": 93,
+      "grade": "重点候选",
+      "primary_format": "voiceover",
+      "main_scenes": [
+        "一人食",
+        "通勤/办公室",
+        "下午茶"
+      ],
+      "engagement_stats": {
+        "notes_with_engagement": 10,
+        "median_likes": 3218.5,
+        "median_collects": 884.5,
+        "median_comments": 32.5,
+        "median_total_engagement": 3996.5,
+        "highest_post_engagement": 5484,
+        "lowest_post_engagement": 73,
+        "median_engagement_rate": 0.014369,
+        "viral_dependency_ratio": 1.372,
+        "organic_post_median_engagement": 4332,
+        "commercial_post_median_engagement": 3296
+      },
+      "selection_status": "key_candidate",
+      "human_verified": false
+    }
+  ],
+  "below_threshold_top_scores": [
+    {
+      "creator_id": "586733cd50c4b43cccffc5c8",
+      "nickname": "小季没烦恼",
+      "total": 85,
+      "followers": 277674,
+      "reason": "total<90，不符合 v2 Top3 门槛"
+    },
+    {
+      "creator_id": "61de867a000000001000ffa0",
+      "nickname": "yeline",
+      "total": 84,
+      "followers": 67811,
+      "reason": "total<90，不符合 v2 Top3 门槛"
+    },
+    {
+      "creator_id": "5dd0fe8f000000000100b124",
+      "nickname": "叁壹_",
+      "total": 83,
+      "followers": 5396,
+      "reason": "total<90，不符合 v2 Top3 门槛"
+    }
+  ]
+}

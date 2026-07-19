@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-07-19T14:56:41.606907+00:00",
+  "scoring_model": "v2_10dim",
+  "supersedes": "data/processed/stage_3_style_reference.json",
+  "style_reference": {
+    "creator_id": "60bb90f00000000001002887",
+    "nickname": "欧盈Kelly",
+    "profile_url": "https://www.xiaohongshu.com/user/profile/60bb90f00000000001002887",
+    "followers": 278129,
+    "creator_tier": "100k_to_500k",
+    "total": 93,
+    "grade": "重点候选",
+    "primary_format": "voiceover",
+    "main_scenes": [
+      "一人食",
+      "通勤/办公室",
+      "下午茶"
+    ],
+    "selection_status": "research_style_reference",
+    "selection_scope": "仅用于脚本风格研究，不构成商业合作定案",
+    "selection_reasons": [
+      "v2 重评分后仍为全场最高（93/100），且为唯一达到 >=90 门槛者",
+      "粉丝 278129（10万-50万量级），传播能力与种草平衡",
+      "最近10篇中位互动 3996，爆款依赖度 1.372（互动稳定，非单篇爆款驱动）",
+      "口播型，近10篇视频占比100%，场景覆盖一人食/通勤/办公室/下午茶",
+      "合规 5/5，身材焦虑扣分 0"
+    ],
+    "human_verified": false,
+    "video_evidence": {
+      "fully_processed_note_id": "6989ab01000000001a0360c5",
+      "representative_note_page_evidence": "见 stage_3_final_10.json 代表笔记",
+      "extra_video_page_evidence": [
+        {
+          "note_id": "6a5c556e000000000c0162f5",
+          "canonical_url": "https://www.xiaohongshu.com/explore/6a5c556e000000000c0162f5",
+          "title": "深圳MKTer vlog |打工的唯一目的赚钱享受",
+          "note_type": "video",
+          "duration_seconds": 219.429,
+          "source": "page_observed"
+        },
+        {
+          "note_id": "6a5616b600000000220164a4",
+          "canonical_url": "https://www.xiaohongshu.com/explore/6a5616b600000000220164a4",
+          "note_type": "video",
+          "source": "page_observed"
+        }
+      ]
+    }
+  },
+  "rejected_top3": [
+    {
+      "nickname": "小季没烦恼",
+      "total": 85,
+      "reason": "v2 总分 85<90，为正式研究候选但不符合 Top3 门槛"
+    }
+  ]
+}

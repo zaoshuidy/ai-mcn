@@ -1,0 +1,34 @@
+{
+  "full_script": {
+    "script_id": "qingxing-script-final",
+    "title": "踩点出门的早晨，我的工位早餐搭子",
+    "format": "voiceover",
+    "total_duration_s": 45.0,
+    "product_first_appearance_s": 10.0,
+    "beats": [
+      {"beat_id": "b1", "start_time": 0.0, "end_time": 4.0, "purpose": "hook", "scene": "户外街道", "action": "边走边自拍开场", "spoken_line": "早上好呀，今天又是踩点出门的一天", "on_screen_text": "07:20 工作日早餐"},
+      {"beat_id": "b2", "start_time": 4.0, "end_time": 12.0, "purpose": "product", "scene": "家中厨房", "action": "开冰箱拿酸奶、备燕麦蓝莓（10s 产品首现）", "spoken_line": "起晚了，来不及开火，就从冰箱拿一杯轻醒希腊酸奶，再抓把燕麦和蓝莓，齐活", "on_screen_text": "07:24 冰箱常备早餐"},
+      {"beat_id": "b3", "start_time": 12.0, "end_time": 18.0, "purpose": "process", "scene": "家中玄关", "action": "倒杯、装袋、出门", "spoken_line": "倒进随行杯拎着走，路上不用排队买吃的了", "on_screen_text": "07:31 出门"},
+      {"beat_id": "b4", "start_time": 18.0, "end_time": 26.0, "purpose": "lifestyle", "scene": "地铁通勤", "action": "乘车、过方案、杯子随行", "spoken_line": "地铁里嘛，把昨天的方案在脑子里过一遍，这杯酸奶算我的通勤搭子", "on_screen_text": "07:46 地铁上"},
+      {"beat_id": "b5", "start_time": 26.0, "end_time": 34.0, "purpose": "product", "scene": "办公室工位", "action": "到工位开电脑、喝酸奶、卖点1", "spoken_line": "到工位先喝两口压压惊。说实话，当初选它就是看中0蔗糖，喝起来是酸奶本身的酸甜", "on_screen_text": "08:58 工位吃早餐"},
+      {"beat_id": "b6", "start_time": 34.0, "end_time": 41.0, "purpose": "product", "scene": "办公室工位", "action": "边吃边回消息、卖点2", "spoken_line": "高蛋白的，当早餐挺合适，我到中午都不怎么想零食——饱腹感这东西，对我来说挺实在", "on_screen_text": "09:10 边吃边回消息"},
+      {"beat_id": "b7", "start_time": 41.0, "end_time": 45.0, "purpose": "ending", "scene": "办公室窗边", "action": "空镜收尾+提问 CTA", "spoken_line": "对了，你们的快手早餐都吃什么？评论区告诉我", "on_screen_text": "好好吃早餐"}
+    ]
+  },
+  "target_duration": 45.0,
+  "product_first_appearance_s": 10.0,
+  "style_profile": {
+    "creator_id": "60bb90f00000000001002887",
+    "primary_format": "voiceover",
+    "avg_shot_s": 2.4,
+    "narration_relation": "口播旁白为主线，字幕承担时间戳+情绪梗，画面为自拍+固定机位混合",
+    "reusable_high_level": ["时间戳字幕结构", "打工人共鸣开场问候", "饮品贯穿的生活流动线", "自拍+固定机位混合视角", "夜景空镜+结尾字幕卡"]
+  },
+  "scene_constraints": {
+    "scene": "上班族早餐/通勤",
+    "location_options": ["小区门口街道", "家中厨房", "家中玄关", "地铁车厢", "写字楼电梯", "办公室工位"],
+    "max_props": 8,
+    "crew": 1,
+    "equipment": ["手机", "手机三脚架"]
+  }
+}

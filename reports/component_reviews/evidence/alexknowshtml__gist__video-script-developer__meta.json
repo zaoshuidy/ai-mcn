@@ -1,0 +1,15 @@
+{
+  "id": "6a1e4d336a6d51c6231bd6bd9a3f0d17",
+  "description": "Video Script Developer - AI skill for developing short-form social media video scripts",
+  "html_url": "https://gist.github.com/alexknowshtml/6a1e4d336a6d51c6231bd6bd9a3f0d17",
+  "created_at": "2026-02-17T00:40:03Z",
+  "updated_at": "2026-02-17T00:40:03Z",
+  "files": [
+    "SKILL.md",
+    "success-examples.md"
+  ],
+  "public": true,
+  "owner": "alexknowshtml",
+  "license_note": "GitHub Gist has no license field",
+  "fetched_at": "2026-07-19T12:56:30Z"
+}

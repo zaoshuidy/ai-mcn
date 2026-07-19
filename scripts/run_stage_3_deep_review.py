@@ -116,9 +116,16 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--max-per-run", type=int, default=0,
                         help="单次运行最多新处理的主页数（0=不限，断点续跑分批用）")
+    parser.add_argument("--pool", default=str(POOL_PATH),
+                        help="候选池 JSON 路径（默认预筛30名单）")
+    parser.add_argument("--target", type=int, default=TARGET_DEEP,
+                        help="累计深度核验通过目标数（默认15）")
     args = parser.parse_args()
 
-    pool = json.loads(POOL_PATH.read_text(encoding="utf-8"))["candidates"]
+    pool_path = Path(args.pool)
+    if not pool_path.is_absolute():
+        pool_path = ROOT / pool_path
+    pool = json.loads(pool_path.read_text(encoding="utf-8"))["candidates"]
     policy = XhsCdpReadonlyPolicy.load(POLICY_PATH, ROOT)
     adapter = XhsCdpBrowserAdapter(policy, ROOT)
     TMP_DIR.mkdir(parents=True, exist_ok=True)
@@ -184,7 +191,7 @@ def main() -> int:
         # 注：MAX_PROFILES=20 为速率指导；前20位核验后合格14位<15，
         # 按"非阻塞问题采用合理默认值并记录"原则，继续处理预筛名单剩余候选直至达标
         for idx, cand in enumerate(pool):
-            if len(deep) >= TARGET_DEEP:
+            if len(deep) >= args.target:
                 break
             uid = cand["creator_id"]
             if uid in done_ids:
@@ -356,10 +363,10 @@ def main() -> int:
             }
             deep.append(record)
             save_progress()
-            print(f"通过({len(deep)}/{TARGET_DEEP}) 粉={detail.get('followers')} "
+            print(f"通过({len(deep)}/{args.target}) 粉={detail.get('followers')} "
                   f"视频{video_count}/10 场景={scenes[:2]}", flush=True)
             if (processed_this_run % BATCH_SIZE == 0
-                    and len(deep) < TARGET_DEEP):
+                    and len(deep) < args.target):
                 print(f"[PAUSE] 已完成 {processed_this_run} 位，暂停 {BATCH_PAUSE_S:.0f}s",
                       flush=True)
                 time.sleep(BATCH_PAUSE_S)
@@ -376,7 +383,7 @@ def main() -> int:
             "eliminated": eliminated,
         }, ensure_ascii=False, indent=2), "utf-8")
         print(f"\n[OK] 深度核验 {len(deep)} 位，淘汰 {len(eliminated)} 位")
-        return 0 if len(deep) >= TARGET_DEEP else 4
+        return 0 if len(deep) >= args.target else 4
     finally:
         adapter.close()
 
