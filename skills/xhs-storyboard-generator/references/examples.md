@@ -272,7 +272,7 @@
 ## 4. 校验
 
 ```bash
-python skills/xhs-storyboard-generator/validate_output.py storyboard.json --script script.json
+python skills/xhs-storyboard-generator/scripts/validate_output.py storyboard.json --script script.json
 ```
 
 预期输出 `ok: true`。逐条对照：时间轴 0.0→21.0 连续无重叠；`actual_total_duration_s` 与目标偏差 0s；运镜全白名单；产品露出首镜 s04 `start_time=6.4`，不早于脚本 `product_first_appearance_s=6.4`；单镜道具最多 6 件（s06）；镜头平均 2.33s 处于 1.0–4.0s 证据区间。

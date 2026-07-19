@@ -16,8 +16,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SKILL_DIR = ROOT / "skills/xhs-script-humanizer"
-MODULE_PATH = SKILL_DIR / "validate_output.py"
-EVALS_PATH = SKILL_DIR / "evals.json"
+MODULE_PATH = SKILL_DIR / "scripts" / "validate_output.py"
+EVALS_PATH = SKILL_DIR / "evals" / "evals.json"
 
 spec = importlib.util.spec_from_file_location(
     "xhs_script_humanizer_validate_output", MODULE_PATH
@@ -51,10 +51,11 @@ class TestSkillStructure:
     def test_required_files_exist(self) -> None:
         for name in (
             "SKILL.md",
-            "rules.md",
-            "examples.md",
-            "evals.json",
-            "validate_output.py",
+            "references/rules.md",
+            "references/examples.md",
+            "references/output-schema.md",
+            "evals/evals.json",
+            "scripts/validate_output.py",
         ):
             assert (SKILL_DIR / name).is_file(), f"缺少 {name}"
 
@@ -72,7 +73,7 @@ class TestSkillStructure:
         assert "最终节点" in text, "SKILL.md 必须声明 Humanizer 不得为最终节点"
 
     def test_rules_md_contains_all_rules_and_reviews(self) -> None:
-        text = (SKILL_DIR / "rules.md").read_text(encoding="utf-8")
+        text = (SKILL_DIR / "references" / "rules.md").read_text(encoding="utf-8")
         for rule_id in ("R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8"):
             assert re.search(rf"## {rule_id} ", text), f"rules.md 缺少规则 {rule_id}"
         for keyword in ("fact_regression", "compliance_review", "style_consistency_review"):
@@ -82,7 +83,7 @@ class TestSkillStructure:
         assert "ProductEvidence" in text
 
     def test_examples_md_has_full_comparison(self) -> None:
-        text = (SKILL_DIR / "examples.md").read_text(encoding="utf-8")
+        text = (SKILL_DIR / "references" / "examples.md").read_text(encoding="utf-8")
         for keyword in ("original_script", "humanized_script", "changes",
                         "preserved_facts", "possible_fact_drift", "style_match_score"):
             assert keyword in text
@@ -288,7 +289,7 @@ class TestEvalsJson:
 
 class TestExamplesMdConsistency:
     def test_examples_md_output_block_passes_validation(self) -> None:
-        text = (SKILL_DIR / "examples.md").read_text(encoding="utf-8")
+        text = (SKILL_DIR / "references" / "examples.md").read_text(encoding="utf-8")
         blocks = re.findall(r"```json\n(.*?)```", text, flags=re.DOTALL)
         assert len(blocks) >= 2, "examples.md 应包含输入与输出两个 JSON 块"
         output_payload = json.loads(blocks[1])

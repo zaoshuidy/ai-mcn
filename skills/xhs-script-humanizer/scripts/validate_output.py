@@ -8,7 +8,7 @@
 3. 评分一致性：possible_fact_drift 非空时 style_match_score 不得大于 0.9。
 
 CLI 用法：
-    python skills/xhs-script-humanizer/validate_output.py output.json --brand-term 轻醒
+    python skills/xhs-script-humanizer/scripts/validate_output.py output.json --brand-term 轻醒
 
 退出码：0 = 校验通过；1 = 校验失败或输入文件不可读。
 

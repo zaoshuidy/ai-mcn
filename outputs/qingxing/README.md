@@ -22,10 +22,10 @@
 | --- | --- | --- | --- |
 | `outputs/qingxing/style_profile_kelly.json` | CreatorStyleProfile（风格蒸馏） | `python skills/creator-style-distiller/scripts/validate_output.py outputs/qingxing/style_profile_kelly.json --input data/processed/stage_3_top3_video_timelines.json` | 0 |
 | `outputs/qingxing/script_v1.json` | 商单脚本 v1（7 段，45s） | `python skills/xhs-commercial-script/scripts/validate_output.py outputs/qingxing/script_v1.json --input outputs/qingxing/inputs/script_generation_input.json --timelines data/processed/stage_3_top3_video_timelines.json` | 0（6/6 项 PASS） |
-| `outputs/qingxing/script_v2_humanized.json` | 自然化稿（R4/R5/R6 改写 + R7/R8 红线自查） | `python skills/xhs-script-humanizer/validate_output.py outputs/qingxing/script_v2_humanized.json --brand-term 轻醒` | 0 |
+| `outputs/qingxing/script_v2_humanized.json` | 自然化稿（R4/R5/R6 改写 + R7/R8 红线自查） | `python skills/xhs-script-humanizer/scripts/validate_output.py outputs/qingxing/script_v2_humanized.json --brand-term 轻醒` | 0 |
 | `outputs/qingxing/compliance_report.json` | 合规审核报告（审核对象=自然化稿+标题+字幕+CTA） | `python skills/xhs-food-ad-compliance/scripts/validate_output.py outputs/qingxing/compliance_report.json` | 0 |
 | `outputs/qingxing/script_final.json` | 最终脚本（=自然化稿结构化，合规 0 整改） | 同 script_v1 校验命令（替换文件路径） | 0（6/6 项 PASS） |
-| `outputs/qingxing/storyboard_final.json` | 分镜表（19 镜，45.0s，9:16） | `python skills/xhs-storyboard-generator/validate_output.py outputs/qingxing/storyboard_final.json --script outputs/qingxing/inputs/storyboard_input.json` | 0（0 error / 0 warning） |
+| `outputs/qingxing/storyboard_final.json` | 分镜表（19 镜，45.0s，9:16） | `python skills/xhs-storyboard-generator/scripts/validate_output.py outputs/qingxing/storyboard_final.json --script outputs/qingxing/inputs/storyboard_input.json` | 0（0 error / 0 warning） |
 
 辅助文件（证据用，非独立交付物）：`inputs/script_generation_input.json`（生成输入：品牌 Brief 卖点 + 证据 ID 映射 + 风格画像摘要）、`inputs/storyboard_input.json`（分镜输入）。
 

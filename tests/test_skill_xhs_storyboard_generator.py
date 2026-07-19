@@ -17,9 +17,9 @@ import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 SKILL_DIR = ROOT / "skills" / "xhs-storyboard-generator"
-VALIDATOR_PATH = SKILL_DIR / "validate_output.py"
-EVALS_PATH = SKILL_DIR / "evals.json"
-EXAMPLES_PATH = SKILL_DIR / "examples.md"
+VALIDATOR_PATH = SKILL_DIR / "scripts" / "validate_output.py"
+EVALS_PATH = SKILL_DIR / "evals" / "evals.json"
+EXAMPLES_PATH = SKILL_DIR / "references" / "examples.md"
 
 
 def _load_validator():
