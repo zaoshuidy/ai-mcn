@@ -146,6 +146,8 @@ description: 小红书食品商单脚本/分镜的合规预审 Skill（只审核
 - 输出 Schema：`references/output-schema.md`（审核报告 JSON Schema，机器可校验）。
 - 示例：`references/examples.md`（一段含多处违规的轻醒脚本示例 + 完整审核输出 +
   通过样例对照）。
+- Evals：`evals/evals.json`（3 条真实 eval：示例 1 违规报告 / 示例 2 全合规报告 /
+  真实轻醒自然化稿审核报告 + 1 条一致性冲突反例，校验器必须判失败）。
 
 ## 8. 边界
 

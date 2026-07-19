@@ -481,3 +481,59 @@ def test_invalid_json_returns_2(tmp_path: Path) -> None:
     bad.write_text("{not valid json", encoding="utf-8")
     result = _run_validator(str(bad))
     assert result.returncode == 2
+
+
+
+# ---------- evals.json 回放（3 真实 + 1 反例） ----------
+
+
+EVALS_PATH = (
+    ROOT / "skills" / "xhs-food-ad-compliance" / "evals" / "evals.json"
+)
+
+
+def _load_evals() -> dict:
+    return json.loads(EVALS_PATH.read_text(encoding="utf-8"))
+
+
+def test_evals_file_structure() -> None:
+    data = _load_evals()
+    assert data["skill"] == "xhs-food-ad-compliance"
+    evals = data["evals"]
+    assert len(evals) == 4, "应为 3 真实 eval + 1 反例"
+    types = [e["type"] for e in evals]
+    assert types.count("positive") == 3
+    assert types.count("counter_example") == 1
+    assert len({e["id"] for e in evals}) == 4
+    for e in evals:
+        assert {"id", "name", "type", "source", "report", "expect"} <= set(e)
+        assert "validator_exit_code" in e["expect"]
+
+
+def test_evals_real_qingxing_report_matches_source() -> None:
+    """eval_003 内嵌报告必须与真实产物 outputs/qingxing/compliance_report.json 一致。"""
+    data = _load_evals()
+    eval_003 = next(e for e in data["evals"] if e["id"] == "eval_003")
+    real = json.loads(
+        (ROOT / "outputs" / "qingxing" / "compliance_report.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert eval_003["report"] == real
+
+
+@pytest.mark.parametrize(
+    "eval_case",
+    _load_evals()["evals"],
+    ids=lambda e: e["id"],
+)
+def test_eval_replay(eval_case, tmp_path: Path) -> None:
+    out = _write_json(tmp_path, "report.json", eval_case["report"])
+    result = _run_validator(str(out))
+    expected_code = eval_case["expect"]["validator_exit_code"]
+    assert result.returncode == expected_code, (
+        f"{eval_case['id']} 期望退出码 {expected_code}，实际 {result.returncode}: "
+        f"{result.stdout}"
+    )
+    for keyword in eval_case["expect"].get("expected_failure_keywords", []):
+        assert keyword in result.stdout

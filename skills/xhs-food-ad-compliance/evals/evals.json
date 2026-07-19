@@ -1,0 +1,567 @@
+{
+  "skill": "xhs-food-ad-compliance",
+  "version": "1.0",
+  "generated_at": "2026-07-19",
+  "validator": "skills/xhs-food-ad-compliance/scripts/validate_output.py",
+  "note": "passed=false 是审核结论，不影响校验器通过；反例为校验器必须判失败的一致性冲突样本",
+  "evals": [
+    {
+      "id": "eval_001",
+      "name": "多违规轻醒脚本审核报告（critical，passed=false）",
+      "type": "positive",
+      "source": "references/examples.md 示例1",
+      "report": {
+        "risk_level": "critical",
+        "violations": [
+          {
+            "rule_id": "FAC-001",
+            "rule_name": "0蔗糖不得表述为无糖",
+            "severity": "high",
+            "matched_text": "无糖酸奶真的绝了",
+            "location": "标题",
+            "issue": "ProductEvidence 仅有「0蔗糖」（brand_claim），标题升级为「无糖」",
+            "suggestion": "改为「0蔗糖酸奶」或删除糖分表述"
+          },
+          {
+            "rule_id": "FAC-001",
+            "rule_name": "0蔗糖不得表述为无糖",
+            "severity": "high",
+            "matched_text": "无糖希腊酸奶，0糖0负担",
+            "location": "字幕2",
+            "issue": "「无糖」「0糖」均属 0蔗糖→无糖 的禁止解释",
+            "suggestion": "改为「0蔗糖希腊酸奶」"
+          },
+          {
+            "rule_id": "FAC-009",
+            "rule_name": "unverified 卖点不得表述为事实（低负担类）",
+            "severity": "high",
+            "matched_text": "0负担",
+            "location": "字幕2",
+            "issue": "「低负担」claim_type=unverified，且命中 forbidden_interpretations",
+            "suggestion": "删除「0负担」"
+          },
+          {
+            "rule_id": "FAC-002",
+            "rule_name": "无证据不得标注营养数值",
+            "severity": "high",
+            "matched_text": "每杯15g蛋白质",
+            "location": "字幕3",
+            "issue": "ProductEvidence 无 confirmed 营养数据，不得标注具体克数",
+            "suggestion": "删除「15g」，改为「高蛋白」定性表述"
+          },
+          {
+            "rule_id": "FAC-007",
+            "rule_name": "主观体验不得表述为客观功效",
+            "severity": "medium",
+            "matched_text": "喝一杯扛饿一上午",
+            "location": "字幕3",
+            "issue": "饱腹感为 subjective_experience，此处量化为普遍功效",
+            "suggestion": "改为个人体验表达，或删除"
+          },
+          {
+            "rule_id": "FAC-004",
+            "rule_name": "禁止降糖/控糖功效承诺",
+            "severity": "high",
+            "matched_text": "不升糖，控糖期放心喝",
+            "location": "字幕4",
+            "issue": "「不升糖」为血糖功效承诺",
+            "suggestion": "整句删除"
+          },
+          {
+            "rule_id": "FAC-005",
+            "rule_name": "禁止医疗效果",
+            "severity": "critical",
+            "matched_text": "还能养胃",
+            "location": "字幕4",
+            "issue": "「养胃」属医疗效果暗示",
+            "suggestion": "删除「还能养胃」"
+          },
+          {
+            "rule_id": "FAC-003",
+            "rule_name": "禁止减肥/燃脂/掉秤等减重功效",
+            "severity": "high",
+            "matched_text": "喝它不怕胖，小肚子都平了",
+            "location": "字幕5",
+            "issue": "减重功效的明示/暗示表达",
+            "suggestion": "整句删除"
+          },
+          {
+            "rule_id": "FAC-010",
+            "rule_name": "禁止贬低竞品",
+            "severity": "medium",
+            "matched_text": "比其他酸奶配料干净多了，完胜便利店",
+            "location": "字幕6",
+            "issue": "「完胜」构成对其他生产经营者的贬低性对比",
+            "suggestion": "删除对比，仅保留自身特点描述"
+          },
+          {
+            "rule_id": "FAC-006",
+            "rule_name": "禁止绝对化表达",
+            "severity": "medium",
+            "matched_text": "最健康的早餐",
+            "location": "标题",
+            "issue": "「最健康」为指向产品的绝对化用语",
+            "suggestion": "改为具体场景描述"
+          },
+          {
+            "rule_id": "FAC-003",
+            "rule_name": "禁止减肥/燃脂/掉秤等减重功效",
+            "severity": "high",
+            "matched_text": "#减肥餐",
+            "location": "话题标签",
+            "issue": "话题标签同样属于广告文本，#减肥餐 暗示减重功效",
+            "suggestion": "删除该标签"
+          }
+        ],
+        "evidence_mapping": [
+          {
+            "claim_in_script": "无糖 / 0糖",
+            "matched_product_claim": "0蔗糖",
+            "claim_type": "brand_claim",
+            "status": "blocked",
+            "note": "命中 forbidden_interpretations（无糖）"
+          },
+          {
+            "claim_in_script": "每杯15g蛋白质",
+            "matched_product_claim": "高蛋白",
+            "claim_type": "brand_claim",
+            "status": "blocked",
+            "note": "brand_claim 不得升级为事实并标注数值"
+          },
+          {
+            "claim_in_script": "扛饿一上午",
+            "matched_product_claim": "饱腹感",
+            "claim_type": "subjective_experience",
+            "status": "subjective_only",
+            "note": "仅允许个人体验语境"
+          },
+          {
+            "claim_in_script": "0负担",
+            "matched_product_claim": "低负担",
+            "claim_type": "unverified",
+            "status": "blocked",
+            "note": "unverified 不得表述为事实"
+          },
+          {
+            "claim_in_script": "不升糖 / 养胃 / 不怕胖",
+            "matched_product_claim": null,
+            "claim_type": null,
+            "status": "blocked",
+            "note": "ProductEvidence 中无任何对应卖点"
+          }
+        ],
+        "required_changes": [
+          {
+            "violation_rule_id": "FAC-001",
+            "original": "标题：控糖期最健康的早餐，无糖酸奶真的绝了",
+            "replacement": "标题：打工人的快手早餐，0蔗糖酸奶真的绝了",
+            "reason": "FAC-001 无糖→0蔗糖；FAC-006 删除绝对化「最健康」"
+          },
+          {
+            "violation_rule_id": "FAC-001",
+            "original": "字幕2：最近挖到轻醒这款无糖希腊酸奶，0糖0负担",
+            "replacement": "字幕2：最近挖到轻醒这款0蔗糖希腊酸奶",
+            "reason": "FAC-001 无糖/0糖→0蔗糖；FAC-009 删除「0负担」"
+          },
+          {
+            "violation_rule_id": "FAC-002",
+            "original": "字幕3：每杯15g蛋白质，喝一杯扛饿一上午",
+            "replacement": "字幕3：高蛋白的一杯，我吃完到中午都不太想零食",
+            "reason": "FAC-002 删除无证据数值；FAC-007 改个人体验语境"
+          },
+          {
+            "violation_rule_id": "FAC-004",
+            "original": "字幕4：不升糖，控糖期放心喝，还能养胃",
+            "replacement": "删除",
+            "reason": "FAC-004 血糖功效承诺；FAC-005 医疗效果暗示"
+          },
+          {
+            "violation_rule_id": "FAC-003",
+            "original": "字幕5：喝它不怕胖，小肚子都平了",
+            "replacement": "删除",
+            "reason": "FAC-003 减重功效"
+          },
+          {
+            "violation_rule_id": "FAC-010",
+            "original": "字幕6：比其他酸奶配料干净多了，完胜便利店",
+            "replacement": "字幕6：配料表很干净，早餐来一杯很清爽",
+            "reason": "FAC-010 删除竞品贬低"
+          },
+          {
+            "violation_rule_id": "FAC-003",
+            "original": "话题标签：#早餐 #减肥餐 #控糖饮食",
+            "replacement": "话题标签：#早餐 #快手早餐 #打工人早餐",
+            "reason": "FAC-003 删除 #减肥餐"
+          }
+        ],
+        "optional_changes": [
+          {
+            "original": "话题标签 #控糖饮食",
+            "suggestion": "「控糖」作为人群兴趣标签可保留，建议人工复核语境",
+            "reason": "轻醒 brief 契约：控糖仅可作为人群兴趣标签"
+          },
+          {
+            "original": "字幕1：打工人早餐不知道吃啥的姐妹看过来",
+            "suggestion": "无违规；人群标签放此处远离产品卖点句",
+            "reason": "预防性提示"
+          }
+        ],
+        "passed": false,
+        "human_review_required": true
+      },
+      "expect": {
+        "validator_exit_code": 0
+      }
+    },
+    {
+      "id": "eval_002",
+      "name": "全合规报告（passed=true，brand_claim_context 触发人工复核）",
+      "type": "positive",
+      "source": "references/examples.md 示例2",
+      "report": {
+        "risk_level": "none",
+        "violations": [],
+        "evidence_mapping": [
+          {
+            "claim_in_script": "0蔗糖",
+            "matched_product_claim": "0蔗糖",
+            "claim_type": "brand_claim",
+            "status": "brand_claim_context",
+            "note": "可提及，未升级为无糖、未加数值"
+          },
+          {
+            "claim_in_script": "高蛋白",
+            "matched_product_claim": "高蛋白",
+            "claim_type": "brand_claim",
+            "status": "brand_claim_context",
+            "note": "定性表述，无数值"
+          },
+          {
+            "claim_in_script": "我吃完到中午都不太想零食",
+            "matched_product_claim": "饱腹感",
+            "claim_type": "subjective_experience",
+            "status": "subjective_only",
+            "note": "个人体验语境，符合要求"
+          }
+        ],
+        "required_changes": [],
+        "optional_changes": [
+          {
+            "original": "0蔗糖 / 高蛋白（brand_claim）",
+            "suggestion": "品牌方提供依据后可升级为 confirmed",
+            "reason": "当前依据待品牌方提供"
+          }
+        ],
+        "passed": true,
+        "human_review_required": true
+      },
+      "expect": {
+        "validator_exit_code": 0
+      }
+    },
+    {
+      "id": "eval_003",
+      "name": "真实轻醒自然化稿审核报告（0 violations，passed=true）",
+      "type": "positive",
+      "source": "outputs/qingxing/compliance_report.json（真实产物内嵌）",
+      "report": {
+        "reviewed_file": "outputs/qingxing/script_v2_humanized.json",
+        "text_kind": "script",
+        "source_text": "标题候选：踩点出门的早晨，我的工位早餐搭子 / 起晚了也别空着肚子上班，一杯带走 / 工作日早餐记录：从冰箱到工位。口播稿：早上好呀，今天又是踩点出门的一天。起晚了，来不及开火，就从冰箱拿一杯轻醒希腊酸奶，再抓把燕麦和蓝莓，齐活。倒进随行杯拎着走，路上不用排队买吃的了。地铁里嘛，把昨天的方案在脑子里过一遍，这杯酸奶算我的通勤搭子。到工位先喝两口压压惊。说实话，当初选它就是看中0蔗糖，喝起来是酸奶本身的酸甜。高蛋白的，当早餐挺合适，我到中午都不怎么想零食——饱腹感这东西，对我来说挺实在。对了，你们的快手早餐都吃什么？评论区告诉我。字幕：07:20 工作日早餐 / 07:24 冰箱常备早餐 / 07:31 出门 / 07:46 地铁上 / 08:58 工位吃早餐 / 09:10 边吃边回消息 / 好好吃早餐。CTA：早餐不知道吃什么的姐妹，评论区聊聊你们的快手早餐搭配。",
+        "product_evidence_snapshot": [
+          {
+            "claim": "0蔗糖",
+            "claim_type": "brand_claim",
+            "evidence": null,
+            "note": "提取自产品名称，依据待品牌方提供",
+            "forbidden_interpretations": [
+              "无糖"
+            ]
+          },
+          {
+            "claim": "高蛋白",
+            "claim_type": "brand_claim",
+            "evidence": null,
+            "note": "品牌方主张，营养成分表待提供",
+            "forbidden_interpretations": []
+          },
+          {
+            "claim": "饱腹感",
+            "claim_type": "subjective_experience",
+            "evidence": null,
+            "note": "主观体验，仅允许个人体验语境",
+            "forbidden_interpretations": [
+              "减重",
+              "抑制食欲"
+            ]
+          },
+          {
+            "claim": "低负担",
+            "claim_type": "unverified",
+            "evidence": null,
+            "note": "未经验证，不得表述为事实或功效",
+            "forbidden_interpretations": [
+              "不长胖",
+              "零负担",
+              "减肥"
+            ]
+          }
+        ],
+        "risk_level": "none",
+        "violations": [],
+        "evidence_mapping": [
+          {
+            "claim_in_script": "0蔗糖",
+            "matched_product_claim": "0蔗糖",
+            "claim_type": "brand_claim",
+            "status": "brand_claim_context",
+            "note": "脚本保持品牌主张原文表述，未改写为无糖，未加数值、未扩展解释；包装标识/检测依据待品牌方提供，须人工复核后方可对外"
+          },
+          {
+            "claim_in_script": "高蛋白",
+            "matched_product_claim": "高蛋白",
+            "claim_type": "brand_claim",
+            "status": "brand_claim_context",
+            "note": "未标注具体克数，未延伸功效承诺；营养成分表待品牌方提供，须人工复核"
+          },
+          {
+            "claim_in_script": "饱腹感",
+            "matched_product_claim": "饱腹感",
+            "claim_type": "subjective_experience",
+            "status": "subjective_only",
+            "note": "出现在「对我来说」个人体验语境，未量化扛饿时长、未表述为客观功效，未触碰减重/抑制食欲等禁用解读"
+          }
+        ],
+        "required_changes": [],
+        "optional_changes": [
+          {
+            "original": "到工位先喝两口压压惊",
+            "suggestion": "如品牌方认为口语过重，可改为「到工位先喝两口缓一缓」",
+            "reason": "口语表达风格提示，非违规；规则库未覆盖的表达习惯类建议，供人工定夺"
+          }
+        ],
+        "passed": true,
+        "human_review_required": true,
+        "review_notes": [
+          "FAC-001~FAC-010 逐条扫描：未命中无糖化改写、营养数值、减肥/燃脂/掉秤、降糖/控糖功效、医疗用语、绝对化用语、主观体验客观化、无证据卖点、低负担事实化、竞品贬低",
+          "低负担（unverified）未出现在脚本中，符合「无证据不写」要求",
+          "human_review_required=true 的原因：evidence_mapping 存在 2 条 brand_claim_context（0蔗糖、高蛋白），依据待品牌方提供"
+        ]
+      },
+      "expect": {
+        "validator_exit_code": 0
+      }
+    },
+    {
+      "id": "eval_004",
+      "name": "critical 违规却 passed=true 且 risk_level=none（必须判失败）",
+      "type": "counter_example",
+      "source": "eval_001 篡改一致性字段",
+      "report": {
+        "risk_level": "none",
+        "violations": [
+          {
+            "rule_id": "FAC-001",
+            "rule_name": "0蔗糖不得表述为无糖",
+            "severity": "high",
+            "matched_text": "无糖酸奶真的绝了",
+            "location": "标题",
+            "issue": "ProductEvidence 仅有「0蔗糖」（brand_claim），标题升级为「无糖」",
+            "suggestion": "改为「0蔗糖酸奶」或删除糖分表述"
+          },
+          {
+            "rule_id": "FAC-001",
+            "rule_name": "0蔗糖不得表述为无糖",
+            "severity": "high",
+            "matched_text": "无糖希腊酸奶，0糖0负担",
+            "location": "字幕2",
+            "issue": "「无糖」「0糖」均属 0蔗糖→无糖 的禁止解释",
+            "suggestion": "改为「0蔗糖希腊酸奶」"
+          },
+          {
+            "rule_id": "FAC-009",
+            "rule_name": "unverified 卖点不得表述为事实（低负担类）",
+            "severity": "high",
+            "matched_text": "0负担",
+            "location": "字幕2",
+            "issue": "「低负担」claim_type=unverified，且命中 forbidden_interpretations",
+            "suggestion": "删除「0负担」"
+          },
+          {
+            "rule_id": "FAC-002",
+            "rule_name": "无证据不得标注营养数值",
+            "severity": "high",
+            "matched_text": "每杯15g蛋白质",
+            "location": "字幕3",
+            "issue": "ProductEvidence 无 confirmed 营养数据，不得标注具体克数",
+            "suggestion": "删除「15g」，改为「高蛋白」定性表述"
+          },
+          {
+            "rule_id": "FAC-007",
+            "rule_name": "主观体验不得表述为客观功效",
+            "severity": "medium",
+            "matched_text": "喝一杯扛饿一上午",
+            "location": "字幕3",
+            "issue": "饱腹感为 subjective_experience，此处量化为普遍功效",
+            "suggestion": "改为个人体验表达，或删除"
+          },
+          {
+            "rule_id": "FAC-004",
+            "rule_name": "禁止降糖/控糖功效承诺",
+            "severity": "high",
+            "matched_text": "不升糖，控糖期放心喝",
+            "location": "字幕4",
+            "issue": "「不升糖」为血糖功效承诺",
+            "suggestion": "整句删除"
+          },
+          {
+            "rule_id": "FAC-005",
+            "rule_name": "禁止医疗效果",
+            "severity": "critical",
+            "matched_text": "还能养胃",
+            "location": "字幕4",
+            "issue": "「养胃」属医疗效果暗示",
+            "suggestion": "删除「还能养胃」"
+          },
+          {
+            "rule_id": "FAC-003",
+            "rule_name": "禁止减肥/燃脂/掉秤等减重功效",
+            "severity": "high",
+            "matched_text": "喝它不怕胖，小肚子都平了",
+            "location": "字幕5",
+            "issue": "减重功效的明示/暗示表达",
+            "suggestion": "整句删除"
+          },
+          {
+            "rule_id": "FAC-010",
+            "rule_name": "禁止贬低竞品",
+            "severity": "medium",
+            "matched_text": "比其他酸奶配料干净多了，完胜便利店",
+            "location": "字幕6",
+            "issue": "「完胜」构成对其他生产经营者的贬低性对比",
+            "suggestion": "删除对比，仅保留自身特点描述"
+          },
+          {
+            "rule_id": "FAC-006",
+            "rule_name": "禁止绝对化表达",
+            "severity": "medium",
+            "matched_text": "最健康的早餐",
+            "location": "标题",
+            "issue": "「最健康」为指向产品的绝对化用语",
+            "suggestion": "改为具体场景描述"
+          },
+          {
+            "rule_id": "FAC-003",
+            "rule_name": "禁止减肥/燃脂/掉秤等减重功效",
+            "severity": "high",
+            "matched_text": "#减肥餐",
+            "location": "话题标签",
+            "issue": "话题标签同样属于广告文本，#减肥餐 暗示减重功效",
+            "suggestion": "删除该标签"
+          }
+        ],
+        "evidence_mapping": [
+          {
+            "claim_in_script": "无糖 / 0糖",
+            "matched_product_claim": "0蔗糖",
+            "claim_type": "brand_claim",
+            "status": "blocked",
+            "note": "命中 forbidden_interpretations（无糖）"
+          },
+          {
+            "claim_in_script": "每杯15g蛋白质",
+            "matched_product_claim": "高蛋白",
+            "claim_type": "brand_claim",
+            "status": "blocked",
+            "note": "brand_claim 不得升级为事实并标注数值"
+          },
+          {
+            "claim_in_script": "扛饿一上午",
+            "matched_product_claim": "饱腹感",
+            "claim_type": "subjective_experience",
+            "status": "subjective_only",
+            "note": "仅允许个人体验语境"
+          },
+          {
+            "claim_in_script": "0负担",
+            "matched_product_claim": "低负担",
+            "claim_type": "unverified",
+            "status": "blocked",
+            "note": "unverified 不得表述为事实"
+          },
+          {
+            "claim_in_script": "不升糖 / 养胃 / 不怕胖",
+            "matched_product_claim": null,
+            "claim_type": null,
+            "status": "blocked",
+            "note": "ProductEvidence 中无任何对应卖点"
+          }
+        ],
+        "required_changes": [
+          {
+            "violation_rule_id": "FAC-001",
+            "original": "标题：控糖期最健康的早餐，无糖酸奶真的绝了",
+            "replacement": "标题：打工人的快手早餐，0蔗糖酸奶真的绝了",
+            "reason": "FAC-001 无糖→0蔗糖；FAC-006 删除绝对化「最健康」"
+          },
+          {
+            "violation_rule_id": "FAC-001",
+            "original": "字幕2：最近挖到轻醒这款无糖希腊酸奶，0糖0负担",
+            "replacement": "字幕2：最近挖到轻醒这款0蔗糖希腊酸奶",
+            "reason": "FAC-001 无糖/0糖→0蔗糖；FAC-009 删除「0负担」"
+          },
+          {
+            "violation_rule_id": "FAC-002",
+            "original": "字幕3：每杯15g蛋白质，喝一杯扛饿一上午",
+            "replacement": "字幕3：高蛋白的一杯，我吃完到中午都不太想零食",
+            "reason": "FAC-002 删除无证据数值；FAC-007 改个人体验语境"
+          },
+          {
+            "violation_rule_id": "FAC-004",
+            "original": "字幕4：不升糖，控糖期放心喝，还能养胃",
+            "replacement": "删除",
+            "reason": "FAC-004 血糖功效承诺；FAC-005 医疗效果暗示"
+          },
+          {
+            "violation_rule_id": "FAC-003",
+            "original": "字幕5：喝它不怕胖，小肚子都平了",
+            "replacement": "删除",
+            "reason": "FAC-003 减重功效"
+          },
+          {
+            "violation_rule_id": "FAC-010",
+            "original": "字幕6：比其他酸奶配料干净多了，完胜便利店",
+            "replacement": "字幕6：配料表很干净，早餐来一杯很清爽",
+            "reason": "FAC-010 删除竞品贬低"
+          },
+          {
+            "violation_rule_id": "FAC-003",
+            "original": "话题标签：#早餐 #减肥餐 #控糖饮食",
+            "replacement": "话题标签：#早餐 #快手早餐 #打工人早餐",
+            "reason": "FAC-003 删除 #减肥餐"
+          }
+        ],
+        "optional_changes": [
+          {
+            "original": "话题标签 #控糖饮食",
+            "suggestion": "「控糖」作为人群兴趣标签可保留，建议人工复核语境",
+            "reason": "轻醒 brief 契约：控糖仅可作为人群兴趣标签"
+          },
+          {
+            "original": "字幕1：打工人早餐不知道吃啥的姐妹看过来",
+            "suggestion": "无违规；人群标签放此处远离产品卖点句",
+            "reason": "预防性提示"
+          }
+        ],
+        "passed": true,
+        "human_review_required": true
+      },
+      "expect": {
+        "validator_exit_code": 1,
+        "expected_failure_keywords": [
+          "passed"
+        ]
+      }
+    }
+  ]
+}
