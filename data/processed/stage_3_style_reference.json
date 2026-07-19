@@ -1,0 +1,66 @@
+{
+ "generated_at": "2026-07-19T10:30:19.144608+00:00",
+ "style_reference": {
+  "creator_id": "60bb90f00000000001002887",
+  "nickname": "欧盈Kelly",
+  "profile_url": "https://www.xiaohongshu.com/user/profile/60bb90f00000000001002887",
+  "total": 95,
+  "grade": "重点候选",
+  "primary_format": "voiceover",
+  "main_scenes": [
+   "一人食",
+   "通勤/办公室",
+   "下午茶"
+  ],
+  "video_posts_in_recent10": 10,
+  "selection_status": "research_style_reference",
+  "selection_scope": "仅用于脚本风格研究，不构成商业合作定案",
+  "selection_reasons": [
+   "食品自然植入能力 13/15（Top3最高）",
+   "场景匹配 14/15：一人食/通勤/办公室/下午茶",
+   "近10篇视频 10 条，满足>=3条真实视频要求",
+   "目标受众匹配 20/20",
+   "合规安全 5/5"
+  ],
+  "human_verified": false,
+  "selected_at": "2026-07-19T10:30:19.144608+00:00",
+  "video_evidence": {
+   "fully_processed_note_id": "6989ab01000000001a0360c5",
+   "representative_note_page_evidence": "见 stage_3_final_10.json 代表笔记",
+   "extra_video_page_evidence": [
+    {
+     "note_id": "6a5c556e000000000c0162f5",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a5c556e000000000c0162f5",
+     "title": "深圳MKTer vlog |打工的唯一目的赚钱享受",
+     "note_type": "video",
+     "duration_seconds": 219.429,
+     "likes": "19",
+     "source": "page_observed",
+     "observed_at": "2026-07-19T10:51:17.845193+00:00"
+    },
+    {
+     "note_id": "6a5616b600000000220164a4",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a5616b600000000220164a4",
+     "title": "i人vlog｜一个人尝试潜水 不完美也没关系",
+     "note_type": "video",
+     "duration_seconds": 164.77,
+     "likes": "126",
+     "source": "page_observed",
+     "observed_at": "2026-07-19T10:51:31.012667+00:00"
+    }
+   ]
+  }
+ },
+ "rejected_top3": [
+  {
+   "creator_id": "586733cd50c4b43cccffc5c8",
+   "nickname": "小季没烦恼",
+   "reason": "食品植入分 10/15 低于入选者或并列但总分较低"
+  },
+  {
+   "creator_id": "5ad034864eacab543fa98374",
+   "nickname": "一只牛🐮",
+   "reason": "食品植入分 12/15 低于入选者或并列但总分较低"
+  }
+ ]
+}

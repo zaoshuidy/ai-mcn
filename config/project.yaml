@@ -1,11 +1,32 @@
 project:
   name: mcn-script-assistant
   current_stage: stage_3
-  status: ready
+  status: blocked_by_insufficient_verified_candidates
+  resume_checkpoint: stage_3_final_selection
   status_note: >-
-    2026-07-18 四项 Stage 2 放行条件全部满足（browser_poc / video_poc /
-    representative_video_poc / remote_delivered），按任务书规则置 stage_3 ready。
-    阶段最终评分与正式验收结论以项目总控复评为准。
+    2026-07-18 Stage 2 经项目总控正式验收通过（96/100）。
+    Stage 3 采集与评分管线已全部完成：8 关键词搜索 113 位原始候选、
+    预筛 30 位、主页深度核验 21 位（15 通过 / 6 硬淘汰）、15 位全量评分。
+    仅 6 位达到 85 分正式候选线（任务书允许少于 10 位，不虚构补齐），
+    健身场景结构平衡未达标（1/2），故 final_10 门禁不通过，
+    是否追加搜索预算由项目总控决策。
+    采集中途触发平台安全验证，人工完成后已于当日恢复（详见
+    data/processed/stage_3_verification_events.json）。
+  stage_3_creator_pool_ready: true
+  stage_3_final_10_ready: false
+  stage_3_top3_ready: true
+  stage_3_style_reference_ready: true
+  stage_3_result_note: >-
+    2026-07-19 最终候选 6/10：欧盈Kelly 95、小季没烦恼 91、一只牛🐮 90、
+    小王不忙 88、yeline 87、叁壹_ 86；Top3 均为重点候选（≥90）；
+    脚本风格研究对象=欧盈Kelly（research_style_reference，非商业定案）；
+    Top3 各完成 1 条代表视频完整理解管线（3 条时间线 25 片段）；
+    截图证据 18 张与 manifest 一致；评分可复现（15/15）；
+    全部候选 human_verified=false；无 Cookie/xsec_token 入库。
+  stage_3_boundary_note: >-
+    仅允许 research_selected_creator（风格研究）；
+    禁止 commercial_selected_creator / confirmed_collaboration / brand_approved；
+    不做商业合作定案、不制作最终Skill、不进入脚本生成。
   minimum_gate_score: 90
   language: zh-CN
   platform: xiaohongshu

@@ -1,0 +1,201 @@
+{
+ "generated_at": "2026-07-19T11:07:04.990009+00:00",
+ "stage": "stage_3",
+ "data_files": [
+  {
+   "path": "data/raw/stage_3_search_log.json",
+   "exists": true
+  },
+  {
+   "path": "data/processed/stage_3_creator_pool.json",
+   "exists": true,
+   "records": 113,
+   "record_key": "candidates"
+  },
+  {
+   "path": "data/processed/stage_3_prefiltered_30.json",
+   "exists": true,
+   "records": 30,
+   "record_key": "candidates"
+  },
+  {
+   "path": "data/processed/stage_3_deep_review_15.json",
+   "exists": true,
+   "records": 15,
+   "record_key": "creators"
+  },
+  {
+   "path": "data/processed/stage_3_eliminated.json",
+   "exists": true
+  },
+  {
+   "path": "data/processed/stage_3_verification_events.json",
+   "exists": true
+  },
+  {
+   "path": "data/processed/stage_3_format_probe.json",
+   "exists": true,
+   "records": 15,
+   "record_key": "probes"
+  },
+  {
+   "path": "data/processed/stage_3_visual_verdicts.json",
+   "exists": true
+  },
+  {
+   "path": "data/processed/stage_3_scores.json",
+   "exists": true,
+   "records": 15,
+   "record_key": "scores"
+  },
+  {
+   "path": "data/processed/stage_3_final_10.json",
+   "exists": true,
+   "records": 6,
+   "record_key": "finalists"
+  },
+  {
+   "path": "data/processed/stage_3_top3.json",
+   "exists": true
+  },
+  {
+   "path": "data/processed/stage_3_style_reference.json",
+   "exists": true
+  },
+  {
+   "path": "data/processed/stage_3_top3_video_manifest.json",
+   "exists": true,
+   "records": 3,
+   "record_key": "videos"
+  },
+  {
+   "path": "data/processed/stage_3_top3_video_timelines.json",
+   "exists": true,
+   "records": 3,
+   "record_key": "timelines"
+  }
+ ],
+ "screenshots": {
+  "creators": [
+   {
+    "path": "screenshots/stage_3_creators/586733cd50c4b43cccffc5c8_profile.jpg",
+    "bytes": 176418
+   },
+   {
+    "path": "screenshots/stage_3_creators/5ad034864eacab543fa98374_profile.jpg",
+    "bytes": 130979
+   },
+   {
+    "path": "screenshots/stage_3_creators/5dd0fe8f000000000100b124_profile.jpg",
+    "bytes": 163399
+   },
+   {
+    "path": "screenshots/stage_3_creators/60bb90f00000000001002887_profile.jpg",
+    "bytes": 140146
+   },
+   {
+    "path": "screenshots/stage_3_creators/61de867a000000001000ffa0_profile.jpg",
+    "bytes": 167834
+   },
+   {
+    "path": "screenshots/stage_3_creators/63b001c0000000002600681f_profile.jpg",
+    "bytes": 147391
+   }
+  ],
+  "notes": [
+   {
+    "path": "screenshots/stage_3_notes/586733cd50c4b43cccffc5c8_6a50d6a4000000001003f751.jpg",
+    "bytes": 153820
+   },
+   {
+    "path": "screenshots/stage_3_notes/586733cd50c4b43cccffc5c8_6a58b7ea000000001101a7bb.jpg",
+    "bytes": 134043
+   },
+   {
+    "path": "screenshots/stage_3_notes/5ad034864eacab543fa98374_6a58691000000000140049ac.jpg",
+    "bytes": 129594
+   },
+   {
+    "path": "screenshots/stage_3_notes/5ad034864eacab543fa98374_6a59b5ac00000000100295fe.jpg",
+    "bytes": 119935
+   },
+   {
+    "path": "screenshots/stage_3_notes/5dd0fe8f000000000100b124_681c9e470000000022037afd.jpg",
+    "bytes": 126160
+   },
+   {
+    "path": "screenshots/stage_3_notes/5dd0fe8f000000000100b124_69800dca000000000a03fd0f.jpg",
+    "bytes": 130746
+   },
+   {
+    "path": "screenshots/stage_3_notes/60bb90f00000000001002887_6989ab01000000001a0360c5.jpg",
+    "bytes": 116894
+   },
+   {
+    "path": "screenshots/stage_3_notes/60bb90f00000000001002887_69df136e000000002003a20d.jpg",
+    "bytes": 106452
+   },
+   {
+    "path": "screenshots/stage_3_notes/61de867a000000001000ffa0_6a1fdbe30000000035033f5b.jpg",
+    "bytes": 165169
+   },
+   {
+    "path": "screenshots/stage_3_notes/61de867a000000001000ffa0_6a38d9270000000022019010.jpg",
+    "bytes": 148458
+   },
+   {
+    "path": "screenshots/stage_3_notes/63b001c0000000002600681f_6a58993b0000000011019dfb.jpg",
+    "bytes": 107421
+   },
+   {
+    "path": "screenshots/stage_3_notes/63b001c0000000002600681f_6a5c84fe0000000022019658.jpg",
+    "bytes": 103043
+   }
+  ]
+ },
+ "screenshot_consistency": {
+  "finalists_checked": true,
+  "missing": [],
+  "consistent": true
+ },
+ "top3_video_evidence": [
+  {
+   "creator_id": "60bb90f00000000001002887",
+   "note_id": "6989ab01000000001a0360c5",
+   "duration_s": 153.5,
+   "segments": 10,
+   "sha256": "64100f7fe0e403f79e63eea2583a892c41733edc376c1a8a3b4becdf7a9198e3",
+   "valid_keyframes": 64,
+   "asr_reliability": "reliable_with_noise"
+  },
+  {
+   "creator_id": "586733cd50c4b43cccffc5c8",
+   "note_id": "6a58b7ea000000001101a7bb",
+   "duration_s": 114.0,
+   "segments": 8,
+   "sha256": "2143827e9647a7990760beaa2c53425223b44b4d974d334118b6b6739c2bbc7d",
+   "valid_keyframes": 46,
+   "asr_reliability": "unreliable"
+  },
+  {
+   "creator_id": "5ad034864eacab543fa98374",
+   "note_id": "6a59b5ac00000000100295fe",
+   "duration_s": 54.7,
+   "segments": 7,
+   "sha256": "f8f71ef60086a8b8ea7c3232b2824261f70c36bdc41fe49247913780e342fbd4",
+   "valid_keyframes": 27,
+   "asr_reliability": "unreliable"
+  }
+ ],
+ "sensitive_scan": {
+  "patterns": [
+   "xsec_token=",
+   "\"xsec_token\": \"A",
+   "set-cookie",
+   "web_session=",
+   "sessionid="
+  ],
+  "violations": []
+ },
+ "original_media_policy": "原始视频/音频/完整逐字稿/关键帧仅存 tmp/，不进 Git；Git 仅保留字段存在性、哈希、时间戳与转述"
+}

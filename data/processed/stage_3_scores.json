@@ -1,0 +1,968 @@
+{
+ "generated_at": "2026-07-19T10:30:19.144608+00:00",
+ "model": "src/stage_3_scoring.py",
+ "graded_count": 15,
+ "hard_eliminated_count": 0,
+ "scores": [
+  {
+   "creator_id": "60bb90f00000000001002887",
+   "nickname": "欧盈Kelly",
+   "dimensions": {
+    "target_audience": {
+     "score": 20,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；都市职场受众信号（打工人/通勤/下班）；独居/一人食/独处生活形态；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 15,
+     "max": 15,
+     "reason": "食品场景赛道（一人食）；多场景生活记录（3类）"
+    },
+    "scene_match": {
+     "score": 14,
+     "max": 15,
+     "reason": "场景命中：一人食/下午茶/通勤/办公室；标题场景证据（下午茶/饮品类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测真人口播/旁白；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 13,
+     "max": 15,
+     "reason": "食品核心场景（一人食）；食品相关标题2条；存在咖啡/茶/酸奶等饮品植入空间"
+    },
+    "commercial_naturalness": {
+     "score": 9,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然；汽车商单卖点口播，硬广感较强"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 95,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 95,
+   "grade": "重点候选",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/60bb90f00000000001002887",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "一人食",
+    "通勤/办公室",
+    "下午茶"
+   ],
+   "followers": "278129"
+  },
+  {
+   "creator_id": "586733cd50c4b43cccffc5c8",
+   "nickname": "小季没烦恼",
+   "dimensions": {
+    "target_audience": {
+     "score": 20,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；都市职场受众信号（打工人/通勤/下班）；独居/一人食/独处生活形态；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 15,
+     "max": 15,
+     "reason": "食品场景赛道（一人食/早餐）；多场景生活记录（2类）"
+    },
+    "scene_match": {
+     "score": 12,
+     "max": 15,
+     "reason": "场景命中：一人食/早餐；标题场景证据（一人食/做饭类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测沉浸式字幕型（无口播）；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 10,
+     "max": 15,
+     "reason": "食品核心场景（一人食/早餐）；食品相关标题2条"
+    },
+    "commercial_naturalness": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然；饮品商单融入晚间生活场景，植入自然"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 91,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 91,
+   "grade": "重点候选",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/586733cd50c4b43cccffc5c8",
+   "primary_format": "subtitle_immersive",
+   "main_scenes": [
+    "早餐",
+    "一人食"
+   ],
+   "followers": "277674"
+  },
+  {
+   "creator_id": "5ad034864eacab543fa98374",
+   "nickname": "一只牛🐮",
+   "dimensions": {
+    "target_audience": {
+     "score": 16,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；独居/一人食/独处生活形态"
+    },
+    "content_track": {
+     "score": 15,
+     "max": 15,
+     "reason": "食品场景赛道（一人食/早餐）；多场景生活记录（3类）"
+    },
+    "scene_match": {
+     "score": 14,
+     "max": 15,
+     "reason": "场景命中：一人食/下午茶/早餐；标题场景证据（早餐类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测沉浸式字幕型（无口播）；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 12,
+     "max": 15,
+     "reason": "食品核心场景（一人食/早餐）；食品相关标题7条"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 10,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）；标题高度模板化，系列可复用（+1）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 90,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 90,
+   "grade": "重点候选",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5ad034864eacab543fa98374",
+   "primary_format": "subtitle_immersive",
+   "main_scenes": [
+    "早餐",
+    "一人食",
+    "下午茶"
+   ],
+   "followers": "139"
+  },
+  {
+   "creator_id": "63b001c0000000002600681f",
+   "nickname": "小王不忙",
+   "dimensions": {
+    "target_audience": {
+     "score": 16,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；独居/一人食/独处生活形态"
+    },
+    "content_track": {
+     "score": 15,
+     "max": 15,
+     "reason": "食品场景赛道（早餐/酸奶/轻食）；多场景生活记录（2类）"
+    },
+    "scene_match": {
+     "score": 12,
+     "max": 15,
+     "reason": "场景命中：早餐/酸奶/轻食；标题场景证据（下午茶/饮品类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测沉浸式字幕型（无口播）；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 13,
+     "max": 15,
+     "reason": "食品核心场景（早餐/酸奶/轻食）；食品相关标题3条；存在咖啡/茶/酸奶等饮品植入空间"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 88,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 88,
+   "grade": "正式研究候选",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/63b001c0000000002600681f",
+   "primary_format": "subtitle_immersive",
+   "main_scenes": [
+    "早餐",
+    "酸奶/轻食"
+   ],
+   "followers": "381"
+  },
+  {
+   "creator_id": "61de867a000000001000ffa0",
+   "nickname": "yeline",
+   "dimensions": {
+    "target_audience": {
+     "score": 20,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；都市职场受众信号（打工人/通勤/下班）；独居/一人食/独处生活形态；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 15,
+     "max": 15,
+     "reason": "食品场景赛道（一人食/早餐）；多场景生活记录（3类）"
+    },
+    "scene_match": {
+     "score": 12,
+     "max": 15,
+     "reason": "场景命中：一人食/早餐/通勤/办公室"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测真人口播/旁白；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 6,
+     "max": 15,
+     "reason": "食品核心场景（一人食/早餐）"
+    },
+    "commercial_naturalness": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然；护肤品商单常规口播植入，自然度中等"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 87,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 87,
+   "grade": "正式研究候选",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/61de867a000000001000ffa0",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "早餐",
+    "一人食",
+    "通勤/办公室"
+   ],
+   "followers": "67811"
+  },
+  {
+   "creator_id": "5dd0fe8f000000000100b124",
+   "nickname": "叁壹_",
+   "dimensions": {
+    "target_audience": {
+     "score": 15,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 15,
+     "max": 15,
+     "reason": "食品场景赛道（早餐/酸奶/轻食）；多场景生活记录（3类）"
+    },
+    "scene_match": {
+     "score": 15,
+     "max": 15,
+     "reason": "场景命中：健身/运动后/早餐/酸奶/轻食；标题场景证据（早餐类/下午茶/饮品类）+4"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测真人口播/旁白；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 11,
+     "max": 15,
+     "reason": "食品核心场景（早餐/酸奶/轻食）；食品相关标题1条；存在咖啡/茶/酸奶等饮品植入空间"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 7,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）；健身房等外部场景占比高，拍摄门槛高（-2）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 86,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 86,
+   "grade": "正式研究候选",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5dd0fe8f000000000100b124",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "早餐",
+    "健身/运动后",
+    "酸奶/轻食"
+   ],
+   "followers": "5396"
+  },
+  {
+   "creator_id": "5843df0a5e87e701fab93f33",
+   "nickname": "是粥粥吖",
+   "dimensions": {
+    "target_audience": {
+     "score": 18,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；都市职场受众信号（打工人/通勤/下班）；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 11,
+     "max": 15,
+     "reason": "通勤/办公室都市生活赛道"
+    },
+    "scene_match": {
+     "score": 5,
+     "max": 15,
+     "reason": "场景命中：通勤/办公室；标题场景证据（下午茶/饮品类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测真人口播/旁白；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 11,
+     "max": 15,
+     "reason": "通勤/办公室场景（工位加餐植入空间）；食品相关标题7条；存在咖啡/茶/酸奶等饮品植入空间"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 77,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 77,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5843df0a5e87e701fab93f33",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "通勤/办公室"
+   ],
+   "followers": "921"
+  },
+  {
+   "creator_id": "60bdfdd8000000000100bc85",
+   "nickname": "燃崽日记",
+   "dimensions": {
+    "target_audience": {
+     "score": 17,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；都市职场受众信号（打工人/通勤/下班）"
+    },
+    "content_track": {
+     "score": 13,
+     "max": 15,
+     "reason": "下午茶饮品场景赛道；多场景生活记录（3类）"
+    },
+    "scene_match": {
+     "score": 12,
+     "max": 15,
+     "reason": "场景命中：下午茶/健身/运动后/通勤/办公室；标题场景证据（下午茶/饮品类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测真人口播/旁白；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 9,
+     "max": 15,
+     "reason": "下午茶饮品场景；食品相关标题1条；存在咖啡/茶/酸奶等饮品植入空间"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 7,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）；健身房等外部场景占比高，拍摄门槛高（-2）"
+    },
+    "compliance": {
+     "score": 4,
+     "max": 5,
+     "reason": "代表笔记风险词：瘦脸（-1）"
+    }
+   },
+   "raw_total": 80,
+   "body_anxiety_penalty": 3,
+   "body_anxiety_reason": "1条标题轻度提及身材结果表达，非主要依赖 -3",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 77,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/60bdfdd8000000000100bc85",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "通勤/办公室",
+    "下午茶",
+    "健身/运动后"
+   ],
+   "followers": "85076"
+  },
+  {
+   "creator_id": "5817f3c882ec390dadb6a63d",
+   "nickname": "白菜张张",
+   "dimensions": {
+    "target_audience": {
+     "score": 17,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；独居/一人食/独处生活形态；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 15,
+     "max": 15,
+     "reason": "食品场景赛道（早餐）；多场景生活记录（2类）"
+    },
+    "scene_match": {
+     "score": 10,
+     "max": 15,
+     "reason": "场景命中：健身/运动后/早餐；标题场景证据（一人食/做饭类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测真人口播/旁白；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 10,
+     "max": 15,
+     "reason": "食品核心场景（早餐）；食品相关标题3条"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 7,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）；健身房等外部场景占比高，拍摄门槛高（-2）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 82,
+   "body_anxiety_penalty": 6,
+   "body_anxiety_reason": "bio标注身高体重数字，身材标签人设 -3；1条标题轻度提及身材结果表达，非主要依赖 -3",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 76,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5817f3c882ec390dadb6a63d",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "早餐",
+    "健身/运动后"
+   ],
+   "followers": "77724"
+  },
+  {
+   "creator_id": "5e186d51000000000100a1ed",
+   "nickname": "薯到叁",
+   "dimensions": {
+    "target_audience": {
+     "score": 15,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 12,
+     "max": 15,
+     "reason": "下午茶饮品场景赛道"
+    },
+    "scene_match": {
+     "score": 6,
+     "max": 15,
+     "reason": "场景命中：下午茶；标题场景证据（下午茶/饮品类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测沉浸式字幕型（无口播）；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 13,
+     "max": 15,
+     "reason": "下午茶饮品场景；食品相关标题7条；存在咖啡/茶/酸奶等饮品植入空间"
+    },
+    "commercial_naturalness": {
+     "score": 6,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然；bio含创业/开店信息，内容为自有生意引流（-2）"
+    },
+    "executability": {
+     "score": 10,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）；标题高度模板化，系列可复用（+1）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 77,
+   "body_anxiety_penalty": 3,
+   "body_anxiety_reason": "bio标注身高体重数字，身材标签人设 -3",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 74,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5e186d51000000000100a1ed",
+   "primary_format": "subtitle_immersive",
+   "main_scenes": [
+    "下午茶"
+   ],
+   "followers": "49033"
+  },
+  {
+   "creator_id": "5b9a37ac04e2d50001354736",
+   "nickname": "无糖小钟",
+   "dimensions": {
+    "target_audience": {
+     "score": 18,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；都市职场受众信号（打工人/通勤/下班）；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 11,
+     "max": 15,
+     "reason": "通勤/办公室都市生活赛道"
+    },
+    "scene_match": {
+     "score": 5,
+     "max": 15,
+     "reason": "场景命中：通勤/办公室；标题场景证据（一人食/做饭类）+2"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测真人口播/旁白；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 6,
+     "max": 15,
+     "reason": "通勤/办公室场景（工位加餐植入空间）；食品相关标题2条"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 72,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 72,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5b9a37ac04e2d50001354736",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "通勤/办公室"
+   ],
+   "followers": "66202"
+  },
+  {
+   "creator_id": "5a6205864eacab4ceaf3d043",
+   "nickname": "肉卷超好吃😋",
+   "dimensions": {
+    "target_audience": {
+     "score": 18,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；都市职场受众信号（打工人/通勤/下班）；生活方式vlog定位明确"
+    },
+    "content_track": {
+     "score": 11,
+     "max": 15,
+     "reason": "通勤/办公室都市生活赛道"
+    },
+    "scene_match": {
+     "score": 3,
+     "max": 15,
+     "reason": "场景命中：通勤/办公室"
+    },
+    "video_expression": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇视频占比70%；实测沉浸式字幕型（无口播）；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 2,
+     "max": 15,
+     "reason": "通勤/办公室场景（工位加餐植入空间）"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然；App推广植入翻包场景，自然度中等；存在AI生成内容，真实性质疑（-2）"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 64,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.864,
+   "evidence_missing": [
+    "notes[1].duration_seconds",
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 64,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5a6205864eacab4ceaf3d043",
+   "primary_format": "subtitle_immersive",
+   "main_scenes": [
+    "通勤/办公室"
+   ],
+   "followers": "10248"
+  },
+  {
+   "creator_id": "5bbb6e989bc81b00017a120a",
+   "nickname": "徐个愿",
+   "dimensions": {
+    "target_audience": {
+     "score": 15,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）；都市职场受众信号（打工人/通勤/下班）；生活方式vlog定位明确；宝妈身份，受众年龄层上移（-3）"
+    },
+    "content_track": {
+     "score": 11,
+     "max": 15,
+     "reason": "通勤/办公室都市生活赛道"
+    },
+    "scene_match": {
+     "score": 3,
+     "max": 15,
+     "reason": "场景命中：通勤/办公室"
+    },
+    "video_expression": {
+     "score": 10,
+     "max": 10,
+     "reason": "近10篇视频占比100%；实测真人口播/旁白；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 4,
+     "max": 15,
+     "reason": "通勤/办公室场景（工位加餐植入空间）；食品相关标题1条"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 3,
+     "max": 5,
+     "reason": "bio含身材/减重表达（-2）"
+    }
+   },
+   "raw_total": 63,
+   "body_anxiety_penalty": 8,
+   "body_anxiety_reason": "bio含身材/减重表达（减肥），人设级依赖 -5；bio标注身高体重数字，身材标签人设 -3",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 55,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5bbb6e989bc81b00017a120a",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "通勤/办公室"
+   ],
+   "followers": "43235"
+  },
+  {
+   "creator_id": "5631c96ef53ee0160bd76a95",
+   "nickname": "ItsDani",
+   "dimensions": {
+    "target_audience": {
+     "score": 14,
+     "max": 20,
+     "reason": "合格候选池基准（真实个人年轻女性生活创作者）"
+    },
+    "content_track": {
+     "score": 5,
+     "max": 15,
+     "reason": "赛道证据不足"
+    },
+    "scene_match": {
+     "score": 0,
+     "max": 15,
+     "reason": "场景命中：无"
+    },
+    "video_expression": {
+     "score": 7,
+     "max": 10,
+     "reason": "近10篇视频占比90%；实测真人口播/旁白"
+    },
+    "food_integration": {
+     "score": 2,
+     "max": 15,
+     "reason": "食品相关标题1条"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 9,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）"
+    },
+    "compliance": {
+     "score": 5,
+     "max": 5,
+     "reason": "未见明显合规风险"
+    }
+   },
+   "raw_total": 50,
+   "body_anxiety_penalty": 0,
+   "body_anxiety_reason": "",
+   "evidence_completeness": 0.818,
+   "evidence_missing": [
+    "creator.main_scenes",
+    "notes[0].duration_seconds",
+    "notes[0].has_voiceover",
+    "notes[0].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 50,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5631c96ef53ee0160bd76a95",
+   "primary_format": "voiceover",
+   "main_scenes": [],
+   "followers": "57962"
+  },
+  {
+   "creator_id": "5595406762a60c5e065844dd",
+   "nickname": "azizi-",
+   "dimensions": {
+    "target_audience": {
+     "score": 6,
+     "max": 20,
+     "reason": "孕产特殊人群，与轻醒核心受众（都市年轻女性轻生活）偏离，封顶低分"
+    },
+    "content_track": {
+     "score": 6,
+     "max": 15,
+     "reason": "健身主导赛道，偏离美食生活核心赛道"
+    },
+    "scene_match": {
+     "score": 3,
+     "max": 15,
+     "reason": "场景命中：健身/运动后"
+    },
+    "video_expression": {
+     "score": 9,
+     "max": 10,
+     "reason": "近10篇视频占比90%；实测沉浸式字幕型（无口播）；代表视频时长30-300s，适合脚本拆解"
+    },
+    "food_integration": {
+     "score": 4,
+     "max": 15,
+     "reason": "食品相关标题2条"
+    },
+    "commercial_naturalness": {
+     "score": 8,
+     "max": 10,
+     "reason": "近10篇无商业笔记，内容自然"
+    },
+    "executability": {
+     "score": 7,
+     "max": 10,
+     "reason": "居家vlog轻制作形态（候选池共性）；健身房等外部场景占比高，拍摄门槛高（-2）"
+    },
+    "compliance": {
+     "score": 4,
+     "max": 5,
+     "reason": "代表笔记风险词：斤（-1）"
+    }
+   },
+   "raw_total": 47,
+   "body_anxiety_penalty": 3,
+   "body_anxiety_reason": "1条标题轻度提及身材结果表达，非主要依赖 -3",
+   "evidence_completeness": 0.909,
+   "evidence_missing": [
+    "notes[1].has_voiceover",
+    "notes[1].has_on_screen_text"
+   ],
+   "caps_applied": [],
+   "total": 44,
+   "grade": "淘汰",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5595406762a60c5e065844dd",
+   "primary_format": "subtitle_immersive",
+   "main_scenes": [
+    "健身/运动后"
+   ],
+   "followers": "579"
+  }
+ ],
+ "hard_eliminated": []
+}

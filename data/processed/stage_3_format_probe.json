@@ -1,0 +1,485 @@
+{
+ "generated_at": "2026-07-19T10:06:43.441276+00:00",
+ "probes": [
+  {
+   "creator_id": "5631c96ef53ee0160bd76a95",
+   "nickname": "ItsDani",
+   "note_id": "6a5316df0000000011011711",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a5316df0000000011011711",
+   "observed_at": "2026-07-19T09:18:54.132833+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "1e750b769a942a7aa84418a4413c4079579f9a9bac99ee68de459fd2ca21e3ee",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 65876301,
+   "video_duration_page_s": 431892,
+   "has_voiceover": true,
+   "spoken_chars_30s": 141,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 64.8,
+     "path": "tmp\\stage_3_format_probe\\5631c96ef53ee0160bd76a95\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 215.9,
+     "path": "tmp\\stage_3_format_probe\\5631c96ef53ee0160bd76a95\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 367.1,
+     "path": "tmp\\stage_3_format_probe\\5631c96ef53ee0160bd76a95\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5631c96ef53ee0160bd76a95\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5595406762a60c5e065844dd",
+   "nickname": "azizi-",
+   "note_id": "6a561a5d0000000016027e80",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a561a5d0000000016027e80",
+   "observed_at": "2026-07-19T09:33:39.088675+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "5b925163b7851a7b2aae543bad5e474d6449707c7112c53d009975f316d9cc80",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 10868088,
+   "video_duration_page_s": 54684,
+   "has_voiceover": false,
+   "spoken_chars_30s": 0,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 8.2,
+     "path": "tmp\\stage_3_format_probe\\5595406762a60c5e065844dd\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 27.4,
+     "path": "tmp\\stage_3_format_probe\\5595406762a60c5e065844dd\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 46.5,
+     "path": "tmp\\stage_3_format_probe\\5595406762a60c5e065844dd\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5595406762a60c5e065844dd\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5817f3c882ec390dadb6a63d",
+   "nickname": "白菜张张",
+   "note_id": "6a54f31f000000001503f452",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a54f31f000000001503f452",
+   "observed_at": "2026-07-19T09:34:32.199027+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "621d6f52dd2a3494c04e50df003c2b226456a5518f02ef29331bf7c39001eba7",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 47360035,
+   "video_duration_page_s": 263717,
+   "has_voiceover": true,
+   "spoken_chars_30s": 157,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 39.6,
+     "path": "tmp\\stage_3_format_probe\\5817f3c882ec390dadb6a63d\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 131.8,
+     "path": "tmp\\stage_3_format_probe\\5817f3c882ec390dadb6a63d\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 224.1,
+     "path": "tmp\\stage_3_format_probe\\5817f3c882ec390dadb6a63d\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5817f3c882ec390dadb6a63d\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5843df0a5e87e701fab93f33",
+   "nickname": "是粥粥吖",
+   "note_id": "69919b0e000000000a033946",
+   "canonical_url": "https://www.xiaohongshu.com/explore/69919b0e000000000a033946",
+   "observed_at": "2026-07-19T09:35:48.821653+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "43d934293fc6432c539d5621495fbb1449a07f6bf377065d1ed3e355ec8f0fb3",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 11990500,
+   "video_duration_page_s": 154203,
+   "has_voiceover": true,
+   "spoken_chars_30s": 62,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 23.1,
+     "path": "tmp\\stage_3_format_probe\\5843df0a5e87e701fab93f33\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 77.1,
+     "path": "tmp\\stage_3_format_probe\\5843df0a5e87e701fab93f33\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 131.1,
+     "path": "tmp\\stage_3_format_probe\\5843df0a5e87e701fab93f33\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5843df0a5e87e701fab93f33\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "586733cd50c4b43cccffc5c8",
+   "nickname": "小季没烦恼",
+   "note_id": "6a58b7ea000000001101a7bb",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a58b7ea000000001101a7bb",
+   "observed_at": "2026-07-19T09:36:25.878966+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "e5fbe1703203a1567bb73b9aa136c4fbd7985c09e1ff8f70baad552cc5510343",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 17589985,
+   "video_duration_page_s": 114010,
+   "has_voiceover": false,
+   "spoken_chars_30s": 3,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 17.1,
+     "path": "tmp\\stage_3_format_probe\\586733cd50c4b43cccffc5c8\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 57.0,
+     "path": "tmp\\stage_3_format_probe\\586733cd50c4b43cccffc5c8\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 96.9,
+     "path": "tmp\\stage_3_format_probe\\586733cd50c4b43cccffc5c8\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\586733cd50c4b43cccffc5c8\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5a6205864eacab4ceaf3d043",
+   "nickname": "肉卷超好吃😋",
+   "note_id": "6a17f26a0000000036001be2",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a17f26a0000000036001be2",
+   "observed_at": "2026-07-19T09:37:14.761319+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "73beb3d92379afe6fd6441f28763ce94f8147376456c391da60c62282f8e2489",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 5789397,
+   "video_duration_page_s": 53200,
+   "has_voiceover": false,
+   "spoken_chars_30s": 10,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 8.0,
+     "path": "tmp\\stage_3_format_probe\\5a6205864eacab4ceaf3d043\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 26.6,
+     "path": "tmp\\stage_3_format_probe\\5a6205864eacab4ceaf3d043\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 45.2,
+     "path": "tmp\\stage_3_format_probe\\5a6205864eacab4ceaf3d043\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5a6205864eacab4ceaf3d043\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5ad034864eacab543fa98374",
+   "nickname": "一只牛🐮",
+   "note_id": "6a59b5ac00000000100295fe",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a59b5ac00000000100295fe",
+   "observed_at": "2026-07-19T09:37:51.286179+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "663ccbe4f7d88390ae49b86c96220de534ff648c7410e78d38c4d862c6886798",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 8035924,
+   "video_duration_page_s": 54705,
+   "has_voiceover": false,
+   "spoken_chars_30s": 2,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 8.2,
+     "path": "tmp\\stage_3_format_probe\\5ad034864eacab543fa98374\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 27.4,
+     "path": "tmp\\stage_3_format_probe\\5ad034864eacab543fa98374\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 46.5,
+     "path": "tmp\\stage_3_format_probe\\5ad034864eacab543fa98374\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5ad034864eacab543fa98374\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5b9a37ac04e2d50001354736",
+   "nickname": "无糖小钟",
+   "note_id": "6a59deab000000000f03effb",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a59deab000000000f03effb",
+   "observed_at": "2026-07-19T09:38:38.312926+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "309ef65f38cf2d0a38fe2f04628790e96414e06af46253a7c64464252cb864e9",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 49114561,
+   "video_duration_page_s": 293834,
+   "has_voiceover": true,
+   "spoken_chars_30s": 68,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 44.1,
+     "path": "tmp\\stage_3_format_probe\\5b9a37ac04e2d50001354736\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 146.9,
+     "path": "tmp\\stage_3_format_probe\\5b9a37ac04e2d50001354736\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 249.7,
+     "path": "tmp\\stage_3_format_probe\\5b9a37ac04e2d50001354736\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5b9a37ac04e2d50001354736\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5bbb6e989bc81b00017a120a",
+   "nickname": "徐个愿",
+   "note_id": "6a5b3aa00000000001032202",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a5b3aa00000000001032202",
+   "observed_at": "2026-07-19T09:39:36.315682+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "7893044385eb70584aa6772f11ce716fbb8ecba651c1228d0ed65937a8375fd6",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 48214769,
+   "video_duration_page_s": 147309,
+   "has_voiceover": true,
+   "spoken_chars_30s": 100,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 22.1,
+     "path": "tmp\\stage_3_format_probe\\5bbb6e989bc81b00017a120a\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 73.7,
+     "path": "tmp\\stage_3_format_probe\\5bbb6e989bc81b00017a120a\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 125.2,
+     "path": "tmp\\stage_3_format_probe\\5bbb6e989bc81b00017a120a\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5bbb6e989bc81b00017a120a\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5dd0fe8f000000000100b124",
+   "nickname": "叁壹_",
+   "note_id": "69800dca000000000a03fd0f",
+   "canonical_url": "https://www.xiaohongshu.com/explore/69800dca000000000a03fd0f",
+   "observed_at": "2026-07-19T09:40:59.393522+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "d88d17ab076e94bba19ea37b5f1187674f7c109acdae7ffbe0a199629840a645",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 11307922,
+   "video_duration_page_s": 65620,
+   "has_voiceover": true,
+   "spoken_chars_30s": 165,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 9.8,
+     "path": "tmp\\stage_3_format_probe\\5dd0fe8f000000000100b124\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 32.8,
+     "path": "tmp\\stage_3_format_probe\\5dd0fe8f000000000100b124\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 55.8,
+     "path": "tmp\\stage_3_format_probe\\5dd0fe8f000000000100b124\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5dd0fe8f000000000100b124\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "5e186d51000000000100a1ed",
+   "nickname": "薯到叁",
+   "note_id": "69ff1222000000002003822a",
+   "canonical_url": "https://www.xiaohongshu.com/explore/69ff1222000000002003822a",
+   "observed_at": "2026-07-19T09:41:37.178908+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "17fe5dc16e8f330f2b12cc034b92e92ae0bfcfca68cc69679075fb31da76d41a",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 36116489,
+   "video_duration_page_s": 161217,
+   "has_voiceover": false,
+   "spoken_chars_30s": 0,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 24.2,
+     "path": "tmp\\stage_3_format_probe\\5e186d51000000000100a1ed\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 80.6,
+     "path": "tmp\\stage_3_format_probe\\5e186d51000000000100a1ed\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 137.0,
+     "path": "tmp\\stage_3_format_probe\\5e186d51000000000100a1ed\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\5e186d51000000000100a1ed\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "60bb90f00000000001002887",
+   "nickname": "欧盈Kelly",
+   "note_id": "69df136e000000002003a20d",
+   "canonical_url": "https://www.xiaohongshu.com/explore/69df136e000000002003a20d",
+   "observed_at": "2026-07-19T09:42:38.323763+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "510f1022948177ac42fb87da884fe26b52459570e0c8de3c8153bc908445ec7f",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 34495506,
+   "video_duration_page_s": 211117,
+   "has_voiceover": true,
+   "spoken_chars_30s": 107,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 31.7,
+     "path": "tmp\\stage_3_format_probe\\60bb90f00000000001002887\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 105.5,
+     "path": "tmp\\stage_3_format_probe\\60bb90f00000000001002887\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 179.4,
+     "path": "tmp\\stage_3_format_probe\\60bb90f00000000001002887\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\60bb90f00000000001002887\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "60bdfdd8000000000100bc85",
+   "nickname": "燃崽日记",
+   "note_id": "6a5b5371000000001303ddcc",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a5b5371000000001303ddcc",
+   "observed_at": "2026-07-19T09:43:35.854163+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "bf03cc8ee0c5ff51ba5fbd8e02d9f278f832629c32146ccaaa2ceb3d0b2220a8",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 2167146,
+   "video_duration_page_s": 14315,
+   "has_voiceover": true,
+   "spoken_chars_30s": 155,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 2.1,
+     "path": "tmp\\stage_3_format_probe\\60bdfdd8000000000100bc85\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 7.2,
+     "path": "tmp\\stage_3_format_probe\\60bdfdd8000000000100bc85\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 12.2,
+     "path": "tmp\\stage_3_format_probe\\60bdfdd8000000000100bc85\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\60bdfdd8000000000100bc85\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "61de867a000000001000ffa0",
+   "nickname": "yeline",
+   "note_id": "6a38d9270000000022019010",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a38d9270000000022019010",
+   "observed_at": "2026-07-19T09:44:18.728314+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "07b88267b9d113efff3daed7dfa4d7def907f89b3e454935f9a6ee41c319a35f",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 34948968,
+   "video_duration_page_s": 196000,
+   "has_voiceover": true,
+   "spoken_chars_30s": 63,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 29.4,
+     "path": "tmp\\stage_3_format_probe\\61de867a000000001000ffa0\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 98.0,
+     "path": "tmp\\stage_3_format_probe\\61de867a000000001000ffa0\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 166.6,
+     "path": "tmp\\stage_3_format_probe\\61de867a000000001000ffa0\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\61de867a000000001000ffa0\\contact_sheet.jpg"
+  },
+  {
+   "creator_id": "63b001c0000000002600681f",
+   "nickname": "小王不忙",
+   "note_id": "6a5c84fe0000000022019658",
+   "canonical_url": "https://www.xiaohongshu.com/explore/6a5c84fe0000000022019658",
+   "observed_at": "2026-07-19T10:06:18.353370+00:00",
+   "source": "ai_inferred",
+   "confidence": 0.9,
+   "media_url_sha256": "881d7ca88d050bfdc0b13ea9c88d03c65dd3ad5566df7b36ff0773de1ad49580",
+   "media_domain": "sns-video-v6.xhscdn.com",
+   "media_codec": "h264",
+   "video_bytes": 7947819,
+   "video_duration_page_s": 53521,
+   "has_voiceover": false,
+   "spoken_chars_30s": 2,
+   "model": "faster-whisper tiny",
+   "frames": [
+    {
+     "timestamp_s": 8.0,
+     "path": "tmp\\stage_3_format_probe\\63b001c0000000002600681f\\frame_0.jpg"
+    },
+    {
+     "timestamp_s": 26.8,
+     "path": "tmp\\stage_3_format_probe\\63b001c0000000002600681f\\frame_1.jpg"
+    },
+    {
+     "timestamp_s": 45.5,
+     "path": "tmp\\stage_3_format_probe\\63b001c0000000002600681f\\frame_2.jpg"
+    }
+   ],
+   "contact_sheet": "tmp\\stage_3_format_probe\\63b001c0000000002600681f\\contact_sheet.jpg"
+  }
+ ]
+}

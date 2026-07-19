@@ -1,0 +1,79 @@
+{
+  "stage": "stage_3",
+  "queries_executed": 8,
+  "log": [
+    {
+      "query": "独居女生早餐vlog",
+      "searched_at": "2026-07-18T14:50:01.177885+00:00",
+      "results_returned": 22,
+      "results_checked": 20,
+      "new_creators": 16,
+      "skipped_duplicate_user_id": 2,
+      "pool_size_after": 16
+    },
+    {
+      "query": "通勤女生早餐vlog",
+      "searched_at": "2026-07-18T14:50:06.685043+00:00",
+      "results_returned": 22,
+      "results_checked": 20,
+      "new_creators": 6,
+      "skipped_duplicate_user_id": 12,
+      "pool_size_after": 22
+    },
+    {
+      "query": "上班族女生晨间vlog",
+      "searched_at": "2026-07-18T14:50:11.713575+00:00",
+      "results_returned": 22,
+      "results_checked": 20,
+      "new_creators": 16,
+      "skipped_duplicate_user_id": 2,
+      "pool_size_after": 38
+    },
+    {
+      "query": "沉浸式一人食vlog",
+      "searched_at": "2026-07-18T14:50:16.962155+00:00",
+      "results_returned": 22,
+      "results_checked": 20,
+      "new_creators": 16,
+      "skipped_duplicate_user_id": 2,
+      "pool_size_after": 54
+    },
+    {
+      "query": "办公室下午茶vlog",
+      "searched_at": "2026-07-18T14:50:22.113297+00:00",
+      "results_returned": 22,
+      "results_checked": 20,
+      "new_creators": 15,
+      "skipped_duplicate_user_id": 3,
+      "pool_size_after": 69
+    },
+    {
+      "query": "健身女生运动后加餐vlog",
+      "searched_at": "2026-07-18T14:50:27.251978+00:00",
+      "results_returned": 22,
+      "results_checked": 20,
+      "new_creators": 15,
+      "skipped_duplicate_user_id": 3,
+      "pool_size_after": 84
+    },
+    {
+      "query": "酸奶碗女生日常",
+      "searched_at": "2026-07-18T14:50:32.458606+00:00",
+      "results_returned": 22,
+      "results_checked": 20,
+      "new_creators": 18,
+      "skipped_duplicate_user_id": 0,
+      "pool_size_after": 102
+    },
+    {
+      "query": "都市女生生活vlog",
+      "searched_at": "2026-07-18T14:50:37.697789+00:00",
+      "results_returned": 22,
+      "results_checked": 20,
+      "new_creators": 11,
+      "skipped_duplicate_user_id": 7,
+      "pool_size_after": 113
+    }
+  ],
+  "notes": "每词查看前10—20条；user_id去重；不含xsec_token"
+}

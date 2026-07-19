@@ -109,9 +109,34 @@ SEARCH_NOTES_JS = (
     "return JSON.stringify(out);})()"
 )
 
+# 达人主页详情：bio/粉丝/关注/获赞与收藏/认证信息（只读）
+PROFILE_DETAIL_JS = (
+    "(()=>{const rw=o=>o&&o._value!==undefined?o._value:o;"
+    "const s=window.__INITIAL_STATE__;const us=rw(s&&s.user);"
+    "if(!us)return JSON.stringify(null);"
+    "const pd=rw(us.userPageData)||{};const bi=rw(pd.basicInfo)||{};"
+    "const ui=rw(us.userInfo)||{};"
+    "const nick=bi.nickname||ui.nickname||'';"
+    "let followers=null,following=null,liked=null;"
+    "const ia=rw(pd.interactions)||[];"
+    "ia.forEach(x=>{const e=rw(x)||{};const t=e.type||'';const c=e.count||null;"
+    "if(t==='fans')followers=c;else if(t==='follow')following=c;"
+    "else if(t==='liked')liked=c;});"
+    "const tags=(rw(pd.tags)||[]).map(t=>{const e=rw(t)||{};"
+    "return e.name||e.tagName||'';}).filter(Boolean);"
+    "return JSON.stringify({nickname:nick,"
+    "red_id:bi.redId||bi.red_id||'',"
+    "desc:bi.desc||'',gender:bi.gender!==undefined?bi.gender:null,"
+    "ip_location:bi.ipLocation||'',"
+    "official_verify:bi.redOfficialVerifyType!==undefined?bi.redOfficialVerifyType:null,"
+    "official_verify_name:bi.redOfficialVerifyName||'',"
+    "followers:followers,following:following,likes_and_collects:liked,"
+    "tags:tags});})()"
+)
+
 _READ_ONLY_TEMPLATES = frozenset(
     {PAGE_STATE_JS, LOGIN_GATE_JS, NOTE_MEDIA_JS, PROFILE_NOTES_XSEC_JS,
-     SEARCH_NOTES_JS}
+     SEARCH_NOTES_JS, PROFILE_DETAIL_JS}
 )
 
 # 软导航前缀：等价于用户在地址栏输入 URL（只读跳转），目标 URL 由适配器内部构造
@@ -380,22 +405,28 @@ class XhsCdpBrowserAdapter:
         return value
 
     def page_state(self, page: Any) -> dict:
-        return dict(self.evaluate_readonly(page, PAGE_STATE_JS))
+        data = self.evaluate_readonly(page, PAGE_STATE_JS)
+        return dict(data) if isinstance(data, dict) else {}
 
     def login_gate_state(self, page: Any) -> dict:
-        return dict(self.evaluate_readonly(page, LOGIN_GATE_JS))
+        data = self.evaluate_readonly(page, LOGIN_GATE_JS)
+        return dict(data) if isinstance(data, dict) else {"gated": True}
 
     def extract_note_media(self, page: Any) -> Optional[dict]:
         data = self.evaluate_readonly(page, NOTE_MEDIA_JS)
-        return dict(data) if data else None
+        return dict(data) if isinstance(data, dict) else None
 
     def extract_profile_notes_xsec(self, page: Any) -> list[dict]:
         data = self.evaluate_readonly(page, PROFILE_NOTES_XSEC_JS)
-        return list(data) if data else []
+        return list(data) if isinstance(data, list) else []
 
     def extract_search_notes(self, page: Any) -> list[dict]:
         data = self.evaluate_readonly(page, SEARCH_NOTES_JS)
-        return list(data) if data else []
+        return list(data) if isinstance(data, list) else []
+
+    def extract_profile_detail(self, page: Any) -> Optional[dict]:
+        data = self.evaluate_readonly(page, PROFILE_DETAIL_JS)
+        return dict(data) if isinstance(data, dict) else None
 
     # ---- 登录等待 ----
 

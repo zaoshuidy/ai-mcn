@@ -1,0 +1,1325 @@
+{
+ "deep_reviewed": 15,
+ "generated_at": "2026-07-19T08:57:22.559612+00:00",
+ "creators": [
+  {
+   "creator_id": "5595406762a60c5e065844dd",
+   "nickname": "azizi-",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5595406762a60c5e065844dd",
+   "bio": "孕晚期/记录孕期的美好  ⋆⭒˚.⋆\n📝分享健身/美食/生活",
+   "followers": "579",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "广东",
+   "tags": [],
+   "latest_post_time": "2026-07-14T13:00:40+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 9,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "健身/运动后"
+   ],
+   "main_scenes": [
+    "健身/运动后"
+   ],
+   "recent_titles_sample": [
+    "Vlog🏋️‍♀️孕晚期背部训练*长胎不长肉",
+    "Vlog✨孕晚期 依旧保持高能量的一天吃练",
+    "Vlog🏋️‍♀️孕晚期*4个臀腿动作全方位炸臀",
+    "6pm下班健身｜我的目标是“肩”强女人",
+    "Gym vlog｜不内卷，只坚持自己的节奏"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a561a5d0000000016027e80",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a561a5d0000000016027e80",
+     "title": "Vlog🏋️‍♀️孕晚期背部训练*长胎不长肉",
+     "publish_time": "2026-07-14T13:00:40+00:00",
+     "note_type": "video",
+     "duration_seconds": 54.7,
+     "likes": "10",
+     "collects": "1",
+     "comments": "2",
+     "has_on_screen_text": true,
+     "has_voiceover": false,
+     "commercial_signal": false,
+     "compliance_risks": [
+      "斤"
+     ],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:52:49.163111+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 0,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5595406762a60c5e065844dd/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "6a4fb024000000001700b09c",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a4fb024000000001700b09c",
+     "title": "Vlog✨孕晚期 依旧保持高能量的一天吃练",
+     "publish_time": "2026-07-09T14:28:52+00:00",
+     "note_type": "video",
+     "duration_seconds": 117.5,
+     "likes": "14",
+     "collects": "",
+     "comments": "2",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:52:58.710939+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:52:58.710939+00:00",
+   "human_verified": false,
+   "primary_format": "subtitle_immersive",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a561a5d0000000016027e80 前30秒口播字数=0（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5631c96ef53ee0160bd76a95",
+   "nickname": "ItsDani",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5631c96ef53ee0160bd76a95",
+   "bio": "☁️欢迎来到我的彩色小世界\n🤎玩得开心！",
+   "followers": "57962",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "上海",
+   "tags": [
+    "时尚博主",
+    "剑桥大学"
+   ],
+   "latest_post_time": "2026-07-17T04:42:54+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 9,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [],
+   "main_scenes": [],
+   "recent_titles_sample": [
+    "三伏天热到融化🧊但快乐也爆炸了！",
+    "vlog放纵欠下的债！Body Pump来还🏋️‍♀️💦",
+    "vlog一天干了八百件事💨周六流水账请查收",
+    "vlog📔吃喝练的快乐周末日记",
+    "好舒服的夏天！ "
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a59b2cd00000000110124d9",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a59b2cd00000000110124d9",
+     "title": "三伏天热到融化🧊但快乐也爆炸了！",
+     "publish_time": "2026-07-17T04:42:54+00:00",
+     "note_type": "normal",
+     "duration_seconds": null,
+     "likes": "602",
+     "collects": "20",
+     "comments": "103",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:53:19.864402+00:00"
+    },
+    {
+     "note_id": "6a5316df0000000011011711",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a5316df0000000011011711",
+     "title": "vlog放纵欠下的债！Body Pump来还🏋️‍♀️💦",
+     "publish_time": "2026-07-12T04:23:59+00:00",
+     "note_type": "video",
+     "duration_seconds": 431.9,
+     "likes": "732",
+     "collects": "79",
+     "comments": "51",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:53:30.001906+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 141,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5631c96ef53ee0160bd76a95/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:53:30.002901+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a5316df0000000011011711 前30秒口播字数=141（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5817f3c882ec390dadb6a63d",
+   "nickname": "白菜张张",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5817f3c882ec390dadb6a63d",
+   "bio": "166/51的快乐enfj\nvlog｜运动｜吃喝｜穿搭｜日常\n623968999💌qq.com",
+   "followers": "77724",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "湖北",
+   "tags": [
+    "湖北武汉",
+    "vlog博主"
+   ],
+   "latest_post_time": "2026-07-13T14:15:59+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "早餐",
+    "健身/运动后"
+   ],
+   "main_scenes": [
+    "早餐",
+    "健身/运动后"
+   ],
+   "recent_titles_sample": [
+    "vlog🍒：早起自律/维持体重的一天两餐吃什么",
+    "vlog📔：早起可以干多少事/独处的快乐小日常",
+    "vlog🍽️：宅家一天两餐吃什么/运动使人快乐",
+    "vlog🎾：超级充实的一天/解锁我的网球初体验",
+    "vlog🍄：早起可以干多少事/健身➕按摩放松啦"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a54f31f000000001503f452",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a54f31f000000001503f452",
+     "title": "vlog🍒：早起自律/维持体重的一天两餐吃什么",
+     "publish_time": "2026-07-13T14:15:59+00:00",
+     "note_type": "video",
+     "duration_seconds": 263.7,
+     "likes": "417",
+     "collects": "83",
+     "comments": "94",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:53:50.572306+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 157,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5817f3c882ec390dadb6a63d/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "6a4fb102000000001700b5f1",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a4fb102000000001700b5f1",
+     "title": "vlog📔：早起可以干多少事/独处的快乐小日常",
+     "publish_time": "2026-07-09T14:32:34+00:00",
+     "note_type": "video",
+     "duration_seconds": 268.3,
+     "likes": "425",
+     "collects": "68",
+     "comments": "108",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:54:01.759561+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:54:01.759561+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a54f31f000000001503f452 前30秒口播字数=157（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5843df0a5e87e701fab93f33",
+   "nickname": "是粥粥吖",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5843df0a5e87e701fab93f33",
+   "bio": "欢迎👏来到粥粥频道吖\n喝茶｜茶具｜分享｜治愈｜日常",
+   "followers": "921",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "江苏",
+   "tags": [],
+   "latest_post_time": "2026-02-15T10:08:14+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "通勤/办公室"
+   ],
+   "main_scenes": [
+    "通勤/办公室"
+   ],
+   "recent_titles_sample": [
+    "vlog🧨｜宅家｜喝茶｜追剧｜治愈",
+    "vlog❄️｜治愈｜喝茶｜工作日｜古法过冬",
+    "vlog🍃｜喝茶｜周末｜宅家日常｜vlog｜治愈",
+    "vlog🍃｜治愈｜办公室｜喝茶｜工作日｜七月",
+    "vlog🍃｜喝茶｜治愈｜宅家｜vlog｜夏日"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "69919b0e000000000a033946",
+     "canonical_url": "https://www.xiaohongshu.com/explore/69919b0e000000000a033946",
+     "title": "vlog🧨｜宅家｜喝茶｜追剧｜治愈",
+     "publish_time": "2026-02-15T10:08:14+00:00",
+     "note_type": "video",
+     "duration_seconds": 154.2,
+     "likes": "124",
+     "collects": "20",
+     "comments": "41",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:54:58.089378+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 62,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5843df0a5e87e701fab93f33/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "69436459000000001e00c6d6",
+     "canonical_url": "https://www.xiaohongshu.com/explore/69436459000000001e00c6d6",
+     "title": "vlog❄️｜治愈｜喝茶｜工作日｜古法过冬",
+     "publish_time": "2025-12-18T02:18:01+00:00",
+     "note_type": "video",
+     "duration_seconds": 182.4,
+     "likes": "170",
+     "collects": "29",
+     "comments": "13",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:55:07.981365+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:55:07.981365+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 69919b0e000000000a033946 前30秒口播字数=62（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "586733cd50c4b43cccffc5c8",
+   "nickname": "小季没烦恼",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/586733cd50c4b43cccffc5c8",
+   "bio": "欢迎来到我的独自生活日记\n一个99年杭漂女生✨\n美食｜生活｜好物\n2367245917@qq.com",
+   "followers": "277674",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "浙江",
+   "tags": [
+    "vlog博主",
+    "家居博主"
+   ],
+   "latest_post_time": "2026-07-16T11:04:30+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "早餐",
+    "一人食"
+   ],
+   "main_scenes": [
+    "早餐",
+    "一人食"
+   ],
+   "recent_titles_sample": [
+    "晚间日记🧺6.pm—11pm下班后才是生活的开始",
+    "独处 一人食｜被圆滚滚的手鞠寿司治愈🍣",
+    "下班后Vlog🧺一个人度过了许多平静日子",
+    "27岁独活女生Vlog🕯️下班后的治愈晚酌时光",
+    "下班后Vlog🧺独处 做手工 守护自己的能量"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a58b7ea000000001101a7bb",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a58b7ea000000001101a7bb",
+     "title": "晚间日记🧺6.pm—11pm下班后才是生活的开始",
+     "publish_time": "2026-07-16T11:04:30+00:00",
+     "note_type": "video",
+     "duration_seconds": 114.0,
+     "likes": "2925",
+     "collects": "176",
+     "comments": "43",
+     "has_on_screen_text": true,
+     "has_voiceover": false,
+     "commercial_signal": true,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:55:28.549214+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 3,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/586733cd50c4b43cccffc5c8/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     },
+     "commercial_evidence": "帧1可见霸王茶姬(CHAGEE)轻因系列手提袋与植入字幕"
+    },
+    {
+     "note_id": "6a50d6a4000000001003f751",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a50d6a4000000001003f751",
+     "title": "独处 一人食｜被圆滚滚的手鞠寿司治愈🍣",
+     "publish_time": "2026-07-11T08:43:42+00:00",
+     "note_type": "video",
+     "duration_seconds": 93.1,
+     "likes": "825",
+     "collects": "176",
+     "comments": "55",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:55:38.742220+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:55:38.742220+00:00",
+   "human_verified": false,
+   "primary_format": "subtitle_immersive",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a58b7ea000000001101a7bb 前30秒口播字数=3（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5a6205864eacab4ceaf3d043",
+   "nickname": "肉卷超好吃😋",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5a6205864eacab4ceaf3d043",
+   "bio": "🍔职场日常|生活记录|好物 |私企hr\n🥂做个超会赚钱的漂亮女孩子\n🌷慢慢来 生活是 爱也是\n📮❶0❶❽❼❹000❺@🐧🐧.com",
+   "followers": "10248",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "重庆",
+   "tags": [
+    "HR",
+    "职场博主"
+   ],
+   "latest_post_time": "2026-05-28T08:35:23+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 7,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "通勤/办公室"
+   ],
+   "main_scenes": [
+    "通勤/办公室"
+   ],
+   "recent_titles_sample": [
+    "打工人通勤翻包💭What's in my bag ？",
+    "关于普通女孩是如何靠AI生成图片日更plog",
+    "苹果15PM回血成功！支付宝回收真香！",
+    "打工人通勤翻包💭What's in my bag ？",
+    "长相是父母给的，但'好看'是自己养的"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a17f26a0000000036001be2",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a17f26a0000000036001be2",
+     "title": "打工人通勤翻包💭What's in my bag ？",
+     "publish_time": "2026-05-28T08:35:23+00:00",
+     "note_type": "video",
+     "duration_seconds": 53.2,
+     "likes": "1707",
+     "collects": "212",
+     "comments": "33",
+     "has_on_screen_text": true,
+     "has_voiceover": false,
+     "commercial_signal": true,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:56:59.619266+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 10,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5a6205864eacab4ceaf3d043/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     },
+     "commercial_evidence": "帧2出现AI搜索助手App界面及引导字幕，疑似App推广植入"
+    },
+    {
+     "note_id": "6a5a00c2000000000f01c627",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a5a00c2000000000f01c627",
+     "title": "关于普通女孩是如何靠AI生成图片日更plog",
+     "publish_time": "2026-07-17T10:30:01+00:00",
+     "note_type": "normal",
+     "duration_seconds": null,
+     "likes": "61",
+     "collects": "31",
+     "comments": "13",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:57:09.406560+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:57:09.406560+00:00",
+   "human_verified": false,
+   "primary_format": "subtitle_immersive",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a17f26a0000000036001be2 前30秒口播字数=10（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5ad034864eacab543fa98374",
+   "nickname": "一只牛🐮",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5ad034864eacab543fa98374",
+   "bio": "独居 干净饮食 \n保持自由且清醒🖤",
+   "followers": "139",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "江苏",
+   "tags": [
+    "江苏苏州"
+   ],
+   "latest_post_time": "2026-07-17T08:26:01+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "早餐",
+    "一人食",
+    "下午茶"
+   ],
+   "main_scenes": [
+    "早餐",
+    "一人食",
+    "下午茶"
+   ],
+   "recent_titles_sample": [
+    "Vlog | 独居 早餐",
+    "Vlog | 独居 早餐",
+    "Vlog | 独居 早餐",
+    "Vlog | 独居 晚餐 🍜",
+    "Vlog | 独居 早餐"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a59b5ac00000000100295fe",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a59b5ac00000000100295fe",
+     "title": "Vlog | 独居 早餐",
+     "publish_time": "2026-07-17T08:26:01+00:00",
+     "note_type": "video",
+     "duration_seconds": 54.7,
+     "likes": "17",
+     "collects": "1",
+     "comments": "4",
+     "has_on_screen_text": true,
+     "has_voiceover": false,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:57:28.508446+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 2,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5ad034864eacab543fa98374/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "6a58691000000000140049ac",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a58691000000000140049ac",
+     "title": "Vlog | 独居 早餐",
+     "publish_time": "2026-07-16T08:52:01+00:00",
+     "note_type": "video",
+     "duration_seconds": 72.3,
+     "likes": "47",
+     "collects": "5",
+     "comments": "10",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:57:38.038199+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:57:38.038199+00:00",
+   "human_verified": false,
+   "primary_format": "subtitle_immersive",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a59b5ac00000000100295fe 前30秒口播字数=2（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5b9a37ac04e2d50001354736",
+   "nickname": "无糖小钟",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5b9a37ac04e2d50001354736",
+   "bio": "‧₊˚ 做一个有趣的生活家 ☆ '͜' ☆\n今天很ᵒᵒᵒᵒᵒᵏ.ᐟ.ᐟ\n\n🍅小日常在/无敌番茄侠大王",
+   "followers": "66202",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "浙江",
+   "tags": [
+    "射手座"
+   ],
+   "latest_post_time": "2026-07-17T09:50:07+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "通勤/办公室"
+   ],
+   "main_scenes": [
+    "通勤/办公室"
+   ],
+   "recent_titles_sample": [
+    "VLOG🍇“02打工人在电商公司的一天都干嘛”",
+    "VLOG🧑‍🍳“下班后的厨房日记 爱上做饭咯”",
+    "VLOG🧚🏻‍♀️“充实幸福的一天！去换美甲咯”",
+    "VLOG🤧每天都是三好员工：好饿、好累、好想睡！",
+    "VLOG☺️“又过上了带狗狗上班的小日子 爽哉！”"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a59deab000000000f03effb",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a59deab000000000f03effb",
+     "title": "VLOG🍇“02打工人在电商公司的一天都干嘛”",
+     "publish_time": "2026-07-17T09:50:07+00:00",
+     "note_type": "video",
+     "duration_seconds": 293.8,
+     "likes": "311",
+     "collects": "35",
+     "comments": "37",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:57:58.689664+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 68,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5b9a37ac04e2d50001354736/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "6a55fd08000000002100a28b",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a55fd08000000002100a28b",
+     "title": "VLOG🧑‍🍳“下班后的厨房日记 爱上做饭咯”",
+     "publish_time": "2026-07-14T09:50:08+00:00",
+     "note_type": "video",
+     "duration_seconds": 331.1,
+     "likes": "354",
+     "collects": "29",
+     "comments": "62",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:58:08.965407+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:58:08.965407+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a59deab000000000f03effb 前30秒口播字数=68（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5bbb6e989bc81b00017a120a",
+   "nickname": "徐个愿",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5bbb6e989bc81b00017a120a",
+   "bio": "💭普通打工人的快乐日常分享！！！\n👧🏻3岁幼崽监护人\n🏋🏻‍♀️167/120（减肥中…）\n📮719488678@qq.com（备注品牌）",
+   "followers": "43235",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "福建",
+   "tags": [],
+   "latest_post_time": "2026-07-18T08:34:40+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "通勤/办公室"
+   ],
+   "main_scenes": [
+    "通勤/办公室"
+   ],
+   "recent_titles_sample": [
+    "VLOG😇\"如果坐牢有平替 那一定是上班！\"",
+    "一周穿搭｜365天都要穿新衣服才开心😄",
+    "VLOG💕双班期末依旧不吃压力(՞•Ꙫ•՞)",
+    "VLOG😝\"让我们恭喜这位女士喜提暑假˶♡\"",
+    "VLOG🥲\"好累 想把学校挂闲鱼买了！\""
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a5b3aa00000000001032202",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a5b3aa00000000001032202",
+     "title": "VLOG😇\"如果坐牢有平替 那一定是上班！\"",
+     "publish_time": "2026-07-18T08:34:40+00:00",
+     "note_type": "video",
+     "duration_seconds": 147.3,
+     "likes": "87",
+     "collects": "20",
+     "comments": "10",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:58:58.115546+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 100,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5bbb6e989bc81b00017a120a/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "6a4b22940000000017029a24",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a4b22940000000017029a24",
+     "title": "一周穿搭｜365天都要穿新衣服才开心😄",
+     "publish_time": "2026-07-06T03:35:48+00:00",
+     "note_type": "video",
+     "duration_seconds": 51.6,
+     "likes": "125",
+     "collects": "24",
+     "comments": "12",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:59:08.328494+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:59:08.328494+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a5b3aa00000000001032202 前30秒口播字数=100（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5dd0fe8f000000000100b124",
+   "nickname": "叁壹_",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5dd0fe8f000000000100b124",
+   "bio": "欢迎观看健身新手成长日记🏋️\n\nttang_wei@126.com",
+   "followers": "5396",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "广东",
+   "tags": [],
+   "latest_post_time": "2026-02-02T22:01:06+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "早餐",
+    "健身/运动后",
+    "酸奶/轻食"
+   ],
+   "main_scenes": [
+    "早餐",
+    "健身/运动后",
+    "酸奶/轻食"
+   ],
+   "recent_titles_sample": [
+    "Gym Vlog｜一切都在井然有序地进行着🏋️",
+    "运动Vlog｜坚持健身🏋️开启高能量一天",
+    "翻包Vlog｜我离不开的那些健身好物🏋️",
+    "6:48am｜高能量早起｜臀腿日·早餐·酸奶碗",
+    "9:00am｜高能量周末｜背部日·爬坡·睡眠好物"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "69800dca000000000a03fd0f",
+     "canonical_url": "https://www.xiaohongshu.com/explore/69800dca000000000a03fd0f",
+     "title": "Gym Vlog｜一切都在井然有序地进行着🏋️",
+     "publish_time": "2026-02-02T22:01:06+00:00",
+     "note_type": "video",
+     "duration_seconds": 65.6,
+     "likes": "1416",
+     "collects": "69",
+     "comments": "5",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:59:28.081362+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 165,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5dd0fe8f000000000100b124/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "681c9e470000000022037afd",
+     "canonical_url": "https://www.xiaohongshu.com/explore/681c9e470000000022037afd",
+     "title": "运动Vlog｜坚持健身🏋️开启高能量一天",
+     "publish_time": "2025-05-08T12:06:31+00:00",
+     "note_type": "video",
+     "duration_seconds": 138.8,
+     "likes": "1355",
+     "collects": "356",
+     "comments": "52",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T15:59:38.231051+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T15:59:38.231051+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 69800dca000000000a03fd0f 前30秒口播字数=165（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "5e186d51000000000100a1ed",
+   "nickname": "薯到叁",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5e186d51000000000100a1ed",
+   "bio": "163/44kg\n咖啡｜创业｜穿搭｜日常Vlog\n\n不做无意义争辩\n📮：3417911907@qq.com",
+   "followers": "49033",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "安徽",
+   "tags": [
+    "24岁"
+   ],
+   "latest_post_time": "2026-05-09T10:53:22+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "下午茶"
+   ],
+   "main_scenes": [
+    "下午茶"
+   ],
+   "recent_titles_sample": [
+    "Vlog｜00后 咖啡师 开店的一天",
+    "Vlog｜00后 咖啡师 开店的一天",
+    "Vlog｜00后 咖啡师 开店的一天",
+    "Vlog｜00后 咖啡师 开店的一天",
+    "Vlog｜00后 咖啡师 开店的一天"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "69ff1222000000002003822a",
+     "canonical_url": "https://www.xiaohongshu.com/explore/69ff1222000000002003822a",
+     "title": "Vlog｜00后 咖啡师 开店的一天",
+     "publish_time": "2026-05-09T10:53:22+00:00",
+     "note_type": "video",
+     "duration_seconds": 161.2,
+     "likes": "1.9万",
+     "collects": "2587",
+     "comments": "564",
+     "has_on_screen_text": true,
+     "has_voiceover": false,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T16:07:22.634215+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 0,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/5e186d51000000000100a1ed/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "6a16439c00000000060315e1",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a16439c00000000060315e1",
+     "title": "Vlog｜00后 咖啡师 开店的一天",
+     "publish_time": "2026-05-27T10:58:02+00:00",
+     "note_type": "video",
+     "duration_seconds": 127.8,
+     "likes": "1011",
+     "collects": "110",
+     "comments": "31",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T16:07:32.151089+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T16:07:32.151089+00:00",
+   "human_verified": false,
+   "primary_format": "subtitle_immersive",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 69ff1222000000002003822a 前30秒口播字数=0（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "60bb90f00000000001002887",
+   "nickname": "欧盈Kelly",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/60bb90f00000000001002887",
+   "bio": "INTP 水瓶女 深圳独居\n互联网搬砖日常存档\n努力赚钱是为了更好去看世界\nlive to the point of tears",
+   "followers": "278129",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "广东",
+   "tags": [
+    "水瓶座",
+    "广东深圳"
+   ],
+   "latest_post_time": "2026-04-15T10:01:29+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "一人食",
+    "通勤/办公室",
+    "下午茶"
+   ],
+   "main_scenes": [
+    "一人食",
+    "通勤/办公室",
+    "下午茶"
+   ],
+   "recent_titles_sample": [
+    "i人独处日记📔一个人开车去打匹克球 喝咖啡",
+    "深圳INTP独立女上班vlog：又活了一天",
+    "i人vlog｜一个人尝试潜水 不完美也没关系",
+    "MKTer vlog：企鹅岛见客户 百薪万苦的一天",
+    "vlog｜如果加班是我的宿命，下班勉强短暂续命"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "69df136e000000002003a20d",
+     "canonical_url": "https://www.xiaohongshu.com/explore/69df136e000000002003a20d",
+     "title": "i人独处日记📔一个人开车去打匹克球 喝咖啡",
+     "publish_time": "2026-04-15T10:01:29+00:00",
+     "note_type": "video",
+     "duration_seconds": 211.1,
+     "likes": "3411",
+     "collects": "2790",
+     "comments": "108",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": true,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T16:09:30.063188+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 107,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/60bb90f00000000001002887/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     },
+     "commercial_evidence": "帧1/帧3为新车展示与'自动泊车'卖点字幕，汽车商单"
+    },
+    {
+     "note_id": "6989ab01000000001a0360c5",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6989ab01000000001a0360c5",
+     "title": "深圳INTP独立女上班vlog：又活了一天",
+     "publish_time": "2026-02-09T10:01:35+00:00",
+     "note_type": "video",
+     "duration_seconds": 153.5,
+     "likes": "7590",
+     "collects": "2148",
+     "comments": "325",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T16:09:40.232653+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T16:09:40.232653+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 69df136e000000002003a20d 前30秒口播字数=107（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "60bdfdd8000000000100bc85",
+   "nickname": "燃崽日记",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/60bdfdd8000000000100bc85",
+   "bio": "01年enfp 快乐小狗✨\n试图以高能量的对抗淡淡“班味”🤓\n🫧随机掉落穿搭｜运动｜特种兵周末\n🈴：alv4400",
+   "followers": "85076",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "广东",
+   "tags": [
+    "运动博主",
+    "vlog博主"
+   ],
+   "latest_post_time": "2026-07-18T10:20:33+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "通勤/办公室",
+    "下午茶",
+    "健身/运动后"
+   ],
+   "main_scenes": [
+    "通勤/办公室",
+    "下午茶",
+    "健身/运动后"
+   ],
+   "recent_titles_sample": [
+    "没人告诉我邪修瘦脸这么🐮",
+    "休息vlog👣｜去广州找朋友玩咯👭",
+    "上班vlog 💻｜下午茶充电的一天🔋",
+    "上班vlog💻｜如果说幸福是下班后的一顿🍣",
+    "工作vlog 💻｜算不算高能量的一天ദ്ദി˶•̀֊<)"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a5b5371000000001303ddcc",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a5b5371000000001303ddcc",
+     "title": "没人告诉我邪修瘦脸这么🐮",
+     "publish_time": "2026-07-18T10:20:33+00:00",
+     "note_type": "video",
+     "duration_seconds": 14.3,
+     "likes": "59",
+     "collects": "53",
+     "comments": "",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": false,
+     "compliance_risks": [
+      "瘦脸"
+     ],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T16:09:59.310940+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 155,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/60bdfdd8000000000100bc85/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "6a4e22f6000000000803c5f1",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a4e22f6000000000803c5f1",
+     "title": "休息vlog👣｜去广州找朋友玩咯👭",
+     "publish_time": "2026-07-08T10:14:14+00:00",
+     "note_type": "video",
+     "duration_seconds": 187.4,
+     "likes": "1045",
+     "collects": "1127",
+     "comments": "38",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-18T16:10:21.218426+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-18T16:10:21.218426+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a5b5371000000001303ddcc 前30秒口播字数=155（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "61de867a000000001000ffa0",
+   "nickname": "yeline",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/61de867a000000001000ffa0",
+   "bio": "一些生活时刻be like\n𝘆𝗲𝗹𝗶𝗻𝗲𝟵𝟮𝟭𝟮@𝟭𝟲𝟯.𝗰𝗼𝗺",
+   "followers": "67811",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "浙江",
+   "tags": [
+    "浙江杭州",
+    "vlog博主",
+    "家居博主"
+   ],
+   "latest_post_time": "2026-06-22T08:53:12+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "早餐",
+    "一人食",
+    "通勤/办公室"
+   ],
+   "main_scenes": [
+    "早餐",
+    "一人食",
+    "通勤/办公室"
+   ],
+   "recent_titles_sample": [
+    "独处vlog｜今天不上班和自己出门约会一天☕️",
+    "vlog｜归家后的治愈，藏在卧室的松弛感里💜",
+    "vlog｜🕤独居生活：）出门前早起2小时生活日记",
+    "开箱📦：）howto我的夏日淡人穿搭🩵松弛随性",
+    "vlog｜生活小记📔：）雨天逛西湖、养了新小狗🐶"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a38d9270000000022019010",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a38d9270000000022019010",
+     "title": "独处vlog｜今天不上班和自己出门约会一天☕️",
+     "publish_time": "2026-06-22T08:53:12+00:00",
+     "note_type": "video",
+     "duration_seconds": 196.0,
+     "likes": "529",
+     "collects": "154",
+     "comments": "47",
+     "has_on_screen_text": true,
+     "has_voiceover": true,
+     "commercial_signal": true,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-19T08:54:35.444793+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 63,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/61de867a000000001000ffa0/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     },
+     "commercial_evidence": "帧2为护肤品(雅顿)功效话术字幕，护肤品商单"
+    },
+    {
+     "note_id": "6a1fdbe30000000035033f5b",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a1fdbe30000000035033f5b",
+     "title": "vlog｜归家后的治愈，藏在卧室的松弛感里💜",
+     "publish_time": "2026-06-03T13:24:03+00:00",
+     "note_type": "video",
+     "duration_seconds": 118.3,
+     "likes": "895",
+     "collects": "97",
+     "comments": "42",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-19T08:54:44.715697+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-19T08:54:44.715697+00:00",
+   "human_verified": false,
+   "primary_format": "voiceover",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a38d9270000000022019010 前30秒口播字数=63（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  },
+  {
+   "creator_id": "63b001c0000000002600681f",
+   "nickname": "小王不忙",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/63b001c0000000002600681f",
+   "bio": "一个i人的一人食记🍳",
+   "followers": "381",
+   "following": null,
+   "likes_and_collects": null,
+   "ip_location": "天津",
+   "tags": [],
+   "latest_post_time": "2026-07-19T08:04:14+00:00",
+   "posts_reviewed_count": 10,
+   "video_posts_in_recent10": 10,
+   "commercial_posts_count": 0,
+   "commercial_post_ratio": 0.0,
+   "content_categories": [
+    "早餐",
+    "酸奶/轻食"
+   ],
+   "main_scenes": [
+    "早餐",
+    "酸奶/轻食"
+   ],
+   "recent_titles_sample": [
+    "🧀vlog｜一口爆汁蒜香黄油杏鲍菇",
+    "🥣vlog｜脆嫩鲜甜巨清爽苹果黄瓜蟹柳沙拉",
+    "🥣vlog｜夏日轻食抹茶青提莓果酸奶碗",
+    "🍜vlog｜夏日螺蛳粉的正确打开方式",
+    "vlog🍜｜雨天宅家煮香喷喷东北米线"
+   ],
+   "representative_notes": [
+    {
+     "note_id": "6a5c84fe0000000022019658",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a5c84fe0000000022019658",
+     "title": "🧀vlog｜一口爆汁蒜香黄油杏鲍菇",
+     "publish_time": "2026-07-19T08:04:14+00:00",
+     "note_type": "video",
+     "duration_seconds": 53.5,
+     "likes": "7",
+     "collects": "5",
+     "comments": "",
+     "has_on_screen_text": true,
+     "has_voiceover": false,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-19T08:57:13.369020+00:00",
+     "format_probe": {
+      "audio_model": "faster-whisper tiny",
+      "spoken_chars_30s": 2,
+      "visual_contact_sheet": "tmp/stage_3_format_probe/63b001c0000000002600681f/contact_sheet.jpg",
+      "source": "ai_inferred",
+      "confidence": 0.9,
+      "observed_at": "2026-07-19T10:12:59.801003+00:00"
+     }
+    },
+    {
+     "note_id": "6a58993b0000000011019dfb",
+     "canonical_url": "https://www.xiaohongshu.com/explore/6a58993b0000000011019dfb",
+     "title": "🥣vlog｜脆嫩鲜甜巨清爽苹果黄瓜蟹柳沙拉",
+     "publish_time": "2026-07-16T08:41:31+00:00",
+     "note_type": "video",
+     "duration_seconds": 58.4,
+     "likes": "25",
+     "collects": "9",
+     "comments": "4",
+     "has_on_screen_text": null,
+     "has_voiceover": null,
+     "commercial_signal": false,
+     "compliance_risks": [],
+     "evidence_screenshot": null,
+     "source": "page_observed",
+     "observed_at": "2026-07-19T08:57:22.556691+00:00"
+    }
+   ],
+   "source_query": null,
+   "source": "page_observed",
+   "audience_inference_source": "ai_inferred",
+   "observed_at": "2026-07-19T08:57:22.556691+00:00",
+   "human_verified": false,
+   "primary_format": "subtitle_immersive",
+   "primary_format_source": "ai_inferred",
+   "primary_format_confidence": 0.9,
+   "primary_format_evidence": "代表视频 6a5c84fe0000000022019658 前30秒口播字数=2（faster-whisper tiny实测）；屏幕字幕=有（抽帧视觉判定）"
+  }
+ ],
+ "format_probe_merged_at": "2026-07-19T10:12:59.801003+00:00"
+}

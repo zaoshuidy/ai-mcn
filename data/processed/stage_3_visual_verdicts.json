@@ -1,0 +1,142 @@
+{
+ "generated_at": "2026-07-19T10:11:57.557029+00:00",
+ "source": "ai_inferred",
+ "method": "ffmpeg抽帧(15%/50%/85%)+多模态逐帧读取，证据见tmp/stage_3_format_probe/<creator_id>/contact_sheet.jpg",
+ "verdicts": [
+  {
+   "creator_id": "5595406762a60c5e065844dd",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5595406762a60c5e065844dd/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5631c96ef53ee0160bd76a95",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5631c96ef53ee0160bd76a95/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5817f3c882ec390dadb6a63d",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5817f3c882ec390dadb6a63d/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5843df0a5e87e701fab93f33",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5843df0a5e87e701fab93f33/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "586733cd50c4b43cccffc5c8",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": true,
+   "commercial_evidence": "帧1可见霸王茶姬(CHAGEE)轻因系列手提袋与植入字幕",
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/586733cd50c4b43cccffc5c8/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5a6205864eacab4ceaf3d043",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": true,
+   "commercial_evidence": "帧2出现AI搜索助手App界面及引导字幕，疑似App推广植入",
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5a6205864eacab4ceaf3d043/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5ad034864eacab543fa98374",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5ad034864eacab543fa98374/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5b9a37ac04e2d50001354736",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5b9a37ac04e2d50001354736/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5bbb6e989bc81b00017a120a",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5bbb6e989bc81b00017a120a/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5dd0fe8f000000000100b124",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5dd0fe8f000000000100b124/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "5e186d51000000000100a1ed",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/5e186d51000000000100a1ed/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "60bb90f00000000001002887",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": true,
+   "commercial_evidence": "帧1/帧3为新车展示与'自动泊车'卖点字幕，汽车商单",
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/60bb90f00000000001002887/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "60bdfdd8000000000100bc85",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/60bdfdd8000000000100bc85/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "61de867a000000001000ffa0",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": true,
+   "commercial_evidence": "帧2为护肤品(雅顿)功效话术字幕，护肤品商单",
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/61de867a000000001000ffa0/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  },
+  {
+   "creator_id": "63b001c0000000002600681f",
+   "has_on_screen_text": true,
+   "probed_note_commercial_signal": false,
+   "commercial_evidence": null,
+   "confidence": 0.9,
+   "evidence_contact_sheet": "tmp/stage_3_format_probe/63b001c0000000002600681f/contact_sheet.jpg",
+   "observed_at": "2026-07-19T10:11:57.557029+00:00"
+  }
+ ]
+}

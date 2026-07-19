@@ -1,0 +1,50 @@
+{
+ "generated_at": "2026-07-19T10:30:19.144608+00:00",
+ "selection_rule": "最终候选中总分最高的3位",
+ "top3": [
+  {
+   "creator_id": "60bb90f00000000001002887",
+   "nickname": "欧盈Kelly",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/60bb90f00000000001002887",
+   "total": 95,
+   "grade": "重点候选",
+   "primary_format": "voiceover",
+   "main_scenes": [
+    "一人食",
+    "通勤/办公室",
+    "下午茶"
+   ],
+   "selection_status": "key_candidate",
+   "human_verified": false
+  },
+  {
+   "creator_id": "586733cd50c4b43cccffc5c8",
+   "nickname": "小季没烦恼",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/586733cd50c4b43cccffc5c8",
+   "total": 91,
+   "grade": "重点候选",
+   "primary_format": "subtitle_immersive",
+   "main_scenes": [
+    "早餐",
+    "一人食"
+   ],
+   "selection_status": "key_candidate",
+   "human_verified": false
+  },
+  {
+   "creator_id": "5ad034864eacab543fa98374",
+   "nickname": "一只牛🐮",
+   "profile_url": "https://www.xiaohongshu.com/user/profile/5ad034864eacab543fa98374",
+   "total": 90,
+   "grade": "重点候选",
+   "primary_format": "subtitle_immersive",
+   "main_scenes": [
+    "早餐",
+    "一人食",
+    "下午茶"
+   ],
+   "selection_status": "key_candidate",
+   "human_verified": false
+  }
+ ]
+}

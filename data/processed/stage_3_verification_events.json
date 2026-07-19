@@ -1,0 +1,19 @@
+{
+  "event_type": "platform_security_verification",
+  "detected_at": "2026-07-18T14:55:00+00:00",
+  "detected_url": "https://www.xiaohongshu.com/website-login/captcha (重定向自达人主页核验)",
+  "automation_stopped": true,
+  "human_action_required": true,
+  "human_verification_completed": true,
+  "resumed_at": "2026-07-18T15:08:00+00:00",
+  "resume_checkpoint": "stage_3_deep_review",
+  "cookie_exported": false,
+  "verification_bypassed": false,
+  "notes": [
+    "深度核验第13位候选时页面被重定向至安全验证页，自动化立即停止并保存断点",
+    "人工在专用Chrome窗口完成验证；期间登录态一度失效，由人工重新扫码登录恢复",
+    "恢复前核验：CDP仅绑定127.0.0.1:9222，user-data-dir为tmp/xhs_cdp_profile，页面logged_in=true，captcha_detected=false",
+    "未保存验证码内容、Cookie、手机号或任何账号信息",
+    "本次为Human-in-the-loop人工验证，非自动化绕过"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "eliminated_count": 6,
+  "generated_at": "2026-07-19T08:57:22.560613+00:00",
+  "eliminated": [
+    {
+      "creator_id": "58bcf94e50c4b419821a7044",
+      "nickname": "鸡蛋妹儿",
+      "reason": "inactive_180d_or_unverifiable"
+    },
+    {
+      "creator_id": "5e0206e90000000001004d2a",
+      "nickname": "每天都好困",
+      "reason": "inactive_180d_or_unverifiable"
+    },
+    {
+      "creator_id": "5e7cdf20000000000100afbc",
+      "nickname": "奥聪满壹学校",
+      "reason": "medical_content"
+    },
+    {
+      "creator_id": "5e92ed5800000000010066a6",
+      "nickname": "sugarrr",
+      "reason": "inactive_180d_or_unverifiable"
+    },
+    {
+      "creator_id": "5edda762000000000101d6e2",
+      "nickname": "黄白胖ya",
+      "reason": "inactive_180d_or_unverifiable"
+    },
+    {
+      "creator_id": "611f6e7b000000000101f54c",
+      "nickname": "奶茶还不困",
+      "reason": "inactive_180d_or_unverifiable"
+    }
+  ]
+}
