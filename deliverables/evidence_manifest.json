@@ -1,0 +1,164 @@
+[
+  {
+    "artifact": "v2达人评分",
+    "source_file": "data/processed/stage_3_scores_v2.json",
+    "source_type": "file",
+    "sha256": "65850c12170ed71fe772007f9e92d09703fa47d497a232b4c6c51712bc58c8ae",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "最终候选",
+    "source_file": "data/processed/stage_3_final_candidates_v2.json",
+    "source_type": "file",
+    "sha256": "bb9ce40aca61fd1fc8d4f8fa1b97afed77c90954e946645897c8c42dcede3649",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "风格研究对象",
+    "source_file": "data/processed/stage_3_style_reference_v2.json",
+    "source_type": "file",
+    "sha256": "d1a55d900f554a76455407c1083d091ebde67a865d04efe88f9d2d6487097bfd",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "Kelly三视频报告",
+    "source_file": "reports/stage_4_kelly_three_video_analysis.md",
+    "source_type": "file",
+    "sha256": "c93f62d8bcd0e6e25f9dfd11e4e7f7a46e1a1f0d5d22609e1f1c12f2451bfa20",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "风格画像",
+    "source_file": "outputs/qingxing/style_profile_kelly.json",
+    "source_type": "file",
+    "sha256": "4d0515f42073ba81535a2cee34eb669bb9e567b0cf7e8d24d8a9dc9ae5dece7d",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "最终脚本",
+    "source_file": "outputs/qingxing/script_final.json",
+    "source_type": "file",
+    "sha256": "c5fa1e88c08ddbd353a3b5c7cb92a4f5e9a9ca2647eba4d9a0324d946a79e216",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "分镜",
+    "source_file": "outputs/qingxing/storyboard_final.json",
+    "source_type": "file",
+    "sha256": "533da422518b5801d65a9c50594bf97e6ecb2b3d7197120c3b16cfbf8cefd42d",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "合规报告",
+    "source_file": "outputs/qingxing/compliance_report.json",
+    "source_type": "file",
+    "sha256": "798a732890e1f6b5ae034afa464a3d422c2cf64b8ec0c34e28f9983fc2ab06e8",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "26组件CSV",
+    "source_file": "registry/component_candidates.csv",
+    "source_type": "file",
+    "sha256": "1496a7f0e708c45dcbfe79591064e7d5fd2a8d0d52ea25db08006dd72cc4c8d4",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "高星映射",
+    "source_file": "reports/high_star_skill_mapping.md",
+    "source_type": "file",
+    "sha256": "b105464a25e4d12f561c9147b350f3ba67d9a3600342c6eea7645f59462281cc",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "Agent说明",
+    "source_file": "reports/agent_packaging_guide.md",
+    "source_type": "file",
+    "sha256": "b8f27d89698a50070cfb6163ae8110cc9b4e1577a01509ded4caf7eebbef3052",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "Skill creator-style-distiller",
+    "source_file": "skills/creator-style-distiller/SKILL.md",
+    "source_type": "file",
+    "sha256": "aa65515dfb5271a8a1e0c32149164b44d2fa6a6d5fbe60eb29537abd58fd5603",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "Skill xhs-commercial-script",
+    "source_file": "skills/xhs-commercial-script/SKILL.md",
+    "source_type": "file",
+    "sha256": "78f4dfcc253953e7529743ec8b6970a471e306dbc1df85122ace6038a7506879",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "Skill xhs-script-humanizer",
+    "source_file": "skills/xhs-script-humanizer/SKILL.md",
+    "source_type": "file",
+    "sha256": "3fb42d60eeffc5ba190480bd835dcb1ca4b947eee53da77b65f13b6f7c2fe3f3",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "Skill xhs-storyboard-generator",
+    "source_file": "skills/xhs-storyboard-generator/SKILL.md",
+    "source_type": "file",
+    "sha256": "ce2b460083ddb897efe837a58723adb0d6da339cf6cd61a115b485a71bcece03",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "Skill xhs-food-ad-compliance",
+    "source_file": "skills/xhs-food-ad-compliance/SKILL.md",
+    "source_type": "file",
+    "sha256": "8ce8c315ffe6b556555f5e64f26bf62b37342cd28ad35dd3953fb612aff26958",
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "local SHA256 computed from the cited artifact"
+  },
+  {
+    "artifact": "任务A提交",
+    "source_file": "git:d65659973b973733f99007de03bedeee4986d1b2",
+    "source_type": "git_commit",
+    "sha256": null,
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "high-star registry update"
+  },
+  {
+    "artifact": "任务C提交",
+    "source_file": "git:7633dbe6c50c11386c894d5ad4162be4fa22d2db",
+    "source_type": "git_commit",
+    "sha256": null,
+    "status": "present",
+    "generated_at": "2026-07-20",
+    "notes": "admission tests and validator"
+  }
+]

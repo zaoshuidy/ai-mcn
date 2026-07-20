@@ -1,3 +1,11 @@
+## Final Delivery
+
+- [交付入口](deliverables/00_README_交付入口.md)
+- [飞书交付正文](deliverables/10_飞书交付正文.md)
+- [最终验证报告](deliverables/final_validation_report.md)
+
+当前交付版本以deliverables目录为统一入口。v1已被v2取代，最终结论以deliverables和v2文件为准。
+
 # mcn-script-assistant
 
 面向 MCN 商单策划的小红书达人调研、风格分析、脚本生成、合规质检与飞书交付 Agent。
