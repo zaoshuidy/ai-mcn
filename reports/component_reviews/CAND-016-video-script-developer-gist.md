@@ -54,3 +54,8 @@
 
 - Gist 地址：https://gist.github.com/alexknowshtml/6a1e4d336a6d51c6231bd6bd9a3f0d17
 - 本地证据：evidence/alexknowshtml__gist__video-script-developer__meta.json（Gist 元数据）；evidence/alexknowshtml__gists__reverify.json（2026-07-19 经 users/alexknowshtml/gists 复核该 Gist 存在且 updated_at 一致）
+
+
+## 2026-07-20 demotion
+
+This historical review is retained for traceability. `CAND-016` is **demoted** and must not be used as a primary reference: Demoted: a Gist has no ordinary repository-star basis and no explicit LICENSE; historical review is retained.

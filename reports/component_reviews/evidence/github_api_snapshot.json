@@ -1,0 +1,132 @@
+{
+  "observed_at": "2026-07-20T06:26:24Z",
+  "source": "GitHub REST API repository, commit, and contents endpoints",
+  "components": [
+    {
+      "component_id": "CAND-018",
+      "repository": "https://github.com/anthropics/skills",
+      "stargazers_count": 162792,
+      "license": {
+        "spdx_id": "NONE"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "main",
+      "pushed_at": "2026-07-17T02:47:40Z",
+      "latest_commit_sha": "fa0fa64bdc967915dc8399e803be67759e1e62b8",
+      "observed_at": "2026-07-20T06:26:24Z"
+    },
+    {
+      "component_id": "CAND-019",
+      "repository": "https://github.com/microsoft/playwright",
+      "stargazers_count": 93132,
+      "license": {
+        "spdx_id": "Apache-2.0"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "main",
+      "pushed_at": "2026-07-19T12:01:15Z",
+      "latest_commit_sha": "ef3a5830f960c00018f810cebf26133b35ec2b6f",
+      "observed_at": "2026-07-20T06:26:24Z"
+    },
+    {
+      "component_id": "CAND-020",
+      "repository": "https://github.com/browser-use/browser-use",
+      "stargazers_count": 105620,
+      "license": {
+        "spdx_id": "MIT"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "main",
+      "pushed_at": "2026-07-17T05:32:02Z",
+      "latest_commit_sha": "950eb03617e67548d759c02beac1ad122c6b6458",
+      "observed_at": "2026-07-20T06:26:24Z"
+    },
+    {
+      "component_id": "CAND-021",
+      "repository": "https://github.com/browser-use/video-use",
+      "stargazers_count": 17289,
+      "license": {
+        "spdx_id": "MIT"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "main",
+      "pushed_at": "2026-07-01T00:33:52Z",
+      "latest_commit_sha": "92c2b34e44c205cbc2acae7f6ca7c1c219d5dd66",
+      "observed_at": "2026-07-20T06:26:24Z"
+    },
+    {
+      "component_id": "CAND-022",
+      "repository": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "stargazers_count": 98206,
+      "license": {
+        "spdx_id": "MIT"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "main",
+      "pushed_at": "2026-07-18T04:54:33Z",
+      "latest_commit_sha": "d5f31da9a2eb63c96addd66e17e5b8042ed010d4",
+      "observed_at": "2026-07-20T06:26:24Z"
+    },
+    {
+      "component_id": "CAND-023",
+      "repository": "https://github.com/FFmpeg/FFmpeg",
+      "stargazers_count": 62210,
+      "license": {
+        "spdx_id": "NOASSERTION"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "master",
+      "pushed_at": "2026-07-20T02:36:24Z",
+      "latest_commit_sha": "c23123630e6a7e645c199599b8ade3fe7e9ab3db",
+      "observed_at": "2026-07-20T06:26:24Z"
+    },
+    {
+      "component_id": "CAND-024",
+      "repository": "https://github.com/promptfoo/promptfoo",
+      "stargazers_count": 23423,
+      "license": {
+        "spdx_id": "MIT"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "main",
+      "pushed_at": "2026-07-20T05:51:52Z",
+      "latest_commit_sha": "5469ee52d2ea5387dfe62c080698c0e2e2b9b6af",
+      "observed_at": "2026-07-20T06:26:24Z"
+    },
+    {
+      "component_id": "CAND-025",
+      "repository": "https://github.com/guardrails-ai/guardrails",
+      "stargazers_count": 7181,
+      "license": {
+        "spdx_id": "Apache-2.0"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "main",
+      "pushed_at": "2026-07-17T20:17:50Z",
+      "latest_commit_sha": "1f1e5af5067bab8a6638ca06a2bbe4d063db634a",
+      "observed_at": "2026-07-20T06:26:24Z"
+    },
+    {
+      "component_id": "CAND-026",
+      "repository": "https://github.com/WEIFENG2333/VideoCaptioner",
+      "stargazers_count": 15368,
+      "license": {
+        "spdx_id": "GPL-3.0"
+      },
+      "archived": false,
+      "fork": false,
+      "default_branch": "master",
+      "pushed_at": "2026-07-19T18:30:44Z",
+      "latest_commit_sha": "95842ecb5618c0b6a548a336bdfb0eb859bdb501",
+      "observed_at": "2026-07-20T06:26:24Z"
+    }
+  ]
+}\n

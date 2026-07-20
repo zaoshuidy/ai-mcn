@@ -55,3 +55,8 @@
 
 - GitHub 仓库：https://github.com/aicontentskills/ai-video-storyboard-skill
 - 本地证据：evidence/aicontentskills__ai-video-storyboard-skill__meta.json（2026-07-19 首次抓取）、evidence/aicontentskills__ai-video-storyboard-skill__reverify.json（2026-07-19 复核：license=null、/license 404、commit SHA 一致）
+
+
+## 2026-07-20 demotion
+
+This historical review is retained for traceability. `CAND-015` is **demoted** and must not be used as a primary reference: Demoted: only 26 stars and no verifiable LICENSE; historical review is retained for traceability.

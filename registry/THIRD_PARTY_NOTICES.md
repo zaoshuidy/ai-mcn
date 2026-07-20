@@ -151,3 +151,8 @@
 1. 上述 6 个组件均为 **reference_only 参考组件，不是已批准执行组件**，本项目不包含其任何代码或衍生内容；
 2. 其中 CAND-015 声称的 MIT **未通过核验**（无 LICENSE 文件）、CAND-016 为无许可证 Gist，两者仅限概念/结构层面参考；
 3. 若未来任一参考组件要转为代码引入或运行时依赖，**必须重新完成执行组件准入评审**并在本文件更新记录后方可使用。
+
+
+## 高星参考登记（2026-07-20）
+
+CAND-018～026 已完成 GitHub API 证据登记，均为 `reference_only`，未进入 approved/rejected 运行准入 YAML。CAND-018 因无 LICENSE 拒绝 primary；其余组件仅按 CSV 的 integration_type 作为方法、框架或 CLI 隔离参考，禁止复制源码或 SKILL.md 原文。
