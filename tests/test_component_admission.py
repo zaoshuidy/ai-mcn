@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+from datetime import date, datetime
 from pathlib import Path
 
 from src.component_admission import (
@@ -269,12 +271,14 @@ def test_real_registry_consistent() -> None:
 def test_real_registry_candidates_status() -> None:
     """CAND-001~004 rejected；CAND-005~011 POC 工具（D-0008/D-0009 授权）；
 
-    CAND-012~017 为 reference_only 参考组件（仅方法/结构参考，不打分）；无 approved。
+    CAND-012~026 为 reference_only 参考组件（仅方法/结构参考，不打分）；无 approved。
     """
     candidates = load_candidates(ROOT / "registry/component_candidates.csv")
     approved = load_yaml_list(ROOT / "registry/approved_components.yaml", "approved_components")
     real = {r["component_id"]: r for r in candidates if r.get("status") != "example_only"}
-    assert len(real) == 17
+    assert len(real) == 26
+    expected_ids = {f"CAND-{number:03d}" for number in range(1, 27)}
+    assert set(real) == expected_ids
     for cid in ["CAND-001", "CAND-002", "CAND-003", "CAND-004"]:
         assert real[cid]["status"] == "rejected"
     for cid in ["CAND-005", "CAND-006", "CAND-007", "CAND-008", "CAND-009", "CAND-010",
@@ -282,7 +286,7 @@ def test_real_registry_candidates_status() -> None:
         assert real[cid]["status"] == "poc_required"
         assert ("D-0008" in real[cid]["review_notes"] or "D-0009" in real[cid]["review_notes"]
                 or int(real[cid]["final_score"]) >= 90)
-    for cid in ["CAND-012", "CAND-013", "CAND-014", "CAND-015", "CAND-016", "CAND-017"]:
+    for cid in [f"CAND-{number:03d}" for number in range(12, 27)]:
         assert real[cid]["status"] == "reference_only"
     assert approved == []
 
@@ -290,7 +294,7 @@ def test_real_registry_candidates_status() -> None:
 def test_real_registry_scores_match_scorecard() -> None:
     """登记表 9 个分项加权分之和等于 final_score，且含预研初评分（初评/最终分离）。
 
-    reference_only 参考组件（CAND-012~017）按设计不打分，分项与 final_score 均为 null。
+    reference_only 参考组件按设计可不打分，分项与 final_score 均为 null。
     """
     candidates = load_candidates(ROOT / "registry/component_candidates.csv")
     real = [r for r in candidates if r.get("status") != "example_only"]
@@ -300,9 +304,25 @@ def test_real_registry_scores_match_scorecard() -> None:
         "security_score", "modification_cost", "replaceability",
     ]
     for row in real:
-        if row["status"] == "reference_only":
+        final_score = row["final_score"]
+        if final_score == "null":
+            assert row["status"] == "reference_only"
+            assert (
+                row["integration_type"]
+                in {
+                    "primary_skill_reference",
+                    "primary_framework_reference",
+                    "cli_runtime_reference",
+                    "secondary_or_rejected",
+                }
+            )
+            assert row["admission_status"] in {
+                "primary",
+                "rejected_as_primary",
+                "demoted",
+                "superseded",
+            }
             assert all(row[k] == "null" for k in dim_keys), row["component_id"]
-            assert row["final_score"] == "null", row["component_id"]
             continue
         sub_scores = [int(row[k]) for k in dim_keys]
         assert sum(sub_scores) == int(row["final_score"]), row["component_id"]
@@ -327,3 +347,122 @@ def test_rejected_entries_have_reasons_and_conditions() -> None:
         assert entry["reject_reasons"], entry["component_id"]
         assert entry["review_report"], entry["component_id"]
         assert "re_evaluation_condition" in entry
+
+
+class TestHighStarReferenceAdmission:
+    """高星参考登记与旧运行准入 status 分离的离线门禁。"""
+
+    @staticmethod
+    def real_rows() -> dict[str, dict]:
+        candidates = load_candidates(ROOT / "registry/component_candidates.csv")
+        return {
+            row["component_id"]: row
+            for row in candidates
+            if row.get("component_id") != "EXAMPLE-000"
+        }
+
+    def test_schema_count_ids_and_enums(self) -> None:
+        rows = self.real_rows()
+        candidates = load_candidates(ROOT / "registry/component_candidates.csv")
+        actual_ids = [
+            row["component_id"]
+            for row in candidates
+            if row.get("component_id") != "EXAMPLE-000"
+        ]
+        expected_ids = {f"CAND-{number:03d}" for number in range(1, 27)}
+        required = {
+            "integration_type",
+            "stars",
+            "stars_observed_at",
+            "license_spdx",
+            "admission_status",
+            "admission_reason",
+        }
+        assert set(rows) == expected_ids
+        assert len(actual_ids) == 26
+        assert len(set(actual_ids)) == 26
+        assert required.issubset(next(iter(rows.values())))
+        assert {row["integration_type"] for row in rows.values()} <= {
+            "primary_skill_reference",
+            "primary_framework_reference",
+            "cli_runtime_reference",
+            "secondary_or_rejected",
+        }
+        assert {row["admission_status"] for row in rows.values()} <= {
+            "primary",
+            "rejected_as_primary",
+            "demoted",
+            "superseded",
+        }
+        assert all(row["admission_reason"] for row in rows.values())
+
+    def test_primary_references_have_stars_and_clear_licenses(self) -> None:
+        forbidden = {"", "NONE", "NOASSERTION", "NULL", "无", "无许可证", "无LICENSE"}
+        for row in self.real_rows().values():
+            if not row["integration_type"].startswith("primary_"):
+                continue
+            assert int(row["stars"]) >= 1000, row["component_id"]
+            assert row["license_spdx"] not in forbidden, row["component_id"]
+            assert row["admission_status"] == "primary", row["component_id"]
+
+    def test_cand_018_license_hard_gate(self) -> None:
+        row = self.real_rows()["CAND-018"]
+        assert row["integration_type"] == "secondary_or_rejected"
+        assert row["admission_status"] == "rejected_as_primary"
+        assert row["license_spdx"] == "NONE"
+        assert not row["integration_type"].startswith("primary_")
+        assert any(term in row["admission_reason"].lower() for term in ("license", "许可证"))
+
+    def test_demoted_references_keep_legacy_status_and_reports(self) -> None:
+        rows = self.real_rows()
+        for component_id in ("CAND-015", "CAND-016"):
+            row = rows[component_id]
+            assert row["integration_type"] == "secondary_or_rejected"
+            assert row["admission_status"] == "demoted"
+            assert row["status"] == "reference_only"
+            assert row["admission_reason"]
+            assert list((ROOT / "reports/component_reviews").glob(f"{component_id}-*.md"))
+
+    def test_cli_references_are_isolated(self) -> None:
+        rows = self.real_rows()
+        for component_id in ("CAND-023", "CAND-026"):
+            row = rows[component_id]
+            reason = row["admission_reason"].lower()
+            assert row["integration_type"] == "cli_runtime_reference"
+            assert row["admission_status"] == "primary"
+            assert "cli" in reason or "subprocess" in reason
+            assert "no ffmpeg source is copied" in reason or "no source copy" in reason
+            assert not row["integration_type"].startswith("primary_")
+        assert "gpl" in rows["CAND-026"]["admission_reason"].lower()
+        assert "isolate" in rows["CAND-026"]["admission_reason"].lower()
+        assert "build" in rows["CAND-023"]["admission_reason"].lower()
+
+    def test_observation_dates_and_snapshot_agree(self) -> None:
+        rows = self.real_rows()
+        for row in rows.values():
+            observed = row["stars_observed_at"]
+            assert observed
+            try:
+                datetime.fromisoformat(observed.replace("Z", "+00:00"))
+            except ValueError:
+                date.fromisoformat(observed)
+
+        snapshots = [
+            ROOT / "reports/component_reviews/evidence/github_api_snapshot.json",
+            ROOT / "data/processed/github_api_snapshot.json",
+            ROOT / "tmp/github_api_snapshot.json",
+        ]
+        for path in snapshots:
+            if not path.is_file():
+                continue
+            raw_snapshot = path.read_text(encoding="utf-8")
+            payload, _ = json.JSONDecoder().raw_decode(raw_snapshot)
+            records = payload.get("components", payload if isinstance(payload, list) else [])
+            for record in records:
+                row = rows[record["component_id"]]
+                assert row["repository"] == record["repository"]
+                assert int(row["stars"]) == int(record["stargazers_count"])
+                assert row["license_spdx"] == record["license"]["spdx_id"]
+                if row["license_spdx"] == "NONE":
+                    assert not row["integration_type"].startswith("primary_")
+            break

@@ -10,6 +10,7 @@ import json
 import re
 import subprocess
 import sys
+from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -208,6 +209,145 @@ def check_component_status_flow(candidates: list[dict], approved: list, rejected
     else:
         for p in problems:
             report("FAIL", "registry 一致性问题", p)
+
+
+def check_high_star_reference_registry(candidates: list[dict]) -> None:
+    """核验高星参考字段，不改变旧 status 与运行准入 YAML 的语义。"""
+    real_rows = [row for row in candidates if row.get("component_id") != "EXAMPLE-000"]
+    expected_ids = {f"CAND-{number:03d}" for number in range(1, 27)}
+    actual_ids = [row.get("component_id") for row in real_rows]
+    if len(real_rows) == 26 and set(actual_ids) == expected_ids and len(set(actual_ids)) == 26:
+        report("PASS", "高星参考登记表含26个真实组件，ID连续且无重复")
+    else:
+        report("FAIL", "高星参考登记表数量或ID异常", str(actual_ids))
+
+    required = {
+        "integration_type",
+        "stars",
+        "stars_observed_at",
+        "license_spdx",
+        "admission_status",
+        "admission_reason",
+    }
+    missing = [
+        row.get("component_id", "<unknown>")
+        for row in real_rows
+        if not required <= row.keys()
+    ]
+    if not missing:
+        report("PASS", "高星参考登记字段完整")
+    else:
+        report("FAIL", "高星参考登记字段缺失", "、".join(missing))
+
+    integration_types = {
+        "primary_skill_reference",
+        "primary_framework_reference",
+        "cli_runtime_reference",
+        "secondary_or_rejected",
+    }
+    admission_statuses = {"primary", "rejected_as_primary", "demoted", "superseded"}
+    bad_types = [
+        row["component_id"]
+        for row in real_rows
+        if row.get("integration_type") not in integration_types
+    ]
+    bad_admission = [
+        row["component_id"]
+        for row in real_rows
+        if row.get("admission_status") not in admission_statuses
+    ]
+    if not bad_types and not bad_admission:
+        report("PASS", "高星参考 integration_type 与 admission_status 均合法")
+    else:
+        report("FAIL", "高星参考枚举值非法", f"types={bad_types}; admission={bad_admission}")
+
+    forbidden_licenses = {"", "NONE", "NOASSERTION", "NULL", "无", "无许可证", "无LICENSE"}
+    primary_bad: list[str] = []
+    for row in real_rows:
+        if not row.get("integration_type", "").startswith("primary_"):
+            continue
+        try:
+            enough_stars = int(row.get("stars") or 0) >= 1000
+        except ValueError:
+            enough_stars = False
+        if (
+            not enough_stars
+            or row.get("license_spdx") in forbidden_licenses
+            or row.get("admission_status") != "primary"
+        ):
+            primary_bad.append(row["component_id"])
+    if not primary_bad:
+        report("PASS", "primary参考均满足星标、明确许可证与primary状态门槛")
+    else:
+        report("FAIL", "primary参考星标或许可证门禁失败", "、".join(primary_bad))
+
+    by_id = {row["component_id"]: row for row in real_rows}
+    cand_018 = by_id.get("CAND-018", {})
+    if (
+        cand_018.get("integration_type") == "secondary_or_rejected"
+        and cand_018.get("admission_status") == "rejected_as_primary"
+        and cand_018.get("license_spdx") == "NONE"
+        and any(
+            term in cand_018.get("admission_reason", "").lower()
+            for term in ("license", "许可证")
+        )
+    ):
+        report("PASS", "CAND-018 无许可证硬门禁有效")
+    else:
+        report("FAIL", "CAND-018 无许可证硬门禁失效")
+
+    demoted_bad = [
+        component_id
+        for component_id in ("CAND-015", "CAND-016")
+        if by_id.get(component_id, {}).get("integration_type") != "secondary_or_rejected"
+        or by_id.get(component_id, {}).get("admission_status") != "demoted"
+        or by_id.get(component_id, {}).get("status") != "reference_only"
+    ]
+    if not demoted_bad:
+        report("PASS", "CAND-015/016 降级状态与旧status隔离")
+    else:
+        report("FAIL", "CAND-015/016 降级状态异常", "、".join(demoted_bad))
+
+    cli_bad: list[str] = []
+    for component_id in ("CAND-023", "CAND-026"):
+        row = by_id.get(component_id, {})
+        reason = row.get("admission_reason", "").lower()
+        if (
+            row.get("integration_type") != "cli_runtime_reference"
+            or row.get("admission_status") != "primary"
+            or not ("cli" in reason or "subprocess" in reason)
+            or not ("no ffmpeg source is copied" in reason or "no source copy" in reason)
+        ):
+            cli_bad.append(component_id)
+    if "gpl" not in by_id.get("CAND-026", {}).get("admission_reason", "").lower():
+        cli_bad.append("CAND-026 GPL")
+    if "build" not in by_id.get("CAND-023", {}).get("admission_reason", "").lower():
+        cli_bad.append("CAND-023 build")
+    if not cli_bad:
+        report("PASS", "CAND-023/026 CLI隔离与许可证边界明确")
+    else:
+        report("FAIL", "CLI隔离说明不完整", "、".join(cli_bad))
+
+    invalid_dates: list[str] = []
+    for row in real_rows:
+        observed = row.get("stars_observed_at", "")
+        try:
+            datetime.fromisoformat(observed.replace("Z", "+00:00"))
+        except ValueError:
+            try:
+                date.fromisoformat(observed)
+            except ValueError:
+                invalid_dates.append(row["component_id"])
+    if not invalid_dates:
+        report("PASS", "全部真实组件 stars_observed_at 可解析")
+    else:
+        report("FAIL", "stars_observed_at 缺失或不可解析", "、".join(invalid_dates))
+
+    empty_reasons = [row["component_id"] for row in real_rows if not row.get("admission_reason")]
+    if not empty_reasons:
+        report("PASS", "全部真实组件均有 admission_reason")
+    else:
+        report("FAIL", "admission_reason 缺失", "、".join(empty_reasons))
 
 
 def check_creator_schema() -> None:
@@ -586,6 +726,7 @@ def main() -> int:
     check_review_reports()
     candidates, approved, rejected = load_registry()
     check_component_status_flow(candidates, approved, rejected)
+    check_high_star_reference_registry(candidates)
     check_creator_schema()
     check_search_plan()
     check_poc_boundaries()
